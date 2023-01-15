@@ -7,7 +7,7 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "lint": "eslint --ext .ts,.vue .",
-    "format": "prettier --config .prettierrc './**/*.{ts,json,vue}' --write"
+    "format": "prettier --config .prettierrc 'src/**/*.{ts,json,vue}' --write"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config-typescript": "^12.0.0",

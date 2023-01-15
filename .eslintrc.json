@@ -25,9 +25,9 @@
       {
         "patterns": [
           "../*",
-          "./assets/*",
-          "./components/*",
-          "./pages/*",
+          "./src/assets/*",
+          "./src/components/*",
+          "./src/pages/*",
           "./*.vue"
         ]
       }
