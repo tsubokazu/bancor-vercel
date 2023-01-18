@@ -1,7 +1,7 @@
 <script setup lang="ts">
   interface Props {
     linkName: string;
-    bgColor: string;
+    bgColor?: string;
     textColor?: string;
     isGradient?: boolean;
     toColor?: string;
@@ -35,17 +35,14 @@
       `border-${Props.borderColor}`
     );
   }
-  const clickAction = () => {
-    console.log(Props);
-    console.log(classArray);
-  };
 </script>
 
 <template>
-  <div class="rounded-full py-2 px-6" :class="classArray">
-    <NuxtLink :to="linkName">
-      <slot />
-    </NuxtLink>
-    <!-- <button @click="clickAction">click</button> -->
-  </div>
+  <NuxtLink
+    :to="linkName"
+    class="relative block rounded-full py-2 px-10 tracking-[.13em] after:absolute after:right-7 after:top-1/2 after:h-1.5 after:w-1.5 after:-translate-y-1/2 after:rotate-45 after:border-t after:border-r after:border-black after:content-['']"
+    :class="classArray"
+  >
+    <slot />
+  </NuxtLink>
 </template>

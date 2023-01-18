@@ -1,3 +1,5 @@
-<template v-slot:sub-title>
-  <div>会社案内</div>
+<template>
+  <p class="text-base text-bancor-gray200">
+    <slot />
+  </p>
 </template>

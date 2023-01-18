@@ -8,7 +8,7 @@
 </script>
 
 <template>
-  <div>
+  <div class="font-semibold">
     <NuxtLink :to="linkName">
       <slot />
     </NuxtLink>

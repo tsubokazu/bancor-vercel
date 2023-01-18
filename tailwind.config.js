@@ -11,6 +11,20 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        main: [
+          'YuGothic',
+          'Yu Gothic',
+          'ヒラギノ角ゴ ProN W3',
+          'Hiragino Kaku Gothic ProN',
+          'メイリオ',
+          'Meiryo',
+          'Verdana',
+          'ＭＳ Ｐゴシック',
+          'MS PGothic',
+          'sans-serif',
+        ],
+      },
       colors: {
         'bancor-light-blue100': '#F2F7FF',
         'bancor-light-blue200': '#F7FAFF',
@@ -26,6 +40,7 @@ module.exports = {
         'bancor-gray700': '#F0F2F5',
         'bancor-gray800': '#EAEAEA',
         'bancor-gray900': '#272727',
+        'bancor-gray1000': '#FAFAFA',
         'bancor-navy100': '#2C3345',
         'bancor-navy100': '#161F2E',
         'bancor-navy100': '#1B2434',
@@ -42,26 +57,32 @@ module.exports = {
         'scale-up-ver-top': 'scale-up-ver-top 0.3s ease-in-out both',
         'scale-down-ver-top': 'scale-down-ver-top 0.3s ease-in-out both',
         'line-scale-up-center': 'line-scale-up-center 0.3s ease-in-out both',
+        'line-scale-down-center':
+          'line-scale-down-center 0.3s ease-in-out both',
       },
       keyframes: {
         'scale-up-ver-top': {
           '0%': {
             'transform': 'scaleY(1)',
             'transform-origin': '100% 0%',
+            'opacity': '1',
           },
           'to': {
             'transform': 'scaleY(0)',
             'transform-origin': '100% 0%',
+            'opacity': '0',
           },
         },
         'scale-down-ver-top': {
           '0%': {
             'transform': 'scaleY(0)',
             'transform-origin': '100% 0%',
+            'opacity': '0',
           },
           'to': {
             'transform': 'scaleY(1)',
             'transform-origin': '100% 0%',
+            'opacity': '1',
           },
         },
         'line-scale-up-center': {
@@ -70,6 +91,14 @@ module.exports = {
           },
           'to': {
             transform: 'scaleX(1)',
+          },
+        },
+        'line-scale-down-center': {
+          '0%': {
+            transform: 'scaleX(1)',
+          },
+          'to': {
+            transform: 'scaleX(0)',
           },
         },
       },
