@@ -163,7 +163,7 @@
       </div>
     </div>
     <OrganismsMegaMenu
-      v-show="hoverFlag"
+      v-show="hoverFlag && hoverMenuObject.categories.length"
       class="relative top-2"
       :class="hoverAnimation"
       :menuObject="hoverMenuObject"
