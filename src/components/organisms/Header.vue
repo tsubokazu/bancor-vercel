@@ -1,118 +1,105 @@
 <script setup lang="ts">
-  const menuObjects = [
-    {
-      linkName: '/company-info',
-      title: '会社案内',
-      enTitle: 'COMPANY',
-      categories: [
-        {
-          linkName: '/company-profile',
-          title: '会社概要',
-          imgUrl: '/会社概要.png',
-        },
-        {
-          linkName: '/message',
-          title: '代表メッセージ',
-          imgUrl: '/代表メッセージ.png',
-        },
-        {
-          linkName: '/vision',
-          title: 'ビジョン',
-          imgUrl: '/ビジョン.jpg',
-        },
-      ],
-    },
-    {
-      linkName: '/service',
-      title: '事業内容',
-      enTitle: 'Service',
-      categories: [
-        {
-          linkName: '/system-development',
-          title: 'システム開発',
-          imgUrl: '/システム開発.jpg',
-        },
-        {
-          linkName: '/web-marcketing',
-          title: 'ウェブマーケティング事業',
-          imgUrl: '/代表メッセージ.png',
-        },
-        {
-          linkName: '/nurse-welfare',
-          title: '介護・福祉施設向けシステム開発',
-          imgUrl: '/介護福祉.jpg',
-        },
-        {
-          linkName: '/dx-support',
-          title: 'DX支援',
-          imgUrl: '/DX支援.jpg',
-        },
-      ],
-    },
-    {
-      linkName: '/journal',
-      title: 'Bancor Journal',
-      enTitle: 'Bancor Journal',
-      categories: [],
-    },
-    {
-      linkName: '/recruit',
-      title: '採用情報',
-      enTitle: 'Recruit',
-      categories: [
-        {
-          linkName: '/dx-recruit',
-          title: 'DX支援事業での募集カテゴリ',
-          imgUrl: '/DX支援.jpg',
-        },
-        {
-          linkName: '/web-marcket-recruit',
-          title: 'ウェブマーケティング事業での募集カテゴリ',
-          imgUrl: '/ウェブマーケティング募集.jpg',
-        },
-        {
-          linkName: '/system-dev-recruit',
-          title: 'システム開発事業での募集カテゴリ',
-          imgUrl: '/システム開発.jpg',
-        },
-      ],
-    },
-    {
-      linkName: '/news',
-      title: 'ニュースルーム',
-      enTitle: 'NewsRoom',
-      categories: [
-        {
-          linkName: '/press-release',
-          title: 'プレスリリース',
-          imgUrl: '',
-        },
-        {
-          linkName: '/service-news',
-          title: 'サービスニュース',
-          imgUrl: '',
-        },
-      ],
-    },
+  const config = useRuntimeConfig();
+  const baseUrl = config.public.kurocoApiUrl;
+  const headerEndpoint = config.public.kurocoHeaderMenuEndpoint;
+  const { data: posts } = await useFetch(`${baseUrl}${headerEndpoint}`);
+
+  const logoUrl: string = posts._value.details.ext_1.url;
+  const menuTitles: Array<string> = posts._value.details.ext_2;
+  const menuLinks: Array<string> = posts._value.details.ext_3;
+  const megamenuTitles: Array<string> = posts._value.details.ext_4;
+  const megamenuSubtitles: Array<string> = posts._value.details.ext_5;
+  const contentTitlesArray: Array<Array<string>> = [
+    posts._value.details.ext_7,
+    posts._value.details.ext_10,
+    posts._value.details.ext_13,
+    posts._value.details.ext_16,
   ];
+  const contentLinksArray: Array<Array<string>> = [
+    posts._value.details.ext_8,
+    posts._value.details.ext_11,
+    posts._value.details.ext_14,
+    posts._value.details.ext_17,
+  ];
+  interface UrlObject {
+    id: string;
+    url: string;
+    desc: string;
+    url_org: string;
+  }
+  const getUrlArray = (urlObj: UrlObject): string => {
+    if (Object.keys(urlObj).length <= 0) return '';
+    return 'url' in urlObj ? urlObj.url : '';
+  };
+  const contentImagesArray: Array<Array<string>> = [
+    posts._value.details.ext_9.map((urlObj: UrlObject) => getUrlArray(urlObj)),
+    posts._value.details.ext_12.map((urlObj: UrlObject) => getUrlArray(urlObj)),
+    posts._value.details.ext_15.map((urlObj: UrlObject) => getUrlArray(urlObj)),
+    posts._value.details.ext_18.map((urlObj: UrlObject) => getUrlArray(urlObj)),
+  ];
+  interface MegamenuContent {
+    title: string;
+    linkName: string;
+    imgUrl: string;
+  }
+
+  interface HeaderMenuObject {
+    title: string;
+    linkName: string;
+    enTitle: string;
+    subTitle: string;
+    contents: Array<MegamenuContent>;
+  }
+  const menuObjects: Array<HeaderMenuObject> = [];
+  for (const [i, menuTitle] of menuTitles.entries()) {
+    const contents: Array<MegamenuContent> = [];
+    for (const [j, contentTitles] of contentTitlesArray.entries()) {
+      if (contentTitles[i] == '' || contentTitles[i] == undefined) break;
+
+      contents.push({
+        title: contentTitles[i],
+        linkName:
+          Object.keys(contentLinksArray[j]).length >= i + 1
+            ? contentLinksArray[j][i]
+            : '',
+        imgUrl:
+          Object.keys(contentImagesArray[j]).length >= i + 1
+            ? contentImagesArray[j][i]
+            : '',
+      });
+    }
+    menuObjects.push({
+      title: menuTitle,
+      linkName: menuLinks[i],
+      enTitle: megamenuTitles[i],
+      subTitle: megamenuSubtitles[i],
+      contents: contents,
+    });
+  }
+  console.log('menuObjects デバッグ');
+
+  console.log(menuObjects);
+
   const hoverFlag = ref(false);
   const hoverIndex = ref(-1);
   const hoverAnimation = ref('');
-  interface Category {
-    linkName: string;
+  interface Content {
     title: string;
+    linkName: string;
     imgUrl: string;
   }
   const hoverMenuObject: {
-    linkName: string;
     title: string;
+    linkName: string;
     enTitle: string;
-    categories: Array<Category>;
+    subTitle: string;
+    contents: Array<Content>;
   } = reactive({
     linkName: '',
     title: '',
     enTitle: '',
-    categories: [],
+    subTitle: '',
+    contents: [],
   });
   const mouseOverAction = (index: number) => {
     hoverFlag.value = true;
@@ -121,10 +108,14 @@
     hoverMenuObject.linkName = menuObjects[index].linkName;
     hoverMenuObject.title = menuObjects[index].title;
     hoverMenuObject.enTitle = menuObjects[index].enTitle;
-    hoverMenuObject.categories = menuObjects[index].categories;
+    hoverMenuObject.subTitle = menuObjects[index].subTitle;
+    hoverMenuObject.contents = menuObjects[index].contents;
+    console.log('hoverMenuObject');
+    console.log(hoverMenuObject);
+    console.log(hoverMenuObject.contents);
+    console.log(hoverFlag && hoverMenuObject.contents.length > 0);
   };
   const mouseLeaveAction = () => {
-    //hoverFlag.value = false;
     hoverIndex.value = -1;
     hoverAnimation.value = 'animate-scale-up-ver-top';
   };
@@ -136,7 +127,7 @@
       class="h-18 container mx-auto flex items-center justify-between rounded-lg bg-white px-12"
     >
       <div>
-        <AtomsLogo></AtomsLogo>
+        <AtomsLogo :logoUrl="logoUrl"></AtomsLogo>
       </div>
       <div class="flex items-center space-x-8">
         <MoleculesUnderLineTextButton
@@ -163,7 +154,7 @@
       </div>
     </div>
     <OrganismsMegamenu
-      v-show="hoverFlag && hoverMenuObject.categories.length"
+      v-show="hoverFlag && hoverMenuObject.contents.length > 0"
       class="relative top-2"
       :class="hoverAnimation"
       :menuObject="hoverMenuObject"

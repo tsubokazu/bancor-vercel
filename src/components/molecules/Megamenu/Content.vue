@@ -1,11 +1,11 @@
 <script setup lang="ts">
-  interface Categories {
+  interface Contents {
     linkName: string;
     title: string;
     imgUrl: string;
   }
   const Props = defineProps<{
-    categories: Array<Categories>;
+    contents: Array<Contents>;
   }>();
 </script>
 
@@ -14,9 +14,9 @@
     class="flex h-72 w-[calc(100%_-_384px)] items-center space-x-6 overflow-x-auto rounded-r-lg bg-white px-10 font-bold"
   >
     <MoleculesMegamenuCard
-      v-for="(category, index) in categories"
-      :key="category.linkName"
-      :category="category"
+      v-for="(content, index) in contents"
+      :key="content.linkName"
+      :content="content"
       class="flex-none"
     ></MoleculesMegamenuCard>
   </div>

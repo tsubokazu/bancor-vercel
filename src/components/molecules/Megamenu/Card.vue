@@ -5,18 +5,19 @@
     imgUrl: string;
   }
   defineProps<{
-    category: Props;
+    content: Props;
   }>();
 </script>
 
 <template>
-  <NuxtLink :to="category.linkName">
+  <NuxtLink :to="content.linkName">
     <div class="flex flex-col">
       <AtomsMegamenuCardImage
-        :imgUrl="category.imgUrl"
-        :title="category.title"
+        v-show="content.imgUrl != ''"
+        :imgUrl="content.imgUrl"
+        :title="content.title"
       ></AtomsMegamenuCardImage>
-      <AtomsMegamenuCardButton>{{ category.title }}</AtomsMegamenuCardButton>
+      <AtomsMegamenuCardButton>{{ content.title }}</AtomsMegamenuCardButton>
     </div>
   </NuxtLink>
 </template>
