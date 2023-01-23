@@ -1,6 +1,8 @@
 <template>
-  <div class="relative top-3">
-    <OrganismsHeader></OrganismsHeader>
-    <NuxtPage></NuxtPage>
+  <div class="relative">
+    <OrganismsHeader
+      class="absolute top-3 left-1/2 w-full -translate-x-1/2"
+    ></OrganismsHeader>
+    <slot />
   </div>
 </template>
