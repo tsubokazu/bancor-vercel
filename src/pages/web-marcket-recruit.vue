@@ -1,5 +1,5 @@
 <template>
   <div class="flex h-screen w-full items-center justify-center text-4xl">
-    <p>Main Page</p>
+    <p>ウェブマーケティング事業での募集カテゴリ - web-marcket-recruit</p>
   </div>
 </template>
