@@ -1,9 +1,10 @@
 <script setup lang="ts">
   interface Props {
-    linkName: string;
+    linkName?: string;
     bgColor?: string;
     textColor?: string;
     isGradient?: boolean;
+    fromColor?: string;
     toColor?: string;
     hasBorder?: boolean;
     borderColor?: string;
@@ -11,30 +12,25 @@
   }
   const Props = withDefaults(defineProps<Props>(), {
     linkName: '/',
-    bgColor: 'bancor-blue300',
-    textColor: 'black',
+    bgColor: 'bg-bancor-blue300',
+    textColor: 'text-black',
     isGradient: false,
-    toColor: 'bancor-blue300',
+    fromColor: 'bg-bancor-blue300',
+    toColor: 'bg-bancor-blue400',
     hasBorder: false,
-    borderColor: 'bancor-gray700',
+    borderColor: 'bg-bancor-gray700',
     borderWidth: 1,
   });
-  const classArray = [`text-${Props.textColor}`];
-  if (Props.isGradient) {
-    classArray.push(
-      'bg-gradient-to-r',
-      `from-${Props.bgColor}`,
-      `to-${Props.toColor}`
-    );
-  } else {
-    classArray.push(`bg-${Props.bgColor}`, `text-${Props.textColor}`);
-  }
-  if (Props.hasBorder) {
-    classArray.push(
-      Props.borderWidth == 1 ? 'border' : `border-${Props.borderWidth}`,
-      `border-${Props.borderColor}`
-    );
-  }
+
+  const classArray = [
+    !Props.isGradient ? Props.bgColor : '',
+    Props.textColor,
+    Props.isGradient ? 'bg-gradient-to-r' : '',
+    Props.isGradient ? Props.fromColor : '',
+    Props.isGradient ? Props.toColor : '',
+    Props.borderColor ? Props.hasBorder : '',
+    Props.borderWidth ? Props.hasBorder : '',
+  ];
 </script>
 
 <template>

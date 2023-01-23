@@ -10,18 +10,18 @@
   <div
     class="flex h-72 w-96 flex-col items-center justify-center rounded-l-lg bg-bancor-gray1000 font-semibold"
   >
-    <AtomsMegaMenuSubTitle class="mb-2">
+    <AtomsMegamenuSubTitle class="mb-2">
       {{ title }}
-    </AtomsMegaMenuSubTitle>
-    <AtomsMegaMenuTitle class="mb-5">
+    </AtomsMegamenuSubTitle>
+    <AtomsMegamenuTitle class="mb-5">
       {{ enTitle }}
-    </AtomsMegaMenuTitle>
-    <AtomsOvalArrowButton
+    </AtomsMegamenuTitle>
+    <AtomsButtonOvalArrow
       bgColor="white"
       :hasBorder="true"
       :linkName="linkName"
     >
       詳しくみる
-    </AtomsOvalArrowButton>
+    </AtomsButtonOvalArrow>
   </div>
 </template>

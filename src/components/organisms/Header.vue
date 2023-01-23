@@ -139,34 +139,34 @@
         <AtomsLogo></AtomsLogo>
       </div>
       <div class="flex items-center space-x-8">
-        <MoleculesUnderLineMenuButton
+        <MoleculesUnderLineTextButton
           v-for="(menuObject, index) in menuObjects"
           :key="menuObject.linkName"
           :linkName="menuObject.linkName"
           :hoverIndex="hoverIndex"
           :menuIndex="index"
           @mouseover="mouseOverAction(index)"
-          >{{ menuObject.title }}</MoleculesUnderLineMenuButton
+          >{{ menuObject.title }}</MoleculesUnderLineTextButton
         >
-        <AtomsMenuBar></AtomsMenuBar>
-        <AtomsSearchIcon></AtomsSearchIcon>
-        <AtomsOvalButton
+        <AtomsDivLine></AtomsDivLine>
+        <AtomsButtonSearch></AtomsButtonSearch>
+        <AtomsButtonOval
           linkName="/"
           bgColor="bg-bancor-blue300"
           :isGradient="true"
           fromColor="from-bancor-blue300"
           toColor="to-bancor-blue400"
           textColor="text-white"
-          >お問い合わせ</AtomsOvalButton
+          >お問い合わせ</AtomsButtonOval
         >
-        <AtomsHamburgerButton></AtomsHamburgerButton>
+        <AtomsButtonHamburger></AtomsButtonHamburger>
       </div>
     </div>
-    <OrganismsMegaMenu
+    <OrganismsMegamenu
       v-show="hoverFlag && hoverMenuObject.categories.length"
       class="relative top-2"
       :class="hoverAnimation"
       :menuObject="hoverMenuObject"
-    ></OrganismsMegaMenu>
+    ></OrganismsMegamenu>
   </nav>
 </template>

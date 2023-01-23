@@ -13,11 +13,11 @@
   <div
     class="flex h-72 w-[calc(100%_-_384px)] items-center space-x-6 overflow-x-auto rounded-r-lg bg-white px-10 font-bold"
   >
-    <MoleculesMenuCategoryCard
+    <MoleculesMegamenuCard
       v-for="(category, index) in categories"
       :key="category.linkName"
       :category="category"
       class="flex-none"
-    ></MoleculesMenuCategoryCard>
+    ></MoleculesMegamenuCard>
   </div>
 </template>

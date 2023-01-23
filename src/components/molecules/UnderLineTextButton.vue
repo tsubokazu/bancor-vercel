@@ -16,9 +16,9 @@
 
 <template>
   <div class="flex flex-col items-center">
-    <AtomsMenuButton :linkName="linkName">
+    <AtomsButtonText :linkName="linkName" :isBold="true">
       <slot />
-    </AtomsMenuButton>
+    </AtomsButtonText>
     <AtomsUnderLine
       class="relative top-3"
       :class="hoverAnimation"

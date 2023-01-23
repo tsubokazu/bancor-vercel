@@ -22,14 +22,14 @@
 
 <template>
   <div class="container mx-auto flex h-72 rounded-lg bg-white">
-    <MoleculesMegaMenuLeft
+    <MoleculesMegamenuTitle
       :title="menuObject.title"
       :enTitle="menuObject.enTitle"
       :linkName="menuObject.linkName"
-    ></MoleculesMegaMenuLeft>
-    <MoleculesMegaMenuRight
+    ></MoleculesMegamenuTitle>
+    <MoleculesMegamenuMenu
       :categories="menuObject.categories"
-    ></MoleculesMegaMenuRight>
+    ></MoleculesMegamenuMenu>
     <button @click="click"></button>
   </div>
 </template>
