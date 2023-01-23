@@ -152,10 +152,11 @@
         <AtomsSearchIcon></AtomsSearchIcon>
         <AtomsOvalButton
           linkName="/"
-          bgColor="bancor-blue300"
+          bgColor="bg-bancor-blue300"
           :isGradient="true"
-          toColor="bancor-blue400"
-          textColor="white"
+          fromColor="from-bancor-blue300"
+          toColor="to-bancor-blue400"
+          textColor="text-white"
           >お問い合わせ</AtomsOvalButton
         >
         <AtomsHamburgerButton></AtomsHamburgerButton>

@@ -11,7 +11,7 @@
 
 <template>
   <div
-    class="flex h-72 w-[calc(100%_-_384px)] items-center space-x-6 overflow-auto rounded-r-lg bg-white px-10 font-bold"
+    class="flex h-72 w-[calc(100%_-_384px)] items-center space-x-6 overflow-x-auto rounded-r-lg bg-white px-10 font-bold"
   >
     <MoleculesMenuCategoryCard
       v-for="(category, index) in categories"
