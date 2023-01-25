@@ -9,11 +9,23 @@
   provide<string>('firstviewCopy', posts._value.details.ext_3);
   provide<string>('firstviewSubcopy', posts._value.details.ext_4);
   const notifications: Notifications = {
-    notification01: '新商品「X」の販売開始のお知らせ',
-    notification02: '会社名変更のお知らせ',
-    notification03: '最新の取締役会議の結果について',
-    notification04: '2022年第四四半期決算発表のお知らせ',
-    notification05: '経営戦略に大きな変革を迎えるお知らせ',
+    notification01: {
+      title: '新商品「X」の販売開始のお知らせ',
+      linkUrl: '/news',
+    },
+    notification02: { title: '会社名変更のお知らせ', linkUrl: '/news' },
+    notification03: {
+      title: '最新の取締役会議の結果について',
+      linkUrl: '/news',
+    },
+    notification04: {
+      title: '2022年第四四半期決算発表のお知らせ',
+      linkUrl: '/news',
+    },
+    notification05: {
+      title: '経営戦略に大きな変革を迎えるお知らせ',
+      linkUrl: '/news',
+    },
   };
   provide<Notifications>('firstviewNotifications', notifications);
   // const progressCount = ref(0); // お知らせ表示の切り替えプログレスバーのカウント
