@@ -76,9 +76,6 @@
       contents: contents,
     });
   }
-  console.log('menuObjects デバッグ');
-
-  console.log(menuObjects);
 
   const hoverFlag = ref(false);
   const hoverIndex = ref(-1);

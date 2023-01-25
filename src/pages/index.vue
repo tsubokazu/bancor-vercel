@@ -28,20 +28,6 @@
     },
   };
   provide<Notifications>('firstviewNotifications', notifications);
-  // const progressCount = ref(0); // お知らせ表示の切り替えプログレスバーのカウント
-  // provide<number>('progressCount', progressCount.value);
-  // const incrementProgress = () => {
-  //   progressCount.value++;
-  //   console.log('incrementProgress');
-  // };
-  // const intervalId = ref<NodeJS.Timer>();
-  // onMounted(() => {
-  //   intervalId.value = setInterval(incrementProgress, 100);
-  //   console.log(progressCount.value);
-  // });
-  // onUnmounted(() => {
-  //   clearInterval(intervalId.value);
-  // });
 </script>
 
 <template>

@@ -19,8 +19,6 @@
   const click = () => {
     console.log(Props.menuObject);
   };
-  console.log('@@@@@@@ MegaMenu @@@@@@');
-  console.log(Props.menuObject);
 </script>
 
 <template>

@@ -11,7 +11,6 @@
     notifications?.notification04;
   const notification05: Notification | undefined =
     notifications?.notification05;
-  console.log(`notification01 = ${notification01}`);
 </script>
 
 <template>
