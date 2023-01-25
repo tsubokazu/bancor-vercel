@@ -11,6 +11,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontSize: {
+        '4.5xl': ['40px', '40px'],
+      },
       fontFamily: {
         main: [
           'YuGothic',
@@ -59,6 +62,22 @@ module.exports = {
         'line-scale-up-center': 'line-scale-up-center 0.3s ease-in-out both',
         'line-scale-down-center':
           'line-scale-down-center 0.3s ease-in-out both',
+        'progress-count1':
+          'progress-count1 infinite 25s cubic-bezier(0.550, 0.085, 0.680, 0.530)   both',
+        'progress-count2':
+          'progress-count2 infinite 25s cubic-bezier(0.550, 0.085, 0.680, 0.530)   both',
+        'progress-count3':
+          'progress-count3 infinite 25s cubic-bezier(0.550, 0.085, 0.680, 0.530)   both',
+        'progress-count4':
+          'progress-count4 infinite 25s cubic-bezier(0.550, 0.085, 0.680, 0.530)   both',
+        'progress-count5':
+          'progress-count5 infinite 25s cubic-bezier(0.550, 0.085, 0.680, 0.530)   both',
+        'progress-bar': 'progress-bar 5s linear  infinite  both',
+        'notification1': 'notification1 25s ease-in-out  infinite  both',
+        'notification2': 'notification2 25s ease-in-out  infinite  both',
+        'notification3': 'notification3 25s ease-in-out  infinite  both',
+        'notification4': 'notification4 25s ease-in-out  infinite  both',
+        'notification5': 'notification5 25s ease-in-out  infinite  both',
       },
       keyframes: {
         'scale-up-ver-top': {
@@ -99,6 +118,258 @@ module.exports = {
           },
           'to': {
             transform: 'scaleX(0)',
+          },
+        },
+        'progress-count1': {
+          '0%': {
+            filter: 'blur(12px)',
+            opacity: '0',
+          },
+          '1%': {
+            filter: 'blur(0)',
+            opacity: '1',
+          },
+          '19%': {
+            filter: 'blur(0)',
+            opacity: '1',
+          },
+          '20%': {
+            filter: 'blur(12)',
+            opacity: '0',
+          },
+          'to': {
+            filter: 'blur(12)',
+            opacity: '0',
+          },
+        },
+        'progress-count2': {
+          '0%': {
+            filter: 'blur(12px)',
+            opacity: '0',
+          },
+          '20%': {
+            filter: 'blur(12px)',
+            opacity: '0',
+          },
+          '21%': {
+            filter: 'blur(0)',
+            opacity: '1',
+          },
+          '39%': {
+            filter: 'blur(0)',
+            opacity: '1',
+          },
+          '40%': {
+            filter: 'blur(12)',
+            opacity: '0',
+          },
+          'to': {
+            filter: 'blur(12)',
+            opacity: '0',
+          },
+        },
+        'progress-count3': {
+          '0%': {
+            filter: 'blur(12px)',
+            opacity: '0',
+          },
+          '40%': {
+            filter: 'blur(12px)',
+            opacity: '0',
+          },
+          '41%': {
+            filter: 'blur(0)',
+            opacity: '1',
+          },
+          '59%': {
+            filter: 'blur(0)',
+            opacity: '1',
+          },
+          '60%': {
+            filter: 'blur(12)',
+            opacity: '0',
+          },
+          'to': {
+            filter: 'blur(12)',
+            opacity: '0',
+          },
+        },
+        'progress-count4': {
+          '0%': {
+            filter: 'blur(12px)',
+            opacity: '0',
+          },
+          '60%': {
+            filter: 'blur(12px)',
+            opacity: '0',
+          },
+          '61%': {
+            filter: 'blur(0)',
+            opacity: '1',
+          },
+          '79%': {
+            filter: 'blur(0)',
+            opacity: '1',
+          },
+          '80%': {
+            filter: 'blur(12)',
+            opacity: '0',
+          },
+          'to': {
+            filter: 'blur(12)',
+            opacity: '0',
+          },
+        },
+        'progress-count5': {
+          '0%': {
+            filter: 'blur(12)',
+            opacity: '0',
+          },
+          '80%': {
+            filter: 'blur(12px)',
+            opacity: '0',
+          },
+          '81%': {
+            filter: 'blur(0)',
+            opacity: '1',
+          },
+          '99%': {
+            filter: 'blur(0)',
+            opacity: '1',
+          },
+          '100%': {
+            filter: 'blur(12)',
+            opacity: '0',
+          },
+        },
+        'progress-bar': {
+          '0%': {
+            transform: 'translateX(-160px)',
+          },
+          'to': {
+            transform: 'translateX(0px)',
+          },
+        },
+        'notification1': {
+          '0%': {
+            transform: 'translateY(48px)',
+            opacity: '0',
+          },
+          '1%': {
+            transform: 'translateY(0)',
+            opacity: '1',
+          },
+          '19%': {
+            transform: 'translateY(0)',
+            opacity: '1',
+          },
+          '20%': {
+            transform: 'translateY(-48px)',
+            opacity: '0',
+          },
+          'to': {
+            transform: 'translateY(-48px)',
+            opacity: '0',
+          },
+        },
+        'notification2': {
+          '0%': {
+            transform: 'translateY(48px)',
+            opacity: '0',
+          },
+          '20%': {
+            transform: 'translateY(48px)',
+            opacity: '0',
+          },
+          '21%': {
+            transform: 'translateY(0)',
+            opacity: '1',
+          },
+          '39%': {
+            transform: 'translateY(0)',
+            opacity: '1',
+          },
+          '40%': {
+            transform: 'translateY(-48px)',
+            opacity: '0',
+          },
+          'to': {
+            transform: 'translateY(-48px)',
+            opacity: '0',
+          },
+        },
+        'notification3': {
+          '0%': {
+            transform: 'translateY(48px)',
+            opacity: '0',
+          },
+          '40%': {
+            transform: 'translateY(48px)',
+            opacity: '0',
+          },
+          '41%': {
+            transform: 'translateY(0)',
+            opacity: '1',
+          },
+          '59%': {
+            transform: 'translateY(0)',
+            opacity: '1',
+          },
+          '60%': {
+            transform: 'translateY(-48px)',
+            opacity: '0',
+          },
+          'to': {
+            transform: 'translateY(-48px)',
+            opacity: '0',
+          },
+        },
+        'notification4': {
+          '0%': {
+            transform: 'translateY(48px)',
+            opacity: '0',
+          },
+          '60%': {
+            transform: 'translateY(48px)',
+            opacity: '0',
+          },
+          '61%': {
+            transform: 'translateY(0)',
+            opacity: '1',
+          },
+          '79%': {
+            transform: 'translateY(0)',
+            opacity: '1',
+          },
+          '80%': {
+            transform: 'translateY(-48px)',
+            opacity: '0',
+          },
+          'to': {
+            transform: 'translateY(-48px)',
+            opacity: '0',
+          },
+        },
+        'notification5': {
+          '0%': {
+            transform: 'translateY(48px)',
+            opacity: '0',
+          },
+          '80%': {
+            transform: 'translateY(48px)',
+            opacity: '0',
+          },
+          '81%': {
+            transform: 'translateY(0)',
+            opacity: '1',
+          },
+          '99%': {
+            transform: 'translateY(0)',
+            opacity: '1',
+          },
+          '100%': {
+            transform: 'translateY(-48px)',
+            opacity: '0',
           },
         },
       },

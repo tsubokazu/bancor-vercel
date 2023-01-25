@@ -1,3 +1,5 @@
+import { defineNuxtConfig } from 'nuxt/config';
+
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
   srcDir: 'src',
@@ -12,6 +14,7 @@ export default defineNuxtConfig({
     public: {
       kurocoApiUrl: process.env.KUROCO_API_URL,
       kurocoHeaderMenuEndpoint: process.env.KUROCO_HEADER_MENU_ENDPOINT,
+      kurocoTopEndpoint: process.env.KUROCO_TOP_ENDPOINT,
     },
   },
 });
