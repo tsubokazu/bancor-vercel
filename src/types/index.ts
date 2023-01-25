@@ -10,3 +10,17 @@ export interface Notifications {
   notification04: Notification;
   notification05: Notification;
 }
+
+export interface PressReleaseListCard {
+  title: string;
+  tag: string;
+  thumbnail: string;
+  updateAt: string;
+}
+
+export interface PressReleaseListCards {
+  pressReleaseListCard01: PressReleaseListCard;
+  pressReleaseListCard02: PressReleaseListCard;
+  pressReleaseListCard03: PressReleaseListCard;
+  pressReleaseListCard04: PressReleaseListCard;
+}
