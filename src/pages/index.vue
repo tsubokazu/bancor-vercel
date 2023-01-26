@@ -104,4 +104,5 @@
 <template>
   <OrganismsFirstview></OrganismsFirstview>
   <OrganismsTopNews></OrganismsTopNews>
+  <OrganismsTopWelfare></OrganismsTopWelfare>
 </template>
