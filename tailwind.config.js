@@ -27,6 +27,7 @@ module.exports = {
           'MS PGothic',
           'sans-serif',
         ],
+        futuraMediumItalic: ['futura medium italic'],
       },
       colors: {
         'bancor-light-blue100': '#F2F7FF',
