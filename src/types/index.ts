@@ -24,3 +24,28 @@ export interface PressReleaseListCards {
   pressReleaseListCard03: PressReleaseListCard;
   pressReleaseListCard04: PressReleaseListCard;
 }
+
+export interface ServiceNewsListCard {
+  title: string;
+  tag: string;
+  thumbnail: string;
+  updateAt: string;
+}
+
+export interface ServiceNewsListCards {
+  serviceNewsListCard01: ServiceNewsListCard;
+  serviceNewsListCard02: ServiceNewsListCard;
+  serviceNewsListCard03: ServiceNewsListCard;
+  serviceNewsListCard04: ServiceNewsListCard;
+}
+
+export interface TopNewsObject {
+  title: string;
+  linkUrl: string;
+  pressReleaseListTitle: string;
+  pressReleaseListLinkUrl: string;
+  pressReleaseListCards: PressReleaseListCards;
+  serviceNewsListTitle: string;
+  serviceNewsListLinkUrl: string;
+  serviceNewsListCards: ServiceNewsListCards;
+}
