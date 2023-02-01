@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { Notification, Notifications } from '../../../../types';
+  import { Notification, Notifications } from '~/types';
   const notifications = inject<Notifications>('firstviewNotifications');
   const notification01: Notification | undefined =
     notifications?.notification01;

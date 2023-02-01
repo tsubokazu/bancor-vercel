@@ -49,3 +49,11 @@ export interface TopNewsObject {
   serviceNewsListLinkUrl: string;
   serviceNewsListCards: ServiceNewsListCards;
 }
+
+export interface TopWelfareObject {
+  title: string;
+  linkUrl: string;
+  outline: string;
+  image01Url: string;
+  image02Url: string;
+}

@@ -1,21 +1,25 @@
 <script setup lang="ts">
-  import { TopNewsObject } from '../../../../types';
-  const topNewsObject = inject<TopNewsObject>('topNewsObject');
+  import { TopWelfareObject } from '~/types';
+  const topWelfareObject = inject<TopWelfareObject>('topWelfareObject');
 </script>
 
 <template>
-  <div>
+  <div class="w-[600px]">
     <MoleculesDoubleSquareTag
       class="mb-2"
       frontSquareColor="bg-bancor-black100"
       backSquareColor="bg-bancor-blue100"
       textColor="text-bancor-blue100"
-      >NEWS ROOM</MoleculesDoubleSquareTag
+      >Welfare</MoleculesDoubleSquareTag
     >
-    <AtomsBasicTitle :text="topNewsObject?.title"></AtomsBasicTitle>
+    <AtomsBasicTitle
+      class="mb-5"
+      :text="topWelfareObject?.title"
+    ></AtomsBasicTitle>
+    <AtomsBasicOutline :text="topWelfareObject?.outline"></AtomsBasicOutline>
     <MoleculesDetailButton
       class="mt-10 block"
-      :linkUrl="topNewsObject?.linkUrl"
+      :linkUrl="topWelfareObject?.linkUrl"
     ></MoleculesDetailButton>
   </div>
 </template>

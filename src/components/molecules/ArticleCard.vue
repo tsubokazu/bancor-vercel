@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { ServiceNewsListCard } from '../../types';
+  import { ServiceNewsListCard } from '~/types';
   const Props = defineProps<{ card: ServiceNewsListCard }>();
 </script>
 

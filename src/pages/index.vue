@@ -4,7 +4,8 @@
     PressReleaseListCards,
     ServiceNewsListCards,
     TopNewsObject,
-  } from '../types';
+    TopWelfareObject,
+  } from '~/types';
   const config = useRuntimeConfig();
   const baseUrl = config.public.kurocoApiUrl;
   const topEndpoint = config.public.kurocoTopEndpoint;
@@ -99,10 +100,19 @@
     serviceNewsListCards: serviceNewsListCards,
   };
   provide<TopNewsObject>('topNewsObject', topNewsObject);
+
+  const topWelfareObject: TopWelfareObject = {
+    title: posts._value.details.ext_11,
+    linkUrl: posts._value.details.ext_15,
+    outline: posts._value.details.ext_12,
+    image01Url: posts._value.details.ext_13.url,
+    image02Url: posts._value.details.ext_14.url,
+  };
+  provide<TopNewsObject>('topWelfareObject', topWelfareObject);
 </script>
 
 <template>
   <OrganismsFirstview></OrganismsFirstview>
-  <OrganismsTopNews></OrganismsTopNews>
-  <OrganismsTopWelfare></OrganismsTopWelfare>
+  <OrganismsTopNews class="mb-[120px]"></OrganismsTopNews>
+  <OrganismsTopWelfare class="mb-[120px]"></OrganismsTopWelfare>
 </template>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { TopNewsObject } from '../../../../types';
+  import { TopNewsObject } from '~/types';
   const topNewsObject = inject<TopNewsObject>('topNewsObject');
 </script>
 
