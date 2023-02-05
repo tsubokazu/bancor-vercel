@@ -57,3 +57,18 @@ export interface TopWelfareObject {
   image01Url: string;
   image02Url: string;
 }
+
+export interface TopServiceObject {
+  title: string;
+  linkUrl: string;
+  outline: string;
+  welfareTitle: string;
+  welfareLinkUrl: string;
+  welfareOutline: string;
+  systemTitle: string;
+  systemLinkUrl: string;
+  systemOutline: string;
+  imageDefaultUrl: string;
+  imageWelfareUrl: string;
+  imageSystemUrl: string;
+}

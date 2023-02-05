@@ -5,6 +5,7 @@
     ServiceNewsListCards,
     TopNewsObject,
     TopWelfareObject,
+    TopServiceObject,
   } from '~/types';
   const config = useRuntimeConfig();
   const baseUrl = config.public.kurocoApiUrl;
@@ -110,12 +111,27 @@
     image02Url: posts.value.details.ext_14.url,
   };
   provide<TopWelfareObject>('topWelfareObject', topWelfareObject);
+
+  const topServiceObject: TopServiceObject = {
+    title: posts.value.details.ext_16,
+    linkUrl: posts.value.details.ext_18,
+    outline: posts.value.details.ext_17,
+    welfareTitle: posts.value.details.ext_19,
+    welfareLinkUrl: posts.value.details.ext_21,
+    welfareOutline: posts.value.details.ext_20,
+    systemTitle: posts.value.details.ext_22,
+    systemLinkUrl: posts.value.details.ext_24,
+    systemOutline: posts.value.details.ext_23,
+    imageDefaultUrl: posts.value.details.ext_25.url,
+    imageWelfareUrl: '/serviceWelfareDev.jpeg',
+    imageSystemUrl: 'serviceWelfareDev.jpeg',
   };
-  provide<TopNewsObject>('topWelfareObject', topWelfareObject);
+  provide<TopServiceObject>('topServiceObject', topServiceObject);
 </script>
 
 <template>
   <OrganismsFirstview></OrganismsFirstview>
   <OrganismsTopNews class="mb-[120px]"></OrganismsTopNews>
   <OrganismsTopWelfare class="mb-[120px]"></OrganismsTopWelfare>
+  <OrganismsTopService class="mb-[120px]"></OrganismsTopService>
 </template>
