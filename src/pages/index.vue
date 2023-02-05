@@ -9,11 +9,12 @@
   const config = useRuntimeConfig();
   const baseUrl = config.public.kurocoApiUrl;
   const topEndpoint = config.public.kurocoTopEndpoint;
-  const { data: posts } = await useFetch(`${baseUrl}${topEndpoint}`);
-  provide<string>('firstviewImgUrl', posts._value.details.ext_1.url);
-  provide<string>('firstviewCatchCopyUrl', posts._value.details.ext_2.url);
-  provide<string>('firstviewCopy', posts._value.details.ext_3);
-  provide<string>('firstviewSubcopy', posts._value.details.ext_4);
+  const { data: posts } = (await useFetch(`${baseUrl}${topEndpoint}`)) as any;
+
+  provide<string>('firstviewImgUrl', posts.value.details.ext_1.url);
+  provide<string>('firstviewCatchCopyUrl', posts.value.details.ext_2.url);
+  provide<string>('firstviewCopy', posts.value.details.ext_3);
+  provide<string>('firstviewSubcopy', posts.value.details.ext_4);
   const notifications: Notifications = {
     notification01: {
       title: '新商品「X」の販売開始のお知らせ',
@@ -90,23 +91,25 @@
   };
 
   const topNewsObject: TopNewsObject = {
-    title: posts._value.details.ext_5,
-    linkUrl: posts._value.details.ext_6,
-    pressReleaseListTitle: posts._value.details.ext_7,
-    pressReleaseListLinkUrl: posts._value.details.ext_8,
+    title: posts.value.details.ext_5,
+    linkUrl: posts.value.details.ext_6,
+    pressReleaseListTitle: posts.value.details.ext_7,
+    pressReleaseListLinkUrl: posts.value.details.ext_8,
     pressReleaseListCards: pressReleaseListCards,
-    serviceNewsListTitle: posts._value.details.ext_9,
-    serviceNewsListLinkUrl: posts._value.details.ext_10,
+    serviceNewsListTitle: posts.value.details.ext_9,
+    serviceNewsListLinkUrl: posts.value.details.ext_10,
     serviceNewsListCards: serviceNewsListCards,
   };
   provide<TopNewsObject>('topNewsObject', topNewsObject);
 
   const topWelfareObject: TopWelfareObject = {
-    title: posts._value.details.ext_11,
-    linkUrl: posts._value.details.ext_15,
-    outline: posts._value.details.ext_12,
-    image01Url: posts._value.details.ext_13.url,
-    image02Url: posts._value.details.ext_14.url,
+    title: posts.value.details.ext_11,
+    linkUrl: posts.value.details.ext_15,
+    outline: posts.value.details.ext_12,
+    image01Url: posts.value.details.ext_13.url,
+    image02Url: posts.value.details.ext_14.url,
+  };
+  provide<TopWelfareObject>('topWelfareObject', topWelfareObject);
   };
   provide<TopNewsObject>('topWelfareObject', topWelfareObject);
 </script>

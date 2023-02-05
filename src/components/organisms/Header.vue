@@ -2,24 +2,26 @@
   const config = useRuntimeConfig();
   const baseUrl = config.public.kurocoApiUrl;
   const headerEndpoint = config.public.kurocoHeaderMenuEndpoint;
-  const { data: posts } = await useFetch(`${baseUrl}${headerEndpoint}`);
+  const { data: posts } = (await useFetch(
+    `${baseUrl}${headerEndpoint}`
+  )) as any;
 
-  const logoUrl: string = posts._value.details.ext_1.url;
-  const menuTitles: Array<string> = posts._value.details.ext_2;
-  const menuLinks: Array<string> = posts._value.details.ext_3;
-  const megamenuTitles: Array<string> = posts._value.details.ext_4;
-  const megamenuSubtitles: Array<string> = posts._value.details.ext_5;
+  const logoUrl: string = posts.value.details.ext_1.url;
+  const menuTitles: Array<string> = posts.value.details.ext_2;
+  const menuLinks: Array<string> = posts.value.details.ext_3;
+  const megamenuTitles: Array<string> = posts.value.details.ext_4;
+  const megamenuSubtitles: Array<string> = posts.value.details.ext_5;
   const contentTitlesArray: Array<Array<string>> = [
-    posts._value.details.ext_7,
-    posts._value.details.ext_10,
-    posts._value.details.ext_13,
-    posts._value.details.ext_16,
+    posts.value.details.ext_7,
+    posts.value.details.ext_10,
+    posts.value.details.ext_13,
+    posts.value.details.ext_16,
   ];
   const contentLinksArray: Array<Array<string>> = [
-    posts._value.details.ext_8,
-    posts._value.details.ext_11,
-    posts._value.details.ext_14,
-    posts._value.details.ext_17,
+    posts.value.details.ext_8,
+    posts.value.details.ext_11,
+    posts.value.details.ext_14,
+    posts.value.details.ext_17,
   ];
   interface UrlObject {
     id: string;
@@ -32,10 +34,10 @@
     return 'url' in urlObj ? urlObj.url : '';
   };
   const contentImagesArray: Array<Array<string>> = [
-    posts._value.details.ext_9.map((urlObj: UrlObject) => getUrlArray(urlObj)),
-    posts._value.details.ext_12.map((urlObj: UrlObject) => getUrlArray(urlObj)),
-    posts._value.details.ext_15.map((urlObj: UrlObject) => getUrlArray(urlObj)),
-    posts._value.details.ext_18.map((urlObj: UrlObject) => getUrlArray(urlObj)),
+    posts.value.details.ext_9.map((urlObj: UrlObject) => getUrlArray(urlObj)),
+    posts.value.details.ext_12.map((urlObj: UrlObject) => getUrlArray(urlObj)),
+    posts.value.details.ext_15.map((urlObj: UrlObject) => getUrlArray(urlObj)),
+    posts.value.details.ext_18.map((urlObj: UrlObject) => getUrlArray(urlObj)),
   ];
   interface MegamenuContent {
     title: string;

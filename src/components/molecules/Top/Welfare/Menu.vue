@@ -1,6 +1,8 @@
 <script setup lang="ts">
   import { TopWelfareObject } from '~/types';
-  const topWelfareObject = inject<TopWelfareObject>('topWelfareObject');
+  const topWelfareObject = inject<TopWelfareObject>(
+    'topWelfareObject'
+  ) as TopWelfareObject;
 </script>
 
 <template>
@@ -14,12 +16,12 @@
     >
     <AtomsBasicTitle
       class="mb-5"
-      :text="topWelfareObject?.title"
+      :text="topWelfareObject.title"
     ></AtomsBasicTitle>
-    <AtomsBasicOutline :text="topWelfareObject?.outline"></AtomsBasicOutline>
+    <AtomsBasicOutline :text="topWelfareObject.outline"></AtomsBasicOutline>
     <MoleculesDetailButton
       class="mt-10 block"
-      :linkUrl="topWelfareObject?.linkUrl"
+      :linkUrl="topWelfareObject.linkUrl"
     ></MoleculesDetailButton>
   </div>
 </template>

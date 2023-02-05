@@ -1,6 +1,6 @@
 <script setup lang="ts">
   import { TopNewsObject } from '~/types';
-  const topNewsObject = inject<TopNewsObject>('topNewsObject');
+  const topNewsObject = inject<TopNewsObject>('topNewsObject') as TopNewsObject;
 </script>
 
 <template>
@@ -12,10 +12,10 @@
       textColor="text-bancor-blue100"
       >NEWS ROOM</MoleculesDoubleSquareTag
     >
-    <AtomsBasicTitle :text="topNewsObject?.title"></AtomsBasicTitle>
+    <AtomsBasicTitle :text="topNewsObject.title"></AtomsBasicTitle>
     <MoleculesDetailButton
       class="mt-10 block"
-      :linkUrl="topNewsObject?.linkUrl"
+      :linkUrl="topNewsObject.linkUrl"
     ></MoleculesDetailButton>
   </div>
 </template>
