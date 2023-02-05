@@ -6,6 +6,6 @@
 
 <template>
   <div class="h-[292] w-[190px]">
-    <img class="rounded-xl" :src="Props.imgUrl" />
+    <img class="rounded-sm" :src="Props.imgUrl" />
   </div>
 </template>
