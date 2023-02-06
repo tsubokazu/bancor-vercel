@@ -93,3 +93,11 @@ export interface TopVisionObject {
   outline: string;
   imageUrl: string;
 }
+
+export interface TopRecruitObject {
+  title: string;
+  subTitle: string;
+  linkUrl: string;
+  outline: string;
+  imageUrl: string;
+}
