@@ -5,7 +5,7 @@
 </script>
 
 <template>
-  <div class="h-[292px] w-[190px]">
-    <img class="rounded-sm" :src="Props.imgUrl" />
+  <div class="h-[228px] w-full">
+    <img class="h-full w-full rounded-md object-cover" :src="Props.imgUrl" />
   </div>
 </template>

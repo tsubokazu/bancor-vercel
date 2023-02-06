@@ -72,3 +72,17 @@ export interface TopServiceObject {
   imageWelfareUrl: string;
   imageSystemUrl: string;
 }
+
+export interface JournalList {
+  category: string;
+  updateDate: string;
+  subject: string;
+  eyeCatchUrl: string;
+  bodyHTML: string;
+  hashTag: Array<string>;
+}
+
+export interface TopJournalObject {
+  title: string;
+  journalList: Array<JournalList>;
+}

@@ -20,6 +20,7 @@ export default defineNuxtConfig({
       kurocoApiUrl: process.env.KUROCO_API_URL,
       kurocoHeaderMenuEndpoint: process.env.KUROCO_HEADER_MENU_ENDPOINT,
       kurocoTopEndpoint: process.env.KUROCO_TOP_ENDPOINT,
+      kurocoJournalEndpoint: process.env.KUROCO_JOURNAL_ENDPOINT,
     },
   },
 });

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+  import postcss from 'postcss';
   import {
     Notifications,
     PressReleaseListCards,
@@ -6,11 +7,17 @@
     TopNewsObject,
     TopWelfareObject,
     TopServiceObject,
+    TopJournalObject,
+    JournalList,
   } from '~/types';
   const config = useRuntimeConfig();
   const baseUrl = config.public.kurocoApiUrl;
   const topEndpoint = config.public.kurocoTopEndpoint;
+  const journalEndpoint = config.public.kurocoJournalEndpoint;
   const { data: posts } = (await useFetch(`${baseUrl}${topEndpoint}`)) as any;
+  const { data: journals } = (await useFetch(
+    `${baseUrl}${journalEndpoint}`
+  )) as any;
 
   provide<string>('firstviewImgUrl', posts.value.details.ext_1.url);
   provide<string>('firstviewCatchCopyUrl', posts.value.details.ext_2.url);
@@ -127,6 +134,27 @@
     imageSystemUrl: 'serviceWelfareDev.jpeg',
   };
   provide<TopServiceObject>('topServiceObject', topServiceObject);
+
+  console.log(journals.value);
+
+  const jounalList: Array<JournalList> = journals.value.list.map(
+    (journal: any): JournalList => {
+      return {
+        category: journal.ext_1,
+        updateDate: journal.update_ymdhi.split('T')[0].replaceAll('-', '.'),
+        subject: journal.subject,
+        eyeCatchUrl: journal.ext_2.url,
+        bodyHTML: journal.ext_3,
+        hashTag: journal.ext_4,
+      };
+    }
+  );
+
+  const topJournalObject: TopJournalObject = {
+    title: posts.value.details.ext_26,
+    journalList: jounalList,
+  };
+  provide<TopJournalObject>('topJournalObject', topJournalObject);
 </script>
 
 <template>
@@ -134,4 +162,5 @@
   <OrganismsTopNews class="mb-[120px]"></OrganismsTopNews>
   <OrganismsTopWelfare class="mb-[120px]"></OrganismsTopWelfare>
   <OrganismsTopService class="mb-[120px]"></OrganismsTopService>
+  <OrganismsTopJournal class="mb-[120px]"></OrganismsTopJournal>
 </template>
