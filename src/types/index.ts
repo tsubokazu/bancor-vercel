@@ -86,3 +86,10 @@ export interface TopJournalObject {
   title: string;
   journalList: Array<JournalList>;
 }
+
+export interface TopVisionObject {
+  title: string;
+  linkUrl: string;
+  outline: string;
+  imageUrl: string;
+}

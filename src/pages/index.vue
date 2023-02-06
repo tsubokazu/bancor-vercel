@@ -9,6 +9,7 @@
     TopServiceObject,
     TopJournalObject,
     JournalList,
+    TopVisionObject,
   } from '~/types';
   const config = useRuntimeConfig();
   const baseUrl = config.public.kurocoApiUrl;
@@ -155,6 +156,14 @@
     journalList: jounalList,
   };
   provide<TopJournalObject>('topJournalObject', topJournalObject);
+
+  const topVisionObject: TopVisionObject = {
+    title: posts.value.details.ext_27,
+    linkUrl: posts.value.details.ext_29,
+    outline: posts.value.details.ext_28,
+    imageUrl: posts.value.details.ext_30.url,
+  };
+  provide<TopVisionObject>('topVisionObject', topVisionObject);
 </script>
 
 <template>
@@ -163,4 +172,5 @@
   <OrganismsTopWelfare class="mb-[120px]"></OrganismsTopWelfare>
   <OrganismsTopService class="mb-[120px]"></OrganismsTopService>
   <OrganismsTopJournal class="mb-[120px]"></OrganismsTopJournal>
+  <OrganismsTopVision class="mb-[120px]"></OrganismsTopVision>
 </template>
