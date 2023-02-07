@@ -6,7 +6,7 @@
 </script>
 
 <template>
-  <div>
+  <div class="flex w-96 flex-col space-y-5">
     <MoleculesDoubleSquareTag
       class="mb-2"
       frontSquareColor="bg-white"
@@ -23,10 +23,10 @@
       class="text-white"
     ></AtomsBasicOutline>
     <AtomsButtonOvalArrow
+      class="w-[220px]"
       bgColor="bg-black"
       textColor="text-white"
       :linkName="topRecruitObject.linkUrl"
-      class="w-[220px] text-white"
     >
       採用募集
     </AtomsButtonOvalArrow>

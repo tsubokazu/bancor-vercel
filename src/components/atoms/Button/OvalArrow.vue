@@ -18,13 +18,22 @@
     fromColor: 'bg-bancor-blue300',
     toColor: 'bg-bancor-blue400',
     hasBorder: false,
-    borderColor: 'bg-bancor-gray700',
+    borderColor: 'border-bancor-gray700',
     borderWidth: 1,
   });
 
+  const hoverAnimation = ref('');
+
+  const mouseOverAction = () => {
+    hoverAnimation.value = 'hover-arrow-move-x';
+  };
+  const mouseLeaveAction = () => {
+    hoverAnimation.value = 'hover-arrow-move-x-return';
+  };
+
   const classArray = [
-    !Props.isGradient ? Props.bgColor : '',
     Props.textColor,
+    !Props.isGradient ? Props.bgColor : '',
     Props.isGradient ? 'bg-gradient-to-r' : '',
     Props.isGradient ? Props.fromColor : '',
     Props.isGradient ? Props.toColor : '',
@@ -34,11 +43,20 @@
 </script>
 
 <template>
-  <NuxtLink
-    :to="linkName"
-    class="relative block rounded-full py-2 px-10 tracking-[.13em] after:absolute after:right-7 after:top-1/2 after:h-1.5 after:w-1.5 after:-translate-y-1/2 after:rotate-45 after:border-t after:border-r after:border-black after:content-['']"
-    :class="classArray"
-  >
-    <slot />
+  <NuxtLink :to="linkName">
+    <div
+      class="relative flex items-center justify-center rounded-full px-10 py-2"
+      :class="classArray"
+      @mouseover="mouseOverAction()"
+      @mouseleave="mouseLeaveAction()"
+    >
+      <slot />
+      <div
+        class="absolute right-5 h-auto w-auto text-xs"
+        :class="hoverAnimation"
+      >
+        <font-awesome-icon icon="fa-solid fa-angle-right" />
+      </div>
+    </div>
   </NuxtLink>
 </template>

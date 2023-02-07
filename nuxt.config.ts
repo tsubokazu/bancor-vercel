@@ -21,6 +21,13 @@ export default defineNuxtConfig({
       kurocoHeaderMenuEndpoint: process.env.KUROCO_HEADER_MENU_ENDPOINT,
       kurocoTopEndpoint: process.env.KUROCO_TOP_ENDPOINT,
       kurocoJournalEndpoint: process.env.KUROCO_JOURNAL_ENDPOINT,
+      kurocoTopFirstview: process.env.KUROCO_TOP_FIRSTVIEW,
+      kurocoTopNews: process.env.KUROCO_TOP_NEWS,
+      kurocoTopWelfare: process.env.KUROCO_TOP_WELFARE,
+      kurocoTopService: process.env.KUROCO_TOP_SERVICE,
+      kurocoTopJournal: process.env.KUROCO_TOP_JOURNAL,
+      kurocoTopVision: process.env.KUROCO_TOP_VISION,
+      kurocoTopRecruit: process.env.KUROCO_TOP_RECRUIT,
     },
   },
 });

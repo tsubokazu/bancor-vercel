@@ -79,8 +79,31 @@ module.exports = {
         'notification3': 'notification3 25s ease-in-out  infinite  both',
         'notification4': 'notification4 25s ease-in-out  infinite  both',
         'notification5': 'notification5 25s ease-in-out  infinite  both',
+        'hover-arrow-move-x': 'hover-arrow-move-x 0.5s ease-in-out  both',
+        'hover-arrow-move-x-return':
+          'hover-arrow-move-x-return 0.5s ease-in-out  both',
       },
       keyframes: {
+        'hover-arrow-move-x': {
+          '0%': {
+            transform: 'translateX(0px)',
+            opacity: '0',
+          },
+          'to': {
+            transform: 'translateX(10px)',
+            opacity: '1',
+          },
+        },
+        'hover-arrow-move-x-return': {
+          '0%': {
+            transform: 'translateX(10px)',
+            opacity: '1',
+          },
+          'to': {
+            transform: 'translateX(0px)',
+            opacity: '0',
+          },
+        },
         'scale-up-ver-top': {
           '0%': {
             'transform': 'scaleY(1)',

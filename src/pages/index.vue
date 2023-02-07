@@ -136,8 +136,6 @@
   };
   provide<TopServiceObject>('topServiceObject', topServiceObject);
 
-  console.log(journals.value);
-
   const jounalList: Array<JournalList> = journals.value.list.map(
     (journal: any): JournalList => {
       return {
