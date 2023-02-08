@@ -17,10 +17,10 @@
       {{ enTitle }}
     </AtomsMegamenuTitle>
     <AtomsButtonOvalArrow
-      bgColor="bg-red-100"
+      bgColor="bg-white"
+      borderColor="border-bancor-gray700"
       :hasBorder="true"
       :linkName="linkName"
-      borderColor="border-red-100"
     >
       詳しくみる
     </AtomsButtonOvalArrow>

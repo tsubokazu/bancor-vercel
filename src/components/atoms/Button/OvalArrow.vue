@@ -9,6 +9,7 @@
     hasBorder?: boolean;
     borderColor?: string;
     borderWidth?: string | number;
+    arrowPosition?: string;
   }
   const Props = withDefaults(defineProps<Props>(), {
     linkName: '/',
@@ -20,15 +21,16 @@
     hasBorder: false,
     borderColor: 'border-bancor-gray700',
     borderWidth: 1,
+    arrowPosition: 'right-5',
   });
 
   const hoverAnimation = ref('');
 
   const mouseOverAction = () => {
-    hoverAnimation.value = 'hover-arrow-move-x';
+    hoverAnimation.value = 'animate-hover-arrow-move-x';
   };
   const mouseLeaveAction = () => {
-    hoverAnimation.value = 'hover-arrow-move-x-return';
+    hoverAnimation.value = 'animate-hover-arrow-move-x-reverse';
   };
 
   const classArray = [

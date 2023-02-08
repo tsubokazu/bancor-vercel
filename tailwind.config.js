@@ -80,28 +80,26 @@ module.exports = {
         'notification4': 'notification4 25s ease-in-out  infinite  both',
         'notification5': 'notification5 25s ease-in-out  infinite  both',
         'hover-arrow-move-x': 'hover-arrow-move-x 0.5s ease-in-out  both',
-        'hover-arrow-move-x-return':
-          'hover-arrow-move-x-return 0.5s ease-in-out  both',
+        'hover-arrow-move-x-reverse':
+          'hover-arrow-move-x-reverse 0.5s ease-in-out  both',
+        'rotate-center':
+          'rotate-center 0.4s cubic-bezier(0.455, 0.030, 0.515, 0.955)  infinite both',
       },
       keyframes: {
         'hover-arrow-move-x': {
           '0%': {
             transform: 'translateX(0px)',
-            opacity: '0',
           },
           'to': {
-            transform: 'translateX(10px)',
-            opacity: '1',
+            transform: 'translateX(5px)',
           },
         },
-        'hover-arrow-move-x-return': {
+        'hover-arrow-move-x-reverse': {
           '0%': {
-            transform: 'translateX(10px)',
-            opacity: '1',
+            transform: 'translateX(5px)',
           },
           'to': {
             transform: 'translateX(0px)',
-            opacity: '0',
           },
         },
         'scale-up-ver-top': {
@@ -394,6 +392,14 @@ module.exports = {
           '100%': {
             transform: 'translateY(-48px)',
             opacity: '0',
+          },
+        },
+        'rotate-center': {
+          '0%': {
+            transform: 'rotate(0)',
+          },
+          'to': {
+            transform: 'rotate(360deg)',
           },
         },
       },

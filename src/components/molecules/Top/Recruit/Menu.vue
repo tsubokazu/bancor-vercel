@@ -26,6 +26,7 @@
       class="w-[220px]"
       bgColor="bg-black"
       textColor="text-white"
+      arrowPosition="right-20"
       :linkName="topRecruitObject.linkUrl"
     >
       採用募集
