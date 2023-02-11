@@ -1,12 +1,21 @@
 <script setup lang="ts">
-  const Props = defineProps<{
+  interface Props {
     text: string;
-  }>();
-  const titleTexts = Props.text.split('\r\n');
+    color?: string;
+    size?: string;
+  }
+  const props = withDefaults(defineProps<Props>(), {
+    color: 'text-bancor-black100',
+    size: 'text-[40px]',
+  });
+  const titleTexts = props.text.split('\r\n');
 </script>
 
 <template>
-  <div class="flex flex-col space-y-5 text-[40px] font-bold">
+  <div
+    class="flex flex-col space-y-5 text-[40px] font-bold"
+    :class="[props.color, props.size]"
+  >
     <div v-for="titleText in titleTexts" :key="titleText">
       {{ titleText }}
     </div>

@@ -1,11 +1,17 @@
 <script setup lang="ts">
-  const Props = defineProps<{
+  interface Props {
     text: string;
-  }>();
+    size?: string;
+    color?: string;
+  }
+  const props = withDefaults(defineProps<Props>(), {
+    size: 'text-base',
+    color: 'text-bancor-black100',
+  });
 </script>
 
 <template>
-  <div class="text-base font-bold">
-    {{ Props.text }}
+  <div class="font-bold" :class="[props.size, props.color]">
+    {{ props.text }}
   </div>
 </template>

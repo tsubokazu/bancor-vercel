@@ -30,7 +30,7 @@
     hoverAnimation.value = 'animate-hover-arrow-move-x';
   };
   const mouseLeaveAction = () => {
-    hoverAnimation.value = 'animate-hover-arrow-move-x-reverse';
+    hoverAnimation.value = 'animate-hover-arrow-move-x-rv';
   };
 
   const classArray = [

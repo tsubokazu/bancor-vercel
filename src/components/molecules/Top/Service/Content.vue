@@ -3,7 +3,12 @@
     title: string;
     linkUrl: string;
     outline: string;
+    onFlag: () => void;
   }>();
+
+  const mouseOverAction = () => {
+    Props.onFlag();
+  };
 </script>
 
 <template>
@@ -13,8 +18,11 @@
     <AtomsTopServiceTitle :text="Props.title"></AtomsTopServiceTitle>
     <AtomsTopServiceLine></AtomsTopServiceLine>
     <AtomsTopServiceOutline :text="Props.outline"></AtomsTopServiceOutline>
-    <AtomsTopServiceButton
-      class="absolute bottom-8 left-12"
-    ></AtomsTopServiceButton>
+    <NuxtLink :to="Props.linkUrl">
+      <AtomsTopServiceButton
+        class="absolute bottom-8 left-12"
+        @mouseover="mouseOverAction()"
+      ></AtomsTopServiceButton
+    ></NuxtLink>
   </div>
 </template>

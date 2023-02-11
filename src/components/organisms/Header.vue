@@ -1,7 +1,8 @@
 <script setup lang="ts">
+  import { KurocoUrlObject } from '~/types/kuroco';
   const config = useRuntimeConfig();
   const baseUrl = config.public.kurocoApiUrl;
-  const headerEndpoint = config.public.kurocoHeaderMenuEndpoint;
+  const headerEndpoint = config.public.kurocoHeader;
   const { data: posts } = (await useFetch(
     `${baseUrl}${headerEndpoint}`
   )) as any;
@@ -23,21 +24,23 @@
     posts.value.details.ext_14,
     posts.value.details.ext_17,
   ];
-  interface UrlObject {
-    id: string;
-    url: string;
-    desc: string;
-    url_org: string;
-  }
-  const getUrlArray = (urlObj: UrlObject): string => {
+  const getUrlArray = (urlObj: KurocoUrlObject): string => {
     if (Object.keys(urlObj).length <= 0) return '';
     return 'url' in urlObj ? urlObj.url : '';
   };
   const contentImagesArray: Array<Array<string>> = [
-    posts.value.details.ext_9.map((urlObj: UrlObject) => getUrlArray(urlObj)),
-    posts.value.details.ext_12.map((urlObj: UrlObject) => getUrlArray(urlObj)),
-    posts.value.details.ext_15.map((urlObj: UrlObject) => getUrlArray(urlObj)),
-    posts.value.details.ext_18.map((urlObj: UrlObject) => getUrlArray(urlObj)),
+    posts.value.details.ext_9.map((urlObj: KurocoUrlObject) =>
+      getUrlArray(urlObj)
+    ),
+    posts.value.details.ext_12.map((urlObj: KurocoUrlObject) =>
+      getUrlArray(urlObj)
+    ),
+    posts.value.details.ext_15.map((urlObj: KurocoUrlObject) =>
+      getUrlArray(urlObj)
+    ),
+    posts.value.details.ext_18.map((urlObj: KurocoUrlObject) =>
+      getUrlArray(urlObj)
+    ),
   ];
   interface MegamenuContent {
     title: string;
@@ -109,10 +112,6 @@
     hoverMenuObject.enTitle = menuObjects[index].enTitle;
     hoverMenuObject.subTitle = menuObjects[index].subTitle;
     hoverMenuObject.contents = menuObjects[index].contents;
-    console.log('hoverMenuObject');
-    console.log(hoverMenuObject);
-    console.log(hoverMenuObject.contents);
-    console.log(hoverFlag && hoverMenuObject.contents.length > 0);
   };
   const mouseLeaveAction = () => {
     hoverIndex.value = -1;

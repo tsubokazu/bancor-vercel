@@ -80,10 +80,17 @@ module.exports = {
         'notification4': 'notification4 25s ease-in-out  infinite  both',
         'notification5': 'notification5 25s ease-in-out  infinite  both',
         'hover-arrow-move-x': 'hover-arrow-move-x 0.5s ease-in-out  both',
-        'hover-arrow-move-x-reverse':
-          'hover-arrow-move-x-reverse 0.5s ease-in-out  both',
+        'hover-arrow-move-x-rv': 'hover-arrow-move-x-rv 0.5s ease-in-out  both',
         'rotate-center':
           'rotate-center 0.4s cubic-bezier(0.455, 0.030, 0.515, 0.955)  infinite both',
+        'arrow-move-x': 'arrow-move-x 0.5s ease-in-out  both',
+        'arrow-move-x-rv': 'arrow-move-x-rv 0.5s ease-in-out  both',
+        'dissolve-appear': 'dissolve-appear 0.5s ease-in-out  both',
+        'dissolve-disappear': 'dissolve-disappear 0.5s ease-in-out  both',
+        'rouded-and-scale': 'rouded-and-scale 0.3s ease-out  both',
+        'rouded-and-scale-rv': 'rouded-and-scale-rv 0.3s ease-out  both',
+        'move-right': 'move-right 0.3s ease-out both',
+        'move-right-rv': 'move-right-rv 0.3s ease-out both',
       },
       keyframes: {
         'hover-arrow-move-x': {
@@ -94,7 +101,7 @@ module.exports = {
             transform: 'translateX(5px)',
           },
         },
-        'hover-arrow-move-x-reverse': {
+        'hover-arrow-move-x-rv': {
           '0%': {
             transform: 'translateX(5px)',
           },
@@ -400,6 +407,94 @@ module.exports = {
           },
           'to': {
             transform: 'rotate(360deg)',
+          },
+        },
+        'arrow-move-x': {
+          '0%': {
+            opacity: '1',
+            transform: 'translateX(0px)',
+          },
+          '50%': {
+            opacity: 1,
+          },
+          'to': {
+            opacity: '0',
+            transform: 'translateX(5px)',
+          },
+        },
+        'arrow-move-x-rv': {
+          '0%': {
+            opacity: '0',
+            transform: 'translateX(5px)',
+          },
+          '50%': {
+            opacity: 1,
+          },
+          'to': {
+            opacity: '1',
+            transform: 'translateX(0px)',
+          },
+        },
+        'dissolve-appear': {
+          '0%': {
+            opacity: 0,
+            transform: 'scaleX(0)',
+          },
+          '25%': {
+            opacity: 0,
+          },
+          'to': {
+            opacity: 1,
+            transform: 'scaleX(1)',
+          },
+        },
+        'dissolve-disappear': {
+          '0%': {
+            opacity: 1,
+            transform: 'scaleX(1)',
+          },
+          '25%': {
+            opacity: 0,
+          },
+          'to': {
+            opacity: 0,
+            transform: 'scaleX(0)',
+          },
+        },
+        'rouded-and-scale': {
+          '0%': {
+            'border-radius': '0px',
+            'transform': 'scale(1)',
+          },
+          'to': {
+            'border-radius': '16px',
+            'transform': 'scale(0.9)',
+          },
+        },
+        'rouded-and-scale-rv': {
+          '0%': {
+            'border-radius': '16px',
+            'transform': 'scale(0.9)',
+          },
+          'to': {
+            'border-radius': '0px',
+            'transform': 'scale(1)',
+          },
+        },
+        'move-right': {
+          '0%': {
+            transform: 'translateX(0px)',
+          },
+          'to': {
+            transform: 'translateX(5px)',
+          },
+        },
+        'move-right-rv': {
+          '0%': {
+            transform: 'translateX(5px)',
+          },
+          'to': {
+            transform: 'translateX(0px)',
           },
         },
       },

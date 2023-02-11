@@ -4,8 +4,6 @@
   const baseUrl = config.public.kurocoApiUrl;
   const endpoint = config.public.kurocoTopRecruit;
   const { data: kuroco } = (await useFetch(`${baseUrl}${endpoint}`)) as any;
-  console.log(kuroco);
-  console.log(`${baseUrl}${endpoint}`);
 
   const topRecruitObject: TopRecruitObject = {
     title: kuroco.value.details.ext_1,

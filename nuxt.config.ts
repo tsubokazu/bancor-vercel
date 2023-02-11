@@ -18,7 +18,8 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       kurocoApiUrl: process.env.KUROCO_API_URL,
-      kurocoHeaderMenuEndpoint: process.env.KUROCO_HEADER_MENU_ENDPOINT,
+      kurocoHeader: process.env.KUROCO_HEADER,
+      kurocoFooter: process.env.KUROCO_FOOTER,
       kurocoTopEndpoint: process.env.KUROCO_TOP_ENDPOINT,
       kurocoJournalEndpoint: process.env.KUROCO_JOURNAL_ENDPOINT,
       kurocoTopFirstview: process.env.KUROCO_TOP_FIRSTVIEW,
