@@ -6,7 +6,7 @@
 </script>
 
 <template>
-  <div class="w-[324px]">
+  <div>
     <MoleculesDoubleSquareTag
       class="mb-2"
       frontSquareColor="bg-bancor-black100"
