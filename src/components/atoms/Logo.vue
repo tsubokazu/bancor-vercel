@@ -1,11 +1,12 @@
 <script setup lang="ts">
-  const Props = defineProps<{
+  const props = defineProps<{
     logoUrl: string;
+    linkUrl: string;
   }>();
 </script>
 
 <template>
-  <NuxtLink to="/">
-    <img :src="logoUrl" />
+  <NuxtLink :to="props.linkUrl">
+    <img :src="props.logoUrl" />
   </NuxtLink>
 </template>

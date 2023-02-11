@@ -1,6 +1,11 @@
 <script setup lang="ts">
   import { KurocoUrlObject } from '~/types/kuroco';
-  import { FooterContactMenuObject } from '~/types/Footer';
+  import {
+    FooterContactMenuObject,
+    FooterObject,
+    SNSObject,
+    PageLinkObject,
+  } from '~/types/Footer';
 
   const config = useRuntimeConfig();
   const baseUrl = config.public.kurocoApiUrl;
@@ -11,17 +16,42 @@
 
   // フッターロゴ
   const logoUrl: string = posts.value.details.ext_1.url;
-  const logoLink: Array<string> = posts.value.details.ext_2;
+  const logoLink: string = posts.value.details.ext_2;
 
   // SNS
   const snsIcons: Array<string> = posts.value.details.ext_3.map(
     (urlObj: KurocoUrlObject) => urlObj.url
   );
   const snsLinks: Array<string> = posts.value.details.ext_4;
+  const snsNum = snsIcons.length;
+  const snsObjects: Array<SNSObject> = [];
+  for (let n = 0; n < snsNum; n++) {
+    snsObjects.push({
+      iconUrl: snsIcons[n],
+      linkUrl: snsLinks[n],
+    });
+  }
 
   // フッターメニュー
-  const menuTitles: Array<string> = posts.value.details.ext_5;
-  const menuLinks: Array<string> = posts.value.details.ext_6;
+  const footerMenuTitles: Array<string> = posts.value.details.ext_5;
+  const footerMenuLinks: Array<string> = posts.value.details.ext_6;
+  const footerMenuNum = footerMenuTitles.length;
+  const pageLinkObjects: Array<PageLinkObject> = [];
+  for (let n = 0; n < footerMenuNum; n++) {
+    pageLinkObjects.push({
+      title: footerMenuTitles[n],
+      linkUrl: footerMenuLinks[n],
+    });
+  }
+
+  const footerObject: FooterObject = {
+    logoUrl: logoUrl,
+    linkUrl: logoLink,
+    snsObjects: snsObjects,
+    pageLinkObjects: pageLinkObjects,
+  };
+
+  provide('footerObject', footerObject);
 
   // コピーライト
   const copyright: string = posts.value.details.ext_7;
