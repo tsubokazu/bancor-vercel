@@ -3,7 +3,9 @@
   const { journalList } = inject<TopJournalObject>(
     'topJournalObject'
   ) as TopJournalObject;
+
   const mainJournal = journalList[0];
+  console.log(`mainJournal: ${mainJournal}`);
 </script>
 
 <template>

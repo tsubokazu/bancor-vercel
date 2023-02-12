@@ -8,12 +8,18 @@ export default defineNuxtConfig({
     '@fortawesome/fontawesome-svg-core/styles.css',
   ],
   plugins: ['@/plugins/fontawesome.ts'],
+  modules: [
+    ['@pinia/nuxt', { autoImports: ['defineStore', 'acceptHMRUpdate'] }],
+  ],
   build: { transpile: ['@fortawesome/vue-fontawesome'] },
   postcss: {
     plugins: {
       tailwindcss: {},
       autoprefixer: {},
     },
+  },
+  imports: {
+    dirs: ['stores', 'types'],
   },
   runtimeConfig: {
     public: {

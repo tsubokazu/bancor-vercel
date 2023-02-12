@@ -1,6 +1,6 @@
 <template>
   <div class="flex h-screen max-h-[587px] justify-center">
-    <div class="mt-24 flex h-full w-full max-w-[1200px] flex-col space-y-10">
+    <div class="flex h-full w-full max-w-[1200px] flex-col space-y-10">
       <MoleculesTopJournalMenu></MoleculesTopJournalMenu>
       <div class="flex space-x-5">
         <MoleculesTopJournalMain

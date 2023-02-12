@@ -44,6 +44,7 @@
           :text="props.obj.outline"
           color="text-white"
         ></AtomsBasicOutline>
-      </div></div
-  ></NuxtLink>
+      </div>
+    </div>
+  </NuxtLink>
 </template>

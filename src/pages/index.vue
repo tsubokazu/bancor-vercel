@@ -1,5 +1,6 @@
 <script setup lang="ts">
   import postcss from 'postcss';
+  import { JournalList } from '~/types/Journal';
   import {
     Notifications,
     PressReleaseListCards,
@@ -8,7 +9,6 @@
     TopWelfareObject,
     TopServiceObject,
     TopJournalObject,
-    JournalList,
     TopVisionObject,
   } from '~/types';
   const config = useRuntimeConfig();
@@ -16,9 +16,6 @@
   const topEndpoint = config.public.kurocoTopEndpoint;
   const journalEndpoint = config.public.kurocoJournalEndpoint;
   const { data: posts } = (await useFetch(`${baseUrl}${topEndpoint}`)) as any;
-  const { data: journals } = (await useFetch(
-    `${baseUrl}${journalEndpoint}`
-  )) as any;
 
   provide<string>('firstviewImgUrl', posts.value.details.ext_1.url);
   provide<string>('firstviewCatchCopyUrl', posts.value.details.ext_2.url);
@@ -136,22 +133,16 @@
   };
   provide<TopServiceObject>('topServiceObject', topServiceObject);
 
-  const jounalList: Array<JournalList> = journals.value.list.map(
-    (journal: any): JournalList => {
-      return {
-        category: journal.ext_1,
-        updateDate: journal.update_ymdhi.split('T')[0].replaceAll('-', '.'),
-        subject: journal.subject,
-        eyeCatchUrl: journal.ext_2.url,
-        bodyHTML: journal.ext_3,
-        hashTag: journal.ext_4,
-      };
-    }
-  );
+  // Bancor JournalをPiniaから取得
+  const journalStore = useJournalStore();
+  if (journalStore.journalList.length == 0) {
+    await journalStore.fetchJournals();
+  }
+  const { journalList } = journalStore;
 
   const topJournalObject: TopJournalObject = {
     title: posts.value.details.ext_26,
-    journalList: jounalList,
+    journalList: journalList,
   };
   provide<TopJournalObject>('topJournalObject', topJournalObject);
 
@@ -165,11 +156,11 @@
 </script>
 
 <template>
-  <OrganismsFirstview></OrganismsFirstview>
-  <OrganismsTopNews class="mb-[120px]"></OrganismsTopNews>
+  <OrganismsFirstview class="mb-[120px]"></OrganismsFirstview>
+  <!-- <OrganismsTopNews class="mb-[120px]"></OrganismsTopNews>
   <OrganismsTopWelfare class="mb-[120px]"></OrganismsTopWelfare>
-  <OrganismsTopService class="mb-[120px]"></OrganismsTopService>
-  <OrganismsTopJournal class="mb-[120px]"></OrganismsTopJournal>
-  <OrganismsTopVision class="mb-[120px]"></OrganismsTopVision>
+  <OrganismsTopService class="mb-[120px]"></OrganismsTopService> -->
+  <!-- <OrganismsTopJournal class="mb-[120px]"></OrganismsTopJournal>
+  <OrganismsTopVision class="mb-[120px]"></OrganismsTopVision> -->
   <OrganismsTopRecruit></OrganismsTopRecruit>
 </template>

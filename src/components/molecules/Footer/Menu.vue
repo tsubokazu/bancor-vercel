@@ -4,8 +4,8 @@
 </script>
 
 <template>
-  <div class="flex h-full w-full justify-center bg-bancor-navy300">
-    <div class="mt-14 flex h-full w-full max-w-[1200px] justify-between">
+  <div class="flex justify-center bg-bancor-navy300">
+    <div class="flex h-full w-full max-w-[1200px] justify-between pt-14">
       <div class="flex h-[174px] w-[242px] flex-col justify-between space-y-8">
         <AtomsLogo
           :logoUrl="footerObject.logoUrl"

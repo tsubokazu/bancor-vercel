@@ -48,6 +48,7 @@ module.exports = {
         'bancor-navy100': '#2C3345',
         'bancor-navy200': '#161F2E',
         'bancor-navy300': '#1B2434',
+        'bancor-navy400': '#15171d',
         'bancor-orange100': '#FFB426',
         'bancor-orange200': '#FF9B26',
         'bancor-blue100': '#3663FD',
@@ -91,6 +92,8 @@ module.exports = {
         'rouded-and-scale-rv': 'rouded-and-scale-rv 0.3s ease-out  both',
         'move-right': 'move-right 0.3s ease-out both',
         'move-right-rv': 'move-right-rv 0.3s ease-out both',
+        'move-underline': 'move-underline 0.3s ease-out both',
+        'move-underline-rv': 'move-underline-rv 0.3s ease-out both',
       },
       keyframes: {
         'hover-arrow-move-x': {
@@ -495,6 +498,22 @@ module.exports = {
           },
           'to': {
             transform: 'translateX(0px)',
+          },
+        },
+        'move-underline': {
+          '0%': {
+            transform: 'translateX(-224px)',
+          },
+          'to': {
+            transform: 'translateX(0px)',
+          },
+        },
+        'move-underline-rv': {
+          '0%': {
+            transform: 'translateX(0px)',
+          },
+          'to': {
+            transform: 'translateX(-224px)',
           },
         },
       },

@@ -82,12 +82,10 @@
 </script>
 
 <template>
-  <footer>
-    <MoleculesFooterContactMenus class="h-screen max-h-[320px] w-screen">
+  <footer class="h-full w-full">
+    <MoleculesFooterContactMenus class="h-screen max-h-[320px]">
     </MoleculesFooterContactMenus>
-    <MoleculesFooterMenu class="h-screen max-h-[300px] w-screen">
-      <AtomsBlank bgColor="bg-bancor-red200">フッターメニュー</AtomsBlank>
-    </MoleculesFooterMenu>
+    <MoleculesFooterMenu class="h-screen max-h-[300px]"></MoleculesFooterMenu>
     <AtomsCopyright>Bancor, Inc. </AtomsCopyright>
   </footer>
 </template>

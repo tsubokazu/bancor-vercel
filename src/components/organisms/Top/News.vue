@@ -1,6 +1,6 @@
 <template>
   <div class="flex h-screen max-h-[486px] justify-center">
-    <div class="mt-24 flex h-full w-full max-w-[1200px]">
+    <div class="flex h-full w-full max-w-[1200px]">
       <MoleculesTopNewsMenu></MoleculesTopNewsMenu>
       <MoleculesTopNewsPressRelease></MoleculesTopNewsPressRelease>
       <MoleculesTopNewsServiceNews></MoleculesTopNewsServiceNews>

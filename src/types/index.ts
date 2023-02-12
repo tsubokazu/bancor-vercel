@@ -1,3 +1,4 @@
+import { JournalList } from '~/types/Journal';
 export interface Notification {
   title: string;
   linkUrl: string;
@@ -71,15 +72,6 @@ export interface TopServiceObject {
   imageDefaultUrl: string;
   imageWelfareUrl: string;
   imageSystemUrl: string;
-}
-
-export interface JournalList {
-  category: string;
-  updateDate: string;
-  subject: string;
-  eyeCatchUrl: string;
-  bodyHTML: string;
-  hashTag: Array<string>;
 }
 
 export interface TopJournalObject {

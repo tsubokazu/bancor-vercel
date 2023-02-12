@@ -17,9 +17,9 @@
 
 <template>
   <div
-    class="relative flex h-screen max-h-[472px] w-screen items-center justify-center"
+    class="relative flex h-screen max-h-[472px] items-center justify-center pt-24"
   >
-    <div class="mt-24 flex h-full w-full max-w-[1200px] space-x-10">
+    <div class="flex h-full w-full max-w-[1200px] space-x-10">
       <MoleculesTopRecruitMenu class="w-[420px]"></MoleculesTopRecruitMenu>
     </div>
     <MoleculesTopRecruitImage class="absolute -z-10"></MoleculesTopRecruitImage>

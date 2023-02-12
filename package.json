@@ -31,6 +31,11 @@
     "@fortawesome/free-regular-svg-icons": "^6.2.1",
     "@fortawesome/free-solid-svg-icons": "^6.2.1",
     "@fortawesome/vue-fontawesome": "^3.0.3",
+    "@pinia/nuxt": "^0.4.6",
+    "pinia": "^2.0.30",
     "vue3-parallax": "^0.1.4"
+  },
+  "overrides": {
+    "vue": "latest"
   }
 }

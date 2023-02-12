@@ -117,17 +117,20 @@
     hoverIndex.value = -1;
     hoverAnimation.value = 'animate-scale-up-ver-top';
   };
+
+  const humbergerStore = useHumbergerStore();
 </script>
 
 <template>
   <nav @mouseleave="mouseLeaveAction()">
     <div
-      class="h-18 container mx-auto flex items-center justify-between rounded-lg bg-white px-12"
+      v-show="!humbergerStore.clickHumbergerFlag"
+      class="flex scale-x-95 items-center justify-between rounded-lg bg-white pr-4"
     >
       <div>
-        <AtomsLogo :logoUrl="logoUrl"></AtomsLogo>
+        <AtomsLogo :logoUrl="logoUrl" linkUrl="/"></AtomsLogo>
       </div>
-      <div class="flex items-center space-x-8">
+      <div class="flex items-center space-x-8 pr-16">
         <MoleculesUnderLineTextButton
           v-for="(menuObject, index) in menuObjects"
           :key="menuObject.linkName"
@@ -148,14 +151,25 @@
           textColor="text-white"
           >お問い合わせ</AtomsButtonOval
         >
-        <AtomsButtonHamburger></AtomsButtonHamburger>
       </div>
     </div>
     <OrganismsMegamenu
-      v-show="hoverFlag && hoverMenuObject.contents.length > 0"
+      v-show="
+        hoverFlag &&
+        hoverMenuObject.contents.length > 0 &&
+        !humbergerStore.clickHumbergerFlag
+      "
       class="relative top-2"
       :class="hoverAnimation"
       :menuObject="hoverMenuObject"
     ></OrganismsMegamenu>
+    <OrganismsSiteMenu
+      v-show="humbergerStore.clickHumbergerFlag"
+      class="fixed -top-3 left-0 z-10"
+    ></OrganismsSiteMenu>
+    <AtomsButtonHamburger
+      class="right-[48px] z-20"
+      :class="humbergerStore.humbergerPositionClass"
+    ></AtomsButtonHamburger>
   </nav>
 </template>
