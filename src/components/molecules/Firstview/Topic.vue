@@ -1,11 +1,13 @@
 <template>
   <div>
     <AtomsFirstviewTopicTitle
-      class="absolute -top-4 left-12 z-10"
+      class="absolute -top-4 left-2 z-10 tb:left-6 pc:left-12"
     ></AtomsFirstviewTopicTitle>
-    <AtomsFirstviewTopicOuterFrame class="flex flex-col space-y-2 px-12 pt-4">
+    <AtomsFirstviewTopicOuterFrame
+      class="flex flex-col space-y-2 pt-4 tb:px-6 pc:px-12"
+    >
       <AtomsFirstviewTopicInnerFrame
-        class="flex items-center justify-start pl-6"
+        class="relative flex items-center justify-start pl-6"
       >
         <AtomsFirstviewTopicNotification></AtomsFirstviewTopicNotification>
       </AtomsFirstviewTopicInnerFrame>

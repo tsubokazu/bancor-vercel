@@ -3,5 +3,5 @@
 </script>
 
 <template>
-  <img :src="imgUrl" class="h-28" />
+  <img :src="imgUrl" class="h-14 tb:h-28" />
 </template>

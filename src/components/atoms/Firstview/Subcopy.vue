@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <p class="text-base text-white">
+  <p class="text-sm text-white tb:text-base">
     {{ subcopy }}
   </p>
 </template>

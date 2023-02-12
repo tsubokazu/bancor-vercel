@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <p class="text-4.5xl text-white">
+  <p class="text-xl text-white tb:text-4.5xl">
     {{ copy }}
   </p>
 </template>

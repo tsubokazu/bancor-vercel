@@ -10,6 +10,10 @@ module.exports = {
     './src/app.vue',
   ],
   theme: {
+    screens: {
+      tb: '768px',
+      pc: '1280px',
+    },
     extend: {
       fontSize: {
         '4.5xl': ['40px', '40px'],

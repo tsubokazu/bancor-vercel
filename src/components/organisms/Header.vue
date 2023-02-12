@@ -138,9 +138,10 @@
           :hoverIndex="hoverIndex"
           :menuIndex="index"
           @mouseover="mouseOverAction(index)"
+          class="hidden pc:block"
           >{{ menuObject.title }}</MoleculesUnderLineTextButton
         >
-        <AtomsDivLine></AtomsDivLine>
+        <AtomsDivLine class="hidden pc:block"></AtomsDivLine>
         <AtomsButtonSearch></AtomsButtonSearch>
         <AtomsButtonOval
           linkName="/"
@@ -149,6 +150,7 @@
           fromColor="from-bancor-blue300"
           toColor="to-bancor-blue400"
           textColor="text-white"
+          class="hidden tb:block"
           >お問い合わせ</AtomsButtonOval
         >
       </div>
@@ -168,7 +170,7 @@
       class="fixed -top-3 left-0 z-10"
     ></OrganismsSiteMenu>
     <AtomsButtonHamburger
-      class="right-[48px] z-20"
+      class="right-[3.5%] z-20"
       :class="humbergerStore.humbergerPositionClass"
     ></AtomsButtonHamburger>
   </nav>
