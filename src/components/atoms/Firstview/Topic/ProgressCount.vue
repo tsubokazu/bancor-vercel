@@ -1,5 +1,5 @@
 <template>
-  <div class="relative h-full w-3">
+  <div class="relative flex h-3 w-3 items-center justify-center">
     <span
       class="absolute before:animate-progress-count1 before:text-base before:text-white before:content-['1']"
     ></span>
