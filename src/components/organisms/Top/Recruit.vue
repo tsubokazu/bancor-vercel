@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { TopRecruitObject } from '~/types';
+  import { TopRecruitObject } from '~/types/Top';
   const config = useRuntimeConfig();
   const baseUrl = config.public.kurocoApiUrl;
   const endpoint = config.public.kurocoTopRecruit;

@@ -4,7 +4,9 @@
 </script>
 
 <template>
-  <div class="ml-8 h-[486px] w-[412px] border-l border-gray-300 px-8">
+  <div
+    class="h-full w-full border-gray-300 px-4 tb:border-l pc:ml-8 pc:h-[486px] pc:w-[412px] pc:px-8"
+  >
     <div class="mb-3 flex justify-between">
       <div class="font-bold">{{ topNewsObject.serviceNewsListTitle }}</div>
       <MoleculesViewMoreButton

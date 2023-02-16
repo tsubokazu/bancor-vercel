@@ -1,6 +1,4 @@
 <script setup lang="ts">
-  import postcss from 'postcss';
-  import { JournalList } from '~/types/Journal';
   import {
     Notifications,
     PressReleaseListCards,
@@ -14,7 +12,6 @@
   const config = useRuntimeConfig();
   const baseUrl = config.public.kurocoApiUrl;
   const topEndpoint = config.public.kurocoTopEndpoint;
-  const journalEndpoint = config.public.kurocoJournalEndpoint;
   const { data: posts } = (await useFetch(`${baseUrl}${topEndpoint}`)) as any;
 
   provide<string>('firstviewImgUrl', posts.value.details.ext_1.url);
@@ -156,11 +153,11 @@
 </script>
 
 <template>
-  <OrganismsFirstview class="mb-[120px]"></OrganismsFirstview>
-  <!-- <OrganismsTopNews class="mb-[120px]"></OrganismsTopNews>
-  <OrganismsTopWelfare class="mb-[120px]"></OrganismsTopWelfare>
-  <OrganismsTopService class="mb-[120px]"></OrganismsTopService> -->
-  <!-- <OrganismsTopJournal class="mb-[120px]"></OrganismsTopJournal>
+  <OrganismsTopFirstview class="mb-[120px]"></OrganismsTopFirstview>
+  <OrganismsTopNews class="mb-[120px]"></OrganismsTopNews>
+  <!-- <OrganismsTopWelfare class="mb-[120px]"></OrganismsTopWelfare>
+  <OrganismsTopService class="mb-[120px]"></OrganismsTopService>
+  <OrganismsTopJournal class="mb-[120px]"></OrganismsTopJournal>
   <OrganismsTopVision class="mb-[120px]"></OrganismsTopVision> -->
   <OrganismsTopRecruit></OrganismsTopRecruit>
 </template>

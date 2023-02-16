@@ -5,8 +5,11 @@
 
 <template>
   <div class="flex h-24 w-full items-center border-b border-gray-200">
-    <div class="mr-4 h-[80px] w-[134px]">
-      <img class="rounded-xl object-cover" :src="Props.card.thumbnail" />
+    <div class="mr-4 h-[70px] w-[102px] pc:h-[80px] pc:w-[136px]">
+      <img
+        class="h-full w-full rounded-xl object-cover"
+        :src="Props.card.thumbnail"
+      />
     </div>
     <div class="flex h-20 w-[260px] flex-col space-y-3">
       <div class="flex items-center justify-start space-x-4">

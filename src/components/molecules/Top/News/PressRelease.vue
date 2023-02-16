@@ -4,14 +4,16 @@
 </script>
 
 <template>
-  <div class="ml-8 h-[486px] w-[412px] border-l border-gray-300 px-8">
+  <div
+    class="h-full w-full border-gray-300 px-4 pc:ml-8 pc:h-[486px] pc:w-[412px] pc:border-l pc:px-8"
+  >
     <div class="mb-3 flex justify-between">
       <div class="font-bold">{{ topNewsObject.pressReleaseListTitle }}</div>
       <MoleculesViewMoreButton
         :linkUrl="topNewsObject.pressReleaseListLinkUrl"
       ></MoleculesViewMoreButton>
     </div>
-    <div class="flex h-full w-full flex-col space-y-4">
+    <div class="flex h-fit w-fit flex-col space-y-4">
       <MoleculesArticleCard
         v-for="card in topNewsObject.pressReleaseListCards"
         :key="card.title"

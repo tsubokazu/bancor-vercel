@@ -1,5 +1,8 @@
 <script setup lang="ts">
-  const imgUrl = inject<string>('firstviewImgUrl');
+  import { TopFirstViewObject } from '~/types/Top';
+  const { imgUrl } = inject<TopFirstViewObject>(
+    'topFirstViewObject'
+  ) as TopFirstViewObject;
 </script>
 
 <template>
