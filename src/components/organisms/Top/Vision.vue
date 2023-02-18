@@ -1,10 +1,12 @@
 <template>
-  <div class="relative flex h-screen max-h-[380px] items-center justify-center">
-    <div class="flex h-full w-full max-w-[1200px] space-x-10">
+  <div
+    class="relative flex h-screen max-h-[380px] flex-col items-center justify-center tb:flex-row"
+  >
+    <div class="flex h-full w-11/12 space-x-10 pc:max-w-[1200px]">
       <MoleculesTopVisionMenu class="w-[420px]"></MoleculesTopVisionMenu>
     </div>
     <MoleculesTopVisionImage
-      class="absolute top-14 left-1/2 h-full w-[50%]"
+      class="absolute top-72 left-[10%] h-full w-[90%] tb:left-1/2 tb:top-14 tb:w-[50%]"
     ></MoleculesTopVisionImage>
   </div>
 </template>

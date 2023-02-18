@@ -19,7 +19,7 @@
   <div
     class="relative flex h-screen max-h-[472px] items-center justify-center pt-24"
   >
-    <div class="flex h-full w-full max-w-[1200px] space-x-10">
+    <div class="flex h-full w-11/12 space-x-10 pc:max-w-[1200px]">
       <MoleculesTopRecruitMenu class="w-[420px]"></MoleculesTopRecruitMenu>
     </div>
     <MoleculesTopRecruitImage class="absolute -z-10"></MoleculesTopRecruitImage>
