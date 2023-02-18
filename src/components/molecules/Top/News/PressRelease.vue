@@ -10,7 +10,7 @@
 
 <template>
   <div
-    class="h-full w-fit border-gray-300 px-4 pc:ml-8 pc:h-[486px] pc:w-[412px] pc:border-l pc:px-8"
+    class="h-full w-full border-gray-300 px-4 pc:ml-8 pc:h-[486px] pc:w-[412px] pc:border-l pc:px-8"
   >
     <div class="mb-3 flex justify-between">
       <div class="font-bold">{{ pressReleaseList[0].category }}</div>

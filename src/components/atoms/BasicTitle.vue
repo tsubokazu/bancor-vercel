@@ -6,7 +6,7 @@
   }
   const props = withDefaults(defineProps<Props>(), {
     color: 'text-bancor-black100',
-    size: 'text-[40px]',
+    size: 'text-[32px] tb:text-[40px]',
   });
   const titleTexts = props.text.split('\r\n');
 </script>

@@ -8,7 +8,7 @@
 <template>
   <div class="flex w-[388px] justify-between">
     <AtomsTopWelfareImage
-      class="translate-y-3"
+      class="mr-4 translate-y-3"
       :imgUrl="topWelfareObject.image01Url"
     ></AtomsTopWelfareImage>
     <AtomsTopWelfareImage

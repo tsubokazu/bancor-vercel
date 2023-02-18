@@ -3,12 +3,18 @@
 </script>
 
 <template>
-  <div class="flex h-screen max-h-[642px] justify-center">
-    <div class="flex h-full w-full max-w-[1200px] space-x-10">
-      <MoleculesTopWelfareMenu></MoleculesTopWelfareMenu>
-      <scroll-parallax direction="y">
-        <MoleculesTopWelfareImages></MoleculesTopWelfareImages>
-      </scroll-parallax>
+  <div class="flex h-full w-full justify-center pc:max-h-[642px]">
+    <div
+      class="relative flex h-full w-11/12 flex-col space-x-10 tb:flex-row pc:max-w-[1200px]"
+    >
+      <MoleculesTopWelfareMenu class="h-full w-full"></MoleculesTopWelfareMenu>
+      <div class="h-full w-full">
+        <ScrollParallax direction="y">
+          <MoleculesTopWelfareImages
+            class="-translate-y-72 tb:-translate-y-32"
+          ></MoleculesTopWelfareImages>
+        </ScrollParallax>
+      </div>
     </div>
   </div>
 </template>
