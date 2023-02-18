@@ -22,7 +22,7 @@
         {{ mainJournal.updateDate }}
       </div>
     </div>
-    <div class="text-[28px] font-bold">
+    <div class="text-[22px] font-bold pc:text-[28px]">
       {{ mainJournal.subject }}
     </div>
     <div class="flex items-center space-x-3">

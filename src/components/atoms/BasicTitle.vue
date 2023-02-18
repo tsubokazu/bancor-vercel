@@ -13,7 +13,7 @@
 
 <template>
   <div
-    class="flex flex-col space-y-5 text-[40px] font-bold"
+    class="flex flex-col space-y-5 font-bold"
     :class="[props.color, props.size]"
   >
     <div v-for="titleText in titleTexts" :key="titleText">

@@ -1,8 +1,10 @@
 <script setup lang="ts">
-  import { TopJournalObject } from '~/types';
-  const { journalList } = inject<TopJournalObject>(
-    'topJournalObject'
-  ) as TopJournalObject;
+  import { JournalObject } from '~/types/Journal'; // Bancor JournalをPiniaから取得
+  const journalStore = useJournalStore();
+  if (journalStore.journalList.length == 0) {
+    await journalStore.fetchJournals();
+  }
+  const { journalList } = journalStore;
   const journalNums = journalList.length;
   const journalListLeft =
     journalNums < 2
@@ -26,7 +28,7 @@
         :card="journal"
       ></MoleculesTopJournalListCard>
     </div>
-    <div class="flex h-full flex-col justify-between">
+    <div class="invisible flex h-full flex-col justify-between pc:visible">
       <MoleculesTopJournalListCard
         v-for="journal in journalListRight"
         :card="journal"

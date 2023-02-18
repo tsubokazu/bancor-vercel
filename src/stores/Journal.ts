@@ -22,7 +22,7 @@ export const useJournalStore = defineStore('journal', () => {
       journalList.value = journals.value.list.map(
         (journal: any): JournalObject => ({
           topicsId: journal.topics_id,
-          category: journal.ext_1,
+          category: journal.ext_1.key,
           updateDate: journal.update_ymdhi.split('T')[0].replaceAll('-', '.'),
           subject: journal.subject,
           eyeCatchUrl: journal.ext_2.url,
