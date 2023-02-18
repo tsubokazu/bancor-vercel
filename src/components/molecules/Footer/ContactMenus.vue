@@ -6,7 +6,7 @@
 </script>
 
 <template>
-  <div class="flex">
+  <div class="flex flex-col tb:flex-row">
     <MoleculesFooterContactMenu
       v-for="obj in footerContactMenuObjects"
       :obj="obj"

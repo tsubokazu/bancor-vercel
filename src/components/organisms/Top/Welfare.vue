@@ -5,7 +5,7 @@
 <template>
   <div class="flex h-full w-full justify-center pc:max-h-[642px]">
     <div
-      class="relative flex h-full w-11/12 flex-col space-x-10 tb:flex-row pc:max-w-[1200px]"
+      class="relative flex h-full w-11/12 flex-col tb:flex-row tb:space-x-10 pc:max-w-[1200px]"
     >
       <MoleculesTopWelfareMenu class="h-full w-full"></MoleculesTopWelfareMenu>
       <div class="h-full w-full">

@@ -83,9 +83,13 @@
 
 <template>
   <footer class="h-full w-full">
-    <MoleculesFooterContactMenus class="h-screen max-h-[320px]">
+    <MoleculesFooterContactMenus
+      class="h-screen max-h-[500px] tb:max-h-[320px]"
+    >
     </MoleculesFooterContactMenus>
-    <MoleculesFooterMenu class="h-screen max-h-[300px]"></MoleculesFooterMenu>
+    <MoleculesFooterMenu
+      class="h-screen max-h-[520px] tb:max-h-[300px]"
+    ></MoleculesFooterMenu>
     <AtomsCopyright>Bancor, Inc. </AtomsCopyright>
   </footer>
 </template>

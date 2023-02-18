@@ -17,11 +17,13 @@
 
 <template>
   <div
-    class="relative flex h-screen max-h-[472px] items-center justify-center pt-24"
+    class="relative flex h-screen max-h-[340px] items-center justify-center pt-24 pc:max-h-[472px]"
   >
     <div class="flex h-full w-11/12 space-x-10 pc:max-w-[1200px]">
       <MoleculesTopRecruitMenu class="w-[420px]"></MoleculesTopRecruitMenu>
     </div>
-    <MoleculesTopRecruitImage class="absolute -z-10"></MoleculesTopRecruitImage>
+    <MoleculesTopRecruitImage
+      class="absolute -z-10 h-full w-full"
+    ></MoleculesTopRecruitImage>
   </div>
 </template>

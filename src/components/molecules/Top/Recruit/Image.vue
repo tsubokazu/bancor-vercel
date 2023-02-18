@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { TopRecruitObject } from '~/types';
+  import { TopRecruitObject } from '~/types/Top';
   const topRecruitObject = inject<TopRecruitObject>(
     'topRecruitObject'
   ) as TopRecruitObject;

@@ -21,9 +21,9 @@
       @mouseover="mouseOverAction()"
       @mouseleave="mouseLeaveAction()"
     >
-      <AtomsFooterContactMenuBacgroundFilter
+      <AtomsFooterContactMenuBackgroundFilter
         :class="hoverBgAnimation"
-      ></AtomsFooterContactMenuBacgroundFilter>
+      ></AtomsFooterContactMenuBackgroundFilter>
       <AtomsBasicBackground :imgUrl="props.obj.imgUrl"></AtomsBasicBackground>
       <div
         class="flex h-full w-full flex-col items-center justify-center space-y-3"

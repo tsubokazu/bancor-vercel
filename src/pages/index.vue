@@ -69,5 +69,5 @@
   <OrganismsTopService class="mb-[120px]"></OrganismsTopService>
   <OrganismsTopJournal class="mb-[120px]"></OrganismsTopJournal>
   <OrganismsTopVision class="mb-[120px]"></OrganismsTopVision>
-  <OrganismsTopRecruit></OrganismsTopRecruit>
+  <OrganismsTopRecruit class="mb-[48px]"></OrganismsTopRecruit>
 </template>

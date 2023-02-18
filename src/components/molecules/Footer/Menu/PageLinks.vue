@@ -7,7 +7,9 @@
 </script>
 
 <template>
-  <div class="flex flex-wrap rounded-lg bg-bancor-navy200 py-8 px-10">
+  <div
+    class="flex flex-col flex-wrap rounded-lg bg-bancor-navy200 py-8 px-10 tb:flex-row"
+  >
     <AtomsLinkTitle
       v-for="obj in props.pageLinkObjects"
       color="text-white"
