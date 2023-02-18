@@ -25,6 +25,7 @@ export const useNewsStore = defineStore('news', () => {
         (news: any): NewsObject => ({
           topicsId: news.topics_id,
           category: news.ext_1.key,
+          label: news.ext_1.label,
           updateDate: news.update_ymdhi.split('T')[0].replaceAll('-', '.'),
           subject: news.subject,
           eyeCatchUrl: news.ext_2.url,

@@ -5,18 +5,11 @@ export interface TopTopicNotificationList {
   notificationList: Array<NewsObject>;
 }
 
-export interface TopNewsCard {
-  title: string;
-  tag: string;
-  thumbnail: string;
-  updateAt: string;
+export interface TopPressReleaseList {
+  pressReleaseList: Array<NewsObject>;
 }
-
-export interface TopNewsCardList {
-  TopNewsCard01: TopNewsCard;
-  TopNewsCard02: TopNewsCard;
-  TopNewsCard03: TopNewsCard;
-  TopNewsCard04: TopNewsCard;
+export interface TopServiceNewsList {
+  serviceNewsList: Array<NewsObject>;
 }
 
 export interface TopNewsObject {
@@ -24,10 +17,10 @@ export interface TopNewsObject {
   linkUrl: string;
   pressReleaseListTitle: string;
   pressReleaseListLinkUrl: string;
-  pressReleaseList: TopNewsCardList;
+  pressReleaseList: TopPressReleaseList;
   serviceNewsListTitle: string;
   serviceNewsListLinkUrl: string;
-  serviceNewsList: TopNewsCardList;
+  serviceNewsList: TopServiceNewsList;
 }
 
 export interface TopWelfareObject {

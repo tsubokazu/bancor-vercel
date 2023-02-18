@@ -1,6 +1,6 @@
 <script setup lang="ts">
-  import { ServiceNewsListCard } from '~/types';
-  const Props = defineProps<{ card: ServiceNewsListCard }>();
+  import { NewsObject } from '~/types/News';
+  const props = defineProps<{ card: NewsObject }>();
 </script>
 
 <template>
@@ -8,16 +8,16 @@
     <div class="mr-4 h-[70px] w-[102px] pc:h-[80px] pc:w-[136px]">
       <img
         class="h-full w-full rounded-xl object-cover"
-        :src="Props.card.thumbnail"
+        :src="props.card.eyeCatchUrl"
       />
     </div>
     <div class="flex h-20 w-[260px] flex-col space-y-3">
       <div class="flex items-center justify-start space-x-4">
-        <div class="text-xs text-bancor-blue100">{{ Props.card.tag }}</div>
+        <div class="text-xs text-bancor-blue100">{{ props.card.label }}</div>
         <div class="h-2 w-px bg-gray-400"></div>
-        <div class="text-xs">{{ Props.card.updateAt }}</div>
+        <div class="text-xs">{{ props.card.updateDate }}</div>
       </div>
-      <div class="text-xs">{{ Props.card.title }}</div>
+      <div class="text-xs">{{ props.card.subject }}</div>
     </div>
   </div>
 </template>
