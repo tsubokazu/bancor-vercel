@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="flex h-[calc(100vh_+_12px)] w-full justify-center bg-bancor-navy300"
-  >
+  <div class="flex h-fit w-full justify-center bg-bancor-navy300">
     <AtomsLogo
       linkUrl="/"
       logoUrl="/logo-white.png"

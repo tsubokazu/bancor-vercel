@@ -1,6 +1,6 @@
 <script setup lang="ts">
-  import { JournalList } from '~/types/Journal';
-  const Props = defineProps<{ card: JournalList }>();
+  import { JournalObject } from '~/types/Journal';
+  const Props = defineProps<{ card: JournalObject }>();
 </script>
 
 <template>

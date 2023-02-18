@@ -1,12 +1,12 @@
 <script setup lang="ts">
-  import { JournalList } from '~/types/Journal';
+  import { JournalObject } from '~/types/Journal';
   // Bancor JournalをPiniaから取得
   const journalStore = useJournalStore();
   if (journalStore.journalList.length == 0) {
     await journalStore.fetchJournals();
   }
   const { pickupList } = journalStore;
-  const journalList: Array<JournalList> = pickupList;
+  const journalList: Array<JournalObject> = pickupList;
   const journalNums = journalList.length;
   const journalListOthers =
     journalNums < 2

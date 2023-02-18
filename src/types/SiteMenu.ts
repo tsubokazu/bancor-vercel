@@ -1,4 +1,4 @@
-import { JournalList } from '~/types/Journal';
+import { JournalObject } from '~/types/Journal';
 
 export interface LinkObject {
   title: string;
@@ -25,7 +25,7 @@ export interface ServiceObject {
 
 export interface PickupObject {
   title: string;
-  newsList: Array<JournalList>;
+  newsList: Array<JournalObject>;
 }
 
 export interface SiteMenuObject {

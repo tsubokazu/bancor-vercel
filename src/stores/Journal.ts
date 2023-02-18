@@ -1,4 +1,4 @@
-import { JournalList } from '~/types/Journal';
+import { JournalObject } from '~/types/Journal';
 
 export const useJournalStore = defineStore('journal', () => {
   // Bancor Journalの記事をKurocoから取得
@@ -9,7 +9,7 @@ export const useJournalStore = defineStore('journal', () => {
   const fetchJournals = async () => {
     const config = useRuntimeConfig();
     const baseUrl = config.public.kurocoApiUrl;
-    const journalEndpoint = config.public.kurocoJournalEndpoint;
+    const journalEndpoint = config.public.kurocoJournal;
     const { data, error } = (await useFetch(
       `${baseUrl}${journalEndpoint}`
     )) as any;
@@ -20,7 +20,8 @@ export const useJournalStore = defineStore('journal', () => {
 
       // 取得したデータを型に当てはめる
       journalList.value = journals.value.list.map(
-        (journal: any): JournalList => ({
+        (journal: any): JournalObject => ({
+          topicsId: journal.topics_id,
           category: journal.ext_1,
           updateDate: journal.update_ymdhi.split('T')[0].replaceAll('-', '.'),
           subject: journal.subject,

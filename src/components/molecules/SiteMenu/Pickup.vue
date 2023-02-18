@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { JournalList } from '~/types/Journal';
+  import { JournalObject } from '~/types/Journal';
   import { PickupObject } from '~/types/SiteMenu';
   // Bancor JournalをPiniaから取得
   const journalStore = useJournalStore();
@@ -7,7 +7,7 @@
     await journalStore.fetchJournals();
   }
   const { pickupList } = journalStore;
-  const newsList: Array<JournalList> = pickupList;
+  const newsList: Array<JournalObject> = pickupList;
   const pickupObjects: PickupObject = {
     title: '編集部ピックアップ',
     newsList: newsList,

@@ -1,8 +1,6 @@
 <script setup lang="ts">
   import {
-    Notifications,
-    PressReleaseListCards,
-    ServiceNewsListCards,
+    TopNewsCardList,
     TopNewsObject,
     TopWelfareObject,
     TopServiceObject,
@@ -18,47 +16,27 @@
   provide<string>('firstviewCatchCopyUrl', posts.value.details.ext_2.url);
   provide<string>('firstviewCopy', posts.value.details.ext_3);
   provide<string>('firstviewSubcopy', posts.value.details.ext_4);
-  const notifications: Notifications = {
-    notification01: {
-      title: '新商品「X」の販売開始のお知らせ',
-      linkUrl: '/news',
-    },
-    notification02: { title: '会社名変更のお知らせ', linkUrl: '/news' },
-    notification03: {
-      title: '最新の取締役会議の結果について',
-      linkUrl: '/news',
-    },
-    notification04: {
-      title: '2022年第四四半期決算発表のお知らせ',
-      linkUrl: '/news',
-    },
-    notification05: {
-      title: '経営戦略に大きな変革を迎えるお知らせ',
-      linkUrl: '/news',
-    },
-  };
-  provide<Notifications>('firstviewNotifications', notifications);
 
-  const pressReleaseListCards: PressReleaseListCards = {
-    pressReleaseListCard01: {
+  const pressReleaseListCards: TopNewsCardList = {
+    TopNewsCard01: {
       title: '新しいパートナーシップを結ぶ',
       tag: 'プレスリリース',
       thumbnail: '/pressRelease01.jpg',
       updateAt: '2023.01.23',
     },
-    pressReleaseListCard02: {
+    TopNewsCard02: {
       title: '新製品/サービスの発表',
       tag: 'プレスリリース',
       thumbnail: '/pressRelease02.jpg',
       updateAt: '2023.01.22',
     },
-    pressReleaseListCard03: {
+    TopNewsCard03: {
       title: '株式上場を決定',
       tag: 'プレスリリース',
       thumbnail: '/pressRelease03.jpg',
       updateAt: '2023.01.21',
     },
-    pressReleaseListCard04: {
+    TopNewsCard04: {
       title: '大規模な拡張計画を発表',
       tag: 'プレスリリース',
       thumbnail: '/pressRelease04.jpg',
@@ -66,26 +44,26 @@
     },
   };
 
-  const serviceNewsListCards: ServiceNewsListCards = {
-    serviceNewsListCard01: {
+  const serviceNewsListCards: TopNewsCardList = {
+    TopNewsCard01: {
       title: '企業が成長を促進するための新しいアプローチ',
       tag: 'ニュース',
       thumbnail: '/serviceNews01.jpg',
       updateAt: '2023.01.23',
     },
-    serviceNewsListCard02: {
+    TopNewsCard02: {
       title: '知識を使って企業の財政状況を改善しよう',
       tag: 'ニュース',
       thumbnail: '/serviceNews02.jpg',
       updateAt: '2023.01.22',
     },
-    serviceNewsListCard03: {
+    TopNewsCard03: {
       title: '新しい市場への飛躍を確実にするための戦略',
       tag: 'ニュース',
       thumbnail: '/serviceNews03.jpg',
       updateAt: '2023.01.21',
     },
-    serviceNewsListCard04: {
+    TopNewsCard04: {
       title: '最新のイノベーションを活用して新しい製品やサービスを開発する',
       tag: 'ニュース',
       thumbnail: '/serviceNews04.jpg',
@@ -98,10 +76,10 @@
     linkUrl: posts.value.details.ext_6,
     pressReleaseListTitle: posts.value.details.ext_7,
     pressReleaseListLinkUrl: posts.value.details.ext_8,
-    pressReleaseListCards: pressReleaseListCards,
+    pressReleaseList: pressReleaseListCards,
     serviceNewsListTitle: posts.value.details.ext_9,
     serviceNewsListLinkUrl: posts.value.details.ext_10,
-    serviceNewsListCards: serviceNewsListCards,
+    serviceNewsList: serviceNewsListCards,
   };
   provide<TopNewsObject>('topNewsObject', topNewsObject);
 
@@ -155,9 +133,9 @@
 <template>
   <OrganismsTopFirstview class="mb-[120px]"></OrganismsTopFirstview>
   <OrganismsTopNews class="mb-[120px]"></OrganismsTopNews>
-  <!-- <OrganismsTopWelfare class="mb-[120px]"></OrganismsTopWelfare>
+  <OrganismsTopWelfare class="mb-[120px]"></OrganismsTopWelfare>
   <OrganismsTopService class="mb-[120px]"></OrganismsTopService>
   <OrganismsTopJournal class="mb-[120px]"></OrganismsTopJournal>
-  <OrganismsTopVision class="mb-[120px]"></OrganismsTopVision> -->
+  <OrganismsTopVision class="mb-[120px]"></OrganismsTopVision>
   <OrganismsTopRecruit></OrganismsTopRecruit>
 </template>

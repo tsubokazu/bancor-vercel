@@ -1,43 +1,22 @@
-import { JournalList } from '~/types/Journal';
-export interface Notification {
-  title: string;
-  linkUrl: string;
+import { JournalObject } from '~/types/Journal';
+import { NewsObject } from '~/types/News';
+
+export interface TopTopicNotificationList {
+  notificationList: Array<NewsObject>;
 }
 
-export interface Notifications {
-  notification01: Notification;
-  notification02: Notification;
-  notification03: Notification;
-  notification04: Notification;
-  notification05: Notification;
-}
-
-export interface PressReleaseListCard {
+export interface TopNewsCard {
   title: string;
   tag: string;
   thumbnail: string;
   updateAt: string;
 }
 
-export interface PressReleaseListCards {
-  pressReleaseListCard01: PressReleaseListCard;
-  pressReleaseListCard02: PressReleaseListCard;
-  pressReleaseListCard03: PressReleaseListCard;
-  pressReleaseListCard04: PressReleaseListCard;
-}
-
-export interface ServiceNewsListCard {
-  title: string;
-  tag: string;
-  thumbnail: string;
-  updateAt: string;
-}
-
-export interface ServiceNewsListCards {
-  serviceNewsListCard01: ServiceNewsListCard;
-  serviceNewsListCard02: ServiceNewsListCard;
-  serviceNewsListCard03: ServiceNewsListCard;
-  serviceNewsListCard04: ServiceNewsListCard;
+export interface TopNewsCardList {
+  TopNewsCard01: TopNewsCard;
+  TopNewsCard02: TopNewsCard;
+  TopNewsCard03: TopNewsCard;
+  TopNewsCard04: TopNewsCard;
 }
 
 export interface TopNewsObject {
@@ -45,10 +24,10 @@ export interface TopNewsObject {
   linkUrl: string;
   pressReleaseListTitle: string;
   pressReleaseListLinkUrl: string;
-  pressReleaseListCards: PressReleaseListCards;
+  pressReleaseList: TopNewsCardList;
   serviceNewsListTitle: string;
   serviceNewsListLinkUrl: string;
-  serviceNewsListCards: ServiceNewsListCards;
+  serviceNewsList: TopNewsCardList;
 }
 
 export interface TopWelfareObject {
@@ -76,7 +55,7 @@ export interface TopServiceObject {
 
 export interface TopJournalObject {
   title: string;
-  journalList: Array<JournalList>;
+  journalList: Array<JournalObject>;
 }
 
 export interface TopVisionObject {
