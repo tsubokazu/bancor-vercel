@@ -1,6 +1,5 @@
 <script setup lang="ts">
   import {
-    TopNewsObject,
     TopWelfareObject,
     TopServiceObject,
     TopJournalObject,

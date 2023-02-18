@@ -29,7 +29,9 @@
 <template>
   <div class="h-full w-full" @mouseleave="mouseLeaveAction()">
     <div class="relative h-full w-full">
-      <div class="absolute z-0 flex h-full w-full">
+      <div
+        class="absolute z-0 flex h-[800px] w-full flex-col tb:h-[400px] tb:flex-row"
+      >
         <MoleculesTopServiceContent
           :title="topServiceObject.welfareTitle"
           :linkUrl="topServiceObject.welfareLinkUrl"
@@ -43,9 +45,10 @@
           :onFlag="onHoverFlagSystem"
         ></MoleculesTopServiceContent>
       </div>
-      <div
-        class="h-full w-full before:absolute before:-z-10 before:block before:h-full before:w-full before:bg-gradient-to-t before:from-black before:to-gray-500 before:opacity-70 before:content-['']"
-      >
+      <div class="h-[800px] w-full tb:h-[400px]">
+        <div
+          class="absolute -z-10 block h-[800px] w-full bg-gradient-to-t from-black to-gray-500 opacity-70 content-[''] tb:h-[400px]"
+        ></div>
         <Transition
           enter-active-class="transition-opacity duration-500"
           enter-from-class="opacity-0"

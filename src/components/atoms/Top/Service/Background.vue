@@ -7,7 +7,7 @@
 <template>
   <div class="absolute h-full w-full">
     <img
-      class="absolute -z-20 h-full w-full object-cover"
+      class="absolute -z-20 h-[800px] w-full object-cover tb:h-[400px]"
       :src="Props.imgUrl"
     />
   </div>

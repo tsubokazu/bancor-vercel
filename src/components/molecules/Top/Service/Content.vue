@@ -13,7 +13,7 @@
 
 <template>
   <div
-    class="relative h-full w-1/2 space-y-5 border-r border-bancor-gray800 px-9 pt-12"
+    class="relative h-[400px] w-full space-y-5 border-b border-bancor-gray800 px-9 pt-12 tb:w-1/2 tb:border-b-0 tb:border-r"
   >
     <AtomsTopServiceTitle :text="Props.title"></AtomsTopServiceTitle>
     <AtomsTopServiceLine></AtomsTopServiceLine>

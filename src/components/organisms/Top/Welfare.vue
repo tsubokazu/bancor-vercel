@@ -9,9 +9,9 @@
     >
       <MoleculesTopWelfareMenu class="h-full w-full"></MoleculesTopWelfareMenu>
       <div class="h-full w-full">
-        <ScrollParallax direction="y">
+        <ScrollParallax :speed="0.05" direction="y">
           <MoleculesTopWelfareImages
-            class="-translate-y-72 tb:-translate-y-32"
+            class="-translate-y-12 tb:-translate-y-8 pc:translate-y-0"
           ></MoleculesTopWelfareImages>
         </ScrollParallax>
       </div>
