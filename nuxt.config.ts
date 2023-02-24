@@ -36,6 +36,7 @@ export default defineNuxtConfig({
       kurocoTopJournal: process.env.KUROCO_TOP_JOURNAL,
       kurocoTopVision: process.env.KUROCO_TOP_VISION,
       kurocoTopRecruit: process.env.KUROCO_TOP_RECRUIT,
+      kurocoEditor: process.env.KUROCO_EDITOR,
     },
   },
 });

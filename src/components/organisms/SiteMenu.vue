@@ -1,9 +1,11 @@
 <template>
-  <div class="flex h-fit w-full justify-center bg-bancor-navy300">
+  <div
+    class="flex h-auto w-full justify-center overflow-auto bg-bancor-navy300"
+  >
     <AtomsLogo
       linkUrl="/"
       logoUrl="/logo-white.png"
-      class="absolute top-[33px] left-[31px]"
+      class="absolute top-8 left-1 pc:top-[33px] pc:left-[31px]"
     ></AtomsLogo>
     <div
       class="flex h-full max-h-[1200px] w-full max-w-[1200px] flex-col flex-wrap items-center pt-24"

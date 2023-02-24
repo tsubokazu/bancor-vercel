@@ -11,29 +11,31 @@
 </script>
 
 <template>
-  <div class="h-fit w-3/5 space-y-3">
-    <AtomsTopJournalMainImage
-      :imgUrl="mainJournal.eyeCatchUrl"
-    ></AtomsTopJournalMainImage>
-    <div class="flex items-center space-x-3">
-      <div class="text-[12px] font-bold text-bancor-orange100">
-        {{ mainJournal.category }}
+  <NuxtLink :to="`/journal/${mainJournal.topicsId}`">
+    <div class="h-fit w-3/5 space-y-3">
+      <AtomsTopJournalMainImage
+        :imgUrl="mainJournal.eyeCatchUrl"
+      ></AtomsTopJournalMainImage>
+      <div class="flex items-center space-x-3">
+        <div class="text-[12px] font-bold text-bancor-orange100">
+          {{ mainJournal.category }}
+        </div>
+        <div class="h-[12px] w-px bg-bancor-gray100"></div>
+        <div class="text-[12px] text-bancor-gray100">
+          {{ mainJournal.updateDate }}
+        </div>
       </div>
-      <div class="h-[12px] w-px bg-bancor-gray100"></div>
-      <div class="text-[12px] text-bancor-gray100">
-        {{ mainJournal.updateDate }}
+      <div class="text-[14px] font-bold text-white">
+        {{ mainJournal.subject }}
       </div>
-    </div>
-    <div class="text-[14px] font-bold text-white">
-      {{ mainJournal.subject }}
-    </div>
-    <div class="flex items-center space-x-3">
-      <div
-        class="text-[10px] font-bold text-bancor-gray100"
-        v-for="tag in mainJournal.hashTag"
-      >
-        {{ `#${tag}` }}
+      <div class="flex items-center space-x-3">
+        <div
+          class="text-[10px] font-bold text-bancor-gray100"
+          v-for="tag in mainJournal.hashTag"
+        >
+          {{ `#${tag}` }}
+        </div>
       </div>
-    </div>
-  </div>
+    </div></NuxtLink
+  >
 </template>

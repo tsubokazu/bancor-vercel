@@ -8,4 +8,5 @@ export interface JournalObject {
   hashTag: Array<string>;
   isPickup: boolean;
   pvCount: number;
+  editorId: number;
 }

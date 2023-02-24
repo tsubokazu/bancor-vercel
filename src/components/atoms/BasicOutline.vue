@@ -11,7 +11,7 @@
 </script>
 
 <template>
-  <div class="font-bold" :class="[props.size, props.color]">
+  <div class="text-bancorbla font-bold" :class="[props.size, props.color]">
     {{ props.text }}
   </div>
 </template>

@@ -49,6 +49,7 @@ module.exports = {
         'bancor-gray800': '#EAEAEA',
         'bancor-gray900': '#272727',
         'bancor-gray1000': '#FAFAFA',
+        'bancor-gray1100': '#F7F7F7',
         'bancor-navy100': '#2C3345',
         'bancor-navy200': '#161F2E',
         'bancor-navy300': '#1B2434',
@@ -61,6 +62,7 @@ module.exports = {
         'bancor-blue400': '#021b79',
         'bancor-black100': '#020202',
         'bancor-black200': '#2E2E2E',
+        'bancor-black300': '#070c12',
       },
       animation: {
         'scale-up-ver-top': 'scale-up-ver-top 0.3s ease-in-out both',
@@ -523,5 +525,5 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/typography')],
 };

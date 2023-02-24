@@ -7,4 +7,5 @@ export interface NewsObject {
   eyeCatchUrl: string;
   bodyHTML: string;
   pvCount: number;
+  editorId: number;
 }

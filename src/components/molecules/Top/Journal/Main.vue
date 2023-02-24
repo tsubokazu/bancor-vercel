@@ -5,33 +5,35 @@
   ) as TopJournalObject;
 
   const mainJournal = journalList[0];
-  console.log(`mainJournal: ${mainJournal}`);
+  const mainJournalLinkUrl = `/journal/${mainJournal.topicsId}`;
 </script>
 
 <template>
-  <div class="h-full w-full space-y-3">
-    <AtomsTopJournalMainImage
-      :imgUrl="mainJournal.eyeCatchUrl"
-    ></AtomsTopJournalMainImage>
-    <div class="flex items-center space-x-3">
-      <div class="text-[17px] font-bold text-bancor-blue100">
-        {{ mainJournal.category }}
+  <NuxtLink :to="mainJournalLinkUrl">
+    <div class="h-full w-full space-y-3">
+      <AtomsTopJournalMainImage
+        :imgUrl="mainJournal.eyeCatchUrl"
+      ></AtomsTopJournalMainImage>
+      <div class="flex items-center space-x-3">
+        <div class="text-[17px] font-bold text-bancor-blue100">
+          {{ mainJournal.category }}
+        </div>
+        <div class="h-[17px] w-px bg-bancor-gray500"></div>
+        <div class="text-base text-bancor-black100">
+          {{ mainJournal.updateDate }}
+        </div>
       </div>
-      <div class="h-[17px] w-px bg-bancor-gray500"></div>
-      <div class="text-base text-bancor-black100">
-        {{ mainJournal.updateDate }}
+      <div class="text-[22px] font-bold pc:text-[28px]">
+        {{ mainJournal.subject }}
+      </div>
+      <div class="flex items-center space-x-3">
+        <div
+          class="text-[14px] font-bold text-gray-600"
+          v-for="tag in mainJournal.hashTag"
+        >
+          {{ `#${tag}` }}
+        </div>
       </div>
     </div>
-    <div class="text-[22px] font-bold pc:text-[28px]">
-      {{ mainJournal.subject }}
-    </div>
-    <div class="flex items-center space-x-3">
-      <div
-        class="text-[14px] font-bold text-gray-600"
-        v-for="tag in mainJournal.hashTag"
-      >
-        {{ `#${tag}` }}
-      </div>
-    </div>
-  </div>
+  </NuxtLink>
 </template>
