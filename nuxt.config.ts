@@ -37,9 +37,12 @@ export default defineNuxtConfig({
       kurocoTopVision: process.env.KUROCO_TOP_VISION, // TOPページ（ビジョン）
       kurocoTopRecruit: process.env.KUROCO_TOP_RECRUIT, // TOPページ（採用）
       kurocoEditor: process.env.KUROCO_EDITOR, // 編集者メンバー
-      kurocoPagesService: process.env.KUROCO_PAGES_SERVEICE, // 会社案内ページ
-      kurocoPagesCompanyInfo: process.env.KUROCO_PAGES_COMPANY_INFO, // 事業内容ページ
+      kurocoPagesService: process.env.KUROCO_PAGES_SERVEICE, // 事業内容ページ
+      kurocoPagesCompanyInfo: process.env.KUROCO_PAGES_COMPANY_INFO, // 会社案内ページ
       kurocoPagesMoreAbourBancor: process.env.KUROCO_PAGES_MORE_ABOUT_BANCOR, // Bancor取組内容
+      kurocoPagesCompanyProfile: process.env.KUROCO_PAGES_COMPANY_PROFILE, // 会社概要ページ
+      kurocoPagesMessage: process.env.KUROCO_PAGES_MESSAGE, // 会社概要ページ
+      googleMapApiKey: process.env.GOOGLE_MAP_API_KEY, // GoogleMapのAPIキー
     },
   },
 });

@@ -3,15 +3,26 @@
     text: string;
     size?: string;
     color?: string;
+    isBold?: boolean;
+    spaceY?: string;
   }
   const props = withDefaults(defineProps<Props>(), {
     size: 'text-base',
     color: 'text-bancor-black100',
+    isBold: true,
+    spaceY: 'space-y-1',
   });
+
+  const titleTexts = ref(props.text.split('\r\n'));
 </script>
 
 <template>
-  <div class="text-bancorbla font-bold" :class="[props.size, props.color]">
-    {{ props.text }}
+  <div
+    class="text-bancorbla"
+    :class="[props.size, props.color, { 'font-bold': isBold }, spaceY]"
+  >
+    <div v-for="titleText in titleTexts" :key="titleText">
+      {{ titleText }}
+    </div>
   </div>
 </template>

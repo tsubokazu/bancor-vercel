@@ -34,6 +34,7 @@
     "@fortawesome/vue-fontawesome": "^3.0.3",
     "@pinia/nuxt": "^0.4.6",
     "pinia": "^2.0.30",
+    "vue3-google-map": "^0.15.0",
     "vue3-parallax": "^0.1.4"
   },
   "overrides": {
