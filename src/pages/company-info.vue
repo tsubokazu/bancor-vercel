@@ -27,11 +27,11 @@
         class="absolute -top-32 flex w-full flex-col space-y-3 pc:max-w-[1100px]"
       >
         <div class="text-base text-white">{{ header.title }}</div>
-        <AtomsItalicText
+        <AtomsFuturaItalicText
           :text="header.subTitle"
           color="text-white"
           size="text-[40px]"
-        ></AtomsItalicText>
+        ></AtomsFuturaItalicText>
       </div>
 
       <!-- ミッション -->
@@ -66,11 +66,11 @@
       <div class="flex w-full justify-between pc:max-w-[1100px]">
         <!-- メッセージ -->
         <div class="flex w-[470px] flex-col">
-          <AtomsItalicText
+          <AtomsFuturaItalicText
             class="mb-16"
             :text="defendJapan.subTitle"
             size="text-[60px]"
-          ></AtomsItalicText>
+          ></AtomsFuturaItalicText>
           <AtomsBasicTitle
             class="mb-8"
             :text="defendJapan.title"

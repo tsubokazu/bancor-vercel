@@ -20,11 +20,11 @@
       :frontSquareColor="props.frontSquareColor"
       :backSquareColor="props.backSquareColor"
     ></AtomsDoubleSquare>
-    <AtomsItalicText
+    <AtomsFuturaItalicText
       :text="text"
       :color="textColor"
       :size="textSize"
       :isBold="isBold"
-    ></AtomsItalicText>
+    ></AtomsFuturaItalicText>
   </div>
 </template>

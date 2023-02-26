@@ -32,6 +32,7 @@ module.exports = {
           'sans-serif',
         ],
         futuraMediumItalic: ['futura medium italic'],
+        futuraBold: ['futura bold'],
       },
       colors: {
         'bancor-light-blue100': '#F2F7FF',

@@ -35,11 +35,11 @@
         class="absolute -top-32 flex w-full flex-col space-y-3 pc:max-w-[1000px]"
       >
         <div class="text-base text-white">{{ header.title }}</div>
-        <AtomsItalicText
+        <AtomsFuturaItalicText
           :text="header.subTitle"
           color="text-white"
           size="text-[40px]"
-        ></AtomsItalicText>
+        ></AtomsFuturaItalicText>
       </div>
 
       <!-- メインメッセージ -->

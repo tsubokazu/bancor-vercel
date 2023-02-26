@@ -42,6 +42,7 @@ export default defineNuxtConfig({
       kurocoPagesMoreAbourBancor: process.env.KUROCO_PAGES_MORE_ABOUT_BANCOR, // Bancor取組内容
       kurocoPagesCompanyProfile: process.env.KUROCO_PAGES_COMPANY_PROFILE, // 会社概要ページ
       kurocoPagesMessage: process.env.KUROCO_PAGES_MESSAGE, // 会社概要ページ
+      kurocoPagesVision: process.env.KUROCO_PAGES_VISION, // 会社概要ページ
       googleMapApiKey: process.env.GOOGLE_MAP_API_KEY, // GoogleMapのAPIキー
     },
   },
