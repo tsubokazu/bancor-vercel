@@ -19,14 +19,7 @@
         {{ props.card.subject }}
       </div>
       <!-- ハッシュタグ -->
-      <div class="flex space-x-3">
-        <div
-          v-for="tag in props.card.hashTag"
-          class="text-xs font-bold text-bancor-blue200"
-        >
-          {{ `#${tag}` }}
-        </div>
-      </div>
+      <AtomsBasicTags :tags="card.hashTag"></AtomsBasicTags>
     </div>
   </NuxtLink>
 </template>

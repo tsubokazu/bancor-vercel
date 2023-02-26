@@ -1,4 +1,5 @@
 import { JournalObject } from '~/types/Journal';
+import type { Ref } from 'vue';
 
 export const useJournalStore = defineStore('journal', () => {
   // Bancor Journalの記事をKurocoから取得
@@ -6,6 +7,8 @@ export const useJournalStore = defineStore('journal', () => {
   const journalList = ref([]); // 全記事リスト
   const pickupList = ref([]); // ピックアップ記事のリスト
   const devJournalList = ref([]); // システム開発関連記事のリスト
+  const featureList = ref([]); // 注目記事リスト
+  const tagList: Ref<Array<string>> = ref([]); // ハッシュタグリスト
 
   const fetchJournals = async () => {
     const config = useRuntimeConfig();
@@ -40,6 +43,19 @@ export const useJournalStore = defineStore('journal', () => {
         (journal: any) => journal.isPickup
       );
 
+      // 注目記事をpv数でソートしてリスト化
+      featureList.value = journalList.value.sort(
+        (prev: JournalObject, next: JournalObject) => {
+          if (prev.pvCount > next.pvCount) {
+            return -1;
+          } else if (prev.pvCount < next.pvCount) {
+            return 1;
+          } else {
+            return 0;
+          }
+        }
+      );
+
       // システム開発関連記事のみを取得
       devJournalList.value = journalList.value.filter((journal: any) => {
         for (const tag of journal.hashTag) {
@@ -50,8 +66,26 @@ export const useJournalStore = defineStore('journal', () => {
           }
         }
       });
+
+      // ハッシュタグリストの生成
+      let journal: JournalObject;
+      for (journal of journalList.value) {
+        for (const tag of journal.hashTag) {
+          if (!tagList.value.includes(tag)) {
+            tagList.value.push(tag);
+          }
+        }
+      }
     }
   };
 
-  return { journalList, pickupList, devJournalList, fetchJournals, journals };
+  return {
+    journalList,
+    pickupList,
+    featureList,
+    devJournalList,
+    tagList,
+    fetchJournals,
+    journals,
+  };
 });

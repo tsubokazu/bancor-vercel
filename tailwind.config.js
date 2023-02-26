@@ -100,6 +100,15 @@ module.exports = {
         'move-right-rv': 'move-right-rv 0.3s ease-out both',
         'move-underline': 'move-underline 0.3s ease-out both',
         'move-underline-rv': 'move-underline-rv 0.3s ease-out both',
+        'eyecatch-slide-in': 'eyecatch-slide-in 3s ease-in-out both',
+        'eyecatch-slide-out': 'eyecatch-slide-out 3s ease-in-out both',
+        'eyecatch-slide-in-rv': 'eyecatch-slide-in-rv 3s ease-in-out both',
+        'eyecatch-slide-out-rv': 'eyecatch-slide-out-rv 3s ease-in-out both',
+        'title-slide-in': 'title-slide-in 3s ease-in-out both',
+        'title-slide-out': 'title-slide-out 3s ease-in-out both',
+        'title-slide-in-rv': 'title-slide-in-rv 3s ease-in-out both',
+        'title-slide-out-rv': 'title-slide-out-rv 3s ease-in-out both',
+        'journal-progress': 'journal-progress 8s linear  infinite  both',
       },
       keyframes: {
         'hover-arrow-move-x': {
@@ -520,6 +529,196 @@ module.exports = {
           },
           'to': {
             transform: 'translateX(-224px)',
+          },
+        },
+        'eyecatch-slide-in': {
+          '0%': {
+            'opacity': '1',
+            'transform': 'translateX(100%) scale(0.8)',
+            'border-radius': '10%',
+          },
+          '30%': {
+            'opacity': '1',
+            'transform': 'translateX(100%) scale(0.8)',
+            'border-radius': '10%',
+          },
+          '60%': {
+            'opacity': '1',
+            'transform': 'translateX(0) scale(0.8)',
+            'border-radius': '0',
+          },
+          '90%': {
+            'opacity': '1',
+            'transform': 'translateX(0) scale(1)',
+            'border-radius': '0',
+          },
+          'to': {
+            'opacity': '1',
+            'transform': 'translateX(0) scale(1)',
+            'border-radius': '0',
+          },
+        },
+        'eyecatch-slide-out': {
+          '0%': {
+            'opacity': '1',
+            'transform': 'translateX(0) scale(1)',
+            'border-radius': '0',
+          },
+          '30%': {
+            'opacity': '1',
+            'transform': 'translateX(0) scale(0.8)',
+            'border-radius': '10%',
+          },
+          '60%': {
+            'opacity': '1',
+            'transform': 'translateX(-100%) scale(0.8)',
+            'border-radius': '10%',
+          },
+          '90%': {
+            'opacity': '1',
+            'transform': 'translateX(-100%) scale(0.8)',
+            'border-radius': '10%',
+          },
+          'to': {
+            'opacity': '1',
+            'transform': 'translateX(-100%) scale(0.8)',
+            'border-radius': '10%',
+          },
+        },
+        'eyecatch-slide-in-rv': {
+          '0%': {
+            'opacity': '1',
+            'transform': 'translateX(-100%) scale(0.8)',
+            'border-radius': '10%',
+          },
+          '30%': {
+            'opacity': '1',
+            'transform': 'translateX(-100%) scale(0.8)',
+            'border-radius': '10%',
+          },
+          '60%': {
+            'opacity': '1',
+            'transform': 'translateX(0) scale(0.8)',
+            'border-radius': '0',
+          },
+          '90%': {
+            'opacity': '1',
+            'transform': 'translateX(0) scale(1)',
+            'border-radius': '0',
+          },
+          'to': {
+            'opacity': '1',
+            'transform': 'translateX(0) scale(1)',
+            'border-radius': '0',
+          },
+        },
+        'eyecatch-slide-out-rv': {
+          '0%': {
+            'opacity': '1',
+            'transform': 'translateX(0) scale(1)',
+            'border-radius': '0',
+          },
+          '30%': {
+            'opacity': '1',
+            'transform': 'translateX(0) scale(0.8)',
+            'border-radius': '10%',
+          },
+          '60%': {
+            'opacity': '1',
+            'transform': 'translateX(100%) scale(0.8)',
+            'border-radius': '10%',
+          },
+          '90%': {
+            'opacity': '1',
+            'transform': 'translateX(100%) scale(0.8)',
+            'border-radius': '10%',
+          },
+          'to': {
+            'opacity': '1',
+            'transform': 'translateX(100%) scale(0.8)',
+            'border-radius': '10%',
+          },
+        },
+        'title-slide-in': {
+          '0%': {
+            opacity: '1',
+            transform: 'translateX(100%)',
+          },
+          '30%': {
+            opacity: '1',
+            transform: 'translateX(100%)',
+          },
+          '60%': {
+            opacity: '1',
+            transform: 'translateX(0)',
+          },
+          'to': {
+            opacity: '1',
+            transform: 'translateX(0)',
+          },
+        },
+        'title-slide-out': {
+          '0%': {
+            opacity: '1',
+            transform: 'translateX(0)',
+          },
+          '30%': {
+            opacity: '1',
+            transform: 'translateX(0)',
+          },
+          '60%': {
+            opacity: '1',
+            transform: 'translateX(-100%)',
+          },
+          'to': {
+            opacity: '1',
+            transform: 'translateX(-100%)',
+          },
+        },
+        'title-slide-in-rv': {
+          '0%': {
+            opacity: '1',
+            transform: 'translateX(-100%)',
+          },
+          '30%': {
+            opacity: '1',
+            transform: 'translateX(-100%)',
+          },
+          '60%': {
+            opacity: '1',
+            transform: 'translateX(0)',
+          },
+          'to': {
+            opacity: '1',
+            transform: 'translateX(0)',
+          },
+        },
+        'title-slide-out-rv': {
+          '0%': {
+            opacity: '1',
+            transform: 'translateX(0)',
+          },
+          '30%': {
+            opacity: '1',
+            transform: 'translateX(0)',
+          },
+          '60%': {
+            opacity: '1',
+            transform: 'translateX(100%)',
+          },
+          'to': {
+            opacity: '1',
+            transform: 'translateX(100%)',
+          },
+        },
+        'journal-progress': {
+          '0%': {
+            opacity: '1',
+            transform: 'translateX(-100%)',
+          },
+          'to': {
+            opacity: '1',
+            transform: 'translateX(0)',
           },
         },
       },

@@ -31,7 +31,7 @@ export const useNewsStore = defineStore('news', () => {
           eyeCatchUrl: news.ext_2.url,
           bodyHTML: news.ext_3,
           pvCount: news.pv,
-          editorId: news.ext_4.key,
+          editorId: news.ext_5.key,
         })
       );
 

@@ -8,7 +8,7 @@
     color: 'text-bancor-black100',
     size: 'text-[28px] tb:text-[32px] pc:text-[40px]',
   });
-  const titleTexts = props.text.split('\r\n');
+  const titleTexts = ref(props.text.split('\r\n'));
 </script>
 
 <template>

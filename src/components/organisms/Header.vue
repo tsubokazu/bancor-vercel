@@ -122,7 +122,7 @@
 </script>
 
 <template>
-  <nav @mouseleave="mouseLeaveAction()">
+  <nav @mouseleave="mouseLeaveAction()" class="pointer-events-auto">
     <div
       v-show="!humbergerStore.clickHumbergerFlag"
       class="flex scale-x-95 items-center justify-between rounded-lg bg-white pr-4"

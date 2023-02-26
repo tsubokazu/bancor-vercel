@@ -26,7 +26,7 @@
   <div class="flex h-full w-full flex-col items-center justify-center">
     <!-- ヘッダー画像 -->
     <AtomsBasicHeader
-      imgUrl="/journalHeader.png"
+      :imgUrl="selectedJournal.eyeCatchUrl"
       class="mb-16 h-[360px] w-full"
     ></AtomsBasicHeader>
     <!-- 記事 -->

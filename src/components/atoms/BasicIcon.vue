@@ -3,16 +3,18 @@
     defineProps<{
       iconUrl?: string;
       altText?: string;
+      size?: string;
     }>(),
     {
       iconUrl: '/default-icon.svg',
       altText: 'Icon image.',
+      size: 'h-[70px]',
     }
   );
 </script>
 
 <template>
   <div>
-    <img :src="iconUrl" alt="altText" class="h-[70px]" />
+    <img :src="iconUrl" alt="altText" :class="size" />
   </div>
 </template>

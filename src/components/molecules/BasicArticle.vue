@@ -25,10 +25,6 @@
         :text="journalObject.subject"
         size="text-[28px]"
       ></AtomsBasicTitle>
-      <!-- アイキャッチ画像 -->
-      <AtomsBasicEyecatch
-        :imgUrl="journalObject.eyeCatchUrl"
-      ></AtomsBasicEyecatch>
       <!-- 本文 -->
       <div class="post prose" v-html="journalObject.bodyHTML"></div>
       <!-- 編集者情報 -->

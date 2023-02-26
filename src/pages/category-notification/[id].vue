@@ -1,9 +1,5 @@
 <script setup lang="ts">
   const route = useRoute();
-  console.log('#########');
-  console.log(route.params);
-
-  console.log(route.params.id);
 </script>
 
 <template>
