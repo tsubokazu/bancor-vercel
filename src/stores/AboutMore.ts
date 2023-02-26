@@ -7,7 +7,6 @@ export const useAboutMoreStore = defineStore('aboutMore', () => {
     const config = useRuntimeConfig();
     const baseUrl = config.public.kurocoApiUrl;
     const aboutMoreEndpoint = config.public.kurocoPagesMoreAbourBancor;
-    console.log(`${baseUrl}${aboutMoreEndpoint}`);
     const { data: kuroco, error } = (await useFetch(
       `${baseUrl}${aboutMoreEndpoint}`
     )) as any;
@@ -15,9 +14,6 @@ export const useAboutMoreStore = defineStore('aboutMore', () => {
       console.error(`[useAboutMoreStore] fetchPages error: ${error.value}`);
     } else {
       const data: any = kuroco.value.list[0];
-      console.log('@@@@@@@@@ aboutMore @@@@@@@@');
-      console.log(`data: ${data}`);
-
       // 取得したデータを型に当てはめる
       const contentsNum = data.ext_5.length;
       for (let n = 0; n < contentsNum; n++) {

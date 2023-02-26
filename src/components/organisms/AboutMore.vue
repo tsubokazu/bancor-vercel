@@ -7,22 +7,6 @@
     await aboutMoreStore.fetchAboutMore();
   }
   const { aboutMore }: { aboutMore: AboutMore } = aboutMoreStore;
-
-  console.log(`aboutMore.title: ${aboutMore.title}`);
-  console.log(`aboutMore.subTitle: ${aboutMore.subTitle}`);
-  console.log(`aboutMore.contents: ${aboutMore.contents}`);
-  console.log(`contents[0].title: ${aboutMore.contents[0].title}`);
-  console.log(`contents[1].title: ${aboutMore.contents[1].title}`);
-  console.log(`contents[2].title: ${aboutMore.contents[2].title}`);
-  console.log(`contents[0].subTitle: ${aboutMore.contents[0].subTitle}`);
-  console.log(`contents[1].subTitle: ${aboutMore.contents[1].subTitle}`);
-  console.log(`contents[2].subTitle: ${aboutMore.contents[2].subTitle}`);
-  console.log(`contents[0].imgUrl: ${aboutMore.contents[0].imgUrl}`);
-  console.log(`contents[1].imgUrl: ${aboutMore.contents[1].imgUrl}`);
-  console.log(`contents[2].imgUrl: ${aboutMore.contents[2].imgUrl}`);
-  console.log(`contents[0].linkUrl: ${aboutMore.contents[0].linkUrl}`);
-  console.log(`contents[1].linkUrl: ${aboutMore.contents[1].linkUrl}`);
-  console.log(`contents[2].linkUrl: ${aboutMore.contents[2].linkUrl}`);
 </script>
 
 <template>

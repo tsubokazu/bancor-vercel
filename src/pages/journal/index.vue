@@ -27,27 +27,15 @@
   const clickTagButton = (e: Event) => {
     const target = e.target as HTMLElement;
     category.value = target.textContent as string;
-    console.log(`displayJournalList: ${displayJournalList.value}`);
   };
   const displayJournalList = computed<Array<JournalObject>>(() => {
-    console.log(`category: ${category.value}`);
-
     if (category.value == 'New Article') {
-      console.log(`journalList: ${journalList}`);
       return journalList;
     } else if (category.value == 'Pickup') {
-      console.log(`pickupList: ${pickupList}`);
       return pickupList;
     } else if (category.value == 'Feature') {
       return featureList;
     } else if (category.value.includes('#')) {
-      console.log(`category: ${category.value}`);
-      console.log(
-        journalList.filter((journal: JournalObject) => {
-          return journal.hashTag.includes(category.value.replace(' #', ''));
-        })
-      );
-
       return journalList.filter((journal: JournalObject) => {
         return journal.hashTag.includes(category.value.replace(' #', ''));
       });

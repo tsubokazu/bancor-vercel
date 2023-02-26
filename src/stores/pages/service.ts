@@ -6,20 +6,15 @@ export const usePagesServiceStore = defineStore('pagesService', () => {
   const enhancement: any = ref({}); // 強化事業
 
   const fetchPagesService = async () => {
-    console.log('###### fetchPagesService ######');
-
     const config = useRuntimeConfig();
     const baseUrl = config.public.kurocoApiUrl;
     const pagesServiceEndpoint = config.public.kurocoPagesService;
-    console.log(`${baseUrl}${pagesServiceEndpoint}`);
     const { data: kuroco, error } = (await useFetch(
       `${baseUrl}${pagesServiceEndpoint}`
     )) as any;
     if (!kuroco.value || error.value) {
       console.error(`[usePagesStore] fetchPages error: ${error.value}`);
     } else {
-      console.log('@@@@ fetchPagesService else @@@@');
-
       const headerData: any = kuroco.value.list.filter(
         (data: any): any => data.topics_id == 36
       )[0];
@@ -93,10 +88,6 @@ export const usePagesServiceStore = defineStore('pagesService', () => {
           },
         ],
       };
-      console.log(`header: ${header}`);
-      console.log(`purpose: ${purpose}`);
-      console.log(`service: ${service}`);
-      console.log(`enhancement: ${enhancement}`);
     }
   };
 
