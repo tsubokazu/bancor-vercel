@@ -6,9 +6,9 @@
       class="mb-2"
       frontSquareColor="bg-bancor-black100"
       backSquareColor="bg-bancor-blue100"
+      text="NEWS ROOM"
       textColor="text-bancor-blue100"
-      >NEWS ROOM</MoleculesDoubleSquareTag
-    >
+    ></MoleculesDoubleSquareTag>
     <AtomsBasicTitle text="ニュースルーム"></AtomsBasicTitle>
     <MoleculesDetailButton
       class="mt-10 block"

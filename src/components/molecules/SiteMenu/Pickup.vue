@@ -19,11 +19,10 @@
       class="mb-2"
       frontSquareColor="bg-white"
       backSquareColor="bg-white"
+      :text="pickupObjects.title"
       textColor="text-white"
       textSize="text-2xl"
-      fontBold="font-bold"
-      >{{ pickupObjects.title }}</MoleculesDoubleSquareTag
-    >
+    ></MoleculesDoubleSquareTag>
     <MoleculesSiteMenuMainJournal class="mb-4"></MoleculesSiteMenuMainJournal>
     <MoleculesSiteMenuList></MoleculesSiteMenuList>
   </div>

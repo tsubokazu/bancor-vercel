@@ -109,11 +109,10 @@
       class="mb-2"
       frontSquareColor="bg-white"
       backSquareColor="bg-white"
+      text="サイトマップ"
       textColor="text-white"
       textSize="text-2xl"
-      fontBold="font-bold"
-      >サイトマップ</MoleculesDoubleSquareTag
-    >
+    ></MoleculesDoubleSquareTag>
     <div class="flex h-[600px] w-full flex-col flex-wrap">
       <MoleculesSiteMenuPageLinks
         class="mb-6 h-fit w-2/5"

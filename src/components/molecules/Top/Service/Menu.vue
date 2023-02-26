@@ -11,9 +11,9 @@
       class="mb-2"
       frontSquareColor="bg-bancor-black100"
       backSquareColor="bg-bancor-blue100"
+      text="Service"
       textColor="text-bancor-blue100"
-      >Service</MoleculesDoubleSquareTag
-    >
+    ></MoleculesDoubleSquareTag>
     <AtomsBasicTitle
       class="mb-5"
       :text="topServiceObject.title"

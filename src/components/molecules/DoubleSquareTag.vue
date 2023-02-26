@@ -2,13 +2,15 @@
   interface Props {
     frontSquareColor: string;
     backSquareColor: string;
-    textColor: string;
+    text: string;
+    textColor?: string;
     textSize?: string;
-    fontBold?: string;
+    isBold?: boolean;
   }
   const props = withDefaults(defineProps<Props>(), {
+    textColor: 'text-bancor-black100',
     textSize: 'text-base',
-    fontBold: '',
+    isBold: true,
   });
 </script>
 
@@ -18,11 +20,11 @@
       :frontSquareColor="props.frontSquareColor"
       :backSquareColor="props.backSquareColor"
     ></AtomsDoubleSquare>
-    <div
-      class="font-futuraMediumItalic"
-      :class="[props.textColor, props.textSize, props.fontBold]"
-    >
-      <slot />
-    </div>
+    <AtomsItalicText
+      :text="text"
+      :color="textColor"
+      :size="textSize"
+      :isBold="isBold"
+    ></AtomsItalicText>
   </div>
 </template>

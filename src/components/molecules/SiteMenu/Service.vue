@@ -14,11 +14,10 @@
       class="mb-2"
       frontSquareColor="bg-white"
       backSquareColor="bg-white"
+      :text="serviceObject.title"
       textColor="text-white"
       textSize="text-2xl"
-      fontBold="font-bold"
-      >{{ serviceObject.title }}</MoleculesDoubleSquareTag
-    >
+    ></MoleculesDoubleSquareTag>
     <AtomsLogo
       class="block w-56"
       :logoUrl="serviceObject.logoUrl"

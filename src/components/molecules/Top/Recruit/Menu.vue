@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { TopRecruitObject } from '~/types';
+  import { TopRecruitObject } from '~/types/Top';
   const topRecruitObject = inject<TopRecruitObject>(
     'topRecruitObject'
   ) as TopRecruitObject;
@@ -11,9 +11,9 @@
       class="mb-2"
       frontSquareColor="bg-white"
       backSquareColor="bg-white"
+      :text="topRecruitObject.subTitle"
       textColor="text-white"
-      >{{ topRecruitObject.subTitle }}</MoleculesDoubleSquareTag
-    >
+    ></MoleculesDoubleSquareTag>
     <AtomsBasicTitle
       class="mb-5 text-white"
       :text="topRecruitObject.title"

@@ -11,9 +11,9 @@
       class="mb-2"
       frontSquareColor="bg-bancor-black100"
       backSquareColor="bg-bancor-blue100"
+      text="Vision"
       textColor="text-bancor-blue100"
-      >Vision</MoleculesDoubleSquareTag
-    >
+    ></MoleculesDoubleSquareTag>
     <AtomsBasicTitle
       class="mb-5"
       :text="topVisionObject.title"
