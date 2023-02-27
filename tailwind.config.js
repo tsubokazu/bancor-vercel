@@ -591,7 +591,7 @@ module.exports = {
         },
         'move-underline': {
           '0%': {
-            transform: 'translateX(-224px)',
+            transform: 'translateX(-100%)',
           },
           'to': {
             transform: 'translateX(0px)',
@@ -602,7 +602,7 @@ module.exports = {
             transform: 'translateX(0px)',
           },
           'to': {
-            transform: 'translateX(-224px)',
+            transform: 'translateX(-100%)',
           },
         },
         'eyecatch-slide-in': {

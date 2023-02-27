@@ -102,7 +102,7 @@ export const usePagesSystemDevStore = defineStore('pagesSystemDev', () => {
       team.value = {
         title: teamData.ext_1,
         outline: teamData.ext_3,
-        imgUrl: teamData.ext_4,
+        imgUrl: teamData.ext_4.url,
       };
 
       // 資料「3分でわかるNUVO」
@@ -153,8 +153,9 @@ export const usePagesSystemDevStore = defineStore('pagesSystemDev', () => {
       valueUpdate.value = {
         title: valueUpdateData.ext_1,
         outline: valueUpdateData.ext_3,
+        imgUrl: structureData.ext_4.url,
         imgUrls: valueUpdateData.ext_9.map((imgUrl: any) => ({
-          imgUrl: imgUrl,
+          imgUrl: imgUrl.url,
         })),
       };
     }

@@ -1,6 +1,7 @@
 <script setup lang="ts">
   interface Props {
     title: string;
+    size?: string;
     subTitle: string;
     outline?: string;
     linkUrl?: string;
@@ -23,7 +24,7 @@
       :text="subTitle"
       textColor="text-bancor-blue100"
     ></MoleculesDoubleSquareTag>
-    <AtomsBasicTitle :text="title"></AtomsBasicTitle>
+    <AtomsBasicTitle :size="size" :text="title"></AtomsBasicTitle>
     <AtomsBasicOutline
       class="mt-6"
       v-if="outline.length > 0"
@@ -33,7 +34,6 @@
       class="mt-8"
       v-if="linkUrl.length > 0"
       :linkUrl="linkUrl"
-      :text="subTitle"
     ></MoleculesDetailButton>
   </div>
 </template>

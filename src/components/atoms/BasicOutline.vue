@@ -18,7 +18,7 @@
 
 <template>
   <div
-    class="text-bancorbla"
+    class="text-bancorbla flex flex-col"
     :class="[props.size, props.color, { 'font-bold': isBold }, spaceY]"
   >
     <div v-for="titleText in titleTexts" :key="titleText">

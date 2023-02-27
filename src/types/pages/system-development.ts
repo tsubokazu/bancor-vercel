@@ -103,6 +103,7 @@ export interface SystemDevMaintenances {
 // Value Update
 export interface SystemDevValueUpdate {
   title: string;
+  imgUrl: string;
   outline: string;
   imgUrls: Array<{ imgUrl: string }>;
 }
