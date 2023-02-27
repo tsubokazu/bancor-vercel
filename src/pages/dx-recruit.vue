@@ -1,0 +1,5 @@
+<template>
+  <div class="flex h-screen w-full items-center justify-center text-4xl">
+    <p>DX支援事業での募集カテゴリ - DX Recruit</p>
+  </div>
+</template>
