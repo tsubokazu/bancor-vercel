@@ -2,10 +2,12 @@
   interface Props {
     title: string;
     outline: string;
-    linkUrl: string;
+    linkUrl?: string;
     subTitle: string;
   }
-  const props = defineProps<Props>();
+  const props = withDefaults(defineProps<Props>(), {
+    linkUrl: '',
+  });
 </script>
 
 <template>
@@ -13,6 +15,7 @@
     <AtomsBasicTitle :text="title" size="text-[32px]"></AtomsBasicTitle>
     <AtomsBasicOutline :text="outline"></AtomsBasicOutline>
     <MoleculesDetailButton
+      v-if="linkUrl.length > 0"
       :linkUrl="linkUrl"
       :text="subTitle"
     ></MoleculesDetailButton>

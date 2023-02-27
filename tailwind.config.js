@@ -33,6 +33,7 @@ module.exports = {
         ],
         futuraMediumItalic: ['futura medium italic'],
         futuraBold: ['futura bold'],
+        futuraMedium: ['futura medium'],
       },
       colors: {
         'bancor-light-blue100': '#F2F7FF',
@@ -99,6 +100,14 @@ module.exports = {
         'rouded-and-scale-rv': 'rouded-and-scale-rv 0.3s ease-out  both',
         'move-right': 'move-right 0.3s ease-out both',
         'move-right-rv': 'move-right-rv 0.3s ease-out both',
+        'move-up': 'move-up 0.3s ease-out both',
+        'move-up-rv': 'move-up-rv 0.3s ease-out both',
+        'move-right-rotate45': 'move-right-rotate45 0.3s ease-out both',
+        'move-right-rotate45-rv': 'move-right-rotate45-rv 0.3s ease-out both',
+        'move-up-rotate45': 'move-up-rotate45 0.3s ease-out both',
+        'move-up-rotate45-rv': 'move-up-rotate45-rv 0.3s ease-out both',
+        'hover-opacity': 'hover-opacity 0.3s ease-out both',
+        'hover-opacity-rv': 'hover-opacity-rv 0.3s ease-out both',
         'move-underline': 'move-underline 0.3s ease-out both',
         'move-underline-rv': 'move-underline-rv 0.3s ease-out both',
         'eyecatch-slide-in': 'eyecatch-slide-in 3s ease-in-out both',
@@ -514,6 +523,70 @@ module.exports = {
           },
           'to': {
             transform: 'translateX(0px)',
+          },
+        },
+        'move-up': {
+          '0%': {
+            transform: 'translateY(0px)',
+          },
+          'to': {
+            transform: 'translateY(-5px)',
+          },
+        },
+        'move-up-rv': {
+          '0%': {
+            transform: 'translateY(-5px)',
+          },
+          'to': {
+            transform: 'translateY(0px)',
+          },
+        },
+        'move-right-rotate45': {
+          '0%': {
+            transform: 'translateX(0px) rotate(-45deg)',
+          },
+          'to': {
+            transform: 'translateX(5px) rotate(-45deg)',
+          },
+        },
+        'move-right-rotate45-rv': {
+          '0%': {
+            transform: 'translateX(5px) rotate(-45deg)',
+          },
+          'to': {
+            transform: 'translateX(0px) rotate(-45deg)',
+          },
+        },
+        'move-up-rotate45': {
+          '0%': {
+            transform: 'translateY(0px) rotate(-45deg)',
+          },
+          'to': {
+            transform: 'translateY(-5px) rotate(-45deg)',
+          },
+        },
+        'move-up-rotate45-rv': {
+          '0%': {
+            transform: 'translateY(-5px) rotate(-45deg)',
+          },
+          'to': {
+            transform: 'translateY(0px) rotate(-45deg)',
+          },
+        },
+        'hover-opacity': {
+          '0%': {
+            opacity: 1,
+          },
+          'to': {
+            opacity: 0.7,
+          },
+        },
+        'hover-opacity-rv': {
+          '0%': {
+            opacity: 0.7,
+          },
+          'to': {
+            opacity: 1,
           },
         },
         'move-underline': {

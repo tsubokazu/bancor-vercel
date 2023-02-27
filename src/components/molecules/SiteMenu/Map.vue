@@ -26,7 +26,7 @@
     },
     {
       title: '福祉施設向けシステム開発事業',
-      linkUrl: '/nurse-welfare',
+      linkUrl: '/care-welfare',
     },
     {
       title: 'DX支援事業',

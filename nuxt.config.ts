@@ -43,6 +43,10 @@ export default defineNuxtConfig({
       kurocoPagesCompanyProfile: process.env.KUROCO_PAGES_COMPANY_PROFILE, // 会社概要ページ
       kurocoPagesMessage: process.env.KUROCO_PAGES_MESSAGE, // 会社概要ページ
       kurocoPagesVision: process.env.KUROCO_PAGES_VISION, // 会社概要ページ
+      kurocoPagesSystemDev: process.env.KUROCO_PAGES_SYSTEM_DEV, // システム開発のページ
+      kurocoPagesWelfare: process.env.KUROCO_PAGES_WELFARE, // 福祉向けシステム開発のページ
+      kurocoPagesSolutions: process.env.KUROCO_PAGES_SOLUTIONS, // 介護・福祉ソリューションラインナップ
+
       googleMapApiKey: process.env.GOOGLE_MAP_API_KEY, // GoogleMapのAPIキー
     },
   },

@@ -12,8 +12,17 @@
   src: url('~/assets/font/futura-bold.otf');
 }
 
+@font-face {
+  font-family: 'futura medium';
+  src: url('~/assets/font/futura-medium.otf');
+}
+
 @layer utilities {
   .pause {
     animation-play-state: paused;
   }
+}
+
+html {
+  scroll-behavior: smooth;
 }
