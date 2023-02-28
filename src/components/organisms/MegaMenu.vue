@@ -22,7 +22,7 @@
 </script>
 
 <template>
-  <div class="container mx-auto flex h-72 rounded-lg bg-white">
+  <div class="flex h-72 rounded-lg bg-white">
     <MoleculesMegamenuTitle
       :title="menuObject.subTitle"
       :enTitle="menuObject.enTitle"

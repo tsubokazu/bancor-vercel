@@ -15,14 +15,15 @@
 </script>
 
 <template>
-  <div class="flex flex-col items-center">
+  <div class="flex w-fit flex-col items-center space-y-2 pt-2">
     <AtomsButtonText :linkName="linkName" :isBold="true">
       <slot />
     </AtomsButtonText>
     <AtomsUnderLine
-      class="relative top-3"
-      :class="hoverAnimation"
-      v-show="hoverFlag"
+      :class="[
+        { 'animate-line-scale-up-center': hoverFlag },
+        { 'animate-line-scale-down-center': !hoverFlag },
+      ]"
     ></AtomsUnderLine>
   </div>
 </template>

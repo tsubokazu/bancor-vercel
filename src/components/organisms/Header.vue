@@ -122,10 +122,13 @@
 </script>
 
 <template>
-  <nav @mouseleave="mouseLeaveAction()" class="pointer-events-auto">
+  <nav
+    @mouseleave="mouseLeaveAction()"
+    class="pointer-events-auto flex flex-col items-center"
+  >
     <div
       v-show="!humbergerStore.clickHumbergerFlag"
-      class="flex scale-x-95 items-center justify-between rounded-lg bg-white pr-4"
+      class="flex w-[95%] items-center justify-between rounded-lg bg-white pr-4"
     >
       <div>
         <AtomsLogo :logoUrl="logoUrl" linkUrl="/"></AtomsLogo>
@@ -155,23 +158,20 @@
         >
       </div>
     </div>
-    <OrganismsMegamenu
+    <OrganismsMegaMenu
       v-show="
         hoverFlag &&
         hoverMenuObject.contents.length > 0 &&
         !humbergerStore.clickHumbergerFlag
       "
-      class="relative top-2"
+      class="relative top-2 w-[95%]"
       :class="hoverAnimation"
       :menuObject="hoverMenuObject"
-    ></OrganismsMegamenu>
+    ></OrganismsMegaMenu>
     <OrganismsSiteMenu
       v-show="humbergerStore.clickHumbergerFlag"
       class="fixed -top-3 left-0 z-10"
     ></OrganismsSiteMenu>
-    <AtomsButtonHamburger
-      class="right-[3.5%] z-20"
-      :class="humbergerStore.humbergerPositionClass"
-    ></AtomsButtonHamburger>
+    <AtomsButtonHamburger class="right-[3.5%] z-20"></AtomsButtonHamburger>
   </nav>
 </template>

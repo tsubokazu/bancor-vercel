@@ -163,17 +163,29 @@ module.exports = {
         },
         'line-scale-up-center': {
           '0%': {
+            opacity: '0',
+            transform: 'scaleX(0)',
+          },
+          '1%': {
+            opacity: '1',
             transform: 'scaleX(0)',
           },
           'to': {
+            opacity: '1',
             transform: 'scaleX(1)',
           },
         },
         'line-scale-down-center': {
           '0%': {
+            opacity: '1',
             transform: 'scaleX(1)',
           },
+          '99%': {
+            opacity: '1',
+            transform: 'scaleX(0)',
+          },
           'to': {
+            opacity: '0',
             transform: 'scaleX(0)',
           },
         },

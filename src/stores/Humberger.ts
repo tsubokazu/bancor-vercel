@@ -3,7 +3,7 @@ export const useHumbergerStore = defineStore('humberger', () => {
   const humbergerPositionClass = ref('absolute top-3');
   const toggleHumbergerFlag = () => {
     clickHumbergerFlag.value = !clickHumbergerFlag.value;
-    humbergerPositionClass.value = clickHumbergerFlag
+    humbergerPositionClass.value = clickHumbergerFlag.value
       ? 'fixed top-6'
       : 'absolute top-3';
   };

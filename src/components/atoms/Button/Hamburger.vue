@@ -10,7 +10,7 @@
     'w-12',
     'rounded-lg',
     'transition-all',
-    'duration-400',
+    'duration-500',
     humbergerStore.clickHumbergerFlag ? 'bg-white' : 'bg-bancor-gray900',
   ]);
   const lineCommonClassArray = computed(() => [
@@ -19,7 +19,7 @@
     'w-5',
     'rounded-full',
     'transition-all',
-    'duration-400',
+    'duration-500',
     humbergerStore.clickHumbergerFlag ? 'bg-bancor-gray900' : 'bg-white',
   ]);
   const line1ClassArray = computed(() =>
@@ -40,7 +40,7 @@
 </script>
 
 <template>
-  <div>
+  <div :class="humbergerStore.humbergerPositionClass">
     <div @click="clickButton" :class="squareClassArray">
       <span :class="[lineCommonClassArray, line1ClassArray]"></span>
       <span :class="[lineCommonClassArray, line2ClassArray]"></span>
