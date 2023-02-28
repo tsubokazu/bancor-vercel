@@ -62,11 +62,11 @@
       text="i"
     ></AtomsFuturaChar>
     <AtomsFuturaChar
-      class="left-[904px] animate-slide-in-char-down"
+      class="left-[904px] animate-slide-in-char-up"
       text="l"
     ></AtomsFuturaChar>
     <AtomsFuturaChar
-      class="left-[931px] animate-slide-in-char-up"
+      class="left-[931px] animate-slide-in-char-down"
       text="e"
     ></AtomsFuturaChar>
   </div>
