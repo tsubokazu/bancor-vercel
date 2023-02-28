@@ -23,31 +23,31 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     public: {
-      kurocoApiUrl: process.env.KUROCO_API_URL, // KurocoAPIのURL
-      kurocoHeader: process.env.KUROCO_HEADER, // ヘッダー
-      kurocoFooter: process.env.KUROCO_FOOTER, // フッター
-      kurocoTopEndpoint: process.env.KUROCO_TOP_ENDPOINT, // ニュースルーム
-      kurocoJournal: process.env.KUROCO_JOURNAL, // TOPページ（旧）
-      kurocoNews: process.env.KUROCO_NEWS, // Bancor
-      kurocoTopFirstview: process.env.KUROCO_TOP_FIRSTVIEW, // TOPページ（ファーストビュー）
-      kurocoTopNews: process.env.KUROCO_TOP_NEWS, // TOPページ（ニュースルーム）
-      kurocoTopWelfare: process.env.KUROCO_TOP_WELFARE, // TOPページ（介護・福祉）
-      kurocoTopService: process.env.KUROCO_TOP_SERVICE, // TOPページ（事業内容）
-      kurocoTopJournal: process.env.KUROCO_TOP_JOURNAL, // TOPページ（Bancor
-      kurocoTopVision: process.env.KUROCO_TOP_VISION, // TOPページ（ビジョン）
-      kurocoTopRecruit: process.env.KUROCO_TOP_RECRUIT, // TOPページ（採用）
-      kurocoEditor: process.env.KUROCO_EDITOR, // 編集者メンバー
-      kurocoPagesService: process.env.KUROCO_PAGES_SERVEICE, // 事業内容ページ
-      kurocoPagesCompanyInfo: process.env.KUROCO_PAGES_COMPANY_INFO, // 会社案内ページ
-      kurocoPagesMoreAbourBancor: process.env.KUROCO_PAGES_MORE_ABOUT_BANCOR, // Bancor取組内容
-      kurocoPagesCompanyProfile: process.env.KUROCO_PAGES_COMPANY_PROFILE, // 会社概要ページ
-      kurocoPagesMessage: process.env.KUROCO_PAGES_MESSAGE, // 会社概要ページ
-      kurocoPagesVision: process.env.KUROCO_PAGES_VISION, // 会社概要ページ
-      kurocoPagesSystemDev: process.env.KUROCO_PAGES_SYSTEM_DEV, // システム開発のページ
-      kurocoPagesWelfare: process.env.KUROCO_PAGES_WELFARE, // 福祉向けシステム開発のページ
-      kurocoPagesSolutions: process.env.KUROCO_PAGES_SOLUTIONS, // 介護・福祉ソリューションラインナップ
+      kurocoApiUrl: 'https://bancor.g.kuroco.app', // KurocoAPIのURL
+      kurocoHeader: '/rcms-api/3/header/3', // ヘッダー
+      kurocoFooter: '/rcms-api/7/footer/19', // フッター
+      kurocoTopEndpoint: '/rcms-api/4/top/4', // ニュースルーム
+      kurocoJournal: '/rcms-api/5/journals', // TOPページ（旧）
+      kurocoNews: '/rcms-api/8/news', // Bancor
+      kurocoTopFirstview: '/rcms-api/6/top/12', // TOPページ（ファーストビュー）
+      kurocoTopNews: '/rcms-api/6/top/13', // TOPページ（ニュースルーム）
+      kurocoTopWelfare: '/rcms-api/6/top/14', // TOPページ（介護・福祉）
+      kurocoTopService: '/rcms-api/6/top/15', // TOPページ（事業内容）
+      kurocoTopJournal: '/rcms-api/6/top/16', // TOPページ（Bancor
+      kurocoTopVision: '/rcms-api/6/top/17', // TOPページ（ビジョン）
+      kurocoTopRecruit: '/rcms-api/6/top/18', // TOPページ（採用）
+      kurocoEditor: '/rcms-api/9/member', // 編集者メンバー
+      kurocoPagesService: '/rcms-api/10/pages?topics_group_id=14', // 事業内容ページ
+      kurocoPagesCompanyInfo: '/rcms-api/10/pages?topics_group_id=13', // 会社案内ページ
+      kurocoPagesMoreAbourBancor: '/rcms-api/10/pages?topics_group_id=15', // Bancor取組内容
+      kurocoPagesCompanyProfile: '/rcms-api/10/pages?topics_group_id=16', // 会社概要ページ
+      kurocoPagesMessage: '/rcms-api/10/pages?topics_group_id=17', // 会社概要ページ
+      kurocoPagesVision: '/rcms-api/10/pages?topics_group_id=18', // 会社概要ページ
+      kurocoPagesSystemDev: '/rcms-api/10/pages?topics_group_id=19', // システム開発のページ
+      kurocoPagesWelfare: '/rcms-api/10/pages?topics_group_id=20', // 福祉向けシステム開発のページ
+      kurocoPagesSolutions: '/rcms-api/10/pages?topics_group_id=21', // 介護・福祉ソリューションラインナップ
 
-      googleMapApiKey: process.env.GOOGLE_MAP_API_KEY, // GoogleMapのAPIキー
+      googleMapApiKey: 'AIzaSyAkiUf_mc0OqCF_xaln1IAAxNCEu96__8Q', // GoogleMapのAPIキー
     },
   },
 });
