@@ -58,6 +58,7 @@ module.exports = {
         'bancor-navy400': '#15171d',
         'bancor-orange100': '#FFB426',
         'bancor-orange200': '#FF9B26',
+        'bancor-orange300': '#FF7444',
         'bancor-blue100': '#3663FD',
         'bancor-blue200': '#0B50AE',
         'bancor-blue300': '#0575E6',
@@ -67,6 +68,11 @@ module.exports = {
         'bancor-black300': '#070c12',
       },
       animation: {
+        'slide-out-up': 'slide-out-up 5s ease-in-out both',
+        'slide-out-down': 'slide-out-down 5s ease-in-out both',
+        'slide-in-right': 'slide-in-right 5s ease-in-out both',
+        'slide-in-char-up': 'slide-in-char-up 5s ease-in-out both',
+        'slide-in-char-down': 'slide-in-char-down 5s ease-in-out both',
         'scale-up-ver-top': 'scale-up-ver-top 0.3s ease-in-out both',
         'scale-down-ver-top': 'scale-down-ver-top 0.3s ease-in-out both',
         'line-scale-up-center': 'line-scale-up-center 0.3s ease-in-out both',
@@ -121,6 +127,58 @@ module.exports = {
         'journal-progress': 'journal-progress 8s linear  infinite  both',
       },
       keyframes: {
+        'slide-out-up': {
+          '0%': {
+            transform: 'translateY(0)',
+          },
+          'to': {
+            transform: 'translateY(-100%)',
+          },
+        },
+        'slide-out-down': {
+          '0%': {
+            transform: 'translateY(0)',
+          },
+          'to': {
+            transform: 'translateY(100%)',
+          },
+        },
+        'slide-in-right': {
+          '0%': {
+            transform: 'translateX(-100%)',
+          },
+          'to': {
+            transform: 'translateX(0)',
+          },
+        },
+        'slide-in-char-up': {
+          '0%': {
+            transform: 'translateY(100%)',
+            opacity: '0',
+          },
+          '20%': {
+            transform: 'translateY(100%)',
+            opacity: '0',
+          },
+          'to': {
+            transform: 'translateY(0)',
+            opacity: '1',
+          },
+        },
+        'slide-in-char-down': {
+          '0%': {
+            transform: 'translateY(-100%)',
+            opacity: '0',
+          },
+          '20%': {
+            transform: 'translateY(-100%)',
+            opacity: '0',
+          },
+          'to': {
+            transform: 'translateY(0)',
+            opacity: '1',
+          },
+        },
         'hover-arrow-move-x': {
           '0%': {
             transform: 'translateX(0px)',
