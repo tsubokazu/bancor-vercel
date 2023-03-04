@@ -37,7 +37,7 @@
       ></AtomsBasicHeader>
     </div>
     <!-- ボディ -->
-    <div class="relative mb-40 flex w-full flex-col items-center">
+    <div class="relative flex w-full flex-col items-center">
       <!-- ヘッダータイトル -->
       <div
         class="absolute -top-48 flex w-full flex-col space-y-3 pc:max-w-[1100px]"
@@ -163,7 +163,10 @@
       </div>
 
       <!-- デジタル化の課題 -->
-      <div class="mb-24 flex w-full flex-col items-center pc:max-w-[1100px]">
+      <div
+        id="resource"
+        class="mb-24 flex w-full flex-col items-center pc:max-w-[1100px]"
+      >
         <!-- タイトル -->
         <div class="mb-16 flex flex-col items-center space-y-12">
           <AtomsAsteriskSmallText
@@ -259,7 +262,7 @@
       </div>
 
       <!-- 開発体制の特徴 -->
-      <div class="mb-14 flex w-full flex-col pc:max-w-[1100px]">
+      <div id="feature" class="mb-14 flex w-full flex-col pc:max-w-[1100px]">
         <MoleculesDoubleSquareTagMenu
           class="mb-14"
           :title="features.title"
@@ -293,14 +296,14 @@
       </div>
 
       <!-- 開発体制 -->
-      <div class="mb-24 flex w-full pc:max-w-[1100px]">
+      <div id="development" class="mb-24 flex w-full pc:max-w-[1100px]">
         <div class="jus mb-18tify-center flex flex-col space-y-10">
-          <MoleculesDoubleSquareTa
-            mb-18gMenu
+          <MoleculesDoubleSquareTagMenu
+            class="mb-18"
             :title="structure.title"
             :subTitle="structure.subTitle"
             :outline="structure.outline"
-          ></MoleculesDoubleSquareTa>
+          ></MoleculesDoubleSquareTagMenu>
           <LazyAtomsBasicImage
             :imgUrl="structure.imgUrl"
             imgWidth="w-full"
@@ -342,52 +345,85 @@
 
       <!-- Value Update -->
       <div class="relative h-[834px] w-full pc:max-w-[1100px]">
+        <!-- Value Updateの大きなタイトル -->
         <AtomsBasicTitle
           class="font-futuraBold"
           spaceY="-space-y-24"
           size="text-[200px]"
           :text="valueUpdate.title"
         ></AtomsBasicTitle>
+
+        <!-- Value Updateの小さなサブタイトル -->
         <AtomsBasicOutline
           class="absolute top-[148px] left-[620px]"
           size="text-[20px]"
           :text="valueUpdate.outline"
         ></AtomsBasicOutline>
-        <div class="flex justify-between px-10">
-          <ScrollParallax :speed="0.05" direction="y">
-            <AtomsBasicImage
-              class="-translate-y-[380px]"
-              :imgUrl="valueUpdate.imgUrls[0].imgUrl"
-              imgHeight="h-[280px]"
-              imgWidth="w-fit"
-            ></AtomsBasicImage>
-          </ScrollParallax>
-          <ScrollParallax :speed="0.6" direction="y">
-            <AtomsBasicImage
-              class="-translate-y-[450px]"
-              :imgUrl="valueUpdate.imgUrls[1].imgUrl"
-              imgHeight="h-[280px]"
-              imgWidth="w-fit"
-            ></AtomsBasicImage>
-          </ScrollParallax>
-          <ScrollParallax :speed="0.1" direction="y">
-            <AtomsBasicImage
-              class="-translate-y-[350px]"
-              :imgUrl="valueUpdate.imgUrls[2].imgUrl"
-              imgHeight="h-[280px]"
-              imgWidth="w-fit"
-            ></AtomsBasicImage>
-          </ScrollParallax>
-          <ScrollParallax :speed="0.3" direction="y">
-            <AtomsBasicImage
-              class="-translate-y-[600px]"
-              :imgUrl="valueUpdate.imgUrls[3].imgUrl"
-              imgHeight="h-[280px]"
-              imgWidth="w-fit"
-            ></AtomsBasicImage>
-          </ScrollParallax>
+
+        <!-- パララックスイメージ -->
+        <div class="absolute top-0 left-4 h-full w-full overflow-hidden">
+          <div class="relative flex h-full w-full justify-between px-10">
+            <!-- 1枚目 -->
+            <ScrollParallax
+              class="absolute left-0 -top-[50%] z-50"
+              :speed="0.15"
+              direction="y"
+            >
+              <AtomsBasicImage
+                :imgUrl="valueUpdate.imgUrls[0].imgUrl"
+                imgHeight="h-[280px]"
+                imgWidth="w-[200px]"
+              ></AtomsBasicImage>
+            </ScrollParallax>
+
+            <!-- 2枚目 -->
+            <ScrollParallax
+              class="absolute left-1/4 top-[160%] z-50"
+              :speed="0.13"
+              :up="false"
+              :down="true"
+              direction="y"
+            >
+              <AtomsBasicImage
+                :imgUrl="valueUpdate.imgUrls[1].imgUrl"
+                imgHeight="h-[280px]"
+                imgWidth="w-[200px]"
+              ></AtomsBasicImage>
+            </ScrollParallax>
+
+            <!-- 3枚目 -->
+            <ScrollParallax
+              class="absolute left-2/4 -top-[40%] z-50"
+              :speed="0.12"
+              direction="y"
+            >
+              <AtomsBasicImage
+                :imgUrl="valueUpdate.imgUrls[2].imgUrl"
+                imgHeight="h-[280px]"
+                imgWidth="w-[200px]"
+              ></AtomsBasicImage>
+            </ScrollParallax>
+
+            <!-- 4枚目 -->
+            <ScrollParallax
+              class="absolute left-3/4 top-[140%] z-50"
+              :speed="0.14"
+              :up="false"
+              :down="true"
+              direction="y"
+            >
+              <AtomsBasicImage
+                :imgUrl="valueUpdate.imgUrls[3].imgUrl"
+                imgHeight="h-[280px]"
+                imgWidth="w-[200px]"
+              ></AtomsBasicImage>
+            </ScrollParallax>
+          </div>
         </div>
       </div>
+
+      <!-- お問い合わせ -->
+      <MoleculesFooterContact></MoleculesFooterContact>
     </div>
   </div>
 </template>

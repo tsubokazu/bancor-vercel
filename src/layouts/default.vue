@@ -3,13 +3,14 @@
   onMounted(() => {
     setTimeout(() => {
       isLoading.value = false;
-    }, 5000);
+    }, 100);
   });
 </script>
 
 <template>
   <div class="relative w-full">
-    <Transition
+    <!-- スプラッシュ画面（ローディング画面） -->
+    <!-- <Transition
       leave-active-class="transition-opacity duration-[2000ms]"
       leave-to-class="opacity-0"
     >
@@ -17,8 +18,9 @@
         class="pointer-events-none"
         v-if="isLoading"
       ></OrganismsLoadingScreen>
-    </Transition>
+    </Transition> -->
 
+    <!-- ヘッダー -->
     <Transition
       class="pointer-events-auto"
       enter-active-class="transition-opacity duration-[2000ms]"
@@ -30,6 +32,8 @@
         class="pointer-events-auto absolute top-3 z-50 w-full"
       ></OrganismsHeader>
     </Transition>
+
+    <!-- ページ -->
     <Transition
       class="pointer-events-auto"
       enter-active-class="transition-opacity duration-[2000ms]"
@@ -40,6 +44,8 @@
         <slot />
       </div>
     </Transition>
+
+    <!-- フッター -->
     <Transition
       class="pointer-events-auto"
       enter-active-class="transition-opacity duration-[2000ms]"

@@ -125,6 +125,12 @@ module.exports = {
         'title-slide-in-rv': 'title-slide-in-rv 3s ease-in-out both',
         'title-slide-out-rv': 'title-slide-out-rv 3s ease-in-out both',
         'journal-progress': 'journal-progress 8s linear  infinite  both',
+        'contact-plane': 'contact-plane 0.5s ease-out both',
+        'contact-plane-rv': 'contact-plane-rv 0.5s ease-out both',
+        'contact-title': 'contact-title 0.5s ease-out both',
+        'contact-title-rv': 'contact-title-rv 0.5s ease-out both',
+        'contact-frame': 'contact-frame 0.5s ease-out both',
+        'contact-frame-rv': 'contact-frame-rv 0.5s ease-out both',
       },
       keyframes: {
         'slide-out-up': {
@@ -863,6 +869,58 @@ module.exports = {
           'to': {
             opacity: '1',
             transform: 'translateX(0)',
+          },
+        },
+        'contact-plane': {
+          '0%': {
+            transform: 'translate(0, 0)',
+          },
+          'to': {
+            transform: 'translate(250px, -250px)',
+          },
+        },
+        'contact-plane-rv': {
+          '0%': {
+            transform: 'translate(250px, -250px)',
+          },
+          'to': {
+            transform: 'translate(0, 0)',
+          },
+        },
+        'contact-title': {
+          '0%': {
+            transform: 'translateY(0)',
+          },
+          'to': {
+            transform: 'translateY(-20px)',
+          },
+        },
+        'contact-title-rv': {
+          '0%': {
+            transform: 'translateY(-20px)',
+          },
+          'to': {
+            transform: 'translateY(0)',
+          },
+        },
+        'contact-frame': {
+          '0%': {
+            opacity: '1',
+            transform: 'scaleX(0)',
+          },
+          'to': {
+            opacity: '1',
+            transform: 'scaleX(1)',
+          },
+        },
+        'contact-frame-rv': {
+          '0%': {
+            opacity: '1',
+            transform: 'scaleX(1)',
+          },
+          'to': {
+            opacity: '1',
+            transform: 'scaleX(0)',
           },
         },
       },
