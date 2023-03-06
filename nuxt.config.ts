@@ -10,6 +10,7 @@ export default defineNuxtConfig({
   plugins: ['@/plugins/fontawesome.ts'],
   modules: [
     ['@pinia/nuxt', { autoImports: ['defineStore', 'acceptHMRUpdate'] }],
+    ['@formkit/nuxt'],
   ],
   build: { transpile: ['@fortawesome/vue-fontawesome'] },
   postcss: {
