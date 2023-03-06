@@ -3,11 +3,13 @@
     title: string;
     outline: string;
     linkUrl?: string;
-    subTitle: string;
+    subTitle?: string;
     size?: string;
     isBold?: boolean;
     spaceY?: string;
     titleSpaceY?: string;
+    outlineSize?: string;
+    isOutlineBold?: boolean;
   }
   const props = withDefaults(defineProps<Props>(), {
     linkUrl: '',
@@ -15,6 +17,8 @@
     isBold: true,
     spaceY: 'space-y-10',
     titleSpaceY: 'space-y-5',
+    outlineSize: 'text-base',
+    isOutlineBold: true,
   });
 </script>
 
@@ -23,9 +27,14 @@
     <AtomsBasicTitle
       :text="title"
       :size="size"
+      :isBold="isBold"
       :spaceY="titleSpaceY"
     ></AtomsBasicTitle>
-    <AtomsBasicOutline :text="outline" :isBold="isBold"></AtomsBasicOutline>
+    <AtomsBasicOutline
+      :size="outlineSize"
+      :text="outline"
+      :isBold="isOutlineBold"
+    ></AtomsBasicOutline>
     <MoleculesDetailButton
       v-if="linkUrl.length > 0"
       :linkUrl="linkUrl"

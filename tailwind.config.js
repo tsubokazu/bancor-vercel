@@ -41,6 +41,10 @@ module.exports = {
         'bancor-pink100': '#FFEBEB',
         'bancor-red100': '#E64C19',
         'bancor-red200': '#FD7346',
+        'bancor-red300': '#FFC1C1',
+        'bancor-red400': '#FFB198',
+        'bancor-red500': '#FFF7F7',
+        'bancor-red600': '#FFB198',
         'bancor-gray100': '#7C8186',
         'bancor-gray200': '#626262',
         'bancor-gray300': '#505050',
@@ -52,6 +56,7 @@ module.exports = {
         'bancor-gray900': '#272727',
         'bancor-gray1000': '#FAFAFA',
         'bancor-gray1100': '#F7F7F7',
+        'bancor-gray1200': '#F0F2F4',
         'bancor-navy100': '#2C3345',
         'bancor-navy200': '#161F2E',
         'bancor-navy300': '#1B2434',
@@ -71,6 +76,9 @@ module.exports = {
         'slide-out-up': 'slide-out-up 5s ease-in-out both',
         'slide-out-down': 'slide-out-down 5s ease-in-out both',
         'slide-in-right': 'slide-in-right 5s ease-in-out both',
+        'slide-in-right-rv': 'slide-in-right-rv 5s ease-in-out both',
+        'slide-in-right-quick': 'slide-in-right 0.3s ease-in-out both',
+        'slide-in-right-quick-rv': 'slide-in-right-rv 0.3s ease-in-out both',
         'slide-in-char-up': 'slide-in-char-up 5s ease-in-out both',
         'slide-in-char-down': 'slide-in-char-down 5s ease-in-out both',
         'scale-up-ver-top': 'scale-up-ver-top 0.3s ease-in-out both',
@@ -151,10 +159,30 @@ module.exports = {
         },
         'slide-in-right': {
           '0%': {
+            opacity: '0',
+            transform: 'translateX(-100%)',
+          },
+          '1%': {
+            opacity: '1',
             transform: 'translateX(-100%)',
           },
           'to': {
+            opacity: '1',
             transform: 'translateX(0)',
+          },
+        },
+        'slide-in-right-rv': {
+          '0%': {
+            opacity: '1',
+            transform: 'translateX(0%)',
+          },
+          '99%': {
+            opacity: '1',
+            transform: 'translateX(-100%)',
+          },
+          'to': {
+            opacity: '0',
+            transform: 'translateX(-100%)',
           },
         },
         'slide-in-char-up': {

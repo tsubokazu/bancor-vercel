@@ -12,7 +12,7 @@
     spaceY: 'space-y-5',
     isBold: true,
   });
-  const titleTexts = ref(props.text.split('\r\n'));
+  const titleTexts = computed(() => props.text.split('\r\n'));
 </script>
 
 <template>

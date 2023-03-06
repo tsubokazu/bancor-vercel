@@ -19,7 +19,7 @@
     isRotate: false,
     isOpacity: false,
   });
-  const titleTexts = ref(props.text.split('\r\n'));
+  const titleTexts = computed(() => props.text.split('\r\n'));
 
   const hoverBtnAnimation = ref('');
   const hoverOpacity = ref('');

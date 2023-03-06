@@ -1,7 +1,6 @@
 <script setup lang="ts">
   import { SystemDevObject } from '~/types/pages/system-development';
   import { usePagesSystemDevStore } from '~/stores/pages/system-development';
-  import FuturaMediumText from '../components/atoms/FuturaMediumText.vue';
   import ScrollParallax from 'vue3-parallax/src/components/ScrollParallax.vue';
 
   // 事業内容ページ情報をPiniaから取得
@@ -87,16 +86,16 @@
           class="relative flex h-[240px] w-[332px] flex-col items-center justify-between rounded-lg border border-bancor-gray600 bg-white py-6"
         >
           <!-- Case N -->
-          <FuturaMediumText
+          <AtomsFuturaMediumText
             class="absolute top-4 left-6"
             :text="issue.subTitle"
             size="text-lg"
-          ></FuturaMediumText>
-          <FuturaMediumText
+          ></AtomsFuturaMediumText>
+          <AtomsFuturaMediumText
             class="absolute top-7 left-4"
             :text="issue.outline"
             size="text-[47px]"
-          ></FuturaMediumText>
+          ></AtomsFuturaMediumText>
 
           <!-- カード内イメージとタイトル -->
           <AtomsBasicIcon
@@ -424,6 +423,9 @@
 
       <!-- お問い合わせ -->
       <MoleculesFooterContact></MoleculesFooterContact>
+
+      <!-- Bancorの取り組み　フッター -->
+      <OrganismsAboutMore></OrganismsAboutMore>
     </div>
   </div>
 </template>

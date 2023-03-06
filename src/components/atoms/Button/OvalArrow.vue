@@ -8,8 +8,10 @@
     toColor?: string;
     hasBorder?: boolean;
     borderColor?: string;
-    borderWidth?: string | number;
+    borderWidth?: string;
     arrowPosition?: string;
+    buttonHeight?: string;
+    buttonWidth?: string;
   }
   const Props = withDefaults(defineProps<Props>(), {
     linkName: '/',
@@ -20,8 +22,10 @@
     toColor: 'bg-bancor-blue400',
     hasBorder: false,
     borderColor: 'border-bancor-gray700',
-    borderWidth: 1,
+    borderWidth: 'border',
     arrowPosition: 'right-5',
+    buttonHeight: '',
+    buttonWidth: '',
   });
 
   const hoverAnimation = ref('');
@@ -35,6 +39,8 @@
 
   const classArray = [
     Props.textColor,
+    Props.buttonHeight,
+    Props.buttonWidth,
     !Props.isGradient ? Props.bgColor : '',
     Props.isGradient ? 'bg-gradient-to-r' : '',
     Props.isGradient ? Props.fromColor : '',
