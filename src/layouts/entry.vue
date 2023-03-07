@@ -9,17 +9,6 @@
 
 <template>
   <div class="relative w-full">
-    <!-- スプラッシュ画面（ローディング画面） -->
-    <!-- <Transition
-      leave-active-class="transition-opacity duration-[2000ms]"
-      leave-to-class="opacity-0"
-    >
-      <OrganismsLoadingScreen
-        class="pointer-events-none"
-        v-if="isLoading"
-      ></OrganismsLoadingScreen>
-    </Transition> -->
-
     <!-- ヘッダー -->
     <Transition
       class="pointer-events-auto"
@@ -27,10 +16,10 @@
       enter-from-class="opacity-0"
       enter-to-class="opacity-1"
     >
-      <OrganismsHeader
+      <OrganismsMiniHeader
         v-show="!isLoading"
-        class="pointer-events-auto absolute top-3 z-50 w-full"
-      ></OrganismsHeader>
+        class="w-full"
+      ></OrganismsMiniHeader>
     </Transition>
 
     <!-- ページ -->
@@ -52,10 +41,10 @@
       enter-from-class="opacity-0"
       enter-to-class="opacity-1"
     >
-      <OrganismsFooter
+      <OrganismsMiniFooter
         v-show="!isLoading"
-        class="h-screen max-h-[676px] w-full"
-      ></OrganismsFooter>
+        class="w-full"
+      ></OrganismsMiniFooter>
     </Transition>
   </div>
 </template>

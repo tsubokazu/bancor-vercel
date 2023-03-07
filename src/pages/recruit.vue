@@ -73,9 +73,7 @@
   // カテゴリを押したら選択されているカテゴリインデックスを変更
   const clickCategoryMenu = (index: number) => {
     selectedCategoryIndex.value = index;
-    console.log(
-      `selectedCategoryObject: ${JSON.stringify(selectedCategoryObject.value)}`
-    );
+    entries.position = selectedCategoryObject.value.category;
   };
 </script>
 

@@ -5,370 +5,248 @@
   } from '~/types/pages/recruit';
   import { usePagesRecruitStore } from '~/stores/pages/recruit';
 
+  // フォームの設定
+  const myForm: any = ref(null);
+  const submitForm = () => {
+    const node = myForm.value.node;
+    node.submit();
+  };
+
+  definePageMeta({
+    layout: 'entry',
+  });
+
   // 採用情報ページ情報をPiniaから取得
   const pagesRecruitStore = usePagesRecruitStore();
   if (Object.keys(pagesRecruitStore.header).length == 0) {
     await pagesRecruitStore.fetchPagesRecruit();
   }
-  const { header, vision, contents, entries }: RecruitObject =
-    pagesRecruitStore;
-
-  // 採用情報の募集種別詳細情報をPiniaから取得
-  const pagesRecruitCategoryStore = usePagesRecruitStore();
-  if (Object.keys(pagesRecruitCategoryStore.positionCategories).length == 0) {
-    await pagesRecruitCategoryStore.fetchPagesRecruitCategory();
-  }
-  const {
-    positionCategories,
-  }: {
-    positionCategories: Array<RecruitPositionCategory>;
-  } = pagesRecruitCategoryStore;
-
-  // 募集職種のタブメニュー
-  const tabMenuCategories = computed(() => {
-    const categories: any = {};
-    for (const category of positionCategories) {
-      categories[category.position.key] = category.position.value;
-    }
-    return categories;
-  });
-
-  // 選択中のポジションカテゴリキー
-  const selectedTabMenuKey = ref(Object.keys(tabMenuCategories.value)[0]);
-
-  // ポジションカテゴリ別の募集職種カテゴリリスト
-  const positionCategoriesObject = computed(() => {
-    const categories: any = {};
-    for (const key in tabMenuCategories.value) {
-      const list = [];
-      for (const category of positionCategories) {
-        if (category.position.key == key) {
-          list.push(category);
-        }
-      }
-      categories[key] = list;
-    }
-    return categories;
-  });
-
-  // 選択中のポジションカテゴリーのオブジェクト
-  const selectedCategories = computed<Array<RecruitPositionCategory>>(
-    () => positionCategoriesObject.value[selectedTabMenuKey.value]
-  );
-
-  // 選択中のカテゴリーのインデックス
-  const selectedCategoryIndex = ref(0);
-
-  // 選択中のカテゴリーのオブジェクト
-  const selectedCategoryObject = computed<RecruitPositionCategory>(
-    () => selectedCategories.value[selectedCategoryIndex.value]
-  );
-
-  // メニューを押したら選択されているカテゴリキーを変更
-  const clickTabMenu = (key: string) => {
-    selectedTabMenuKey.value = key;
-    selectedCategoryIndex.value = 0;
-  };
-
-  // カテゴリを押したら選択されているカテゴリインデックスを変更
-  const clickCategoryMenu = (index: number) => {
-    selectedCategoryIndex.value = index;
-    console.log(
-      `selectedCategoryObject: ${JSON.stringify(selectedCategoryObject.value)}`
-    );
-  };
+  const { entries }: RecruitObject = pagesRecruitStore;
 </script>
 
 <template>
-  <div class="flex w-full flex-col items-center">
-    <!-- ヘッダー -->
-    <div class="h-[360px] w-full">
-      <AtomsBasicHeader
-        :imgUrl="header.imgUrl"
-        class="h-full w-full"
-      ></AtomsBasicHeader>
+  <div
+    class="flex w-full flex-col items-center bg-bancor-gray700 pt-[72px] pb-[128px]"
+  >
+    <!-- タイトル -->
+    <div class="mb-6 flex w-full items-center space-x-4 pc:max-w-[1100px]">
+      <AtomsDoubleSquare
+        frontSquareColor="bg-bancor-black100"
+        backSquareColor="bg-bancor-blue100"
+        size="h-[17px] w-[17px]"
+      ></AtomsDoubleSquare>
+      <AtomsBasicTitle
+        size="text-[28px]"
+        text="エントリーフォーム"
+      ></AtomsBasicTitle>
     </div>
-    <!-- ボディ -->
-    <div class="relative mb-40 flex w-full flex-col items-center space-y-24">
-      <!-- ヘッダータイトル -->
-      <div
-        class="absolute -top-32 flex w-full flex-col space-y-3 pc:max-w-[1100px]"
-      >
-        <div class="text-base text-white">{{ header.title }}</div>
-        <AtomsFuturaItalicText
-          :text="header.subTitle"
-          color="text-white"
-          size="text-[40px]"
-        ></AtomsFuturaItalicText>
-      </div>
 
-      <!-- ミッション -->
-      <div class="flex w-full justify-between pc:max-w-[1100px]">
-        <!-- メニュー -->
-        <MoleculesBasicMenu
-          class="w-[372px]"
-          :title="vision.title"
-          :subTitle="vision.subTitle"
-          :linkUrl="vision.linkUrl"
-          :outline="vision.outline"
-        ></MoleculesBasicMenu>
-        <!-- イメージ -->
-        <div class="h-[392px]">
-          <img :src="vision.imgUrl" class="h-full" />
-        </div>
-      </div>
-      <!-- 会社案内コンテンツ -->
-      <div class="flex h-[256px] w-full justify-center bg-bancor-light-blue200">
-        <!-- タイトル -->
-        <div class="flex h-full w-1/2 justify-end">
-          <div class="flex h-full w-full items-center pc:max-w-[550px]">
-            <AtomsBasicTitle
-              :text="contents.title"
-              size="text-[60px]"
-              class="font-futuraBold"
-            ></AtomsBasicTitle>
-          </div>
-        </div>
-        <!-- メニュー -->
-        <div class="flex h-full w-1/2 flex-col">
-          <!-- 代表メッセージ -->
-          <NuxtLink
-            :to="contents.contents[0].linkUrl"
-            class="flex h-1/2 w-full items-center space-x-6 bg-bancor-blue200 pl-[72px]"
+    <!-- フォームボディ -->
+    <div
+      class="flex w-full flex-col items-center rounded-[10px] bg-white pt-10 pc:max-w-[1100px]"
+    >
+      <!-- 氏名 -->
+      <FormKit type="form" ref="myForm" :actions="false">
+        <div class="mb-8 w-[360px] tb:w-[640px] pc:w-[860px]">
+          <!-- 姓 -->
+          <FormKit
+            type="text"
+            label="氏名"
+            placeholder="姓"
+            validation="required"
           >
-            <AtomsButtonCircleArrowSmall
-              arrowColor="text-bancor-black100"
-              arrowSize="text-[10.4px]"
-              size="w-[33px] h-[33px]"
-            ></AtomsButtonCircleArrowSmall>
-            <AtomsBasicTitle
-              size="text-[22px]"
-              color="text-white"
-              :text="contents.contents[0].title"
-            ></AtomsBasicTitle
-          ></NuxtLink>
-          <!-- 会社案内 -->
-          <NuxtLink
-            :to="contents.contents[1].linkUrl"
-            class="flex h-1/2 w-full items-center space-x-6 bg-bancor-blue400 pl-[72px]"
+            <template #label="context">
+              <AtomsFormBasicLabel
+                :text="context.label"
+                :isRequired="true"
+                class="mb-4"
+              >
+              </AtomsFormBasicLabel>
+            </template>
+          </FormKit>
+          <!-- 名 -->
+          <FormKit
+            type="text"
+            placeholder="名"
+            outer-class="mt-4"
+            validation="required"
+          ></FormKit>
+        </div>
+
+        <!-- 氏名（かな） -->
+        <div class="mb-8 w-[360px] tb:w-[640px] pc:w-[860px]">
+          <!-- 氏名（かな） -->
+          <FormKit
+            type="text"
+            label="氏名（かな）"
+            placeholder=""
+            validation="required"
           >
-            <AtomsButtonCircleArrowSmall
-              arrowColor="text-bancor-black100"
-              arrowSize="text-[10.4px]"
-              size="w-[33px] h-[33px]"
-            ></AtomsButtonCircleArrowSmall>
-            <AtomsBasicTitle
-              size="text-[22px]"
-              color="text-white"
-              :text="contents.contents[1].title"
-            ></AtomsBasicTitle
-          ></NuxtLink>
-        </div>
-      </div>
-
-      <!-- 募集職種 -->
-      <div class="flex w-full flex-col items-center bg-bancor-gray700 py-24">
-        <!-- タイトル -->
-        <div class="w-full pc:max-w-[1100px]">
-          <MoleculesDoubleSquareTagMenu
-            title="募集職種"
-            subTitle="Open Position"
-          ></MoleculesDoubleSquareTagMenu>
+            <template #label="context">
+              <AtomsFormBasicLabel
+                :text="context.label"
+                :isRequired="true"
+                class="mb-4"
+              >
+              </AtomsFormBasicLabel>
+            </template>
+          </FormKit>
         </div>
 
-        <!-- コンテンツ -->
-        <div class="flex w-full space-x-[29px] pc:max-w-[1100px]">
-          <!-- タブメニュー -->
-          <div class="flex w-[228px] flex-col">
-            <!-- メニュー -->
-            <button
-              v-for="(category, menuKey) in tabMenuCategories"
-              @click="clickTabMenu(`${menuKey}`)"
-              class="relative flex h-[68px] w-full items-center overflow-hidden"
-              :key="category"
+        <!-- 生年月日 -->
+        <div class="mb-8 w-[360px] tb:w-[640px] pc:w-[860px]">
+          <!-- 生年月日 -->
+          <FormKit
+            type="text"
+            label="生年月日"
+            value="2000-01-01"
+            validation="required|date_before:2020-01-01"
+          >
+            <template #label="context">
+              <AtomsFormBasicLabel
+                :text="context.label"
+                :isRequired="true"
+                class="mb-4"
+              >
+              </AtomsFormBasicLabel>
+            </template>
+          </FormKit>
+        </div>
+
+        <!-- メールアドレス -->
+        <div class="mb-8 w-[360px] tb:w-[640px] pc:w-[860px]">
+          <!-- メールアドレス -->
+          <FormKit
+            type="email"
+            label="メールアドレス"
+            placeholder="xxxx@gmail.com"
+            validation="required|email"
+          >
+            <template #label="context">
+              <AtomsFormBasicLabel
+                :text="context.label"
+                :isRequired="true"
+                class="mb-4"
+              >
+              </AtomsFormBasicLabel>
+            </template>
+          </FormKit>
+          <!-- メールアドレスの確認 -->
+          <FormKit
+            type="email"
+            label="メールアドレスの確認"
+            placeholder="xxxx@gmail.com"
+            validation="required|email"
+            outer-class="mt-6"
+          >
+            <template #label="context">
+              <AtomsFormBasicLabel
+                :text="context.label"
+                :isRequired="true"
+                class="mb-4"
+              >
+              </AtomsFormBasicLabel>
+            </template>
+          </FormKit>
+        </div>
+
+        <!-- 性別 -->
+        <div class="mb-8 w-[360px] tb:w-[640px] pc:w-[860px]">
+          <!-- 性別 -->
+          <FormKit
+            type="radio"
+            label="性別"
+            legend="性別"
+            :options="['男性', '女性', 'その他']"
+            validation="required"
+          >
+            <template #legend="context">
+              <AtomsFormBasicLabel text="性別" :isRequired="true" class="mb-4">
+              </AtomsFormBasicLabel>
+            </template>
+          </FormKit>
+        </div>
+
+        <!-- 郵便番号 -->
+        <div
+          class="mb-8 flex w-[360px] flex-col space-x-5 tb:w-[640px] tb:flex-row pc:w-[860px]"
+        >
+          <!-- 郵便番号 -->
+          <div class="w-full tb:w-[420px] pc:w-[620px]">
+            <FormKit
+              type="text"
+              label="郵便番号"
+              placeholder="000-0000"
+              validation="required|matches:^[0-9]{3}-[0-9]{4}$"
             >
-              <AtomsBasicTitle
-                :text="category"
-                size="text-base"
-              ></AtomsBasicTitle>
-              <!-- ライン -->
-              <div
-                class="absolute bottom-0 h-0.5 w-full bg-bancor-gray600"
-              ></div>
-              <div
-                class="absolute bottom-0 h-0.5 w-full -translate-x-full bg-bancor-black100"
-                :class="{
-                  'animate-slide-in-right-quick':
-                    `${menuKey}` == selectedTabMenuKey,
-                  'animate-slide-in-right-quick-rv':
-                    `${menuKey}` != selectedTabMenuKey,
-                }"
-              ></div>
+              <template #label="context">
+                <AtomsFormBasicLabel
+                  :text="context.label"
+                  :isRequired="true"
+                  class="mb-4"
+                >
+                </AtomsFormBasicLabel>
+              </template>
+            </FormKit>
+          </div>
+
+          <!-- 住所自動入力ボタン -->
+          <div class="flex w-full items-end tb:w-[220px]">
+            <button
+              class="flex w-full items-center justify-center rounded-lg border border-bancor-gray600 py-2 text-base font-bold"
+            >
+              住所自動入力
             </button>
           </div>
-          <!-- 詳細 -->
-          <div class="w-[calc(100%_-_257px)] justify-center bg-white p-12">
-            <!-- 募集カテゴリ -->
-            <div class="flex w-full flex-col">
-              <!-- タイトル -->
-              <AtomsBasicTitle
-                :text="selectedCategories[0].position.title"
-                color="text-bancor-blue200"
-                size="text-[22px]"
-              ></AtomsBasicTitle>
-              <!-- カテゴリ一覧グリッド -->
-              <div class="min-h-[370px] w-full">
-                <div class="grid grid-cols-2 gap-x-10 gap-y-0">
-                  <!-- 各カテゴリメニューボタン -->
-                  <button
-                    v-for="(category, index) in selectedCategories"
-                    @click="clickCategoryMenu(index)"
-                    class="relative flex h-[72px] w-full items-center overflow-hidden"
-                    :key="category.position.key"
-                  >
-                    <div
-                      class="flex h-full w-full items-center justify-between"
-                    >
-                      <!-- タイトル -->
-                      <AtomsBasicTitle
-                        :text="category.category"
-                        size="text-base"
-                      ></AtomsBasicTitle>
-                      <!-- 矢印 ">" -->
-                      <div
-                        v-if="selectedCategories.length >= 2"
-                        class="px-3 text-base"
-                      >
-                        <font-awesome-icon icon="fa-solid fa-angle-right" />
-                      </div>
-                    </div>
-                    <!-- ライン -->
-                    <div
-                      v-if="selectedCategories.length >= 2"
-                      class="absolute bottom-0 h-0.5 w-full bg-bancor-gray600"
-                    ></div>
-                    <div
-                      v-if="selectedCategories.length >= 2"
-                      class="absolute bottom-0 h-0.5 w-full -translate-x-full bg-bancor-black100 opacity-0"
-                      :class="{
-                        'animate-slide-in-right-quick':
-                          index == selectedCategoryIndex,
-                      }"
-                    ></div>
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            <!-- 求める人材 -->
-            <div class="mb-6 flex w-full flex-col">
-              <!-- タイトル -->
-              <AtomsBasicTitle
-                :text="selectedCategories[0].desires.title"
-                color="text-bancor-blue200"
-                size="text-[22px]"
-                class="mb-6"
-              ></AtomsBasicTitle>
-              <!-- 説明 -->
-              <MoleculesBasicMenu
-                v-for="desire in selectedCategoryObject.desires.details"
-                :title="desire.subTitle"
-                :outline="desire.outline"
-                size="text-[18px]"
-                outlineSize="text-[14px]"
-                :isOutlineBold="false"
-                spaceY="space-y-4"
-                class="mb-6 border-b-2 border-bancor-gray600 pb-6"
-                :key="desire.outline"
-              ></MoleculesBasicMenu>
-            </div>
-
-            <!-- 入社のメリット -->
-            <div class="mb-6 flex w-full flex-col">
-              <!-- タイトル -->
-              <AtomsBasicTitle
-                :text="selectedCategories[0].benefits.title"
-                color="text-bancor-blue200"
-                size="text-[22px]"
-                class="mb-6"
-              ></AtomsBasicTitle>
-              <!-- 説明 -->
-              <MoleculesBasicMenu
-                v-for="desire in selectedCategoryObject.benefits.details"
-                :title="desire.subTitle"
-                :outline="desire.outline"
-                size="text-[18px]"
-                outlineSize="text-[14px]"
-                :isOutlineBold="false"
-                spaceY="space-y-4"
-                class="mb-6 border-b-2 border-bancor-gray600 pb-6"
-                :key="desire.outline"
-              ></MoleculesBasicMenu>
-            </div>
-
-            <!-- 募集要項 -->
-            <div class="mb-6 flex w-full flex-col">
-              <!-- タイトル -->
-              <AtomsBasicTitle
-                :text="selectedCategories[0].informations.title"
-                color="text-bancor-blue200"
-                size="text-[22px]"
-                class="mb-6"
-              ></AtomsBasicTitle>
-              <!-- 説明 -->
-              <div
-                class="flex space-x-9"
-                v-for="info in selectedCategoryObject.informations.details"
-              >
-                <!-- 項目タイトル -->
-                <div class="border-bancorgra600 w-[160px] border-b-2 py-6">
-                  <AtomsBasicTitle
-                    :text="info.subTitle"
-                    size="text-base"
-                    :isBold="true"
-                  ></AtomsBasicTitle>
-                </div>
-                <!-- 項目詳細 -->
-                <div
-                  class="border-bancorgra600 w-[calc(100%_-_178px)] border-b-2 py-6"
-                >
-                  <AtomsBasicOutline
-                    size="text-[14px]"
-                    :text="info.outline"
-                    :isBold="false"
-                  ></AtomsBasicOutline>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
 
-      <!-- エントリー -->
-      <div class="flex w-full flex-col items-center space-y-16">
-        <!-- タイトル -->
-        <div class="flex items-center space-x-4">
-          <AtomsDoubleSquare
-            frontSquareColor="bg-bancor-black100"
-            backSquareColor="bg-bancor-blue100"
-            size="h-[18px] w-[18px]"
-          ></AtomsDoubleSquare>
-          <AtomsBasicTitle :text="entries.title"></AtomsBasicTitle>
-        </div>
-        <!-- フォームボタン -->
-        <div class="flex items-center space-x-8">
-          <!-- この職種に応募する -->
-          <AtomsButtonOvalArrow
-            v-for="entry in entries.entries"
-            :linkName="entry.linkUrl"
-            bgColor="bg-bancor-black100"
-            textColor="text-white"
-            buttonHeight="h-[56px]"
-            buttonWidth="w-[272px]"
+        <!-- 住所 -->
+        <div class="mb-8 w-[360px] tb:w-[640px] pc:w-[860px]">
+          <!-- 住所 -->
+          <FormKit
+            type="text"
+            label="住所"
+            placeholder="入力してください"
+            validation="required"
           >
-            {{ entry.title }}
-          </AtomsButtonOvalArrow>
+            <template #label="context">
+              <AtomsFormBasicLabel
+                :text="context.label"
+                :isRequired="true"
+                class="mb-4"
+              >
+              </AtomsFormBasicLabel>
+            </template>
+          </FormKit>
         </div>
+
+        <!-- 電話番号 -->
+        <div class="mb-8 w-[360px] tb:w-[640px] pc:w-[860px]">
+          <!-- 電話番号 -->
+          <FormKit
+            type="tel"
+            label="電話番号"
+            placeholder="00-0000-0000"
+            validation="required|matches:^\d{2,3}-\d{2,3,4,5}-\d{2,3,4,5}$"
+          >
+            <template #label="context">
+              <AtomsFormBasicLabel
+                :text="context.label"
+                :isRequired="true"
+                class="mb-4"
+              >
+              </AtomsFormBasicLabel>
+            </template>
+          </FormKit>
+        </div>
+      </FormKit>
+
+      <!-- フォーム送信ボタン -->
+      <div
+        @click="submitForm"
+        class="rounded-full bg-bancor-black400 py-[21px] px-[50px] text-sm font-bold text-white"
+      >
+        同意の上、入力内容を確認
       </div>
     </div>
   </div>
