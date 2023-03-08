@@ -169,7 +169,7 @@
 
         <!-- 郵便番号 -->
         <div
-          class="mb-8 flex w-[360px] flex-col space-x-5 tb:w-[640px] tb:flex-row pc:w-[860px]"
+          class="relative mb-8 flex w-[360px] flex-col space-x-0 tb:w-[640px] tb:flex-row tb:space-x-5 pc:w-[860px]"
         >
           <!-- 郵便番号 -->
           <div class="w-full tb:w-[420px] pc:w-[620px]">
@@ -191,7 +191,9 @@
           </div>
 
           <!-- 住所自動入力ボタン -->
-          <div class="flex w-full items-end tb:w-[220px]">
+          <div
+            class="flex w-full items-end tb:absolute tb:right-0 tb:top-10 tb:w-[180px] pc:w-[220px]"
+          >
             <button
               class="flex w-full items-center justify-center rounded-lg border border-bancor-gray600 py-2 text-base font-bold"
             >
@@ -233,6 +235,26 @@
               <AtomsFormBasicLabel
                 :text="context.label"
                 :isRequired="true"
+                class="mb-4"
+              >
+              </AtomsFormBasicLabel>
+            </template>
+          </FormKit>
+        </div>
+
+        <!-- 応募理由・自己PR -->
+        <div class="mb-8 w-[360px] tb:w-[640px] pc:w-[860px]">
+          <!-- 応募理由・自己PR -->
+          <FormKit
+            type="text"
+            label="応募理由・自己PR"
+            placeholder=""
+            help="※400文字以内でご記入ください。"
+          >
+            <template #label="context">
+              <AtomsFormBasicLabel
+                :text="context.label"
+                :isRequired="false"
                 class="mb-4"
               >
               </AtomsFormBasicLabel>
