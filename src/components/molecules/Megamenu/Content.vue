@@ -1,6 +1,6 @@
 <script setup lang="ts">
   interface Contents {
-    linkName: string;
+    linkUrl: string;
     title: string;
     imgUrl: string;
   }
@@ -15,7 +15,7 @@
   >
     <MoleculesMegamenuCard
       v-for="(content, index) in contents"
-      :key="content.linkName"
+      :key="content.linkUrl"
       :content="content"
       class="flex-none"
     ></MoleculesMegamenuCard>

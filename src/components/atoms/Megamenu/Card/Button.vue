@@ -1,9 +1,9 @@
 <script setup lang="ts">
   interface Props {
-    linkName: string;
+    linkUrl: string;
   }
   const Props = withDefaults(defineProps<Props>(), {
-    linkName: '/',
+    linkUrl: '/',
   });
 </script>
 

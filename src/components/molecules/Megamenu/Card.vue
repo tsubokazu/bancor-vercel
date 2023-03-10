@@ -1,6 +1,6 @@
 <script setup lang="ts">
   interface Props {
-    linkName: string;
+    linkUrl: string;
     title: string;
     imgUrl: string;
   }
@@ -10,7 +10,7 @@
 </script>
 
 <template>
-  <NuxtLink :to="content.linkName">
+  <NuxtLink :to="content.linkUrl">
     <div class="flex flex-col">
       <AtomsMegamenuCardImage
         v-show="content.imgUrl != ''"

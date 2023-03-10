@@ -358,7 +358,7 @@
           <!-- この職種に応募する -->
           <AtomsButtonOvalArrow
             v-for="entry in entries.entries"
-            :linkName="entry.linkUrl"
+            :linkUrl="entry.linkUrl"
             bgColor="bg-bancor-black100"
             textColor="text-white"
             buttonHeight="h-[56px]"

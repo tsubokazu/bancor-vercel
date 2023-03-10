@@ -1,6 +1,6 @@
 <script setup lang="ts">
   interface Props {
-    linkName?: string;
+    linkUrl?: string;
     bgColor?: string;
     textColor?: string;
     isGradient?: boolean;
@@ -11,7 +11,7 @@
     borderWidth?: string | number;
   }
   const Props = withDefaults(defineProps<Props>(), {
-    linkName: '/',
+    linkUrl: '/',
     bgColor: 'bg-bancor-blue300',
     textColor: 'text-black',
     isGradient: false,
@@ -35,7 +35,7 @@
 
 <template>
   <div class="rounded-full py-2 px-6" :class="classArray">
-    <NuxtLink :to="linkName">
+    <NuxtLink :to="linkUrl">
       <slot />
     </NuxtLink>
   </div>

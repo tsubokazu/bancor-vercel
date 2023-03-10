@@ -27,7 +27,7 @@
       bgColor="bg-black"
       textColor="text-white"
       arrowPosition="right-20"
-      :linkName="topRecruitObject.linkUrl"
+      :linkUrl="topRecruitObject.linkUrl"
     >
       採用募集
     </AtomsButtonOvalArrow>

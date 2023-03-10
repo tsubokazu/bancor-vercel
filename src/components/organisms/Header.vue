@@ -44,13 +44,13 @@
   ];
   interface MegamenuContent {
     title: string;
-    linkName: string;
+    linkUrl: string;
     imgUrl: string;
   }
 
   interface HeaderMenuObject {
     title: string;
-    linkName: string;
+    linkUrl: string;
     enTitle: string;
     subTitle: string;
     contents: Array<MegamenuContent>;
@@ -63,7 +63,7 @@
 
       contents.push({
         title: contentTitles[i],
-        linkName:
+        linkUrl:
           Object.keys(contentLinksArray[j]).length >= i + 1
             ? contentLinksArray[j][i]
             : '',
@@ -75,7 +75,7 @@
     }
     menuObjects.push({
       title: menuTitle,
-      linkName: menuLinks[i],
+      linkUrl: menuLinks[i],
       enTitle: megamenuTitles[i],
       subTitle: megamenuSubtitles[i],
       contents: contents,
@@ -87,17 +87,17 @@
   const hoverAnimation = ref('');
   interface Content {
     title: string;
-    linkName: string;
+    linkUrl: string;
     imgUrl: string;
   }
   const hoverMenuObject: {
     title: string;
-    linkName: string;
+    linkUrl: string;
     enTitle: string;
     subTitle: string;
     contents: Array<Content>;
   } = reactive({
-    linkName: '',
+    linkUrl: '',
     title: '',
     enTitle: '',
     subTitle: '',
@@ -107,7 +107,7 @@
     hoverFlag.value = true;
     hoverIndex.value = index;
     hoverAnimation.value = 'animate-scale-down-ver-top';
-    hoverMenuObject.linkName = menuObjects[index].linkName;
+    hoverMenuObject.linkUrl = menuObjects[index].linkUrl;
     hoverMenuObject.title = menuObjects[index].title;
     hoverMenuObject.enTitle = menuObjects[index].enTitle;
     hoverMenuObject.subTitle = menuObjects[index].subTitle;
@@ -136,8 +136,8 @@
       <div class="flex items-center space-x-8 pr-16">
         <MoleculesUnderLineTextButton
           v-for="(menuObject, index) in menuObjects"
-          :key="menuObject.linkName"
-          :linkName="menuObject.linkName"
+          :key="menuObject.linkUrl"
+          :linkUrl="menuObject.linkUrl"
           :hoverIndex="hoverIndex"
           :menuIndex="index"
           @mouseover="mouseOverAction(index)"
@@ -147,7 +147,7 @@
         <AtomsDivLine class="hidden pc:block"></AtomsDivLine>
         <AtomsButtonSearch></AtomsButtonSearch>
         <AtomsButtonOval
-          linkName="/"
+          linkUrl="/"
           bgColor="bg-bancor-blue300"
           :isGradient="true"
           fromColor="from-bancor-blue300"
