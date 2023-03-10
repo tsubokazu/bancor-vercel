@@ -1,6 +1,6 @@
 <script setup lang="ts">
   const Props = defineProps<{
-    linkName: string;
+    linkUrl: string;
     hoverIndex: number;
     menuIndex: number;
   }>();
@@ -16,7 +16,7 @@
 
 <template>
   <div class="flex w-fit flex-col items-center space-y-2 pt-2">
-    <AtomsButtonText :linkName="linkName" :isBold="true">
+    <AtomsButtonText :linkUrl="linkUrl" :isBold="true">
       <slot />
     </AtomsButtonText>
     <AtomsUnderLine

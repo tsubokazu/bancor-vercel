@@ -2,7 +2,7 @@
   defineProps<{
     title: string;
     enTitle: string;
-    linkName: string;
+    linkUrl: string;
   }>();
 </script>
 
@@ -20,7 +20,7 @@
       bgColor="bg-white"
       borderColor="border-bancor-gray700"
       :hasBorder="true"
-      :linkName="linkName"
+      :linkUrl="linkUrl"
     >
       詳しくみる
     </AtomsButtonOvalArrow>

@@ -1,6 +1,7 @@
 <script setup lang="ts">
   interface Props {
-    linkName?: string;
+    textSize?: string;
+    linkUrl?: string;
     bgColor?: string;
     textColor?: string;
     isGradient?: boolean;
@@ -14,7 +15,8 @@
     buttonWidth?: string;
   }
   const Props = withDefaults(defineProps<Props>(), {
-    linkName: '/',
+    textSize: 'text-base',
+    linkUrl: '/',
     bgColor: 'bg-bancor-blue300',
     textColor: 'text-black',
     isGradient: false,
@@ -38,6 +40,7 @@
   };
 
   const classArray = [
+    Props.textSize,
     Props.textColor,
     Props.buttonHeight,
     Props.buttonWidth,
@@ -51,7 +54,7 @@
 </script>
 
 <template>
-  <NuxtLink :to="linkName">
+  <NuxtLink :to="linkUrl">
     <div
       class="relative flex items-center justify-center rounded-full px-10 py-2"
       :class="classArray"
@@ -60,8 +63,8 @@
     >
       <slot />
       <div
-        class="absolute right-5 h-auto w-auto text-xs"
-        :class="hoverAnimation"
+        class="absolute h-auto w-auto text-xs"
+        :class="[hoverAnimation, arrowPosition]"
       >
         <font-awesome-icon icon="fa-solid fa-angle-right" />
       </div>

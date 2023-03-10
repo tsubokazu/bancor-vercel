@@ -1,17 +1,17 @@
 <script setup lang="ts">
   interface Props {
-    linkName: string;
+    linkUrl: string;
     isBold?: boolean;
   }
   const Props = withDefaults(defineProps<Props>(), {
-    linkName: '/',
+    linkUrl: '/',
     isBold: false,
   });
 </script>
 
 <template>
   <div :class="{ 'font-semibold': Props.isBold }">
-    <NuxtLink :to="linkName">
+    <NuxtLink :to="linkUrl">
       <slot />
     </NuxtLink>
   </div>

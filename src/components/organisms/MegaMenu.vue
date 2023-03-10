@@ -1,12 +1,12 @@
 <script setup lang="ts">
   interface Contents {
-    linkName: string;
+    linkUrl: string;
     title: string;
     imgUrl: string;
   }
 
   interface Props {
-    linkName: string;
+    linkUrl: string;
     title: string;
     enTitle: string;
     subTitle: string;
@@ -26,7 +26,7 @@
     <MoleculesMegamenuTitle
       :title="menuObject.subTitle"
       :enTitle="menuObject.enTitle"
-      :linkName="menuObject.linkName"
+      :linkUrl="menuObject.linkUrl"
     ></MoleculesMegamenuTitle>
     <MoleculesMegamenuContent
       :contents="menuObject.contents"
