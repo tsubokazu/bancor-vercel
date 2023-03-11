@@ -80,12 +80,12 @@
 
         <!-- リスト -->
         <div
-          class="flex w-full items-center space-x-10 overflow-hidden pc:max-w-[1100px]"
+          class="grid w-full grid-cols-3 items-center gap-x-10 gap-y-12 overflow-hidden pc:max-w-[1100px]"
         >
           <!-- リストカード -->
           <div
             class="flex w-[340px] flex-col space-y-6"
-            v-for="item in categoryObject.list.slice(0, displayCount)"
+            v-for="item in categoryObject.list"
           >
             <!-- イメージ -->
             <AtomsBasicImage
