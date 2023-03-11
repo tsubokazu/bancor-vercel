@@ -5,6 +5,10 @@
   } from '~/types/pages/recruit';
   import { usePagesRecruitStore } from '~/stores/pages/recruit';
 
+  // URLからカテゴリを取得
+  const router = useRoute();
+  const position = router.params.position as string;
+
   // 採用情報ページ情報をPiniaから取得
   const pagesRecruitStore = usePagesRecruitStore();
   if (Object.keys(pagesRecruitStore.header).length == 0) {
@@ -34,7 +38,17 @@
   });
 
   // 選択中のポジションカテゴリキー
-  const selectedTabMenuKey = ref(Object.keys(tabMenuCategories.value)[0]);
+  const selectedTabMenuKey = ref(position);
+  console.log(`position: ${position}`);
+  console.log(`selectedTabMenuKey: ${selectedTabMenuKey.value}`);
+  console.log(`tabMenuCategories: ${tabMenuCategories.value}`);
+  console.log(
+    `Object.keys(tabMenuCategories.value): ${Object.keys(
+      tabMenuCategories.value
+    )}`
+  );
+
+  //const selectedTabMenuKey = ref(Object.keys(tabMenuCategories.value)[0]);
 
   // ポジションカテゴリ別の募集職種カテゴリリスト
   const positionCategoriesObject = computed(() => {
@@ -165,7 +179,10 @@
       </div>
 
       <!-- 募集職種 -->
-      <div class="flex w-full flex-col items-center bg-bancor-gray700 py-24">
+      <div
+        class="flex w-full flex-col items-center bg-bancor-gray700 py-24"
+        id="open-position"
+      >
         <!-- タイトル -->
         <div class="w-full pc:max-w-[1100px]">
           <MoleculesDoubleSquareTagMenu

@@ -49,6 +49,7 @@ export default defineNuxtConfig({
       kurocoPagesSolutions: '/rcms-api/10/pages?topics_group_id=21', // 介護・福祉ソリューションラインナップ
       kurocoPagesRecruit: '/rcms-api/10/pages?topics_group_id=23', // 採用情報のページ
       kurocoPagesRecruitCategory: '/rcms-api/10/pages?topics_group_id=22', // 採用情報の各募集カテゴリ
+      kurocoPagesMaterials: '/rcms-api/10/pages?topics_group_id=24', // 資料一覧カテゴリ
 
       googleMapApiKey: 'AIzaSyAkiUf_mc0OqCF_xaln1IAAxNCEu96__8Q', // GoogleMapのAPIキー
     },
