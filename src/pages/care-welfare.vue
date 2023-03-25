@@ -63,7 +63,7 @@
         class="absolute -top-16 -z-10 flex h-16 w-full items-center justify-center bg-gray-900 opacity-50"
       ></div>
       <div
-        class="absolute -top-16 z-10 flex h-16 w-full items-center justify-center space-x-40"
+        class="absolute -top-16 z-50 flex h-16 w-full items-center justify-center space-x-40"
       >
         <AtomsLinkMoveArrowTitle
           v-for="anchor in header.anchors"
@@ -182,6 +182,7 @@
 
       <!-- サービスの特徴 -->
       <div
+        id="features"
         class="mb-24 flex w-full flex-col items-center space-y-14 pc:max-w-[1100px]"
       >
         <!-- タイトル -->
@@ -248,6 +249,7 @@
 
       <!-- ソリューションラインナップ -->
       <MoleculesWelfareSolutionsLineup
+        id="solutions"
         :solutions="solutions"
         class="mb-24"
       ></MoleculesWelfareSolutionsLineup>
