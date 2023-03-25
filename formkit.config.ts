@@ -7,36 +7,36 @@ export default {
     classes: generateClasses({
       text: {
         inner:
-          'w-full border border-bancor-gray600 rounded-lg overflow-hidden focus-within:border-bancor-blue100',
+          'w-full border border-bancor-gray600 rounded-lg focus-within:border-bancor-blue100',
         input:
-          'w-full h-10 px-3 border-none rounded-lg text-base text-bancor-black100 placeholder-gray-400  bg-bancor-gray1000',
+          'w-full px-3 border-none rounded-lg text-base text-bancor-black100 placeholder-gray-400  bg-bancor-gray1000',
         help: 'text-xs text-gray-500',
         messages: 'list-none p-0 mt-1 mb-0',
         message: 'text-red-500 mb-1 text-xs',
       },
       textarea: {
         inner:
-          'w-full h-[116px] border border-bancor-gray600 rounded-lg overflow-hidden focus-within:border-bancor-blue100 py-3',
+          'w-full border border-bancor-gray600 rounded-lg focus-within:border-bancor-blue100',
         input:
-          'w-full h-[116px] px-3 border-none rounded-lg text-base text-bancor-black100 placeholder-gray-400  bg-bancor-gray1000',
+          'w-full px-3 border-none rounded-lg text-base text-bancor-black100 placeholder-gray-400 bg-bancor-gray1000',
         help: 'text-xs text-gray-500',
         messages: 'list-none p-0 mt-1 mb-0',
         message: 'text-red-500 mb-1 text-xs',
       },
       date: {
         inner:
-          'text-bancor-gray600 w-full border border-bancor-gray600 rounded-lg overflow-hidden focus-within:border-bancor-blue100',
+          'text-bancor-gray600 w-full border border-bancor-gray600 rounded-lg focus-within:border-bancor-blue100',
         input:
-          'w-full h-10 px-3 border-none rounded-lg text-base text-bancor-black100 placeholder-gray-400  bg-bancor-gray1000',
+          'w-full px-3 border-none rounded-lg text-base text-bancor-black100 placeholder-gray-400  bg-bancor-gray1000',
         help: 'text-xs text-gray-500',
         messages: 'list-none p-0 mt-1 mb-0',
         message: 'text-red-500 mb-1 text-xs',
       },
       email: {
         inner:
-          'w-full border border-bancor-gray600 rounded-lg overflow-hidden focus-within:border-bancor-blue100',
+          'w-full border border-bancor-gray600 rounded-lg focus-within:border-bancor-blue100',
         input:
-          'w-full h-10 px-3 border-none rounded-lg text-base text-bancor-black100 placeholder-gray-400  bg-bancor-gray1000',
+          'w-full px-3 border-none rounded-lg text-base text-bancor-black100 placeholder-gray-400  bg-bancor-gray1000',
         help: 'text-xs text-gray-500',
         messages: 'list-none p-0 mt-1 mb-0',
         message: 'text-red-500 mb-1 text-xs',
@@ -53,18 +53,18 @@ export default {
       },
       tel: {
         inner:
-          'w-full border border-bancor-gray600 rounded-lg overflow-hidden focus-within:border-bancor-blue100',
+          'w-full border border-bancor-gray600 rounded-lg focus-within:border-bancor-blue100',
         input:
-          'w-full h-10 px-3 border-none rounded-lg text-base text-bancor-black100 placeholder-gray-400  bg-bancor-gray1000',
+          'w-full px-3 border-none rounded-lg text-base text-bancor-black100 placeholder-gray-400  bg-bancor-gray1000',
         help: 'text-xs text-gray-500',
         messages: 'list-none p-0 mt-1 mb-0',
         message: 'text-red-500 mb-1 text-xs',
       },
       select: {
         inner:
-          'text-bancor-gray600 w-full border border-bancor-gray600 rounded-lg overflow-hidden focus-within:border-bancor-blue100',
+          'text-bancor-gray600 w-full border border-bancor-gray600 rounded-lg focus-within:border-bancor-blue100',
         input:
-          'w-full h-10 px-3 border-none rounded-lg text-base text-bancor-black100 placeholder-gray-400  bg-bancor-gray1000',
+          'w-full px-3 border-none rounded-lg text-base text-bancor-black100 placeholder-gray-400  bg-bancor-gray1000',
         placeholder: 'text-bancor-gray600',
         help: 'text-xs text-gray-500',
         messages: 'list-none p-0 mt-1 mb-0',
@@ -84,6 +84,10 @@ export default {
         wrapper: 'flex items-center space-x-3',
         input:
           'w-5 h-5 border border-bancor-gray600 rounded-lg flex items-center justify-center',
+        message: 'text-red-500 mb-1 text-xs',
+      },
+      form: {
+        message: 'text-red-500 mb-1 text-xs',
       },
     }),
   },

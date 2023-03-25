@@ -49,8 +49,13 @@ export default defineNuxtConfig({
       kurocoPagesSolutions: '/rcms-api/10/pages?topics_group_id=21', // 介護・福祉ソリューションラインナップ
       kurocoPagesRecruit: '/rcms-api/10/pages?topics_group_id=23', // 採用情報のページ
       kurocoPagesRecruitCategory: '/rcms-api/10/pages?topics_group_id=22', // 採用情報の各募集カテゴリ
-      kurocoPagesMaterials: '/rcms-api/10/pages?topics_group_id=24', // 資料一覧カテゴリ
-
+      kurocoPagesMaterials: '/rcms-api/10/pages?topics_group_id=24', // 資料一覧
+      kurocoPagesMaterialsService: '/rcms-api/10/pages?topics_group_id=25', // サービス概要資料一覧
+      kurocoPagesMaterialsUseful: '/rcms-api/10/pages?topics_group_id=26', // お役立ち情報資料一覧
+      kurocoPagesMaterialBancor: '/rcms-api/10/pages?topics_group_id=27', // 3分でわかるBancorサービス資料
+      kurocoPagesContact: '/rcms-api/10/pages?topics_group_id=28', // お問い合わせページ
+      kurocoSubmitDownloadMaterialForm: '/rcms-api/11/form?id=4',
+      kurocoSubmitContactForm: '/rcms-api/11/form?id=5',
       googleMapApiKey: 'AIzaSyAkiUf_mc0OqCF_xaln1IAAxNCEu96__8Q', // GoogleMapのAPIキー
     },
   },

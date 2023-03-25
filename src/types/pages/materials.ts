@@ -5,30 +5,25 @@ export interface MaterialsHeader {
   imgUrl: string;
 }
 
-// サービス概要
-export interface ServiceOverview {
+// サービス概要、お役立ち情報の共通部分
+export interface MaterialObject {
   title: string;
+  outline: string;
   imgUrl: string;
   fileUrl: string;
   updateAt: string;
   fileId: string;
 }
 
+// サービス概要
 export interface MaterialsServiceOverviewList {
-  serviceOverviewList: Array<ServiceOverview>;
+  serviceOverviewList: Array<MaterialObject>;
 }
 
 // お役立ち情報
-export interface UsefulMaterial {
-  title: string;
-  imgUrl: string;
-  fileUrl: string;
-  updateAt: string;
-  fileId: string;
-}
 
 export interface MaterialsUsefulMaterialList {
-  usefulMaterialList: Array<UsefulMaterial>;
+  usefulMaterialList: Array<MaterialObject>;
 }
 
 // Bancorを初めて知る方へ

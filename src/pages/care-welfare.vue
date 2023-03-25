@@ -14,7 +14,7 @@
   if (Object.keys(pagesSystemDevStore.header).length == 0) {
     await pagesSystemDevStore.fetchPagesSystemDev();
   }
-  const { nuvo3mins, structure, maintenances, valueUpdate }: SystemDevObject =
+  const { bancor3min, structure, maintenances, valueUpdate }: SystemDevObject =
     pagesSystemDevStore;
   // 介護・福祉Store
   const pagesCareWelfareStore = usePagesCareWelfareStore();
@@ -252,7 +252,7 @@
         class="mb-24"
       ></MoleculesWelfareSolutionsLineup>
 
-      <!-- 3分でわかるNUVO -->
+      <!-- 3分でわかるBancor -->
       <div
         class="mb-24 flex h-[245px] w-[800px] items-center justify-center space-x-36 bg-white shadow-lg"
       >
@@ -260,23 +260,23 @@
         <div class="flex flex-col space-y-2">
           <AtomsFuturaBoldText
             size="text-[13px]"
-            :text="nuvo3mins.subTitle"
+            :text="bancor3min.subTitle"
             color="text-bancor-red200"
           ></AtomsFuturaBoldText>
           <AtomsBasicTitle
             size="text-[22px]"
             spaceY="space-y-2"
-            :text="nuvo3mins.title"
+            :text="bancor3min.title"
           ></AtomsBasicTitle>
           <MoleculesDetailButton
             class="pt-8"
-            :linkUrl="nuvo3mins.linkUrl"
+            :linkUrl="bancor3min.linkUrl"
           ></MoleculesDetailButton>
         </div>
 
-        <!-- 3分でわかるNUVO -->
+        <!-- 3分でわかるBancor -->
         <div class="h-[146px] w-[286px] shadow-lg">
-          <img :src="nuvo3mins.imgUrl" class="h-full w-full object-cover" />
+          <img :src="bancor3min.imgUrl" class="h-full w-full object-cover" />
         </div>
       </div>
 

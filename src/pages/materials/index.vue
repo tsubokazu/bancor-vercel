@@ -12,15 +12,25 @@
     }, 100);
   });
 
-  // 資料一覧をPiniaから取得
+  // 資料一覧ページのヘッダーとBancor情報をPiniaから取得
   const materialsStore = useMaterialsStore();
-  if (materialsStore.serviceOverviewList.length == 0) {
+  if (Object.keys(materialsStore.header).length == 0) {
     await materialsStore.fetchMaterials();
   }
   const { header }: { header: MaterialsHeader } = materialsStore;
-  const { serviceOverviewList }: MaterialsServiceOverviewList = materialsStore;
-  const { usefulMaterialList }: MaterialsUsefulMaterialList = materialsStore;
   const { bancor }: { bancor: MaterialsBancor } = materialsStore;
+
+  // サービス概要を取得
+  if (materialsStore.serviceOverviewList.length == 0) {
+    await materialsStore.fetchServiceOverviewList();
+  }
+  const { serviceOverviewList }: MaterialsServiceOverviewList = materialsStore;
+
+  // お役立ち資料を取得
+  if (materialsStore.usefulMaterialList.length == 0) {
+    await materialsStore.fetchUsefulMaterialList();
+  }
+  const { usefulMaterialList }: MaterialsUsefulMaterialList = materialsStore;
 
   // カテゴリ毎にオブジェクトを作成し、配列に格納
   const categoryList = [
@@ -28,13 +38,13 @@
       category: 'Service Overview',
       label: 'サービス概要資料',
       list: serviceOverviewList,
-      linkUrl: '/news/service-overview',
+      linkUrl: '/materials',
     },
     {
       category: 'Useful Materials',
       label: 'お役立ち資料集',
       list: usefulMaterialList,
-      linkUrl: '/news/useful-materials',
+      linkUrl: '/materials',
     },
   ];
 
@@ -102,9 +112,14 @@
                 {{ item.updateAt }}
               </div>
               <!-- タイトル -->
-              <div class="text-[18px] font-bold text-bancor-black100">
+              <div class="mb-4 text-[18px] font-bold text-bancor-black100">
                 {{ item.title }}
               </div>
+              <AtomsBasicOutline
+                :text="item.outline"
+                :is-bold="false"
+                size="text-[14px]"
+              ></AtomsBasicOutline>
             </div>
             <!-- ダウンロードボタン -->
             <div class="flex w-full">
@@ -126,74 +141,9 @@
       </div>
 
       <!-- Bancorを初めて知る方へ -->
-      <div class="relative flex h-[396px] w-full items-center justify-center">
-        <!-- 青色フィルタ -->
-        <div
-          class="absolute top-0 left-0 h-full w-full bg-gradient-to-b from-bancor-blue300 to-bancor-blue400 opacity-90"
-        ></div>
-        <!-- 背景 -->
-        <div class="absolute top-0 left-0 -z-10 h-full w-full">
-          <AtomsBasicImage
-            :imgUrl="bancor.bgImgUrl"
-            img-height="h-full"
-            img-width="w-full"
-            radius="rounded-0"
-          ></AtomsBasicImage>
-        </div>
-        <!-- メニュー -->
-        <div
-          class="absolute top-0 left-0 z-10 flex h-full w-full flex-col items-center justify-center"
-        >
-          <!-- メニュータイトル -->
-          <AtomsBasicTitle
-            :text="bancor.title"
-            size="text-[32px]"
-            color="text-white"
-            class="mb-8"
-          ></AtomsBasicTitle>
-          <!-- アウトライン -->
-          <AtomsBasicOutline
-            :text="bancor.outline"
-            size="text-[18px]"
-            color="text-white"
-            outlineWidth="w-[246px]"
-            outlineHeight="h-[48px]"
-            class="mb-12 items-center"
-          ></AtomsBasicOutline>
-          <!-- ボタン -->
-          <AtomsButtonOvalArrow
-            bgColor="bg-bancor-black100"
-            textColor="text-white"
-            size="text-base"
-            buttonHeight="h-[48px]"
-            buttonWidth="w-[246px]"
-            arrow-color="text-white"
-            arrow-position="right-6"
-            :linkUrl="bancor.linkUrl"
-          >
-            ダウンロードはこちら
-          </AtomsButtonOvalArrow>
-        </div>
-        <!-- ロボットイラスト -->
-        <div class="relative h-full w-full pc:max-w-[1100px]">
-          <!-- ロボットイラスト1 -->
-          <AtomsBasicImage
-            :imgUrl="bancor.img01Url"
-            img-height="h-[274px]"
-            img-width="w-[313px]"
-            radius="rounded-0"
-            class="absolute top-[16px] left-0"
-          ></AtomsBasicImage>
-          <!-- ロボットイラスト2 -->
-          <AtomsBasicImage
-            :imgUrl="bancor.img02Url"
-            img-height="h-[274px]"
-            img-width="w-[313px]"
-            radius="rounded-0"
-            class="absolute bottom-[16px] right-0"
-          ></AtomsBasicImage>
-        </div>
-      </div>
+      <MoleculesMaterialsBancorInfo
+        :bancor="bancor"
+      ></MoleculesMaterialsBancorInfo>
     </div>
 
     <!-- Bancorの取り組み　フッター -->

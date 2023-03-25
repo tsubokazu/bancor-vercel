@@ -11,6 +11,8 @@
     const node = myForm.value.node;
     node.submit();
   };
+
+  // ファイルアップロード
   const inputFile = () => {
     const node = myForm.value.node;
     node.querySelector('input[type="file"]').click();
@@ -83,8 +85,8 @@
     <div
       class="flex w-full flex-col items-center rounded-[10px] bg-white pt-10 pc:max-w-[1100px]"
     >
-      <!-- 氏名 -->
       <FormKit type="form" ref="myForm" :actions="false" locale="ja">
+        <!-- 氏名 -->
         <div class="mb-8 w-[360px] tb:w-[640px] pc:w-[860px]">
           <!-- 姓 -->
           <FormKit
@@ -92,6 +94,11 @@
             label="氏名"
             placeholder="姓"
             validation="required"
+            :validationMessages="{
+              required: '姓を入力してください',
+            }"
+            input-class="h-[38px]"
+            inner-class="h-[40px]"
           >
             <template #label="context">
               <AtomsFormBasicLabel
@@ -108,6 +115,11 @@
             placeholder="名"
             outer-class="mt-4"
             validation="required"
+            :validationMessages="{
+              required: '名を入力してください',
+            }"
+            input-class="h-[38px]"
+            inner-class="h-[40px]"
           ></FormKit>
         </div>
 
@@ -119,6 +131,11 @@
             label="氏名（かな）"
             placeholder=""
             validation="required"
+            :validationMessages="{
+              required: '氏名（かな）を入力してください',
+            }"
+            input-class="h-[38px]"
+            inner-class="h-[40px]"
           >
             <template #label="context">
               <AtomsFormBasicLabel
@@ -139,6 +156,12 @@
             label="生年月日"
             placeholder="2000/01/01"
             validation="required|date_before:2020-01-01"
+            :validationMessages="{
+              required: '生年月日を入力してください',
+              date_before: '生年月日は2020年1月1日以前の日付を入力してください',
+            }"
+            input-class="h-[38px]"
+            inner-class="h-[40px]"
           >
             <template #label="context">
               <AtomsFormBasicLabel
@@ -156,9 +179,16 @@
           <!-- メールアドレス -->
           <FormKit
             type="email"
+            name="email"
             label="メールアドレス"
             placeholder="xxxx@gmail.com"
             validation="required|email"
+            :validationMessages="{
+              required: 'メールアドレスを入力してください',
+              email: '正しいメールアドレスを入力してください',
+            }"
+            input-class="h-[38px]"
+            inner-class="h-[40px]"
           >
             <template #label="context">
               <AtomsFormBasicLabel
@@ -172,10 +202,18 @@
           <!-- メールアドレスの確認 -->
           <FormKit
             type="email"
+            name="email_confirmation"
             label="メールアドレスの確認"
             placeholder="xxxx@gmail.com"
-            validation="required|email"
+            validation="required|email|same:email"
             outer-class="mt-6"
+            input-class="h-[38px]"
+            inner-class="h-[40px]"
+            :validationMessages="{
+              required: 'メールアドレスを入力してください',
+              email: '正しいメールアドレスを入力してください',
+              same: 'メールアドレスが一致しません',
+            }"
           >
             <template #label="context">
               <AtomsFormBasicLabel
@@ -197,6 +235,9 @@
             legend="性別"
             :options="['男性', '女性', 'その他']"
             validation="required"
+            :validationMessages="{
+              required: '性別を選択してください',
+            }"
           >
             <template #legend="context">
               <AtomsFormBasicLabel text="性別" :isRequired="true" class="mb-4">
@@ -216,7 +257,13 @@
               name="zipCode"
               label="郵便番号"
               placeholder="000-0000"
+              input-class="h-[38px]"
+              inner-class="h-[40px]"
               validation="required|matches:^[0-9]{3}-[0-9]{4}$"
+              :validationMessages="{
+                required: '郵便番号を入力してください',
+                matches: '郵便番号は000-0000の形式で入力してください',
+              }"
             >
               <template #label="context">
                 <AtomsFormBasicLabel
@@ -250,7 +297,12 @@
             label="住所"
             name="address"
             placeholder="入力してください"
+            input-class="h-[38px]"
+            inner-class="h-[40px]"
             validation="required"
+            :validationMessages="{
+              required: '住所を入力してください',
+            }"
           >
             <template #label="context">
               <AtomsFormBasicLabel
@@ -269,8 +321,14 @@
           <FormKit
             type="tel"
             label="電話番号"
+            input-class="h-[38px]"
+            inner-class="h-[40px]"
             placeholder="00-0000-0000"
             validation="required|matches:^\d{2,3}-\d{2,3,4,5}-\d{2,3,4,5}$"
+            :validationMessages="{
+              required: '電話番号を入力してください',
+              matches: '正しい電話番号の形式で入力してください',
+            }"
           >
             <template #label="context">
               <AtomsFormBasicLabel
@@ -291,6 +349,8 @@
             label="応募理由・自己PR"
             placeholder=""
             help="※400文字以内でご記入ください。"
+            input-class="h-[144px]"
+            inner-class="h-[146px]"
           >
             <template #label="context">
               <AtomsFormBasicLabel
@@ -313,7 +373,8 @@
             <FormKit
               type="text"
               placeholder="2020/01"
-              inner-class="w-[160px] tb:w-[272px]"
+              input-class="h-[38px]"
+              inner-class="h-[40px] w-[160px] tb:w-[272px]"
             >
             </FormKit>
             <div>〜</div>
@@ -321,7 +382,8 @@
             <FormKit
               type="text"
               placeholder="2022/12"
-              inner-class="w-[160px] tb:w-[272px]"
+              input-class="h-[38px]"
+              inner-class="h-[40px] w-[160px] tb:w-[272px]"
             >
             </FormKit>
             <!-- 就学区分 -->
@@ -329,7 +391,8 @@
               type="select"
               name="educationType"
               placeholder="就学区分"
-              inner-class="w-[360px] tb:w-[252px]"
+              input-class="h-[38px]"
+              inner-class="h-[40px] w-[360px] tb:w-[252px]"
               :options="[
                 '高校',
                 '大学',
@@ -343,11 +406,23 @@
           </div>
           <!-- 学校名 -->
           <div class="mb-6">
-            <FormKit type="text" placeholder="学校名" class="mb-6"></FormKit>
+            <FormKit
+              type="text"
+              placeholder="学校名"
+              class="mb-6"
+              input-class="h-[38px]"
+              inner-class="h-[40px]"
+            ></FormKit>
           </div>
           <!-- 学部 -->
           <div class="mb-6">
-            <FormKit type="text" placeholder="学部" class="mb-6"></FormKit>
+            <FormKit
+              type="text"
+              placeholder="学部"
+              class="mb-6"
+              input-class="h-[38px]"
+              inner-class="h-[40px]"
+            ></FormKit>
           </div>
           <!-- 学科名・研究室名 -->
           <div class="mb-6">
@@ -355,11 +430,19 @@
               type="text"
               placeholder="学科名・研究室名"
               class="mb-6"
+              input-class="h-[38px]"
+              inner-class="h-[40px]"
             ></FormKit>
           </div>
           <!-- 備考 -->
           <div class="mb-6">
-            <FormKit type="text" placeholder="備考" class="mb-6"></FormKit>
+            <FormKit
+              type="text"
+              placeholder="備考"
+              class="mb-6"
+              input-class="h-[38px]"
+              inner-class="h-[40px]"
+            ></FormKit>
           </div>
         </div>
 
@@ -387,7 +470,8 @@
               <FormKit
                 type="text"
                 placeholder="2020/01"
-                inner-class="w-[160px] tb:w-[406px]"
+                input-class="h-[38px]"
+                inner-class="h-[40px] w-[160px] tb:w-[406px]"
               >
               </FormKit>
               <div>〜</div>
@@ -395,13 +479,20 @@
               <FormKit
                 type="text"
                 placeholder="2022/12"
-                inner-class="w-[160px] tb:w-[406px]"
+                input-class="h-[38px]"
+                inner-class="h-[40px] w-[160px] tb:w-[406px]"
               >
               </FormKit>
             </div>
             <!-- 会社名 -->
             <div class="mb-6">
-              <FormKit type="text" placeholder="会社名" class="mb-6"></FormKit>
+              <FormKit
+                type="text"
+                placeholder="会社名"
+                class="mb-6"
+                input-class="h-[38px]"
+                inner-class="h-[40px]"
+              ></FormKit>
             </div>
             <!-- 部署・役職 -->
             <div class="mb-6">
@@ -409,6 +500,8 @@
                 type="text"
                 placeholder="部署・役職"
                 class="mb-6"
+                input-class="h-[38px]"
+                inner-class="h-[40px]"
               ></FormKit>
             </div>
             <!-- 取り組み詳細 -->
@@ -417,6 +510,8 @@
                 type="textarea"
                 placeholder="取り組み詳細"
                 class="mb-6"
+                input-class="h-[114px]"
+                inner-class="h-[116px]"
               ></FormKit>
             </div>
           </div>
@@ -506,7 +601,7 @@
         @click="submitForm"
         class="mb-24 rounded-full bg-bancor-black400 py-[21px] px-[50px] text-sm font-bold text-white"
       >
-        同意の上、入力内容を確認
+        同意の上、入力内容を送信
       </div>
     </div>
   </div>

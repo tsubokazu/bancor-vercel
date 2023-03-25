@@ -8,7 +8,7 @@ module.exports = {
     './src/middleware/**/*.{js,ts}',
     './nuxt.config.{js,ts}',
     './src/app.vue',
-    './formkit.config.{js,ts}'
+    './formkit.config.{js,ts}',
   ],
   theme: {
     screens: {
@@ -62,6 +62,7 @@ module.exports = {
         'bancor-navy200': '#161F2E',
         'bancor-navy300': '#1B2434',
         'bancor-navy400': '#15171d',
+        'bancor-navy500': '#293953',
         'bancor-orange100': '#FFB426',
         'bancor-orange200': '#FF9B26',
         'bancor-orange300': '#FF7444',
@@ -73,6 +74,7 @@ module.exports = {
         'bancor-black200': '#2E2E2E',
         'bancor-black300': '#070c12',
         'bancor-black400': '#464646',
+        'bancor-white100': '#FFFFFF',
       },
       animation: {
         'slide-out-up': 'slide-out-up 5s ease-in-out both',
@@ -956,5 +958,8 @@ module.exports = {
       },
     },
   },
-  plugins: [require('@tailwindcss/typography'), require('@formkit/themes/tailwindcss')],
+  plugins: [
+    require('@tailwindcss/typography'),
+    require('@formkit/themes/tailwindcss'),
+  ],
 };

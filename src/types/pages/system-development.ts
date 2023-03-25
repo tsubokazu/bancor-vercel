@@ -115,7 +115,7 @@ export interface SystemDevObject {
   dxDev: SystemDevDX;
   problems: SystemDevProblems;
   team: SystemDevTeam;
-  nuvo3mins: NuvoIn3mins;
+  bancor3min: NuvoIn3mins;
   features: SystemDevFeatures;
   structure: SystemDevStructure;
   maintenances: SystemDevMaintenances;

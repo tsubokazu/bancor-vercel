@@ -13,10 +13,11 @@
     arrowPosition?: string;
     buttonHeight?: string;
     buttonWidth?: string;
+    radius?: string;
   }
   const Props = withDefaults(defineProps<Props>(), {
     textSize: 'text-base',
-    linkUrl: '/',
+    linkUrl: '',
     bgColor: 'bg-bancor-blue300',
     textColor: 'text-black',
     isGradient: false,
@@ -28,6 +29,7 @@
     arrowPosition: 'right-5',
     buttonHeight: '',
     buttonWidth: '',
+    radius: 'rounded-full',
   });
 
   const hoverAnimation = ref('');
@@ -50,13 +52,14 @@
     Props.isGradient ? Props.toColor : '',
     Props.borderColor ? Props.hasBorder : '',
     Props.borderWidth ? Props.hasBorder : '',
+    Props.radius ? Props.radius : '',
   ];
 </script>
 
 <template>
-  <NuxtLink :to="linkUrl">
-    <div
-      class="relative flex items-center justify-center rounded-full px-10 py-2"
+  <NuxtLink :to="linkUrl" :class="{ 'is-disabled': linkUrl == '' }">
+    <button
+      class="relative flex items-center justify-center px-10 py-2"
       :class="classArray"
       @mouseover="mouseOverAction()"
       @mouseleave="mouseLeaveAction()"
@@ -68,6 +71,6 @@
       >
         <font-awesome-icon icon="fa-solid fa-angle-right" />
       </div>
-    </div>
+    </button>
   </NuxtLink>
 </template>

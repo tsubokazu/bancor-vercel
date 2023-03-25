@@ -10,7 +10,8 @@
 <template>
   <div class="relative w-full">
     <!-- スプラッシュ画面（ローディング画面） -->
-    <!-- <Transition
+    <Transition
+      v-show="$route.params.name === 'top'"
       leave-active-class="transition-opacity duration-[2000ms]"
       leave-to-class="opacity-0"
     >
@@ -18,7 +19,7 @@
         class="pointer-events-none"
         v-if="isLoading"
       ></OrganismsLoadingScreen>
-    </Transition> -->
+    </Transition>
 
     <!-- ヘッダー -->
     <Transition
