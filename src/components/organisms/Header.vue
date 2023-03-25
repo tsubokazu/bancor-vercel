@@ -147,7 +147,7 @@
         <AtomsDivLine class="hidden pc:block"></AtomsDivLine>
         <AtomsButtonSearch></AtomsButtonSearch>
         <AtomsButtonOval
-          linkUrl="/"
+          linkUrl="/contact"
           bgColor="bg-bancor-blue300"
           :isGradient="true"
           fromColor="from-bancor-blue300"
