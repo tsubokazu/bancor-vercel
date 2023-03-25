@@ -25,7 +25,7 @@
           v-for="(notification, index) in notificationList"
           :key="notification.subject"
         >
-          <NuxtLink :to="`/category-notification/${notification.topicsId}`">
+          <NuxtLink :to="`/news/notification/${notification.topicsId}`">
             {{ notification.subject }}
           </NuxtLink>
         </div>

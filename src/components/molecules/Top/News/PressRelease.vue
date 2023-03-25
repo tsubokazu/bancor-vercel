@@ -15,7 +15,7 @@
     <div class="mb-3 flex justify-between">
       <div class="font-bold">{{ pressReleaseList[0].category }}</div>
       <MoleculesViewMoreButton
-        linkUrl="/press-release"
+        linkUrl="/news/press-release"
       ></MoleculesViewMoreButton>
     </div>
     <div class="flex h-fit w-fit flex-col space-y-4">

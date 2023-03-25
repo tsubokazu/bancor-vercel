@@ -15,7 +15,7 @@
     <div class="mb-3 flex justify-between">
       <div class="font-bold">{{ serviceNewsList[0].category }}</div>
       <MoleculesViewMoreButton
-        linkUrl="/service-news"
+        linkUrl="/news/service-news"
       ></MoleculesViewMoreButton>
     </div>
     <div class="flex h-full w-full flex-col space-y-4">

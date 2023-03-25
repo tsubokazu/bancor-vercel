@@ -5,6 +5,11 @@
     TopJournalObject,
     TopVisionObject,
   } from '~/types';
+
+  definePageMeta({
+    layout: 'top',
+  });
+
   const config = useRuntimeConfig();
   const baseUrl = config.public.kurocoApiUrl;
   const topEndpoint = config.public.kurocoTopEndpoint;

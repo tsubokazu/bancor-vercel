@@ -6,6 +6,7 @@
     MaterialsUsefulMaterialList,
     MaterialsBancor,
   } from '~/types/pages/materials';
+  import { emailValidation } from '~/assets/utils/bannedEmailDomains';
 
   definePageMeta({
     middleware: 'check-form-sent',
@@ -136,7 +137,7 @@
       console.log(`[useMaterialsStore] fetchMaterials data: ${data.value}`);
       // フォーム送信済みフラグを立て、資料ダウンロードページに遷移
       materialsStore.setFormSentFlag(true);
-      navigateTo(`/download-material/[id]`);
+      navigateTo(`/download-material/${fileId}`);
     }
   };
 </script>
@@ -195,10 +196,11 @@
               name="companyName"
               placeholder="XXXX株式会社"
               validation="required"
-              input-class="bg-bancor-white100"
               :validationMessages="{
                 required: '会社名を入力してください',
               }"
+              input-class="h-[38px] bg-bancor-white100"
+              inner-class="h-[40px]"
             >
               <template #label="context">
                 <AtomsFormBasicLabel
@@ -222,7 +224,8 @@
                 placeholder="姓"
                 name="lastName"
                 validation="required|length:0,10"
-                input-class="bg-bancor-white100"
+                input-class="h-[38px] bg-bancor-white100"
+                inner-class="h-[40px]"
                 outer-class="w-[49%]"
                 :validationMessages="{
                   required: '姓を入力してください',
@@ -235,8 +238,13 @@
                 placeholder="名"
                 name="firstName"
                 validation="required"
-                input-class="bg-bancor-white100"
+                input-class="h-[38px] bg-bancor-white100"
+                inner-class="h-[40px]"
                 outer-class="w-[49%]"
+                :validationMessages="{
+                  required: '名を入力してください',
+                  length: '名は10文字以内で入力してください',
+                }"
               >
               </FormKit>
             </div>
@@ -255,7 +263,8 @@
               :validationMessages="{
                 required: '部署を選択してください',
               }"
-              input-class="bg-bancor-white100"
+              input-class="h-[38px] bg-bancor-white100"
+              inner-class="h-[40px]"
               :options="[
                 '経営企画',
                 '情報システム',
@@ -295,7 +304,8 @@
               :validationMessages="{
                 required: '役職を選択してください',
               }"
-              input-class="bg-bancor-white100"
+              input-class="h-[38px] bg-bancor-white100"
+              inner-class="h-[40px]"
               :options="[
                 '社長・役員',
                 '部長・マネージャー',
@@ -321,8 +331,19 @@
               name="email"
               label="会社メールアドレス"
               placeholder="xxxx@xxxx.co.jp"
-              validation="required"
-              input-class="bg-bancor-white100"
+              :validation="[
+                ['required'],
+                ['email'],
+                ['matches', emailValidation],
+              ]"
+              :validationMessages="{
+                required: 'メールアドレスを入力してください',
+                email: '正しいメールアドレスを入力してください',
+                matches:
+                  '会社のメールアドレスを入力してください(フリーメールやキャリアメールはご利用できません)',
+              }"
+              input-class="h-[38px] bg-bancor-white100"
+              inner-class="h-[40px]"
             >
               <template #label="context">
                 <AtomsFormBasicLabel
@@ -342,8 +363,16 @@
               name="tel"
               label="ご連絡可能な電話番号"
               placeholder="00-0000-0000"
-              validation="required"
-              input-class="bg-bancor-white100"
+              :validation="[
+                ['required'],
+                ['matches', /^\d{2,4}-\d{1,4}-\d{1,4}$/],
+              ]"
+              :validationMessages="{
+                required: '電話番号を入力してください',
+                matches: '正しい電話番号を入力してください',
+              }"
+              input-class="h-[38px] bg-bancor-white100"
+              inner-class="h-[40px]"
             >
               <template #label="context">
                 <AtomsFormBasicLabel

@@ -4,12 +4,6 @@
     TopPressReleaseList,
     TopServiceNewsList,
   } from '~/types';
-  const isLoading = ref(true);
-  onMounted(() => {
-    setTimeout(() => {
-      isLoading.value = false;
-    }, 100);
-  });
 
   // ニュースルームの記事をPiniaから取得
   const newsStore = useNewsStore();

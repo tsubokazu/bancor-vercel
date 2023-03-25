@@ -85,6 +85,8 @@
               :validationMessages="{
                 required: '会社名を入力してください',
               }"
+              input-class="h-[38px]"
+              inner-class="h-[40px]"
             >
               <template #label="context">
                 <AtomsFormBasicLabel
@@ -113,6 +115,8 @@
                   required: '姓を入力してください',
                   length: '姓は10文字以内で入力してください',
                 }"
+                input-class="h-[38px]"
+                inner-class="h-[40px]"
               >
               </FormKit>
               <!-- テキスト入力(名) -->
@@ -125,6 +129,8 @@
                   required: '名を入力してください',
                   length: '名は10文字以内で入力してください',
                 }"
+                input-class="h-[38px]"
+                inner-class="h-[40px]"
               >
               </FormKit>
             </div>
@@ -157,6 +163,8 @@
                 '海外関連部門',
                 'その他',
               ]"
+              input-class="h-[38px]"
+              inner-class="h-[40px]"
             >
               <template #label="context">
                 <AtomsFormBasicLabel
@@ -188,6 +196,8 @@
                 '課長',
                 '一般社員',
               ]"
+              input-class="h-[38px]"
+              inner-class="h-[40px]"
             >
               <template #label="context">
                 <AtomsFormBasicLabel
@@ -217,6 +227,8 @@
                 matches:
                   '会社のメールアドレスを入力してください(フリーメールやキャリアメールはご利用できません)',
               }"
+              input-class="h-[38px]"
+              inner-class="h-[40px]"
             >
               <template #label="context">
                 <AtomsFormBasicLabel
@@ -243,6 +255,8 @@
                 required: '電話番号を入力してください',
                 matches: '正しい電話番号を入力してください',
               }"
+              input-class="h-[38px]"
+              inner-class="h-[40px]"
             >
               <template #label="context">
                 <AtomsFormBasicLabel
