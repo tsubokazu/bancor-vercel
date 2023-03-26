@@ -18,7 +18,7 @@
         linkUrl="/news/press-release"
       ></MoleculesViewMoreButton>
     </div>
-    <div class="flex h-fit w-fit flex-col space-y-4">
+    <div class="flex flex-col space-y-4">
       <MoleculesArticleCard
         v-for="card in pressReleaseList"
         :key="card.subject"
