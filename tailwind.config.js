@@ -143,6 +143,8 @@ module.exports = {
         'contact-title-rv': 'contact-title-rv 0.5s ease-out both',
         'contact-frame': 'contact-frame 0.5s ease-out both',
         'contact-frame-rv': 'contact-frame-rv 0.5s ease-out both',
+        'scale-up-image': 'scale-up-image 0.5s ease-out both',
+        'scale-up-image-rv': 'scale-up-image-rv 0.5s ease-out both',
       },
       keyframes: {
         'slide-out-up': {
@@ -953,6 +955,22 @@ module.exports = {
           'to': {
             opacity: '1',
             transform: 'scaleX(0)',
+          },
+        },
+        'scale-up-image': {
+          '0%': {
+            transform: 'scale(1)',
+          },
+          'to': {
+            transform: 'scale(1.1)',
+          },
+        },
+        'scale-up-image-rv': {
+          '0%': {
+            transform: 'scale(1.1)',
+          },
+          'to': {
+            transform: 'scale(1)',
           },
         },
       },

@@ -22,7 +22,7 @@
     },
     {
       title: 'ウェブマーケティング事業',
-      linkUrl: '/web-marcketing',
+      linkUrl: 'https://d-nuvo.com/service/marketing/',
     },
     {
       title: '福祉施設向けシステム開発事業',
@@ -30,21 +30,21 @@
     },
     {
       title: 'DX支援事業',
-      linkUrl: '/dx-support',
+      linkUrl: 'https://d-nuvo.com/service/dx/',
     },
   ];
   const linkObjectsRecruit: Array<LinkObject> = [
     {
       title: 'DX支援事業での募集カテゴリ',
-      linkUrl: '/dx-recruit',
+      linkUrl: '/recruit-dx',
     },
     {
       title: 'ウェブマーケティング事業での\r\n募集カテゴリ',
-      linkUrl: '/web-marcket-recruit',
+      linkUrl: '/recruit-nuvo',
     },
     {
       title: 'システム開発事業での\r\n募集カテゴリ',
-      linkUrl: '/system-dev-recruit',
+      linkUrl: '/recruit-development',
     },
   ];
   const linkObjectsSecurity: Array<LinkObject> = [

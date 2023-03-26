@@ -18,7 +18,7 @@
     </AtomsMegamenuTitle>
     <AtomsButtonOvalArrow
       bgColor="bg-white"
-      borderColor="border-bancor-gray700"
+      borderColor="border-bancor-gray200"
       :hasBorder="true"
       :linkUrl="linkUrl"
     >

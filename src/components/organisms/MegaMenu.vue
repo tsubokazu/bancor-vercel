@@ -16,9 +16,6 @@
   const Props = defineProps<{
     menuObject: Props;
   }>();
-  const click = () => {
-    console.log(Props.menuObject);
-  };
 </script>
 
 <template>
@@ -31,6 +28,5 @@
     <MoleculesMegamenuContent
       :contents="menuObject.contents"
     ></MoleculesMegamenuContent>
-    <button @click="click"></button>
   </div>
 </template>

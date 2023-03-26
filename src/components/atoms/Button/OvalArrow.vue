@@ -15,7 +15,7 @@
     buttonWidth?: string;
     radius?: string;
   }
-  const Props = withDefaults(defineProps<Props>(), {
+  const props = withDefaults(defineProps<Props>(), {
     textSize: 'text-base',
     linkUrl: '',
     bgColor: 'bg-bancor-blue300',
@@ -42,17 +42,17 @@
   };
 
   const classArray = [
-    Props.textSize,
-    Props.textColor,
-    Props.buttonHeight,
-    Props.buttonWidth,
-    !Props.isGradient ? Props.bgColor : '',
-    Props.isGradient ? 'bg-gradient-to-r' : '',
-    Props.isGradient ? Props.fromColor : '',
-    Props.isGradient ? Props.toColor : '',
-    Props.borderColor ? Props.hasBorder : '',
-    Props.borderWidth ? Props.hasBorder : '',
-    Props.radius ? Props.radius : '',
+    props.textSize,
+    props.textColor,
+    props.buttonHeight,
+    props.buttonWidth,
+    !props.isGradient ? props.bgColor : '',
+    props.isGradient ? 'bg-gradient-to-r' : '',
+    props.isGradient ? props.fromColor : '',
+    props.isGradient ? props.toColor : '',
+    props.borderColor ? props.hasBorder : '',
+    props.borderWidth ? props.borderWidth : '',
+    props.radius ? props.radius : '',
   ];
 </script>
 
