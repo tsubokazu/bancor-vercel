@@ -2,13 +2,28 @@
   import { JournalObject } from '~/types/Journal';
   const props = defineProps<{ card: JournalObject }>();
   const journalLinkUrl = `/journal/${props.card.topicsId}`;
+  const scaleUpImageAnimation = ref('');
+  const mouseOverAction = () => {
+    scaleUpImageAnimation.value = 'animate-scale-up-image';
+  };
+  const mouseLeaveAction = () => {
+    scaleUpImageAnimation.value = 'animate-scale-up-image-rv';
+  };
 </script>
 
 <template>
   <NuxtLink :to="journalLinkUrl">
-    <div class="flex h-[73px] w-full items-start">
-      <div class="mr-4 h-full w-[100px]">
-        <img class="rounded-md object-cover" :src="props.card.eyeCatchUrl" />
+    <div
+      class="flex h-[73px] w-full items-start"
+      @mouseover="mouseOverAction()"
+      @mouseleave="mouseLeaveAction()"
+    >
+      <div class="mr-4 h-full w-[100px] overflow-hidden rounded-md">
+        <img
+          class="rounded-md object-cover"
+          :src="props.card.eyeCatchUrl"
+          :class="scaleUpImageAnimation"
+        />
       </div>
       <div class="flex h-full w-[216px] flex-col space-y-1">
         <div class="flex items-center justify-start space-x-4">

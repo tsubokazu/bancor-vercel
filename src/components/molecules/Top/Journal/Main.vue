@@ -6,12 +6,24 @@
 
   const mainJournal = journalList[0];
   const mainJournalLinkUrl = `/journal/${mainJournal.topicsId}`;
+  const scaleUpImageAnimation = ref('');
+  const mouseOverAction = () => {
+    scaleUpImageAnimation.value = 'animate-scale-up-image';
+  };
+  const mouseLeaveAction = () => {
+    scaleUpImageAnimation.value = 'animate-scale-up-image-rv';
+  };
 </script>
 
 <template>
   <NuxtLink :to="mainJournalLinkUrl">
-    <div class="h-full w-full space-y-3">
+    <div
+      class="h-full w-full space-y-3"
+      @mouseover="mouseOverAction()"
+      @mouseleave="mouseLeaveAction()"
+    >
       <AtomsTopJournalMainImage
+        :scaleUpImageAnimation="scaleUpImageAnimation"
         :imgUrl="mainJournal.eyeCatchUrl"
       ></AtomsTopJournalMainImage>
       <div class="flex items-center space-x-3">

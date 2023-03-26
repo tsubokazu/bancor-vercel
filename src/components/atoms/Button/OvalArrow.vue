@@ -51,7 +51,7 @@
     props.isGradient ? props.fromColor : '',
     props.isGradient ? props.toColor : '',
     props.borderColor ? props.hasBorder : '',
-    props.borderWidth ? props.borderWidth : '',
+    props.borderWidth ? props.hasBorder : '',
     props.radius ? props.radius : '',
   ];
 </script>
