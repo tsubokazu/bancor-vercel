@@ -227,19 +227,21 @@
           >
             {{ category }}
           </div>
-          <AtomsBasicEyecatch
-            :imgUrl="journal.eyeCatchUrl"
-            imgHeight="h-[296px]"
-            imgWidth="w-[720px]"
-            radius="rounded-sm"
-          ></AtomsBasicEyecatch>
-          <AtomsBasicTitle
-            :text="journal.subject"
-            size="text-[28px]"
-          ></AtomsBasicTitle>
-          <AtomsBasicOutline
-            :text="trimBodyHTML(journal.bodyHTML, 100)"
-          ></AtomsBasicOutline>
+          <NuxtLink :to="`/journal/${journal.topicsId}`">
+            <AtomsBasicEyecatch
+              :imgUrl="journal.eyeCatchUrl"
+              imgHeight="h-[296px]"
+              imgWidth="w-[720px]"
+              radius="rounded-sm"
+            ></AtomsBasicEyecatch>
+            <AtomsBasicTitle
+              :text="journal.subject"
+              size="text-[28px]"
+            ></AtomsBasicTitle>
+            <AtomsBasicOutline
+              :text="trimBodyHTML(journal.bodyHTML, 100)"
+            ></AtomsBasicOutline>
+          </NuxtLink>
         </div>
         <!-- サブ記事（グリッド表示） -->
         <div class="mb-16 grid grid-cols-3 gap-4">
@@ -249,6 +251,7 @@
             :tags="journal.hashTag"
             :abstract="trimBodyHTML(journal.bodyHTML, 40)"
             :title="journal.subject"
+            :topics-id="journal.topicsId"
           ></AtomsGridCard>
         </div>
         <!-- システム開発に関して -->
@@ -261,6 +264,7 @@
               :tags="journal.hashTag"
               :abstract="trimBodyHTML(journal.bodyHTML, 40)"
               :title="journal.subject"
+              :topics-id="journal.topicsId"
             ></AtomsGridCard>
           </div>
         </div>
