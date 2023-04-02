@@ -10,9 +10,9 @@
 </script>
 
 <template>
-  <div class="flex h-[460px] w-full justify-center bg-bancor-navy200">
+  <div class="flex w-full justify-center bg-bancor-navy200">
     <div
-      class="mt-12 flex w-full flex-col items-center space-y-10 pc:max-w-[1200px]"
+      class="mt-12 flex w-[95%] flex-col items-center space-y-10 pb-20 pc:max-w-[1200px]"
     >
       <!-- メニュータイトル -->
       <div class="flex w-full flex-col space-y-2">
@@ -28,7 +28,9 @@
         ></AtomsBasicTitle>
       </div>
       <!-- 取り組みコンテンツのカード -->
-      <div class="flex w-full items-center space-x-10">
+      <div
+        class="flex w-full flex-col items-center space-y-4 space-x-0 tb:flex-row tb:justify-between tb:space-x-4 tb:space-y-0 pc:justify-center pc:space-x-10"
+      >
         <MoleculesContentCard
           v-for="content in aboutMore.contents"
           :imgUrl="content.imgUrl"

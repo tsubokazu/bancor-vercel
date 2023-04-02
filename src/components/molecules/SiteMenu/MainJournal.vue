@@ -8,13 +8,26 @@
   const { pickupList } = journalStore;
   const newsList: Array<JournalObject> = pickupList;
   const mainJournal = newsList[0];
+
+  const scaleUpImageAnimation = ref('');
+  const mouseOverAction = () => {
+    scaleUpImageAnimation.value = 'animate-scale-up-image';
+  };
+  const mouseLeaveAction = () => {
+    scaleUpImageAnimation.value = 'animate-scale-up-image-rv';
+  };
 </script>
 
 <template>
   <NuxtLink :to="`/journal/${mainJournal.topicsId}`">
-    <div class="h-fit w-3/5 space-y-3">
+    <div
+      class="h-fit w-3/5 space-y-3"
+      @mouseover="mouseOverAction()"
+      @mouseleave="mouseLeaveAction()"
+    >
       <AtomsTopJournalMainImage
         :imgUrl="mainJournal.eyeCatchUrl"
+        :scaleUpImageAnimation="scaleUpImageAnimation"
       ></AtomsTopJournalMainImage>
       <div class="flex items-center space-x-3">
         <div class="text-[12px] font-bold text-bancor-orange100">

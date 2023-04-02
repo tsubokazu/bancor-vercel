@@ -128,12 +128,17 @@
   >
     <div
       v-show="!humbergerStore.clickHumbergerFlag"
-      class="flex w-[95%] items-center justify-between rounded-lg bg-white pr-4"
+      class="flex h-[72px] w-[95%] items-center justify-between rounded-lg bg-white pr-4"
     >
-      <div>
-        <AtomsLogo :logoUrl="logoUrl" linkUrl="/"></AtomsLogo>
+      <div class="flex h-full items-center justify-center">
+        <AtomsLogo
+          logoUrl="/logo-black-l.png"
+          linkUrl="/"
+          width="189"
+          height="39"
+        ></AtomsLogo>
       </div>
-      <div class="flex items-center space-x-8 pr-16">
+      <div class="flex h-full items-center space-x-8 pr-16">
         <MoleculesUnderLineTextButton
           v-for="(menuObject, index) in menuObjects"
           :key="menuObject.linkUrl"
@@ -145,7 +150,7 @@
           >{{ menuObject.title }}</MoleculesUnderLineTextButton
         >
         <AtomsDivLine class="hidden pc:block"></AtomsDivLine>
-        <AtomsButtonSearch></AtomsButtonSearch>
+        <!-- <AtomsButtonSearch class="hidden pc:block"></AtomsButtonSearch> -->
         <AtomsButtonOval
           linkUrl="/contact"
           bgColor="bg-bancor-blue300"

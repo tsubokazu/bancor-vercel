@@ -2,6 +2,7 @@
   const Props = withDefaults(
     defineProps<{
       imgUrl: string;
+      imgClass?: string;
       imgHeight?: string;
       imgWidth?: string;
       altText?: string;
@@ -26,7 +27,7 @@
     <img
       :src="imgUrl"
       alt="altText"
-      :class="[imgHeight, imgWidth, radius]"
+      :class="[imgHeight, imgWidth, radius, imgClass]"
       class="top-0 object-cover"
     />
   </div>

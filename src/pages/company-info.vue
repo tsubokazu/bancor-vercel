@@ -14,7 +14,7 @@
 <template>
   <div class="flex w-full flex-col items-center">
     <!-- ヘッダー -->
-    <div class="h-[360px] w-full">
+    <div class="h-[240px] w-full pc:h-[360px]">
       <AtomsBasicHeader
         :imgUrl="header.imgUrl"
         class="h-full w-full"
@@ -24,7 +24,7 @@
     <div class="relative mb-40 flex w-full flex-col items-center space-y-24">
       <!-- ヘッダータイトル -->
       <div
-        class="absolute -top-32 flex w-full flex-col space-y-3 pc:max-w-[1100px]"
+        class="absolute -top-32 flex w-[95%] flex-col space-y-3 pc:max-w-[1100px]"
       >
         <div class="text-base text-white">{{ header.title }}</div>
         <AtomsFuturaItalicText
@@ -35,7 +35,9 @@
       </div>
 
       <!-- ミッション -->
-      <div class="flex w-full justify-between pc:max-w-[1100px]">
+      <div
+        class="flex w-[95%] flex-col justify-between tb:flex-row pc:max-w-[1100px]"
+      >
         <!-- メニュー -->
         <MoleculesBasicMenu
           class="w-[372px]"
@@ -45,12 +47,14 @@
           :outline="vision.outline"
         ></MoleculesBasicMenu>
         <!-- イメージ -->
-        <div class="h-[392px]">
+        <div class="h-[298px] pc:h-[392px]">
           <img :src="vision.imgUrl" class="h-full" />
         </div>
       </div>
       <!-- 会社案内コンテンツ -->
-      <div class="flex w-full justify-between pc:max-w-[1100px]">
+      <div
+        class="flex w-[95%] flex-col justify-between space-y-3 tb:flex-row tb:space-y-0 pc:max-w-[1100px]"
+      >
         <MoleculesCompanyInfoCard
           v-for="(content, index) in vision.contents"
           :imgUrl="content.imgUrl"
@@ -63,11 +67,13 @@
       </div>
 
       <!-- 日本について -->
-      <div class="flex w-full justify-between pc:max-w-[1100px]">
+      <div
+        class="flex w-[95%] flex-col items-center space-y-4 tb:flex-row tb:justify-between tb:space-y-0 pc:max-w-[1100px]"
+      >
         <!-- メッセージ -->
-        <div class="flex w-[470px] flex-col">
+        <div class="flex w-[360px] flex-col tb:w-[470px]">
           <AtomsFuturaItalicText
-            class="mb-16"
+            class="mb-4 tb:mb-16"
             :text="defendJapan.subTitle"
             size="text-[60px]"
           ></AtomsFuturaItalicText>

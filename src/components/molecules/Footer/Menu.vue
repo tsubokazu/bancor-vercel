@@ -14,6 +14,8 @@
         <AtomsLogo
           :logoUrl="footerObject.logoUrl"
           :linkUrl="footerObject.linkUrl"
+          width="189"
+          height="39"
         ></AtomsLogo>
         <MoleculesFooterMenuSNSs
           :snsObjects="footerObject.snsObjects"

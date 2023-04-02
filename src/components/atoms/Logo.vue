@@ -2,11 +2,13 @@
   const props = defineProps<{
     logoUrl: string;
     linkUrl: string;
+    width: string;
+    height: string;
   }>();
 </script>
 
 <template>
   <NuxtLink :to="props.linkUrl">
-    <img :src="props.logoUrl" />
+    <nuxt-img :src="props.logoUrl" :width="width" :height="height" />
   </NuxtLink>
 </template>

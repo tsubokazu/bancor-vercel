@@ -22,6 +22,8 @@
       class="block w-56"
       :logoUrl="serviceObject.logoUrl"
       :linkUrl="serviceObject.linkUrl"
+      width="189"
+      height="39"
     ></AtomsLogo>
     <div class="mb-3 h-px w-10/12 bg-gray-700"></div>
     <div class="w-[360px]">

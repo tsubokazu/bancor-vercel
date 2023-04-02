@@ -6,6 +6,8 @@
       linkUrl="/"
       logoUrl="/logo-white.png"
       class="absolute top-8 left-1 pc:top-[33px] pc:left-[31px]"
+      width="189"
+      height="39"
     ></AtomsLogo>
     <div
       class="flex h-full max-h-[1200px] w-full max-w-[1200px] flex-col flex-wrap items-center pt-24"
