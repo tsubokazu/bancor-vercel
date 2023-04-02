@@ -18,7 +18,7 @@
   >
     <!-- タイトル -->
     <MoleculesDoubleSquareTagMenu
-      class="w-full pc:max-w-[1100px]"
+      class="w-[95%] pc:max-w-[1100px]"
       :title="solutions.title"
       :subTitle="solutions.subTitle"
       :outline="solutions.outline"
@@ -28,10 +28,12 @@
       back-square-color="bg-bancor-red200"
     ></MoleculesDoubleSquareTagMenu>
     <!-- ソリューション一覧 -->
-    <div class="flex h-[678px] w-full rounded-lg bg-white pc:max-w-[1100px]">
+    <div
+      class="flex w-[95%] flex-col rounded-lg bg-white tb:flex-row pc:h-[678px] pc:max-w-[1100px]"
+    >
       <!-- タブメニュー -->
       <div
-        class="flex h-full w-[220px] flex-col border-r border-bancor-gray400"
+        class="flex h-full w-full flex-col border-r border-bancor-gray400 tb:w-[220px]"
       >
         <!-- メニュー一覧 -->
         <button
@@ -49,7 +51,7 @@
           <!-- メニューの吹き出し -->
           <div
             v-if="index == menuClickFlag"
-            class="absolute -right-[6px] h-2.5 w-2.5 rotate-45 border-r border-t bg-bancor-pink100"
+            class="absolute -right-[6px] hidden h-2.5 w-2.5 rotate-45 border-r border-t bg-bancor-pink100 tb:block"
           ></div>
         </button>
       </div>

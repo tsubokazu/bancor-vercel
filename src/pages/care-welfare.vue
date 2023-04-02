@@ -33,12 +33,32 @@
   // デジタル課題のクリックフラグ
   const clickFlag = ref(false);
   const clickProblemButton = () => (clickFlag.value = !clickFlag.value);
+
+  // ウィンドウサイズからスマホかどうかを判定
+  const windowWidth = ref(
+    typeof window !== 'undefined' ? window.innerWidth : 0
+  );
+  const isSmartPhone = computed(() => windowWidth.value < 768);
+
+  const updateWidth = () => {
+    if (typeof window !== 'undefined') {
+      windowWidth.value = window.innerWidth;
+    }
+  };
+
+  onMounted(() => {
+    window.addEventListener('resize', updateWidth);
+  });
+
+  onUnmounted(() => {
+    window.removeEventListener('resize', updateWidth);
+  });
 </script>
 
 <template>
   <div class="flex w-full flex-col items-center">
     <!-- ヘッダー -->
-    <div class="h-[360px] w-full">
+    <div class="h-[300px] w-full tb:h-[240px] pc:h-[360px]">
       <AtomsBasicHeader
         :imgUrl="header.imgUrl"
         class="h-full w-full"
@@ -48,7 +68,7 @@
     <div class="relative flex w-full flex-col items-center">
       <!-- ヘッダータイトル -->
       <div
-        class="absolute -top-48 flex w-full flex-col space-y-3 pc:max-w-[1100px]"
+        class="absolute -top-44 flex w-[95%] flex-col space-y-3 tb:-top-32 pc:-top-48 pc:max-w-[1100px]"
       >
         <div class="text-base text-white">{{ header.title }}</div>
         <AtomsFuturaItalicText
@@ -60,10 +80,10 @@
 
       <!-- ヘッダーメニュー -->
       <div
-        class="absolute -top-16 -z-10 flex h-16 w-full items-center justify-center bg-gray-900 opacity-50"
+        class="absolute -top-16 -z-10 hidden h-16 w-full items-center justify-center bg-gray-900 opacity-50 pc:flex"
       ></div>
       <div
-        class="absolute -top-16 z-50 flex h-16 w-full items-center justify-center space-x-40"
+        class="absolute -top-16 z-50 hidden h-16 w-full items-center justify-center space-x-40 pc:flex"
       >
         <AtomsLinkMoveArrowTitle
           v-for="anchor in header.anchors"
@@ -82,7 +102,7 @@
       <div id="test" class="mt-16 mb-14 flex w-full flex-col items-center">
         <!-- メニュータイトル -->
         <MoleculesDoubleSquareTagMenu
-          class="w-full pc:max-w-[1100px]"
+          class="w-[95%] pc:max-w-[1100px]"
           :title="issues.title"
           :subTitle="issues.subTitle"
           textColor="text-bancor-red200"
@@ -92,7 +112,9 @@
       </div>
 
       <!-- カード -->
-      <div class="mb-12 flex w-full justify-between pc:max-w-[1100px]">
+      <div
+        class="mb-12 flex w-[95%] flex-col items-center justify-between space-y-4 tb:flex-row tb:space-y-0 pc:max-w-[1100px]"
+      >
         <div
           v-for="(issue, index) in issues.issues"
           class="relative flex h-[240px] w-[332px] flex-col items-center justify-between rounded-lg border border-bancor-gray600 bg-white py-6"
@@ -118,42 +140,44 @@
             class="text-center"
             spaceY="space-y-2"
             :text="issue.title"
-            size="text-[18px]"
+            size="text-[18px] tb:text-[16px] pc:text-[18px]"
           ></AtomsBasicTitle>
 
           <!-- カードの吹き出し -->
           <div
-            v-if="index == 1"
+            v-if="index == (isSmartPhone ? 2 : 1)"
             class="absolute -bottom-[19px] h-9 w-9 rotate-45 border-r border-b border-bancor-gray600 bg-white"
           ></div>
         </div>
       </div>
 
       <!-- アウトライン -->
-      <div class="relative mb-40 flex w-full items-center justify-center">
+      <div class="relative mb-40 flex w-[95%] items-center justify-center">
         <AtomsBasicOutline
           :text="issues.outline"
           color="text-bancor-black100"
-          size="text-[32px]"
+          size="text-[26px] tb:text-[26px] pc:text-[32px]"
         ></AtomsBasicOutline>
         <!-- ピンク色マーカー -->
         <div
-          class="absolute bottom-[4px] -z-10 h-4 w-[900px] bg-bancor-red300"
+          class="absolute bottom-[4px] -z-10 hidden h-4 bg-bancor-red300 tb:block tb:w-full pc:w-[900px]"
         ></div>
       </div>
 
       <!-- お客様の声　「使いやすいし、楽になった」 -->
       <div class="mb-24 flex w-full flex-col items-center space-y-6">
         <!-- タイトル -->
-        <div class="flex w-full pc:max-w-[1200px]">
+        <div class="flex w-[95%] pc:max-w-[1200px]">
           <AtomsBasicTitle
             :text="voice.title"
-            size="text-[60px]"
+            size="text-[26px] tb:text-[50px] pc:text-[60px]"
             spaceY="space-y-3"
           ></AtomsBasicTitle>
         </div>
         <!-- アウトラインとイメージ -->
-        <div class="space-6 flex w-full justify-between pc:max-w-[1100px]">
+        <div
+          class="space-6 flex w-[95%] flex-col items-center justify-between tb:flex-row pc:max-w-[1100px]"
+        >
           <!-- アウトライン -->
           <div class="flex flex-col">
             <AtomsBasicOutline
@@ -164,7 +188,7 @@
             <AtomsBasicOutline
               :text="voice.outline"
               :isBold="false"
-              class="mb-12 w-[458px] leading-7"
+              class="mb-12 leading-7 tb:w-[458px]"
             ></AtomsBasicOutline>
             <MoleculesDetailButton
               color="bg-bancor-red200"
@@ -174,8 +198,8 @@
           <!-- イメージ -->
           <AtomsBasicImage
             :imgUrl="voice.imgUrl"
-            imgHeight="h-[392px]"
-            imgWidth="w-[392px]"
+            imgHeight="h-[300px] tb:h-[392px]"
+            imgWidth="w-[300px] tb:w-[392px]"
           ></AtomsBasicImage>
         </div>
       </div>
@@ -183,7 +207,7 @@
       <!-- サービスの特徴 -->
       <div
         id="features"
-        class="mb-24 flex w-full flex-col items-center space-y-14 pc:max-w-[1100px]"
+        class="mb-24 flex w-[95%] flex-col items-center space-y-14 pc:max-w-[1100px]"
       >
         <!-- タイトル -->
         <MoleculesDoubleSquareTagMenu
@@ -195,7 +219,9 @@
           back-square-color="bg-bancor-red200"
         ></MoleculesDoubleSquareTagMenu>
         <!-- カード群 -->
-        <div class="flex w-full space-x-10">
+        <div
+          class="flex w-full flex-col space-x-0 tb:flex-row tb:space-x-5 pc:space-x-10"
+        >
           <!-- カード -->
           <div
             v-for="feature in features.features"
@@ -223,12 +249,12 @@
 
       <!-- お問い合わせメニュー -->
       <div
-        class="mb-24 flex h-[248px] w-full items-center justify-between bg-bancor-red500 px-[50px] pc:max-w-[1200px]"
+        class="mb-24 flex h-[320px] w-full flex-col items-center justify-between bg-bancor-red500 px-[50px] py-4 tb:h-[248px] tb:flex-row pc:max-w-[1200px]"
       >
         <!-- メニューカード -->
         <div
           v-for="contactMenu in contactMenus.contactMenus"
-          class="h-[133px] w-[522px] space-x-4 rounded-lg bg-white shadow-lg hover:translate-y-1 hover:shadow-none hover:transition-all"
+          class="h-[133px] w-full space-x-4 space-y-5 rounded-lg bg-white shadow-lg hover:translate-y-1 hover:shadow-none hover:transition-all tb:w-[350px] pc:w-[522px]"
         >
           <NuxtLink
             :to="contactMenu.linkUrl"
@@ -256,7 +282,7 @@
 
       <!-- 3分でわかるBancor -->
       <div
-        class="mb-24 flex h-[245px] w-[800px] items-center justify-center space-x-36 bg-white shadow-lg"
+        class="mb-24 flex h-[500px] w-[95%] flex-col items-center justify-center bg-white shadow-lg tb:h-[245px] tb:w-[800px] tb:flex-row tb:space-x-36"
       >
         <!-- メニュー -->
         <div class="flex flex-col space-y-2">
@@ -283,7 +309,7 @@
       </div>
 
       <!-- 開発体制 -->
-      <div id="development" class="mb-24 flex w-full pc:max-w-[1100px]">
+      <div id="development" class="mb-24 flex w-[95%] pc:max-w-[1100px]">
         <div class="jus mb-18tify-center flex flex-col space-y-10">
           <MoleculesDoubleSquareTagMenu
             class="mb-18"
@@ -303,7 +329,7 @@
       </div>
 
       <!-- 保守・運用 -->
-      <div class="mb-24 flex w-full pc:max-w-[1100px]">
+      <div class="mb-24 flex w-[95%] pc:max-w-[1100px]">
         <div class="flex flex-col justify-center space-y-10">
           <MoleculesDoubleSquareTagMenu
             :title="maintenances.title"
@@ -313,10 +339,12 @@
             front-square-color="bg-bancor-red400"
             back-square-color="bg-bancor-red200"
           ></MoleculesDoubleSquareTagMenu>
-          <div class="grid w-full grid-cols-2 gap-x-8 gap-y-4">
+          <div
+            class="grid w-full grid-cols-1 gap-y-4 tb:grid-cols-2 tb:gap-x-8"
+          >
             <div
               v-for="maintenance in maintenances.maintenances"
-              class="flex h-[204px] w-[520px] flex-col justify-center space-y-2 rounded-md border border-bancor-gray600 px-6"
+              class="flex flex-col justify-center space-y-2 rounded-md border border-bancor-gray600 px-6 py-4 pc:h-[204px] pc:w-[520px] pc:py-0"
             >
               <AtomsBasicIcon
                 size="h-[35px]"
@@ -337,12 +365,12 @@
       </div>
 
       <!-- Value Update -->
-      <div class="relative h-[834px] w-full pc:max-w-[1100px]">
+      <div class="relative h-[834px] w-[95%] pc:max-w-[1100px]">
         <!-- Value Updateの大きなタイトル -->
         <AtomsBasicTitle
           class="font-futuraBold"
-          spaceY="-space-y-24"
-          size="text-[200px]"
+          spaceY="-space-y-12 tb:-space-y-24"
+          size="text-[100px] tb:text-[200px]"
           :text="valueUpdate.title"
         ></AtomsBasicTitle>
 
