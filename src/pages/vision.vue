@@ -13,7 +13,7 @@
 <template>
   <div class="flex w-full flex-col items-center">
     <!-- ヘッダー -->
-    <div class="h-[360px] w-full">
+    <div class="h-[240px] w-full pc:h-[360px]">
       <AtomsBasicHeader
         :imgUrl="header.imgUrl"
         class="h-full w-full"
@@ -23,7 +23,7 @@
     <div class="relative mb-40 flex w-full flex-col items-center space-y-24">
       <!-- ヘッダータイトル -->
       <div
-        class="absolute -top-32 flex w-full flex-col space-y-3 pc:max-w-[1000px]"
+        class="absolute -top-32 flex w-[95%] flex-col space-y-3 pc:max-w-[1000px]"
       >
         <div class="text-base text-white">{{ header.title }}</div>
         <AtomsFuturaItalicText
@@ -34,7 +34,9 @@
       </div>
 
       <!-- パーパス -->
-      <div class="flex w-full flex-col space-y-12 pc:max-w-[1000px]">
+      <div
+        class="flex w-[95%] flex-col space-y-6 tb:space-y-12 pc:max-w-[1000px]"
+      >
         <!-- タイトルとイメージ -->
         <MoleculesVisionTitleImage
           :title="purpose.title"
@@ -51,7 +53,7 @@
       </div>
 
       <!-- ミッション -->
-      <div class="flex w-full flex-col space-y-12 pc:max-w-[1000px]">
+      <div class="flex w-[95%] flex-col space-y-12 pc:max-w-[1000px]">
         <!-- タイトルとイメージ -->
         <MoleculesVisionTitleImage
           :title="mission.title"
@@ -68,7 +70,7 @@
       </div>
 
       <!-- バリュー -->
-      <div class="flex w-full flex-col space-y-12 pc:max-w-[1000px]">
+      <div class="flex w-[95%] flex-col space-y-12 pc:max-w-[1000px]">
         <!-- タイトルとイメージ -->
         <MoleculesVisionTitleImage
           :title="value.title"

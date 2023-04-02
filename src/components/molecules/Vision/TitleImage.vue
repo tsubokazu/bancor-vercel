@@ -8,7 +8,7 @@
 </script>
 
 <template>
-  <div class="relative h-[280px] w-full">
+  <div class="relative h-[140px] w-full tb:h-[280px]">
     <!-- タイトルセット -->
     <div class="absolute left-0 top-1/4 z-10 flex flex-col space-y-4">
       <!-- 小タイトル -->
@@ -16,7 +16,7 @@
       <!-- 大タイトル -->
       <AtomsFuturaBoldText
         :text="title"
-        size="text-[50px]"
+        size="text-[34px] tb:text-[50px]"
       ></AtomsFuturaBoldText>
     </div>
 

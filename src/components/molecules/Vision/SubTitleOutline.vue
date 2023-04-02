@@ -12,13 +12,16 @@
 <template>
   <div
     class="flex w-full flex-col"
-    :class="[{ 'space-y-14': !underLine }, { 'space-y-6': underLine }]"
+    :class="[
+      { 'space-y-7 tb:space-y-14': !underLine },
+      { 'space-y-6': underLine },
+    ]"
   >
     <!-- サブタイトル -->
     <AtomsBasicTitle
       :text="subTitle"
       size="text-base"
-      class="text-[32px]"
+      class="text-[22px] tb:text-[32px]"
     ></AtomsBasicTitle>
 
     <!-- アウトライン -->
