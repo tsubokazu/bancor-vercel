@@ -10,13 +10,20 @@ export default defineNuxtConfig({
   plugins: ['@/plugins/fontawesome.ts'],
   modules: [
     ['@pinia/nuxt', { autoImports: ['defineStore', 'acceptHMRUpdate'] }],
-    ['@formkit/nuxt'],
+    '@formkit/nuxt',
+    '@nuxt/image-edge',
   ],
   build: { transpile: ['@fortawesome/vue-fontawesome'] },
   postcss: {
     plugins: {
       tailwindcss: {},
       autoprefixer: {},
+    },
+  },
+  image: {
+    screens: {
+      tb: 768,
+      pc: 1280,
     },
   },
   imports: {
