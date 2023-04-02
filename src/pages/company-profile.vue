@@ -13,12 +13,15 @@
   }
   const { header, companyProfile }: CompanyProfileObject =
     pagesCompanyProfileStore;
+
+  const windowWidth = ref(window.innerWidth);
+  const isSmartPhone = computed(() => windowWidth.value < 768);
 </script>
 
 <template>
   <div class="flex w-full flex-col items-center">
     <!-- ヘッダー -->
-    <div class="h-[360px] w-full">
+    <div class="h-[240px] w-full pc:h-[360px]">
       <AtomsBasicHeader
         :imgUrl="header.imgUrl"
         class="h-full w-full"
@@ -28,7 +31,7 @@
     <div class="relative mb-40 flex w-full flex-col items-center space-y-24">
       <!-- ヘッダータイトル -->
       <div
-        class="absolute -top-32 flex w-full flex-col space-y-3 pc:max-w-[1000px]"
+        class="absolute -top-32 flex w-[95%] flex-col space-y-3 pc:max-w-[1000px]"
       >
         <div class="text-base text-white">{{ header.title }}</div>
         <AtomsFuturaItalicText
@@ -44,7 +47,7 @@
       </div>
 
       <!-- 会社概要 -->
-      <div class="flex w-full flex-col space-y-8">
+      <div class="flex w-[95%] flex-col space-y-8">
         <MoleculesCompanyOverviewRow
           item="会社商号"
           :name="companyProfile.name"
@@ -58,7 +61,7 @@
           :name="companyProfile.ceo"
           :linkTitle="companyProfile.messageTitle"
           :linkUrl="companyProfile.messageLinkUrl"
-          :linkDirRow="true"
+          :linkDirRow="isSmartPhone ? false : true"
         ></MoleculesCompanyOverviewRow>
         <MoleculesCompanyOverviewRow
           item="設立"
@@ -87,7 +90,7 @@
 
       <!-- アクセスマップ -->
       <div
-        class="flex w-full flex-col items-center justify-center space-y-3 pc:max-w-[1000px]"
+        class="flex w-[95%] flex-col items-center justify-center space-y-3 pc:max-w-[1000px]"
       >
         <div class="flex w-full justify-between">
           <AtomsBasicTitle text="アクセス" size="text-base"></AtomsBasicTitle>
