@@ -94,7 +94,7 @@
 <template>
   <div class="flex w-full flex-col items-center">
     <!-- ヘッダー -->
-    <div class="h-[360px] w-full">
+    <div class="h-[240px] w-full pc:h-[360px]">
       <AtomsBasicHeader
         :imgUrl="header.imgUrl"
         class="h-full w-full"
@@ -104,7 +104,7 @@
     <div class="relative mb-40 flex w-full flex-col items-center space-y-24">
       <!-- ヘッダータイトル -->
       <div
-        class="absolute -top-32 flex w-full flex-col space-y-3 pc:max-w-[1100px]"
+        class="absolute -top-32 flex w-[95%] flex-col space-y-3 pc:max-w-[1100px]"
       >
         <div class="text-base text-white">{{ header.title }}</div>
         <AtomsFuturaItalicText
@@ -115,7 +115,9 @@
       </div>
 
       <!-- ミッション -->
-      <div class="flex w-full justify-between pc:max-w-[1100px]">
+      <div
+        class="flex w-[95%] flex-col justify-between tb:flex-row pc:max-w-[1100px]"
+      >
         <!-- メニュー -->
         <MoleculesBasicMenu
           class="w-[372px]"
@@ -125,56 +127,84 @@
           :outline="vision.outline"
         ></MoleculesBasicMenu>
         <!-- イメージ -->
-        <div class="h-[392px]">
+        <div class="h-[200px] tb:h-[300px] pc:h-[392px]">
           <img :src="vision.imgUrl" class="h-full" />
         </div>
       </div>
       <!-- 会社案内コンテンツ -->
-      <div class="flex h-[256px] w-full justify-center bg-bancor-light-blue200">
+      <div
+        class="flex w-full flex-col justify-center bg-bancor-light-blue200 tb:h-[256px] tb:flex-row"
+      >
         <!-- タイトル -->
-        <div class="flex h-full w-1/2 justify-end">
+        <div class="flex h-full w-[95%] justify-end tb:w-1/2">
           <div class="flex h-full w-full items-center pc:max-w-[550px]">
             <AtomsBasicTitle
               :text="contents.title"
-              size="text-[60px]"
+              size="text-[48px] pc:text-[60px]"
               class="font-futuraBold"
             ></AtomsBasicTitle>
           </div>
         </div>
         <!-- メニュー -->
-        <div class="flex h-full w-1/2 flex-col">
+        <div class="flex h-[256px] w-full flex-col tb:w-1/2">
           <!-- 代表メッセージ -->
           <NuxtLink
             :to="contents.contents[0].linkUrl"
-            class="flex h-1/2 w-full items-center space-x-6 bg-bancor-blue200 pl-[72px]"
+            class="group relative flex h-1/2 w-full overflow-hidden"
           >
-            <AtomsButtonCircleArrowSmall
-              arrowColor="text-bancor-black100"
-              arrowSize="text-[10.4px]"
-              size="w-[33px] h-[33px]"
-            ></AtomsButtonCircleArrowSmall>
-            <AtomsBasicTitle
-              size="text-[22px]"
-              color="text-white"
-              :text="contents.contents[0].title"
-            ></AtomsBasicTitle
-          ></NuxtLink>
+            <!-- 背景 -->
+            <div
+              class="absolute h-full w-full bg-bancor-blue200 pl-[72px] before:absolute before:left-full before:h-full before:w-full before:bg-white before:transition-all before:group-hover:left-0"
+            ></div>
+            <!-- アンダーライン -->
+            <div
+              class="absolute bottom-0 right-full h-[4px] w-full bg-bancor-blue200 transition-all group-hover:right-0"
+            ></div>
+            <!-- メニュー -->
+            <div
+              class="z-10 flex h-full w-full items-center space-x-6 pl-[64px]"
+            >
+              <AtomsButtonCircleArrowSmall
+                arrowColor="text-bancor-black100"
+                arrowSize="text-[10.4px]"
+                size="w-[33px] h-[33px]"
+              ></AtomsButtonCircleArrowSmall>
+              <AtomsBasicTitle
+                size="text-[22px]"
+                color="text-white group-hover:text-bancor-black100"
+                :text="contents.contents[0].title"
+              ></AtomsBasicTitle>
+            </div>
+          </NuxtLink>
           <!-- 会社案内 -->
           <NuxtLink
             :to="contents.contents[1].linkUrl"
-            class="flex h-1/2 w-full items-center space-x-6 bg-bancor-blue400 pl-[72px]"
+            class="group relative flex h-1/2 w-full overflow-hidden"
           >
-            <AtomsButtonCircleArrowSmall
-              arrowColor="text-bancor-black100"
-              arrowSize="text-[10.4px]"
-              size="w-[33px] h-[33px]"
-            ></AtomsButtonCircleArrowSmall>
-            <AtomsBasicTitle
-              size="text-[22px]"
-              color="text-white"
-              :text="contents.contents[1].title"
-            ></AtomsBasicTitle
-          ></NuxtLink>
+            <!-- 背景 -->
+            <div
+              class="absolute h-full w-full bg-bancor-blue400 pl-[72px] before:absolute before:left-full before:h-full before:w-full before:bg-white before:transition-all before:group-hover:left-0"
+            ></div>
+            <!-- アンダーライン -->
+            <div
+              class="absolute bottom-0 right-full h-[4px] w-full bg-bancor-blue400 transition-all group-hover:right-0"
+            ></div>
+            <!-- メニュー -->
+            <div
+              class="z-10 flex h-full w-full items-center space-x-6 pl-[64px]"
+            >
+              <AtomsButtonCircleArrowSmall
+                arrowColor="text-bancor-black100"
+                arrowSize="text-[10.4px]"
+                size="w-[33px] h-[33px]"
+              ></AtomsButtonCircleArrowSmall>
+              <AtomsBasicTitle
+                size="text-[22px]"
+                color="text-white"
+                :text="contents.contents[1].title"
+              ></AtomsBasicTitle>
+            </div>
+          </NuxtLink>
         </div>
       </div>
 
@@ -184,7 +214,7 @@
         id="open-position"
       >
         <!-- タイトル -->
-        <div class="w-full pc:max-w-[1100px]">
+        <div class="w-[95%] pc:max-w-[1100px]">
           <MoleculesDoubleSquareTagMenu
             title="募集職種"
             subTitle="Open Position"
@@ -192,7 +222,9 @@
         </div>
 
         <!-- コンテンツ -->
-        <div class="flex w-full space-x-[29px] pc:max-w-[1100px]">
+        <div
+          class="flex w-[95%] flex-col space-y-6 pc:max-w-[1100px] pc:flex-row pc:space-x-[29px] pc:space-y-0"
+        >
           <!-- タブメニュー -->
           <div class="flex w-[228px] flex-col">
             <!-- メニュー -->
@@ -222,7 +254,9 @@
             </button>
           </div>
           <!-- 詳細 -->
-          <div class="w-[calc(100%_-_257px)] justify-center bg-white p-12">
+          <div
+            class="justify-center bg-white p-4 tb:p-12 pc:w-[calc(100%_-_257px)]"
+          >
             <!-- 募集カテゴリ -->
             <div class="flex w-full flex-col">
               <!-- タイトル -->
@@ -232,8 +266,10 @@
                 size="text-[22px]"
               ></AtomsBasicTitle>
               <!-- カテゴリ一覧グリッド -->
-              <div class="min-h-[370px] w-full">
-                <div class="grid grid-cols-2 gap-x-10 gap-y-0">
+              <div class="w-full pc:min-h-[370px]">
+                <div
+                  class="mb-6 grid grid-cols-1 gap-x-10 gap-y-0 tb:grid-cols-2"
+                >
                   <!-- 各カテゴリメニューボタン -->
                   <button
                     v-for="(category, index) in selectedCategories"
@@ -332,11 +368,13 @@
               ></AtomsBasicTitle>
               <!-- 説明 -->
               <div
-                class="flex space-x-9"
+                class="flex flex-col tb:flex-row tb:space-x-9"
                 v-for="info in selectedCategoryObject.informations.details"
               >
                 <!-- 項目タイトル -->
-                <div class="border-bancorgra600 w-[160px] border-b-2 py-6">
+                <div
+                  class="tb:border-bancorgra600 py-3 tb:w-[160px] tb:border-b-2 tb:py-6"
+                >
                   <AtomsBasicTitle
                     :text="info.subTitle"
                     size="text-base"
@@ -345,7 +383,7 @@
                 </div>
                 <!-- 項目詳細 -->
                 <div
-                  class="border-bancorgra600 w-[calc(100%_-_178px)] border-b-2 py-6"
+                  class="border-bancorgra600 border-b-2 py-3 tb:w-[calc(100%_-_178px)] tb:py-6"
                 >
                   <AtomsBasicOutline
                     size="text-[14px]"
@@ -371,7 +409,9 @@
           <AtomsBasicTitle :text="entries.title"></AtomsBasicTitle>
         </div>
         <!-- フォームボタン -->
-        <div class="flex items-center space-x-8">
+        <div
+          class="flex flex-col items-center space-y-6 tb:flex-row tb:space-y-0 tb:space-x-8"
+        >
           <!-- この職種に応募する -->
           <AtomsButtonOvalArrow
             v-for="entry in entries.entries"
