@@ -81,11 +81,16 @@
     }, 100);
   });
 
+  // HTMLタグを削除する関数
+  const removeHTMLTags = (html: string): string => {
+    const div = document.createElement('div');
+    div.innerHTML = html;
+    return div.textContent || div.innerText || '';
+  };
+
   // 表示する本文の一部を切り出す
   const trimBodyHTML = (bodyHTML: string, num: number): string => {
-    let str = bodyHTML;
-    str = str.substring(str.indexOf('<p>') + 3);
-    str = str.substring(0, str.indexOf('</p>'));
+    let str = removeHTMLTags(bodyHTML);
     str = str.slice(0, num);
     return str;
   };
