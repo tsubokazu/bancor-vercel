@@ -64,7 +64,9 @@
         </div>
 
         <!-- 点線の区切り線 -->
-        <div class="w-[95%] border-b border-dashed border-bancor-gray500"></div>
+        <div
+          class="w-[95%] translate-x-[2.5%] border-b border-dashed border-bancor-gray500"
+        ></div>
 
         <!-- 個人情報の取り扱いについて -->
         <div class="flex flex-col items-center py-12">
