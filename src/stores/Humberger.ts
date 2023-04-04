@@ -7,5 +7,14 @@ export const useHumbergerStore = defineStore('humberger', () => {
       ? 'fixed top-6'
       : 'absolute top-3';
   };
-  return { clickHumbergerFlag, humbergerPositionClass, toggleHumbergerFlag };
+  const closeHumbergerMenu = () => {
+    clickHumbergerFlag.value = false;
+    humbergerPositionClass.value = 'absolute top-3';
+  };
+  return {
+    clickHumbergerFlag,
+    humbergerPositionClass,
+    toggleHumbergerFlag,
+    closeHumbergerMenu,
+  };
 });

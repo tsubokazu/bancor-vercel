@@ -1,4 +1,5 @@
 <script setup lang="ts">
+  const humbergerStore = useHumbergerStore();
   interface Props {
     text: string;
     linkUrl: string;
@@ -20,6 +21,11 @@
   const mouseLeaveAction = () => {
     hoverAnimation.value = 'animate-move-underline-rv';
   };
+
+  // unmount時にアニメーションをリセットする
+  onBeforeUnmount(() => {
+    hoverAnimation.value = '';
+  });
 </script>
 
 <template>
@@ -28,7 +34,9 @@
       class="relative flex w-56 flex-col"
       @mouseover="mouseOverAction()"
       @mouseleave="mouseLeaveAction()"
+      @click="humbergerStore.closeHumbergerMenu"
     >
+      <!-- タイトル -->
       <div class="flex items-center justify-between pr-2">
         <div class="flex items-center space-x-4">
           <div
@@ -44,7 +52,8 @@
           <font-awesome-icon icon="fa-solid fa-angle-right" />
         </div>
       </div>
-      <div class="mt-2 w-full">
+      <!-- アンダーライン -->
+      <div class="mt-3 w-full">
         <div class="relative h-px w-full overflow-hidden">
           <div class="absolute z-0 h-full w-full bg-white"></div>
           <div

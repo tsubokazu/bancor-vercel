@@ -19,14 +19,14 @@
       textSize="text-2xl"
     ></MoleculesDoubleSquareTag>
     <AtomsLogo
-      class="block w-56"
+      class="block w-56 py-4"
       :logoUrl="serviceObject.logoUrl"
       :linkUrl="serviceObject.linkUrl"
       width="189"
       height="39"
     ></AtomsLogo>
-    <div class="mb-3 h-px w-10/12 bg-gray-700"></div>
-    <div class="w-[360px]">
+    <div class="mb-3 h-px w-[90%] bg-gray-700"></div>
+    <div class="w-[360px] py-4">
       <AtomsLinkOutline
         :text="serviceObject.outline"
         :linkUrl="serviceObject.linkUrl"
@@ -35,6 +35,6 @@
         :isBold="false"
       ></AtomsLinkOutline>
     </div>
-    <div class="mt-3 h-px w-10/12 bg-gray-700"></div>
+    <div class="mt-3 h-px w-[90%] bg-gray-700"></div>
   </div>
 </template>

@@ -40,11 +40,11 @@
 </script>
 
 <template>
-  <div :class="humbergerStore.humbergerPositionClass">
+  <button :class="humbergerStore.humbergerPositionClass">
     <div @click="clickButton" :class="squareClassArray">
       <span :class="[lineCommonClassArray, line1ClassArray]"></span>
       <span :class="[lineCommonClassArray, line2ClassArray]"></span>
       <span :class="[lineCommonClassArray, line3ClassArray]"></span>
     </div>
-  </div>
+  </button>
 </template>

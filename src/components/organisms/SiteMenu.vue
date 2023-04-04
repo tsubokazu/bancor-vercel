@@ -1,6 +1,11 @@
+<script setup lang="ts">
+  const humbergerStore = useHumbergerStore();
+</script>
+
 <template>
   <div
-    class="flex h-auto w-full justify-center overflow-auto bg-bancor-navy300"
+    @click="humbergerStore.closeHumbergerMenu"
+    class="flex h-screen w-full flex-col items-center justify-center overflow-auto bg-bancor-navy300 pc:h-screen pc:flex-row"
   >
     <AtomsLogo
       linkUrl="/"
@@ -10,12 +15,13 @@
       height="39"
     ></AtomsLogo>
     <div
-      class="flex h-full max-h-[1200px] w-full max-w-[1200px] flex-col flex-wrap items-center pt-24"
+      class="flex h-full w-[90%] flex-col items-center pt-24 pc:max-h-[1400px] pc:max-w-[1200px] pc:flex-wrap"
     >
-      <MoleculesSiteMenuMap class="h-fit w-1/2"></MoleculesSiteMenuMap>
-      <div class="mb-6 h-px w-5/12 bg-gray-700"></div>
-      <MoleculesSiteMenuService class="h-fit w-1/2"></MoleculesSiteMenuService>
-      <MoleculesSiteMenuPickup class="h-fit w-1/2"></MoleculesSiteMenuPickup>
+      <MoleculesSiteMenuMap class="h-fit pc:w-1/2"></MoleculesSiteMenuMap>
+      <MoleculesSiteMenuService
+        class="mb-20 h-fit pc:w-1/2"
+      ></MoleculesSiteMenuService>
+      <MoleculesSiteMenuPickup class="h-fit pc:w-1/2"></MoleculesSiteMenuPickup>
     </div>
   </div>
 </template>

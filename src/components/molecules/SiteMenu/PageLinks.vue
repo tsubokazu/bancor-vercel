@@ -4,17 +4,19 @@
   const humbergerStore = useHumbergerStore();
 </script>
 <template>
-  <div class="flex flex-col space-y-3">
+  <div class="flex flex-col space-y-4">
+    <!-- 矢印付きタイトルリンク -->
     <AtomsLinkMoveArrowTitle
-      @click="humbergerStore.toggleHumbergerFlag"
+      @click="humbergerStore.closeHumbergerMenu"
       :text="props.pageLinkObject.title"
       :linkUrl="props.pageLinkObject.linkUrl"
       color="text-white"
       size="text-xl"
     ></AtomsLinkMoveArrowTitle>
-    <div class="flex flex-col space-y-4">
+    <!-- アンダーラインの色が変わるメニューリンク -->
+    <div class="flex flex-col space-y-6">
       <AtomsLinkUnderlineArrowTitle
-        @click="humbergerStore.toggleHumbergerFlag"
+        @click="humbergerStore.closeHumbergerMenu"
         v-for="linkObject in pageLinkObject.linkObjects"
         :text="linkObject.title"
         :linkUrl="linkObject.linkUrl"

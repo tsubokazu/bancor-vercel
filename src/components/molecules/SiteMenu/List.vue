@@ -17,11 +17,14 @@
 </script>
 
 <template>
-  <div class="flex h-fit w-3/5 space-x-5">
-    <div class="flex h-full flex-col justify-between space-y-5">
+  <div class="mb-10 flex h-fit w-3/5 space-x-5">
+    <div
+      class="flex flex-col flex-wrap justify-between space-y-4 tb:h-[200px] pc:h-full pc:space-y-5"
+    >
       <MoleculesSiteMenuListCard
         v-for="journal in journalListOthers"
         :card="journal"
+        class="tb:mb-5 pc:mb-0"
       ></MoleculesSiteMenuListCard>
     </div>
   </div>

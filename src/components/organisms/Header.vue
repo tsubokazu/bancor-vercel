@@ -173,10 +173,17 @@
       :class="hoverAnimation"
       :menuObject="hoverMenuObject"
     ></OrganismsMegaMenu>
-    <OrganismsSiteMenu
-      v-show="humbergerStore.clickHumbergerFlag"
-      class="fixed -top-3 left-0 z-10"
-    ></OrganismsSiteMenu>
-    <AtomsButtonHamburger class="right-[3.5%] z-20"></AtomsButtonHamburger>
+    <Transition
+      enter-active-class="transition-opacity duration-500"
+      enter-from-class="opacity-0"
+      leave-active-class="transition-opacity duration-500"
+      leave-to-class="opacity-0"
+    >
+      <OrganismsSiteMenu
+        v-show="humbergerStore.clickHumbergerFlag"
+        class="fixed top-0 left-0 z-30"
+      ></OrganismsSiteMenu>
+    </Transition>
+    <AtomsButtonHamburger class="right-[3.5%] z-40"></AtomsButtonHamburger>
   </nav>
 </template>

@@ -9,6 +9,8 @@
   const newsList: Array<JournalObject> = pickupList;
   const mainJournal = newsList[0];
 
+  const humbergerStore = useHumbergerStore();
+
   const scaleUpImageAnimation = ref('');
   const mouseOverAction = () => {
     scaleUpImageAnimation.value = 'animate-scale-up-image';
@@ -21,9 +23,10 @@
 <template>
   <NuxtLink :to="`/journal/${mainJournal.topicsId}`">
     <div
-      class="h-fit w-3/5 space-y-3"
+      class="mb-5 h-fit w-full space-y-3 tb:w-3/5"
       @mouseover="mouseOverAction()"
       @mouseleave="mouseLeaveAction()"
+      @click="humbergerStore.closeHumbergerMenu"
     >
       <AtomsTopJournalMainImage
         :imgUrl="mainJournal.eyeCatchUrl"
@@ -43,7 +46,7 @@
       </div>
       <div class="flex items-center space-x-3">
         <div
-          class="text-[10px] font-bold text-bancor-gray100"
+          class="text-[12px] font-bold text-bancor-gray400"
           v-for="tag in mainJournal.hashTag"
         >
           {{ `#${tag}` }}

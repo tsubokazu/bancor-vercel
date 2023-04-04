@@ -50,7 +50,7 @@
   const linkObjectsSecurity: Array<LinkObject> = [
     {
       title: 'プライバシーポリシー',
-      linkUrl: '/dx-recruit',
+      linkUrl: '/privacy-policy',
     },
     {
       title: '他社商標・著作物',
@@ -104,7 +104,8 @@
   };
 </script>
 <template>
-  <div class="flex h-full w-full flex-col space-y-4">
+  <div class="mb-[64px] flex h-full w-full flex-col space-y-4">
+    <!-- サイトマップタイトル -->
     <MoleculesDoubleSquareTag
       class="mb-2"
       frontSquareColor="bg-white"
@@ -113,12 +114,15 @@
       textColor="text-white"
       textSize="text-2xl"
     ></MoleculesDoubleSquareTag>
-    <div class="flex h-[600px] w-full flex-col flex-wrap">
+    <!-- サイトマップ各メニュー -->
+    <div class="flex w-full flex-col flex-wrap tb:h-[700px] pc:h-[700px]">
       <MoleculesSiteMenuPageLinks
-        class="mb-6 h-fit w-2/5"
+        class="mb-8 h-fit pc:w-2/5"
         v-for="pageLinkObject in pageLinkObjects"
         :pageLinkObject="pageLinkObject"
       ></MoleculesSiteMenuPageLinks>
     </div>
+    <!-- サイトマップ下の線 -->
+    <div class="h-px w-[90%] bg-gray-700"></div>
   </div>
 </template>

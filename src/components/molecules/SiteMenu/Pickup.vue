@@ -16,14 +16,14 @@
 <template>
   <div class="w-full">
     <MoleculesDoubleSquareTag
-      class="mb-2"
+      class="mb-6"
       frontSquareColor="bg-white"
       backSquareColor="bg-white"
       :text="pickupObjects.title"
       textColor="text-white"
       textSize="text-2xl"
     ></MoleculesDoubleSquareTag>
-    <MoleculesSiteMenuMainJournal class="mb-4"></MoleculesSiteMenuMainJournal>
+    <MoleculesSiteMenuMainJournal></MoleculesSiteMenuMainJournal>
     <MoleculesSiteMenuList></MoleculesSiteMenuList>
   </div>
 </template>
