@@ -83,6 +83,9 @@
 
   // HTMLタグを削除する関数
   const removeHTMLTags = (html: string): string => {
+    if (typeof document === 'undefined') {
+      return '';
+    }
     const div = document.createElement('div');
     div.innerHTML = html;
     return div.textContent || div.innerText || '';
@@ -99,7 +102,7 @@
 <template>
   <div class="flex h-full w-full flex-col items-center justify-center">
     <!-- ヘッダーアニメーション -->
-    <div class="relative h-[360px] w-full">
+    <div class="relative h-[280px] w-full tb:h-[360px]">
       <!-- ヘッダー画像 -->
       <AtomsBasicHeader
         v-for="(journal, index) in top5JournalList"
@@ -127,7 +130,9 @@
         <div class="flex items-center justify-center space-x-3">
           <div class="font-futuraMediumItalic font-bold text-white">Topics</div>
           <div class="h-6 w-px bg-white"></div>
-          <div class="relative h-[18px] w-[948px] overflow-hidden">
+          <div
+            class="relative h-[18px] w-[260px] overflow-hidden tb:w-[600px] pc:w-[948px]"
+          >
             <div
               v-for="(journal, index) in top5JournalList"
               :key="journal.topicsId"
@@ -161,7 +166,10 @@
             <font-awesome-icon icon="fa-solid fa-play" v-show="isPause" />
           </button>
           <!-- プログレスバー -->
-          <div v-for="i in 5" class="relative h-1 w-44 overflow-hidden">
+          <div
+            v-for="i in 5"
+            class="relative h-1 w-[35px] overflow-hidden tb:w-[105px] pc:w-44"
+          >
             <div
               class="absolute z-10 h-full w-full rounded-sm bg-bancor-blue200"
               :class="{

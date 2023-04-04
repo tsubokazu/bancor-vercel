@@ -61,6 +61,9 @@ export default defineNuxtConfig({
       kurocoPagesMaterialsUseful: '/rcms-api/10/pages?topics_group_id=26', // お役立ち情報資料一覧
       kurocoPagesMaterialBancor: '/rcms-api/10/pages?topics_group_id=27', // 3分でわかるBancorサービス資料
       kurocoPagesContact: '/rcms-api/10/pages?topics_group_id=28', // お問い合わせページ
+      kurocoPagesPrivacyPolicy: '/rcms-api/10/pages?topics_group_id=29', // プライバシーポリシーページ
+      kurocoPagesTrademarks: '/rcms-api/10/pages?topics_group_id=30', // 他者商標・著作物ページ
+      kurocoPagesSiteUsage: '/rcms-api/10/pages?topics_group_id=31', // 本サイトのご利用についてページ
       kurocoSubmitDownloadMaterialForm: '/rcms-api/11/form?id=4',
       kurocoSubmitContactForm: '/rcms-api/11/form?id=5',
       googleMapApiKey: 'AIzaSyAkiUf_mc0OqCF_xaln1IAAxNCEu96__8Q', // GoogleMapのAPIキー
