@@ -24,7 +24,7 @@
       </div>
       <MoleculesFooterMenuPageLinks
         :pageLinkObjects="footerObject.pageLinkObjects"
-        class="mr-0 h-[340px] w-[648px] tb:mr-5 tb:h-[140px] pc:mr-0"
+        class="mr-0 h-[340px] tb:mr-5 tb:h-[140px] pc:mr-0 pc:w-[648px]"
       ></MoleculesFooterMenuPageLinks>
     </div>
   </div>
