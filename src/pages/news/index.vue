@@ -43,7 +43,7 @@
 <template>
   <div class="flex w-full flex-col items-center">
     <!-- ヘッダー -->
-    <div class="h-[360px] w-full">
+    <div class="h-[240px] w-full pc:h-[360px]">
       <AtomsBasicHeader
         imgUrl="/newsRoomHeader.png"
         class="h-full w-full"
@@ -53,7 +53,7 @@
     <div class="relative mb-40 flex w-full flex-col items-center space-y-24">
       <!-- ヘッダータイトル -->
       <div
-        class="absolute -top-32 flex w-full flex-col space-y-3 pc:max-w-[1100px]"
+        class="absolute -top-32 flex w-[95%] flex-col space-y-3 pc:max-w-[1100px]"
       >
         <div class="text-base text-white">ニュースルーム</div>
         <AtomsFuturaItalicText
@@ -71,15 +71,15 @@
       >
         <!-- メニュータイトル -->
         <MoleculesDoubleSquareTagMenu
-          class="mb-14 w-full pc:max-w-[1100px]"
+          class="mb-14 w-[95%] pc:max-w-[1100px]"
           :title="categoryObject.label"
           :subTitle="categoryObject.category"
-          size="text-[40px]"
+          size="text-[32px] pc:text-[40px]"
         ></MoleculesDoubleSquareTagMenu>
 
         <!-- リスト -->
         <div
-          class="flex w-full flex-col items-center space-y-4 overflow-hidden pc:max-w-[1100px]"
+          class="flex w-[95%] flex-col items-center space-y-4 overflow-hidden pc:max-w-[1100px]"
         >
           <!-- リスト中の１つのコンテンツ -->
           <MoleculesNewsListMenu
@@ -92,7 +92,7 @@
         </div>
 
         <!-- 一覧をみるボタン -->
-        <div class="flex w-full pc:max-w-[1100px]">
+        <div class="flex w-[95%] pc:max-w-[1100px]">
           <div class="mt-12">
             <AtomsButtonOvalArrow
               bgColor="bg-bancor-black100"

@@ -75,7 +75,7 @@
     <div class="relative mb-40 flex w-full flex-col items-center space-y-24">
       <!-- ヘッダータイトル -->
       <div
-        class="absolute -top-32 flex w-full flex-col space-y-3 pc:max-w-[1100px]"
+        class="absolute -top-32 flex w-[95%] flex-col space-y-3 pc:max-w-[1100px]"
       >
         <div class="text-base font-bold text-bancor-blue100">Category</div>
         <AtomsFuturaItalicText
@@ -89,7 +89,7 @@
       <div id="test" class="mt-16 mb-14 flex w-full flex-col items-center">
         <!-- メニュータイトル -->
         <MoleculesDoubleSquareTagMenu
-          class="mb-14 w-full pc:max-w-[1100px]"
+          class="mb-14 w-[95%] pc:max-w-[1100px]"
           :title="categoryLabel"
           subTitle="Notification"
           size="text-[40px]"
@@ -97,7 +97,7 @@
 
         <!-- リスト -->
         <div
-          class="flex w-full flex-col items-center space-y-4 overflow-hidden pc:max-w-[1100px]"
+          class="flex w-[95%] flex-col items-center space-y-4 overflow-hidden pc:max-w-[1100px]"
         >
           <!-- リスト中の１つのコンテンツ -->
           <MoleculesNewsListMenu

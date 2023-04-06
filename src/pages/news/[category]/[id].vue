@@ -108,7 +108,7 @@
     class="flex h-full w-full flex-col items-center justify-center bg-bancor-gray700"
   >
     <!-- ページタイトル -->
-    <div class="mb-4 flex h-[196px] w-full items-end pc:max-w-[1100px]">
+    <div class="mb-4 flex h-[196px] w-[95%] items-end pc:max-w-[1100px]">
       <MoleculesDoubleSquareTagMenu
         title="ニュースルーム"
         sub-title="News Room"
@@ -116,7 +116,7 @@
       />
     </div>
     <!-- ニュースタイトル -->
-    <div class="mb-4 flex w-full flex-col items-end pc:max-w-[1100px]">
+    <div class="mb-4 flex w-[95%] flex-col items-end pc:max-w-[1100px]">
       <!-- カテゴリと日付 -->
       <div class="flex w-full items-center space-x-4">
         <!-- カテゴリ -->
@@ -132,13 +132,13 @@
       </div>
     </div>
     <!-- 記事 -->
-    <div class="flex w-full flex-row space-x-10 pc:w-[1100px]">
+    <div class="flex w-[95%] flex-row space-x-10 pc:w-[1100px]">
       <MoleculesBasicNews
         class="mb-32 w-full pc:max-w-[820px]"
         :newsObject="selectedNews"
       ></MoleculesBasicNews>
       <!-- ニュース一覧 カテゴリ別 -->
-      <div class="flex w-[240px] flex-col">
+      <div class="hidden w-[240px] flex-col pc:flex">
         <!-- タイトル -->
         <div class="mb-[10px] flex w-full items-center space-x-3">
           <img src="/book-icon.png" class="h-[16px] w-[16px]" />
