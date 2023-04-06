@@ -11,19 +11,25 @@
 
 <template>
   <NuxtLink :to="`/journal/${topicsId}`">
-    <div class="flex flex-col space-y-3">
+    <div class="flex flex-col items-center space-y-3">
       <AtomsBasicEyecatch
         :imgUrl="eyeCatchUrl"
-        imgHeight="h-[148px]"
-        imgWidth="w-[220px]"
-        radius="rounded-sm"
+        imgHeight="h-[120px] tb:h-[148px]"
+        imgWidth="tb:w-[220px]"
+        radius="rounded-md"
       ></AtomsBasicEyecatch>
-      <AtomsBasicTitle :text="title" size="text-[18px]"></AtomsBasicTitle>
+      <AtomsBasicTitle
+        :text="title"
+        size="text-[16px] tb:text-[18px]"
+      ></AtomsBasicTitle>
+
       <AtomsBasicOutline
         :text="abstract"
-        size="text-[14px]"
+        size="text-[12px] tb:text-[14px]"
       ></AtomsBasicOutline>
-      <AtomsBasicTags :tags="tags"></AtomsBasicTags>
+      <div class="w-full">
+        <AtomsBasicTags :tags="tags"></AtomsBasicTags>
+      </div>
     </div>
   </NuxtLink>
 </template>

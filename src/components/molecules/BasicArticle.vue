@@ -26,11 +26,7 @@
         size="text-[28px]"
       ></AtomsBasicTitle>
       <!-- 本文 -->
-      <div class="post prose" v-html="journalObject.bodyHTML"></div>
-      <!-- 編集者情報 -->
-      <MoleculesJournalEditor
-        :editorId="journalObject.editorId"
-      ></MoleculesJournalEditor>
+      <div class="post prose-lg" v-html="journalObject.bodyHTML"></div>
       <!-- SNS シェア -->
       <div class="flex h-12 w-10/12 items-center justify-between pl-3">
         <NuxtLink :to="instagramShareLink">
@@ -49,7 +45,7 @@
       <!-- 関連記事 -->
       <div class="flex flex-col space-y-10">
         <div class="text-[40px] font-bold">システム開発に関して</div>
-        <div class="flex space-x-3">
+        <div class="flex space-x-3 overflow-x-scroll pc:overflow-x-hidden">
           <MoleculesBasicCard
             v-for="journal in otherJournalList.slice(0, 3)"
             :card="journal"

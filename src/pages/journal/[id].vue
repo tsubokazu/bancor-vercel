@@ -27,12 +27,12 @@
     <!-- ヘッダー画像 -->
     <AtomsBasicHeader
       :imgUrl="selectedJournal.eyeCatchUrl"
-      class="mb-16 h-[360px] w-full"
+      class="mb-16 h-[240px] w-full pc:h-[360px]"
     ></AtomsBasicHeader>
     <!-- 記事 -->
-    <div class="flex flex-row space-x-5">
+    <div class="flex w-full flex-row justify-center space-x-5">
       <MoleculesBasicArticle
-        class="mb-32 pc:max-w-[720px]"
+        class="mb-32 w-[95%] pc:max-w-[720px]"
         :journalObject="selectedJournal"
       ></MoleculesBasicArticle>
       <MoleculesJournalSide class="max-w-[240px]"></MoleculesJournalSide>

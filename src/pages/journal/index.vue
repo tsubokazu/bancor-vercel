@@ -45,6 +45,14 @@
     }
   });
 
+  // 表示する記事数
+  const displayJournalNum = ref(6);
+
+  // 記事数分の記事リスト
+  const journalListLatest = computed<Array<JournalObject>>(() => {
+    return displayJournalList.value.slice(0, displayJournalNum.value);
+  });
+
   // ヘッダーのアイキャッチ画像やタイトルを動かすための処理
   const top5JournalList: Array<JournalObject> = journalList.slice(0, 5);
   const sliderIndex = ref(0);
@@ -204,7 +212,7 @@
     </div>
     <!-- 記事選択 -->
     <div
-      class="mb-16 flex h-16 w-full items-center justify-center space-x-40 bg-bancor-gray700"
+      class="mb-16 hidden h-16 w-full items-center justify-center space-x-40 bg-bancor-gray700 pc:flex"
     >
       <!-- 新着記事 -->
       <button class="flex space-x-2" @click="clickCategoryNew">
@@ -227,39 +235,44 @@
       </button>
     </div>
     <!-- ボディ -->
-    <div class="flex space-x-8 pc:max-w-[1200px]">
+    <div class="flex w-[95%] space-x-8 pc:max-w-[1200px]">
       <!-- 記事一覧 -->
-      <div class="spacey-3 flex flex-col pc:max-w-[720px]">
+      <div class="spacey-3 flex w-full flex-col pc:max-w-[720px]">
         <!-- メイン記事 -->
         <div
           v-for="journal in displayJournalList.slice(0, 1)"
           class="relative mb-16 flex w-full flex-col space-y-3"
         >
+          <!-- カテゴリタグ -->
           <div
-            class="absolute top-56 -left-12 font-futuraMediumItalic text-[40px] font-bold"
+            class="absolute font-futuraMediumItalic text-[40px] font-bold tb:top-6 tb:left-4 pc:top-56 pc:-left-12"
           >
             {{ category }}
           </div>
+          <!-- メイン記事 -->
           <NuxtLink :to="`/journal/${journal.topicsId}`">
-            <AtomsBasicEyecatch
-              :imgUrl="journal.eyeCatchUrl"
-              imgHeight="h-[296px]"
-              imgWidth="w-[720px]"
-              radius="rounded-sm"
-            ></AtomsBasicEyecatch>
-            <AtomsBasicTitle
-              :text="journal.subject"
-              size="text-[28px]"
-            ></AtomsBasicTitle>
-            <AtomsBasicOutline
-              :text="trimBodyHTML(journal.bodyHTML, 100)"
-            ></AtomsBasicOutline>
+            <div class="flex w-full flex-col">
+              <AtomsBasicEyecatch
+                :imgUrl="journal.eyeCatchUrl"
+                imgHeight="pc:h-[296px]"
+                imgWidth="w-full pc:w-[720px]"
+                radius="rounded-sm"
+              ></AtomsBasicEyecatch>
+              <AtomsBasicTitle
+                :text="journal.subject"
+                size="text-[20px] tb:text-[28px]"
+              ></AtomsBasicTitle>
+              <AtomsBasicOutline
+                size="text-[14px] tb:text-[16px]"
+                :text="trimBodyHTML(journal.bodyHTML, 100)"
+              ></AtomsBasicOutline>
+            </div>
           </NuxtLink>
         </div>
         <!-- サブ記事（グリッド表示） -->
-        <div class="mb-16 grid grid-cols-3 gap-4">
+        <div class="mb-16 grid grid-cols-2 gap-4 tb:grid-cols-3">
           <AtomsGridCard
-            v-for="journal in displayJournalList.slice(1, 10)"
+            v-for="journal in displayJournalList.slice(1, 7)"
             :eyeCatchUrl="journal.eyeCatchUrl"
             :tags="journal.hashTag"
             :abstract="trimBodyHTML(journal.bodyHTML, 40)"
@@ -270,7 +283,7 @@
         <!-- システム開発に関して -->
         <div class="mb-16 flex flex-col space-y-6">
           <AtomsBasicTitle text="システム開発に関して"></AtomsBasicTitle>
-          <div class="mb-16 grid grid-cols-3 gap-4">
+          <div class="mb-16 grid grid-cols-2 gap-4 tb:grid-cols-3">
             <AtomsGridCard
               v-for="journal in devJournalList.slice(0, 6)"
               :eyeCatchUrl="journal.eyeCatchUrl"
@@ -294,7 +307,7 @@
               size="text-2xl"
             ></AtomsBasicTitle>
           </div>
-          <div class="grid grid-cols-5 gap-3 pl-6">
+          <div class="grid grid-cols-2 gap-3 pl-6 tb:grid-cols-5">
             <button
               v-for="tag in tagList"
               @click="clickTagButton"
@@ -306,7 +319,9 @@
         </div>
       </div>
       <!-- サイド記事 -->
-      <MoleculesJournalSide class="max-w-[240px]"></MoleculesJournalSide>
+      <MoleculesJournalSide
+        class="hidden max-w-[240px] pc:block"
+      ></MoleculesJournalSide>
     </div>
   </div>
 </template>

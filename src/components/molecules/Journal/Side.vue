@@ -17,7 +17,7 @@
 </script>
 
 <template>
-  <div class="flex h-fit space-x-5">
+  <div class="hidden h-fit space-x-5 pc:flex">
     <div class="flex h-full flex-col justify-between space-y-5">
       <div class="flex items-center space-x-3">
         <img src="/book-icon.png" class="h-[16px] w-[16px]" />
