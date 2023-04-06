@@ -87,6 +87,7 @@
             :title="item.subject"
             :categoryName="item.label"
             :linkUrl="categoryObject.linkUrl + '/' + item.topicsId"
+            :date="item.updateDate"
           ></MoleculesNewsListMenu>
         </div>
 

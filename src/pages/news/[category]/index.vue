@@ -105,6 +105,7 @@
             :title="item.subject"
             :linkUrl="`/news/${category}/${item.topicsId}`"
             :categoryName="item.label"
+            :date="item.updateDate"
           ></MoleculesNewsListMenu>
         </div>
 
