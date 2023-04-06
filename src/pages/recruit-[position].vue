@@ -200,7 +200,7 @@
               ></AtomsButtonCircleArrowSmall>
               <AtomsBasicTitle
                 size="text-[22px]"
-                color="text-white"
+                color="text-white group-hover:text-bancor-black100"
                 :text="contents.contents[1].title"
               ></AtomsBasicTitle>
             </div>
