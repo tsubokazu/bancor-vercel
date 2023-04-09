@@ -22,13 +22,13 @@
 
 <template>
   <div class="flex space-x-5">
-    <div class="flex h-full flex-col justify-between">
+    <div class="flex h-full flex-col space-y-4">
       <MoleculesTopJournalListCard
         v-for="journal in journalListLeft"
         :card="journal"
       ></MoleculesTopJournalListCard>
     </div>
-    <div class="invisible flex h-full flex-col justify-between pc:visible">
+    <div class="invisible flex h-full flex-col space-y-4 pc:visible">
       <MoleculesTopJournalListCard
         v-for="journal in journalListRight"
         :card="journal"
