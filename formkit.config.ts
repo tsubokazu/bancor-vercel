@@ -73,9 +73,8 @@ export default {
       },
       file: {
         inner: 'flex space-x-4 items-center',
+        accept: '.pdf,.doc,.docx,.xml,.md,.csv,.ppt,.pptx',
         fileItem: 'flex items-center justify-between space-x-2',
-        input:
-          'w-[174px] h-8 bg-bancor-gray600 border border-bancor-gray500 rounded-lg text-bancor-black100',
         help: 'text-xs text-gray-500',
         messages: 'list-none p-0 mt-1 mb-0',
         message: 'text-red-500 mb-1 text-xs',
