@@ -97,13 +97,13 @@
         jobDetail: formData[`jobDetail${i}`],
       });
     }
-    console.log(
-      `[submitFormAndGoToStep2] file: ${JSON.stringify(formData.file0)}`
-    );
+    // console.log(
+    //   `[submitFormAndGoToStep2] file: ${JSON.stringify(formData.file0)}`
+    // );
 
-    // ファイルURLを取得
-    const file0URL = await getFileURL(formData.file0.file);
-    const file1URL = await getFileURL(formData.file1.file);
+    // // ファイルURLを取得
+    // const file0URL = await getFileURL(formData.file0.file);
+    // const file1URL = await getFileURL(formData.file1.file);
 
     entryStore.setEntryFormObject({
       lastName: formData.lastName,
@@ -126,7 +126,7 @@
         schoolNote: formData.schoolNote,
       },
       careers: careersObjectList,
-      files: [file0URL, file1URL],
+      files: ['', ''],
     });
 
     // recentHistoryCountの数が2以上の場合、2つ目以降の職歴をフォームオブジェクトに追加
