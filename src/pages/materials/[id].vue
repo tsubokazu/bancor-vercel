@@ -150,13 +150,13 @@
     >
       <!-- タイトルとイメージ -->
       <div
-        class="flex h-[264px] w-full items-center justify-between space-x-[100px] pc:max-w-[1100px]"
+        class="flex h-[264px] w-[95%] flex-col items-center justify-between tb:flex-row tb:space-x-[100px] pc:max-w-[1100px]"
       >
         <!-- タイトル -->
-        <div class="flex w-[450px] flex-col space-y-10">
+        <div class="flex w-full flex-col space-y-10 tb:w-[450px]">
           <AtomsBasicTitle
             :text="selectedCategory.list[0].title"
-            size="text-[28px]"
+            size="text-[24px] tb:text-[28px]"
             color="text-bancor-black100"
           ></AtomsBasicTitle>
           <AtomsBasicOutline
@@ -169,7 +169,7 @@
         <AtomsBasicImage
           :imgUrl="selectedCategory.list[0].imgUrl"
           img-height="h-full"
-          img-width="w-[550px]"
+          img-width="w-full tb:w-[550px]"
           radius="rounded-[10px]"
         ></AtomsBasicImage>
       </div>
@@ -434,15 +434,15 @@
     <div class="mb-[152px] flex w-full flex-col items-center justify-center">
       <!-- メニュータイトル -->
       <MoleculesDoubleSquareTagMenu
-        class="mb-14 w-full pc:max-w-[1100px]"
+        class="mb-14 w-[95%] pc:max-w-[1100px]"
         :title="`その他の${otherMaterials.label}`"
         :subTitle="otherMaterials.category"
-        size="text-[32px]"
+        size="text-[26px] tb:text-[32px]"
       ></MoleculesDoubleSquareTagMenu>
 
       <!-- リスト -->
       <div
-        class="grid w-full grid-cols-3 items-center gap-x-10 gap-y-12 overflow-hidden pc:max-w-[1100px]"
+        class="grid w-[95%] grid-cols-1 items-center justify-center gap-y-12 overflow-hidden tb:grid-cols-2 tb:gap-x-10 pc:max-w-[1100px] pc:grid-cols-3"
       >
         <!-- リストカード -->
         <div

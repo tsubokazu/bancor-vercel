@@ -28,14 +28,14 @@
       <!-- メニュータイトル -->
       <AtomsBasicTitle
         :text="bancor.title"
-        size="text-[32px]"
+        size="text-[24px] tb:text-[32px]"
         color="text-white"
         class="mb-8"
       ></AtomsBasicTitle>
       <!-- アウトライン -->
       <AtomsBasicOutline
         :text="bancor.outline"
-        size="text-[18px]"
+        size="text-[16px] tb:text-[18px]"
         color="text-white"
         outlineWidth="w-[246px]"
         outlineHeight="h-[48px]"
@@ -56,7 +56,7 @@
       </AtomsButtonOvalArrow>
     </div>
     <!-- ロボットイラスト -->
-    <div class="relative h-full w-full pc:max-w-[1100px]">
+    <div class="relative hidden h-full w-full pc:block pc:max-w-[1100px]">
       <!-- ロボットイラスト1 -->
       <AtomsBasicImage
         :imgUrl="bancor.img01Url"

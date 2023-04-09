@@ -65,7 +65,7 @@
     <div class="relative flex w-full flex-col items-center space-y-24">
       <!-- ヘッダータイトル -->
       <div
-        class="absolute -top-32 flex w-full flex-col space-y-3 pc:max-w-[1100px]"
+        class="absolute -top-32 flex w-[95%] flex-col space-y-3 pc:max-w-[1100px]"
       >
         <div class="text-base text-white">{{ header.title }}</div>
         <AtomsFuturaItalicText
@@ -82,7 +82,7 @@
       >
         <!-- メニュータイトル -->
         <MoleculesDoubleSquareTagMenu
-          class="mb-14 w-full pc:max-w-[1100px]"
+          class="mb-14 w-[95%] pc:max-w-[1100px]"
           :title="categoryObject.label"
           :subTitle="categoryObject.category"
           size="text-[32px]"
@@ -90,7 +90,7 @@
 
         <!-- リスト -->
         <div
-          class="grid w-full grid-cols-3 items-center gap-x-10 gap-y-12 overflow-hidden pc:max-w-[1100px]"
+          class="grid w-[95%] grid-cols-1 items-center justify-center gap-x-10 gap-y-12 overflow-hidden tb:grid-cols-2 pc:max-w-[1100px] pc:grid-cols-3"
         >
           <!-- リストカード -->
           <div
