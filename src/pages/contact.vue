@@ -73,7 +73,7 @@
     >
       <!-- ヘッダータイトル -->
       <div
-        class="absolute -top-32 flex w-full flex-col space-y-3 pc:max-w-[1100px]"
+        class="absolute -top-32 flex w-[95%] flex-col space-y-3 pc:max-w-[1100px]"
       >
         <div class="text-base text-white">{{ header.title }}</div>
         <AtomsFuturaItalicText
@@ -84,9 +84,11 @@
       </div>
 
       <!-- メニュー -->
-      <div class="mt-[100px] flex w-[95%] justify-between pc:max-w-[1100px]">
+      <div
+        class="mt-[100px] flex w-[95%] flex-col justify-between space-y-4 tb:flex-row tb:space-x-8 tb:space-y-0 pc:max-w-[1100px]"
+      >
         <!-- 左メニュー -->
-        <div class="flex w-[390px] flex-col space-y-8">
+        <div class="flex w-full flex-col space-y-8 tb:w-[390px]">
           <!-- タイトル -->
           <AtomsBasicTitle
             :text="leftMenu.title"
@@ -129,7 +131,7 @@
           class="flex w-[95%] items-center justify-center rounded-[10px] bg-white py-[63px] pc:max-w-[570px]"
         >
           <!-- フォーム -->
-          <div class="flex w-full flex-col items-center justify-center">
+          <div class="flex w-[95%] flex-col items-center justify-center">
             <FormKit
               type="form"
               ref="myForm"
@@ -138,7 +140,7 @@
               @submit="submitHandler"
             >
               <!-- 姓 -->
-              <div class="mb-8 w-[360px] tb:w-[640px] pc:w-[497px]">
+              <div class="mb-8 w-[95%] tb:w-[497px]">
                 <!-- 姓 -->
                 <FormKit
                   type="text"
@@ -165,7 +167,7 @@
               </div>
 
               <!-- 名 -->
-              <div class="mb-8 w-[360px] tb:w-[640px] pc:w-[497px]">
+              <div class="mb-8 w-[95%] tb:w-[497px]">
                 <!-- 名 -->
                 <FormKit
                   type="text"
@@ -192,7 +194,7 @@
               </div>
 
               <!-- 会社名 -->
-              <div class="mb-8 w-[360px] tb:w-[640px] pc:w-[497px]">
+              <div class="mb-8 w-[95%] tb:w-[497px]">
                 <!-- 会社名 -->
                 <FormKit
                   type="text"
@@ -219,7 +221,7 @@
               </div>
 
               <!-- 事業内容 -->
-              <div class="mb-8 w-[360px] tb:w-[640px] pc:w-[497px]">
+              <div class="mb-8 w-[95%] tb:w-[497px]">
                 <!-- セレクト -->
                 <FormKit
                   type="select"
@@ -268,7 +270,7 @@
               </div>
 
               <!-- 役職 -->
-              <div class="mb-8 w-[360px] tb:w-[640px] pc:w-[497px]">
+              <div class="mb-8 w-[95%] tb:w-[497px]">
                 <!-- セレクト -->
                 <FormKit
                   type="select"
@@ -303,7 +305,7 @@
               </div>
 
               <!-- 勤務地 -->
-              <div class="mb-8 w-[360px] tb:w-[640px] pc:w-[497px]">
+              <div class="mb-8 w-[95%] tb:w-[497px]">
                 <!-- セレクト -->
                 <FormKit
                   type="select"
@@ -382,7 +384,7 @@
               </div>
 
               <!-- 会社メールアドレス -->
-              <div class="mb-8 w-[360px] tb:w-[640px] pc:w-[497px]">
+              <div class="mb-8 w-[95%] tb:w-[497px]">
                 <FormKit
                   type="email"
                   name="email"
@@ -409,7 +411,7 @@
               </div>
 
               <!-- ご連絡可能な電話番号 -->
-              <div class="mb-8 w-[360px] tb:w-[640px] pc:w-[497px]">
+              <div class="mb-8 w-[95%] tb:w-[497px]">
                 <FormKit
                   type="tel"
                   name="tel"
@@ -439,7 +441,7 @@
               </div>
 
               <!-- チャットID(Chatwork/LINE/Facebook等) -->
-              <div class="mb-8 w-[360px] tb:w-[640px] pc:w-[497px]">
+              <div class="mb-8 w-[95%] tb:w-[497px]">
                 <FormKit
                   type="text"
                   name="chatId"
@@ -461,7 +463,7 @@
               </div>
 
               <!-- 弊社を知ったきっかけ -->
-              <div class="mb-8 w-[360px] tb:w-[640px] pc:w-[497px]">
+              <div class="mb-8 w-[95%] tb:w-[497px]">
                 <!-- セレクト -->
                 <FormKit
                   type="select"
@@ -495,7 +497,7 @@
               </div>
 
               <!-- お問い合わせ内容 -->
-              <div class="mb-8 w-[360px] tb:w-[640px] pc:w-[497px]">
+              <div class="mb-8 w-[95%] tb:w-[497px]">
                 <!-- セレクト -->
                 <FormKit
                   type="textarea"
@@ -518,7 +520,7 @@
               </div>
 
               <!-- お客様のお悩み（複数回答可） -->
-              <div class="mb-8 w-[360px] tb:w-[640px] pc:w-[497px]">
+              <div class="mb-8 w-[95%] tb:w-[497px]">
                 <!-- ラベル -->
                 <AtomsFormBasicLabel
                   text="お客様のお悩み（複数回答可）"
@@ -538,9 +540,7 @@
               </div>
 
               <!-- 個人情報の取り扱いについての同意 -->
-              <div
-                class="mb-8 flex w-[360px] items-center tb:w-[640px] pc:w-[497px]"
-              >
+              <div class="mb-8 flex w-[95%] items-center tb:w-[497px]">
                 <FormKit
                   type="checkbox"
                   label="個人情報"
@@ -595,7 +595,7 @@
             <!-- 送信完了メッセージ -->
             <div
               v-if="isSubmitted"
-              class="mt-8 w-[360px] text-center tb:w-[640px] pc:w-[497px]"
+              class="mt-8 w-[95%] text-center tb:w-[497px]"
             >
               ご送信ありがとうございます。担当者からの返信をお待ち下さい。
             </div>
