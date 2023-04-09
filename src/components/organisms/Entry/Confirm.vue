@@ -56,8 +56,8 @@
         careersNum >= 3 ? entryStore.entryFormObject.careers[2].department : '',
       ext_23:
         careersNum >= 3 ? entryStore.entryFormObject.careers[2].jobDetail : '',
-      ext_24: entryStore.entryFormObject.files[0],
-      ext_25: entryStore.entryFormObject.files[1],
+      // ext_24: entryStore.entryFormObject.files[0],
+      // ext_25: entryStore.entryFormObject.files[1],
     };
 
     console.log(`[submitEntryForm] postDate: ${JSON.stringify(postDate)}`);
