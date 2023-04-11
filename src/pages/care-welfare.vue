@@ -95,6 +95,7 @@
           :isRight="false"
           :isRotate="true"
           :isOpacity="true"
+          :key="anchor.title"
         ></AtomsLinkMoveArrowTitle>
       </div>
 
@@ -118,6 +119,7 @@
         <div
           v-for="(issue, index) in issues.issues"
           class="relative flex h-[240px] w-[332px] flex-col items-center justify-between rounded-lg border border-bancor-gray600 bg-white py-6"
+          :key="issue.title"
         >
           <!-- Case N -->
           <AtomsFuturaMediumText
@@ -226,6 +228,7 @@
           <div
             v-for="feature in features.features"
             class="flex h-[408px] w-[340px] flex-col items-center justify-center space-y-4 rounded-lg shadow-lg"
+            :key="feature.title"
           >
             <AtomsBasicIcon
               :iconUrl="feature.imgUrl"
@@ -255,6 +258,7 @@
         <div
           v-for="contactMenu in contactMenus.contactMenus"
           class="h-[133px] w-full space-x-4 space-y-5 rounded-lg bg-white shadow-lg hover:translate-y-1 hover:shadow-none hover:transition-all tb:w-[350px] pc:w-[522px]"
+          :key="contactMenu.title"
         >
           <NuxtLink
             :to="contactMenu.linkUrl"
@@ -345,6 +349,7 @@
             <div
               v-for="maintenance in maintenances.maintenances"
               class="flex flex-col justify-center space-y-2 rounded-md border border-bancor-gray600 px-6 py-4 pc:h-[204px] pc:w-[520px] pc:py-0"
+              :key="maintenance.title"
             >
               <AtomsBasicIcon
                 size="h-[35px]"

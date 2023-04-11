@@ -177,6 +177,7 @@
           <div
             v-for="i in 5"
             class="relative h-1 w-[35px] overflow-hidden tb:w-[105px] pc:w-44"
+            :key="i"
           >
             <div
               class="absolute z-10 h-full w-full rounded-sm bg-bancor-blue200"
@@ -242,6 +243,7 @@
         <div
           v-for="journal in displayJournalList.slice(0, 1)"
           class="relative mb-16 flex w-full flex-col space-y-3"
+          :key="journal.topicsId"
         >
           <!-- カテゴリタグ -->
           <div
@@ -278,6 +280,7 @@
             :abstract="trimBodyHTML(journal.bodyHTML, 40)"
             :title="journal.subject"
             :topics-id="journal.topicsId"
+            :key="journal.topicsId"
           ></AtomsGridCard>
         </div>
         <!-- システム開発に関して -->
@@ -291,6 +294,7 @@
               :abstract="trimBodyHTML(journal.bodyHTML, 40)"
               :title="journal.subject"
               :topics-id="journal.topicsId"
+              :key="journal.topicsId"
             ></AtomsGridCard>
           </div>
         </div>
@@ -312,6 +316,7 @@
               v-for="tag in tagList"
               @click="clickTagButton"
               class="flex h-6 w-28 items-center justify-center rounded-xl border border-gray-300 bg-white text-xs font-bold"
+              :key="tag"
             >
               #{{ tag }}
             </button>

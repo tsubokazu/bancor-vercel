@@ -159,6 +159,7 @@
             :link-url="item.linkUrl"
             :menu-index="index"
             :text="item.label"
+            :key="item.category"
           >
           </AtomsNewsCategoryButton>
         </div>

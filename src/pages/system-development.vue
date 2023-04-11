@@ -86,6 +86,7 @@
           :isRight="false"
           :isRotate="true"
           :isOpacity="true"
+          :key="anchor.title"
         ></AtomsLinkMoveArrowTitle>
       </div>
 
@@ -106,6 +107,7 @@
         <div
           v-for="(issue, index) in issues.issues"
           class="relative flex h-[240px] w-[332px] flex-col items-center justify-between rounded-lg border border-bancor-gray600 bg-white py-6"
+          :key="issue.title"
         >
           <!-- Case N -->
           <AtomsFuturaMediumText
@@ -213,6 +215,7 @@
               @click="clickProblemButton"
               :title="problem.title"
               :clickFlag="index ? clickFlag : !clickFlag"
+              :key="problem.title"
             ></AtomsButtonUnderLine>
           </div>
 
@@ -299,6 +302,7 @@
             v-for="(feature, index) in features.features"
             class="flex w-full flex-col items-center justify-between space-y-6 px-20 shadow-lg tb:h-[311px] tb:flex-row pc:space-y-0"
             :class="[{ 'flex-row-reverse': index % 2 == 0 }]"
+            :key="feature.title"
           >
             <MoleculesBasicMenu
               class="w-full tb:w-[511px]"
@@ -352,6 +356,7 @@
             <div
               v-for="maintenance in maintenances.maintenances"
               class="flex flex-col justify-center space-y-2 rounded-md border border-bancor-gray600 px-6 py-4 pc:h-[204px] pc:w-[520px] pc:py-0"
+              :key="maintenance.title"
             >
               <AtomsBasicIcon
                 size="h-[35px]"

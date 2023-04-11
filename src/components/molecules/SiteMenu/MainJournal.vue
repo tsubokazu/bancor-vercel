@@ -46,8 +46,9 @@
       </div>
       <div class="flex items-center space-x-3">
         <div
-          class="text-[12px] font-bold text-bancor-gray400"
           v-for="tag in mainJournal.hashTag"
+          class="text-[12px] font-bold text-bancor-gray400"
+          :key="tag"
         >
           {{ `#${tag}` }}
         </div>

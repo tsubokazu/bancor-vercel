@@ -10,7 +10,11 @@
 
 <template>
   <div class="flex flex-wrap">
-    <div v-for="tag in tags" class="mr-3 text-xs font-bold text-bancor-blue200">
+    <div
+      v-for="tag in tags"
+      class="mr-3 text-xs font-bold text-bancor-blue200"
+      :key="tag"
+    >
       {{ `#${tag}` }}
     </div>
   </div>

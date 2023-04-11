@@ -63,6 +63,7 @@
           :line-color2="
             index == 0 ? 'bg-bancor-blue200' : 'bg-bancor-orange100'
           "
+          :key="content.title"
         ></MoleculesCompanyInfoCard>
       </div>
 

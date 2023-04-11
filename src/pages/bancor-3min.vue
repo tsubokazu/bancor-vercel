@@ -53,6 +53,7 @@
         <div
           v-for="icon in icons.icons"
           class="flex h-[108px] w-[196px] flex-col items-center justify-center space-y-3 rounded-[5px] border border-bancor-gray600"
+          :key="icon.title"
         >
           <AtomsBasicIcon
             :iconUrl="icon.imgUrl"

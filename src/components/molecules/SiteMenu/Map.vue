@@ -120,6 +120,7 @@
         class="mb-8 h-fit pc:w-2/5"
         v-for="pageLinkObject in pageLinkObjects"
         :pageLinkObject="pageLinkObject"
+        :key="pageLinkObject.title"
       ></MoleculesSiteMenuPageLinks>
     </div>
     <!-- サイトマップ下の線 -->

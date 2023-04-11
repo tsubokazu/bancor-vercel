@@ -49,6 +49,7 @@
           :subTitle="sub.subTitle"
           :outline="sub.outline"
           :underLine="index + 1 < purpose.subTitleList.length"
+          :key="sub.subTitle"
         ></MoleculesVisionSubTitleOutline>
       </div>
 
@@ -66,6 +67,7 @@
           :subTitle="sub.subTitle"
           :outline="sub.outline"
           :underLine="index + 1 < mission.subTitleList.length"
+          :key="sub.subTitle"
         ></MoleculesVisionSubTitleOutline>
       </div>
 
@@ -83,6 +85,7 @@
           :subTitle="sub.subTitle"
           :outline="sub.outline"
           :underLine="value.subTitleList.length >= 2"
+          :key="sub.subTitle"
         ></MoleculesVisionSubTitleOutline>
       </div>
     </div>

@@ -14,6 +14,7 @@
         v-for="obj in snsObjects"
         :iconUrl="obj.iconUrl"
         :linkUrl="obj.linkUrl"
+        :key="obj.linkUrl"
       ></AtomsLinkCircleIcon>
     </div>
   </div>

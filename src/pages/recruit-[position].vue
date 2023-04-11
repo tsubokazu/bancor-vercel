@@ -368,8 +368,9 @@
               ></AtomsBasicTitle>
               <!-- 説明 -->
               <div
-                class="flex flex-col tb:flex-row tb:space-x-9"
                 v-for="info in selectedCategoryObject.informations.details"
+                class="flex flex-col tb:flex-row tb:space-x-9"
+                :key="info.subTitle"
               >
                 <!-- 項目タイトル -->
                 <div
@@ -420,6 +421,7 @@
             textColor="text-white"
             buttonHeight="h-[56px]"
             buttonWidth="w-[272px]"
+            :key="entry.title"
           >
             {{ entry.title }}
           </AtomsButtonOvalArrow>

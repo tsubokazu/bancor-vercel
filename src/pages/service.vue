@@ -128,6 +128,7 @@
             :imgUrl="obj.imgUrl"
             :title="obj.title"
             :outline="obj.outline"
+            :key="obj.title"
           ></MoleculesServiceCard>
         </div>
       </div>

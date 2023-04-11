@@ -174,6 +174,7 @@
           <div
             v-for="material in otherMaterials.list"
             class="flex h-[90%] items-center justify-center"
+            :key="material.title"
           >
             <!-- サムネイル -->
             <AtomsBasicImage

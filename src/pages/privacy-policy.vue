@@ -39,8 +39,9 @@
           </MoleculesDoubleSquareTitle>
           <!-- テキスト -->
           <div
-            class="mb-8 flex w-[95%] flex-col space-y-2 pc:w-[872px]"
             v-for="item in privacyPolicy.contents"
+            class="mb-8 flex w-[95%] flex-col space-y-2 pc:w-[872px]"
+            :key="item.item"
           >
             <!-- 項目 -->
             <AtomsBasicTitle :text="item.item" size="text-[18px]" />
@@ -78,8 +79,9 @@
           </MoleculesDoubleSquareTitle>
           <!-- テキスト -->
           <div
-            class="mb-8 flex w-[95%] flex-col space-y-2 pc:w-[872px]"
             v-for="item in privacyPolicyHandling.contents"
+            class="mb-8 flex w-[95%] flex-col space-y-2 pc:w-[872px]"
+            :key="item.item"
           >
             <!-- 項目 -->
             <AtomsBasicTitle :text="item.item" size="text-[18px]" />

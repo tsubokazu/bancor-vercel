@@ -77,8 +77,9 @@
 
       <!-- 各カテゴリごとの記事リスト -->
       <div
-        class="mt-16 mb-14 flex w-full flex-col items-center"
         v-for="categoryObject in categoryList"
+        class="mt-16 mb-14 flex w-full flex-col items-center"
+        :key="categoryObject.category"
       >
         <!-- メニュータイトル -->
         <MoleculesDoubleSquareTagMenu
@@ -94,8 +95,9 @@
         >
           <!-- リストカード -->
           <div
-            class="flex w-[340px] flex-col space-y-6"
             v-for="item in categoryObject.list"
+            class="flex w-[340px] flex-col space-y-6"
+            :key="item.title"
           >
             <!-- イメージ -->
             <AtomsBasicImage

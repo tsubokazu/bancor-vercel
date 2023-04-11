@@ -66,8 +66,9 @@
       <!-- 各カテゴリごとの記事リスト -->
       <div
         id="test"
-        class="mt-16 mb-14 flex w-full flex-col items-center"
         v-for="categoryObject in categoryList"
+        class="mt-16 mb-14 flex w-full flex-col items-center"
+        :key="categoryObject.category"
       >
         <!-- メニュータイトル -->
         <MoleculesDoubleSquareTagMenu
@@ -88,6 +89,7 @@
             :categoryName="item.label"
             :linkUrl="categoryObject.linkUrl + '/' + item.topicsId"
             :date="item.updateDate"
+            :key="item.topicsId"
           ></MoleculesNewsListMenu>
         </div>
 

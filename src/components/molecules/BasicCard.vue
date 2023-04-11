@@ -23,6 +23,7 @@
         <div
           v-for="tag in props.card.hashTag"
           class="text-xs font-bold text-bancor-blue200"
+          :key="tag"
         >
           {{ `#${tag}` }}
         </div>

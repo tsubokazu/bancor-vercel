@@ -1,5 +1,6 @@
 <script setup lang="ts">
   import { ContactObject } from '~/types/pages/contact';
+  import { FormKitMessages } from '@formkit/vue';
 
   // 資料一覧ページのヘッダーとBancor情報をPiniaから取得
   const contactStore = useContactStore();
@@ -121,6 +122,7 @@
               <div
                 v-for="item in leftMenu.list"
                 class="text-[14px] font-bold text-bancor-blue200"
+                :key="item"
               >
                 {{ `・${item}` }}
               </div>

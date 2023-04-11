@@ -107,6 +107,7 @@
           <MoleculesNewsCard
             v-for="news in otherNewsList.slice(0, 3)"
             :card="news"
+            :key="news.topicsId"
           ></MoleculesNewsCard>
         </div>
       </div>

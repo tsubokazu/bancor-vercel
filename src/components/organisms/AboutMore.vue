@@ -37,6 +37,7 @@
           :title="content.title"
           :subTitle="content.subTitle"
           :linkUrl="content.linkUrl"
+          :key="content.title"
         ></MoleculesContentCard>
       </div>
     </div>

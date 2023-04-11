@@ -17,6 +17,7 @@
       class="mr-8 mb-8"
       :text="obj.title"
       :linkUrl="obj.linkUrl"
+      :key="obj.title"
     ></AtomsLinkTitle>
   </div>
 </template>

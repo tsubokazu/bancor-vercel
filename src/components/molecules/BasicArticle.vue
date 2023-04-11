@@ -49,6 +49,7 @@
           <MoleculesBasicCard
             v-for="journal in otherJournalList.slice(0, 3)"
             :card="journal"
+            :key="journal.topicsId"
           ></MoleculesBasicCard>
         </div>
       </div>

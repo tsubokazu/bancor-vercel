@@ -30,6 +30,7 @@
       <MoleculesJournalSideCard
         v-for="journal in journalListOthers"
         :card="journal"
+        :key="journal.topicsId"
       ></MoleculesJournalSideCard>
     </div>
   </div>

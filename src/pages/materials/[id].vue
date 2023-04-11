@@ -446,8 +446,9 @@
       >
         <!-- リストカード -->
         <div
-          class="flex w-[340px] flex-col space-y-6"
           v-for="item in otherMaterials.list"
+          class="flex w-[340px] flex-col space-y-6"
+          :key="item.title"
         >
           <!-- イメージ -->
           <AtomsBasicImage

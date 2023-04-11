@@ -24,6 +24,7 @@
       <MoleculesSiteMenuListCard
         v-for="journal in journalListOthers"
         :card="journal"
+        :key="journal.topicsId"
         class="tb:mb-5 pc:mb-0"
       ></MoleculesSiteMenuListCard>
     </div>

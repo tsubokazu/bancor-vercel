@@ -22,6 +22,7 @@
         :linkUrl="linkObject.linkUrl"
         color="text-white"
         size="text-sm"
+        :key="linkObject.title"
         arrowSize="text-xs"
       ></AtomsLinkUnderlineArrowTitle>
     </div>
