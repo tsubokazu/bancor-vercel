@@ -3,6 +3,28 @@ import { defineNuxtConfig } from 'nuxt/config';
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
   srcDir: 'src',
+  routeRules: {
+    '/': { static: true },
+    '/contact': { static: true },
+    '/download-material/**': { static: true },
+    '/journal/**': { static: true },
+    '/news/**': { static: true },
+    '/care-welfare': { static: true },
+    '/bancor-3min': { static: true },
+    '/company-info': { static: true },
+    '/company-profile': { static: true },
+    '/entry': { static: true },
+    '/message': { static: true },
+    '/press-release': { static: true },
+    '/privacy-policy': { static: true },
+    '/recruit/**': { static: true },
+    '/service-news': { static: true },
+    '/service': { static: true },
+    '/site-usage': { static: true },
+    '/system-development': { static: true },
+    '/trademarks': { static: true },
+    '/vision': { static: true },
+  },
   css: [
     '~/assets/css/main.css',
     '@fortawesome/fontawesome-svg-core/styles.css',
