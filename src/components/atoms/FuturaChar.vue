@@ -7,14 +7,14 @@
   }
   const props = withDefaults(defineProps<Props>(), {
     color: 'text-white',
-    size: 'text-[58px]',
+    size: 'text-[36px] tb:text-[58px]',
     isBold: false,
   });
 </script>
 
 <template>
   <div
-    class="fixed top-[35.5%] -z-20 font-futuraBold"
+    class="absolute font-futuraBold"
     :class="[color, size, { 'font-bold': isBold }]"
   >
     {{ text }}

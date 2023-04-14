@@ -3,7 +3,7 @@
   onMounted(() => {
     setTimeout(() => {
       isLoading.value = false;
-    }, 5000);
+    }, 2500);
   });
 </script>
 
