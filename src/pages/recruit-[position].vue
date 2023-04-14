@@ -39,14 +39,6 @@
 
   // 選択中のポジションカテゴリキー
   const selectedTabMenuKey = ref(position);
-  console.log(`position: ${position}`);
-  console.log(`selectedTabMenuKey: ${selectedTabMenuKey.value}`);
-  console.log(`tabMenuCategories: ${tabMenuCategories.value}`);
-  console.log(
-    `Object.keys(tabMenuCategories.value): ${Object.keys(
-      tabMenuCategories.value
-    )}`
-  );
 
   //const selectedTabMenuKey = ref(Object.keys(tabMenuCategories.value)[0]);
 

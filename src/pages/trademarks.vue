@@ -7,7 +7,6 @@
   const { trademarksObject }: { trademarksObject: TrademarksObject } =
     trademarksStore;
   const { trademarks, copyrights } = trademarksObject;
-  console.log(`TrademarksObject: ${JSON.stringify(trademarksObject)}`);
 </script>
 
 <template>

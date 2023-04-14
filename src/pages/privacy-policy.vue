@@ -7,7 +7,6 @@
   const { privacyPolicyObject }: { privacyPolicyObject: PrivacyPolicyObject } =
     privacyPolicyStore;
   const { privacyPolicy, privacyPolicyHandling } = privacyPolicyObject;
-  console.log(`privacyPolicyObject: ${JSON.stringify(privacyPolicyObject)}`);
 </script>
 
 <template>

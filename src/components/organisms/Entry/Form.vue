@@ -10,7 +10,6 @@
   const myForm: any = ref(null);
   const submitForm = () => {
     const formData = myForm.value.node.submit();
-    console.log(`formData: ${JSON.stringify(formData)}`);
   };
 
   // 直近の職歴の数
@@ -44,35 +43,19 @@
 
   // 郵便番号から住所を検索
   const searchAddressByZipCode = async (zipCode: string): Promise<string> => {
-    console.log(`[searchAddressByZipCode] zipCode: ${zipCode}`);
-
     const { data: addressData, error } = (await useFetch(
       `https://api.zipaddress.net/?zipcode=${removeHyphen(zipCode)}`
     )) as any;
 
     if (!addressData.value || error.value) {
-      console.error(
-        `[searchAddressByZipCode] fetchAddress error: ${error.value}`
-      );
       return '';
     } else {
-      console.log(
-        `[searchAddressByZipCode] fullAddress: ${addressData.value.data.fullAddress}`
-      );
-      console.log(
-        `[searchAddressByZipCode] addressData: ${JSON.stringify(
-          addressData.value
-        )}`
-      );
-
       return addressData.value.data.fullAddress;
     }
   };
 
   // ファイルアップロードでファイルURLを取得
   const getFileURL = async (file: any) => {
-    console.log(`[getFileURL] file: ${JSON.stringify(file)}`);
-
     const config = useRuntimeConfig();
     const baseUrl = config.public.kurocoApiUrl;
     const uploadFileEndpoint = config.public.kurocoUploadFile;
@@ -81,7 +64,6 @@
       method: 'POST',
       body: file,
     })) as any;
-    console.log(`[getFileURL] data: ${JSON.stringify(data)}`);
     return data.value.url;
   };
 
@@ -97,10 +79,6 @@
         jobDetail: formData[`jobDetail${i}`],
       });
     }
-    // console.log(
-    //   `[submitFormAndGoToStep2] file: ${JSON.stringify(formData.file0)}`
-    // );
-
     // // ファイルURLを取得
     // const file0URL = await getFileURL(formData.file0.file);
     // const file1URL = await getFileURL(formData.file1.file);
@@ -141,8 +119,6 @@
         });
       }
     }
-
-    console.log(`entryStore: ${JSON.stringify(entryStore)}`);
 
     // step2へ進む
     entryStore.nextEntryStep();

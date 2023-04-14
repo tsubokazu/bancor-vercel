@@ -13,7 +13,6 @@
   const myForm: any = ref(null);
   const submitForm = () => {
     const formData = myForm.value.node.submit();
-    console.log(`formData: ${JSON.stringify(formData)}`);
   };
 
   // フォーム送信済みフラグ
@@ -21,7 +20,6 @@
 
   // フォーム送信
   const submitHandler = async (formData: any) => {
-    console.log(`formData: ${JSON.stringify(formData)}`);
     isSubmitted.value = true;
     const config = useRuntimeConfig();
     const baseUrl = config.public.kurocoApiUrl;
@@ -40,8 +38,6 @@
       ext_08: formData.problem.join('\r\n'),
     };
 
-    console.log(`formData: ${JSON.stringify(postData)}`);
-
     const { data, error } = (await useFetch(
       `${baseUrl}${submitContactFormEndpoint}`,
       {
@@ -52,7 +48,6 @@
     if (!data.value || error.value) {
       console.error(`[useMaterialsStore] fetchMaterials error: ${error.value}`);
     } else {
-      console.log(`[useMaterialsStore] fetchMaterials data: ${data.value}`);
       // フォーム送信済みフラグを立て、資料ダウンロードページに遷移
       isSubmitted.value = true;
     }

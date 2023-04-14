@@ -39,15 +39,11 @@ export const usePagesEntryStore = defineStore('pagesEntry', () => {
 
   // フォームから取得したデータを格納する
   const setEntryFormObject = (data: EntryFormObject) => {
-    console.log(`setEntryFormObject: ${JSON.stringify(data)}`);
-
     entryFormObject.value = data;
   };
 
   // エントリーステップを進める(全3ステップ)
   const nextEntryStep = () => {
-    console.log(`entryStep(now): ${entryStep.value}`);
-
     if (entryStep.value < 2) {
       entryStep.value++;
     }
@@ -55,7 +51,6 @@ export const usePagesEntryStore = defineStore('pagesEntry', () => {
 
   // エントリーステップを戻す(全3ステップ)
   const prevEntryStep = () => {
-    console.log(`entryStep(now): ${entryStep.value}`);
     if (entryStep.value > 0) {
       entryStep.value--;
     }

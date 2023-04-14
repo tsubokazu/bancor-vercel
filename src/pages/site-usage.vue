@@ -6,7 +6,6 @@
   }
   const { siteUsageObject }: { siteUsageObject: SiteUsageObject } =
     siteUsageStore;
-  console.log(`SiteUsageObject: ${JSON.stringify(siteUsageObject)}`);
 </script>
 
 <template>

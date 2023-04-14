@@ -60,8 +60,6 @@
       // ext_25: entryStore.entryFormObject.files[1],
     };
 
-    console.log(`[submitEntryForm] postDate: ${JSON.stringify(postDate)}`);
-
     const { data, error } = (await useFetch(
       `${baseUrl}${submitEntryFormEndpoint}`,
       {
@@ -70,10 +68,8 @@
       }
     )) as any;
     if (!data.value || error.value) {
-      console.log(`[submitEntryForm] error: ${error.value}`);
       return;
     } else {
-      console.log(`[submitEntryForm] success: ${data.value}`);
       entryStore.nextEntryStep();
     }
   };

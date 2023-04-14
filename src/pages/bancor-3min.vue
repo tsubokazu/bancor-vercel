@@ -20,7 +20,6 @@
     await bancor3min.fetchBancor3min();
   }
   const { title, icons, material }: Bancor3minObject = bancor3min;
-  console.log(`emailValidation: ${emailValidation}`);
 </script>
 
 <template>

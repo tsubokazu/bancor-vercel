@@ -104,11 +104,9 @@
   const myForm: any = ref(null);
   const submitForm = () => {
     const formData = myForm.value.node.submit();
-    console.log(`formData: ${JSON.stringify(formData)}`);
   };
 
   const submitHandler = async (formData: any) => {
-    console.log(`formData: ${JSON.stringify(formData)}`);
     const config = useRuntimeConfig();
     const baseUrl = config.public.kurocoApiUrl;
     const submitDownloadMaterialFormEndpoint =
@@ -122,8 +120,6 @@
       ext_04: formData.tel,
     };
 
-    console.log(`formData: ${JSON.stringify(postData)}`);
-
     const { data, error } = (await useFetch(
       `${baseUrl}${submitDownloadMaterialFormEndpoint}`,
       {
@@ -134,7 +130,6 @@
     if (!data.value || error.value) {
       console.error(`[useMaterialsStore] fetchMaterials error: ${error.value}`);
     } else {
-      console.log(`[useMaterialsStore] fetchMaterials data: ${data.value}`);
       // フォーム送信済みフラグを立て、資料ダウンロードページに遷移
       materialsStore.setFormSentFlag(true);
       navigateTo(`/download-material/${fileId}`);
