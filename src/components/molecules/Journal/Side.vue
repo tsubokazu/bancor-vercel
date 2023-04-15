@@ -5,15 +5,17 @@
   if (journalStore.journalList.length == 0) {
     await journalStore.fetchJournals();
   }
-  const { pickupList } = journalStore;
-  const journalList: Array<JournalObject> = pickupList;
-  const journalNums = journalList.length;
-  const journalListOthers =
-    journalNums < 2
+  const { pickupList }: { pickupList: Array<JournalObject> } = journalStore;
+
+  const journalNums = ref(pickupList.length);
+
+  const journalListOthers = computed(() =>
+    journalNums.value < 2
       ? []
-      : journalNums >= 5
-      ? journalList.slice(1, 5)
-      : journalList.slice(1, journalNums);
+      : journalNums.value >= 5
+      ? pickupList.slice(1, 5)
+      : pickupList.slice(1, journalNums.value)
+  );
 </script>
 
 <template>

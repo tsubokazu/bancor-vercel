@@ -9,14 +9,11 @@
     <div class="flex h-full w-[240px] flex-col items-start space-y-2">
       <!-- サムネイル -->
       <div class="mr-4 h-[128px] w-full">
-        <img
-          class="h-[128px] w-full object-cover"
-          :src="props.card.eyeCatchUrl"
-        />
+        <img class="h-[128px] w-full object-cover" :src="card.eyeCatchUrl" />
       </div>
       <!-- タイトル -->
       <div class="text-base font-bold text-bancor-black100">
-        {{ props.card.subject }}
+        {{ card.subject }}
       </div>
       <!-- ハッシュタグ -->
       <AtomsBasicTags :tags="card.hashTag"></AtomsBasicTags>
