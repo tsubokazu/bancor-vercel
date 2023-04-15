@@ -3,6 +3,10 @@
   import { usePagesSystemDevStore } from '~/stores/pages/system-development';
   import ScrollParallax from 'vue3-parallax/src/components/ScrollParallax.vue';
 
+  definePageMeta({
+    layout: 'default',
+  });
+
   // 事業内容ページ情報をPiniaから取得
   const pagesSystemDevStore = usePagesSystemDevStore();
   if (Object.keys(pagesSystemDevStore.header).length == 0) {
