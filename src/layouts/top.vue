@@ -1,9 +1,20 @@
 <script setup lang="ts">
-  const isLoading = ref(true);
+  import { useTopSplashStore } from '../stores/top-splash';
+  const topSplashStore = useTopSplashStore();
+  const isLoading = ref(false);
+  if (topSplashStore.topSplashFlag) {
+    isLoading.value = true;
+  } else {
+    isLoading.value = false;
+  }
+
   onMounted(() => {
-    setTimeout(() => {
-      isLoading.value = false;
-    }, 2500);
+    if (topSplashStore.topSplashFlag) {
+      setTimeout(() => {
+        isLoading.value = false;
+        topSplashStore.setTopSplashFlag(false);
+      }, 2500);
+    }
   });
 </script>
 
