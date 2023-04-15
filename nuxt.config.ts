@@ -3,6 +3,19 @@ import { defineNuxtConfig } from 'nuxt/config';
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
   srcDir: 'src',
+  app: {
+    head: {
+      title: 'Bancor株式会社',
+      meta: [
+        {
+          name: 'description',
+          content:
+            'Bancor株式会社は、「正しく、育みの場を創造し、日本の継続的な発展に寄与する。」をパーパスに掲げ、福祉関連事業、BtoB向けWebマーケティング事業、およびBtoB向けのDX支援事業を展開しています。革新的なソリューションと最先端技術でお客様のビジネス成長をサポートします。',
+        },
+      ],
+      link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.png' }],
+    },
+  },
   routeRules: {
     '/': { static: true },
     '/contact': { static: true },
