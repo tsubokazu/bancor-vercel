@@ -84,7 +84,7 @@
     },
     {
       title: '採用情報',
-      linkUrl: '/recruit',
+      linkUrl: '/recruit-dx',
       linkObjects: linkObjectsRecruit,
     },
     {
