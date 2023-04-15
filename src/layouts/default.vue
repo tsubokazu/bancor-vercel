@@ -1,4 +1,11 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+  const isLoading = ref(true);
+  onMounted(() => {
+    setTimeout(() => {
+      isLoading.value = false;
+    }, 100);
+  });
+</script>
 
 <template>
   <div class="relative w-full">
@@ -10,6 +17,7 @@
       enter-to-class="opacity-1"
     >
       <OrganismsHeader
+        v-show="!isLoading"
         class="pointer-events-auto absolute top-3 z-50 w-full"
       ></OrganismsHeader>
     </Transition>
@@ -21,7 +29,7 @@
       enter-from-class="opacity-0"
       enter-to-class="opacity-1"
     >
-      <div class="h-full w-full">
+      <div class="h-full w-full" v-show="!isLoading">
         <slot />
       </div>
     </Transition>
@@ -33,7 +41,10 @@
       enter-from-class="opacity-0"
       enter-to-class="opacity-1"
     >
-      <OrganismsFooter class="h-screen max-h-[676px] w-full"></OrganismsFooter>
+      <OrganismsFooter
+        class="h-screen max-h-[676px] w-full"
+        v-show="!isLoading"
+      ></OrganismsFooter>
     </Transition>
   </div>
 </template>
