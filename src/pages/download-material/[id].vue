@@ -21,6 +21,7 @@
   // URLからカテゴリを取得
   const router = useRoute();
   const fileId = router.params.id;
+  console.log('[download-materials] fileId', fileId);
 
   // 資料一覧ページのヘッダーとBancor情報をPiniaから取得
   const materialsStore = useMaterialsStore();
@@ -39,6 +40,14 @@
     await materialsStore.fetchUsefulMaterialList();
   }
   const { usefulMaterialList }: MaterialsUsefulMaterialList = materialsStore;
+
+  // 3分でわかるNUVOを取得
+  const bancorStore = useBancor3minStore();
+  if (Object.keys(bancorStore.bancor3minObject).length == 0) {
+    await bancorStore.fetchBancor3min();
+  }
+  const { bancor3minObject }: { bancor3minObject: MaterialObject } =
+    bancorStore as { bancor3minObject: MaterialObject };
 
   // カテゴリ毎にオブジェクトを作成し、配列に格納
   const categoryList = [
@@ -62,15 +71,28 @@
       return item.list.some((item) => item.fileId == fileId);
     })[0];
   });
+
   const selectedCategory = computed(() => {
-    return {
-      category: selectedCategoryList.value.category,
-      label: selectedCategoryList.value.label,
-      list: selectedCategoryList.value.list.filter((item) => {
-        return item.fileId == fileId;
-      }),
-      linkUrl: selectedCategoryList.value.linkUrl,
-    };
+    console.log(`fileId: ${fileId}`);
+    console.log(`bancor3minObject: ${JSON.stringify(bancor3minObject)}`);
+
+    if (fileId == 'bancor') {
+      return {
+        category: 'NUVO Service',
+        label: '3分でわかるNUVO',
+        list: [bancor3minObject],
+        linkUrl: '/bancor-3min',
+      };
+    } else {
+      return {
+        category: selectedCategoryList.value.category,
+        label: selectedCategoryList.value.label,
+        list: selectedCategoryList.value.list.filter((item) => {
+          return item.fileId == fileId;
+        }),
+        linkUrl: selectedCategoryList.value.linkUrl,
+      };
+    }
   });
 
   // 表示する資料の数
@@ -83,19 +105,23 @@
     list: MaterialObject[];
     linkUrl: string;
   }> = computed(() => {
-    return {
-      category: selectedCategory.value.category,
-      label: selectedCategory.value.label,
-      list: categoryList
-        .filter((item) => {
-          return item.category == selectedCategory.value.category;
-        })[0]
-        .list.filter((item) => {
-          return item.fileId != fileId;
-        })
-        .slice(0, displayCount.value),
-      linkUrl: selectedCategory.value.linkUrl,
-    };
+    if (fileId == 'bancor') {
+      return categoryList[0];
+    } else {
+      return {
+        category: selectedCategory.value.category,
+        label: selectedCategory.value.label,
+        list: categoryList
+          .filter((item) => {
+            return item.category == selectedCategory.value.category;
+          })[0]
+          .list.filter((item) => {
+            return item.fileId != fileId;
+          })
+          .slice(0, displayCount.value),
+        linkUrl: selectedCategory.value.linkUrl,
+      };
+    }
   });
 </script>
 
@@ -168,7 +194,7 @@
           ></div>
         </div>
         <!-- 資料一覧 -->
-        <div class="mb-[80px] flex flex-col justify-center space-y-4">
+        <div class="mb-[80px] flex w-[95%] flex-col justify-center space-y-4">
           <!-- 資料ダウンロードメニュー -->
           <div
             v-for="material in otherMaterials.list"

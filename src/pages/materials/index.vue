@@ -56,7 +56,7 @@
   const goToDownloadPage = (fileId: string) => {
     if (materialsStore.getFormSentFlag()) {
       // フォーム送信済みフラグが立っている場合は、資料ダウンロードページに遷移
-      navigateTo(`/sdownload-material/${fileId}`);
+      navigateTo(`/download-material/${fileId}`);
       return;
     } else {
       // フォーム送信済みフラグが立っていない場合は、フォーム画面に遷移

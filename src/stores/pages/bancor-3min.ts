@@ -1,4 +1,5 @@
 import { Bancor3minMaterial } from '~/types/pages/bancor-3min';
+import { MaterialObject } from '~/types/pages/materials';
 
 export const useBancor3minStore = defineStore('bancor-3min', () => {
   // 資料一覧をKurocoから取得
@@ -6,6 +7,7 @@ export const useBancor3minStore = defineStore('bancor-3min', () => {
   const title = ref({} as any);
   const icons = ref({} as any);
   const material = ref({} as any);
+  const bancor3minObject = ref({} as any);
   const fetchBancor3min = async () => {
     const config = useRuntimeConfig();
     const baseUrl = config.public.kurocoApiUrl;
@@ -39,7 +41,17 @@ export const useBancor3minStore = defineStore('bancor-3min', () => {
 
       // 資料
       material.value = {
-        fileUrl: bancor3minData.ext_6,
+        fileUrl: bancor3minData.ext_6.url,
+      };
+
+      // 全体
+      bancor3minObject.value = {
+        title: icons.value.title,
+        outline: '3分でわかるBancorサービス資料',
+        imgUrl: icons.value.icons[0].imgUrl,
+        fileUrl: material.value.fileUrl,
+        updateAt: bancor3minData.ext_7,
+        fileId: 'bancor',
       };
     }
   };
@@ -49,5 +61,6 @@ export const useBancor3minStore = defineStore('bancor-3min', () => {
     title,
     icons,
     material,
+    bancor3minObject,
   };
 });

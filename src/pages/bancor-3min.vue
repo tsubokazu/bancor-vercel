@@ -6,8 +6,40 @@
   // フォームの設定
   const myForm: any = ref(null);
   const submitForm = () => {
-    const node = myForm.value.node;
-    node.submit();
+    const formData = myForm.value.node.submit();
+  };
+
+  // 資料一覧ページのヘッダーとBancor情報をPiniaから取得
+  const materialsStore = useMaterialsStore();
+
+  const submitHandler = async (formData: any) => {
+    const config = useRuntimeConfig();
+    const baseUrl = config.public.kurocoApiUrl;
+    const submitDownloadMaterialFormEndpoint =
+      config.public.kurocoSubmitDownloadMaterialForm;
+    const postData = {
+      name: `${formData.lastName} ${formData.firstName}`,
+      email: formData.email,
+      ext_01: formData.companyName,
+      ext_02: formData.department,
+      ext_03: formData.position,
+      ext_04: formData.tel,
+    };
+
+    const { data, error } = (await useFetch(
+      `${baseUrl}${submitDownloadMaterialFormEndpoint}`,
+      {
+        method: 'POST',
+        body: postData,
+      }
+    )) as any;
+    if (!data.value || error.value) {
+      console.error(`[useMaterialsStore] fetchMaterials error: ${error.value}`);
+    } else {
+      // フォーム送信済みフラグを立て、資料ダウンロードページに遷移
+      materialsStore.setFormSentFlag(true);
+      navigateTo(`/download-material/bancor`);
+    }
   };
 
   definePageMeta({
@@ -73,13 +105,20 @@
       <div
         class="flex w-[1100px] flex-col items-center justify-center rounded-[10px] bg-white py-16"
       >
-        <FormKit type="form" ref="myForm" :actions="false" locale="ja">
+        <FormKit
+          type="form"
+          ref="myForm"
+          :actions="false"
+          locale="ja"
+          @submit="submitHandler"
+        >
           <!-- 会社名 -->
           <div class="mb-8 w-[360px] tb:w-[640px] pc:w-[860px]">
             <!-- 会社名 -->
             <FormKit
               type="text"
               label="会社名"
+              name="companyName"
               placeholder="XXXX株式会社"
               validation="required"
               :validationMessages="{
@@ -108,7 +147,7 @@
             <div class="flex w-full justify-between">
               <FormKit
                 placeholder="姓"
-                name="last_name"
+                name="lastName"
                 validation="required|length:0,10"
                 outer-class="w-[49%]"
                 :validationMessages="{
@@ -122,7 +161,7 @@
               <!-- テキスト入力(名) -->
               <FormKit
                 placeholder="名"
-                name="first_name"
+                name="firstName"
                 validation="required|length:0,10"
                 outer-class="w-[49%]"
                 :validationMessages="{
@@ -214,6 +253,7 @@
           <div class="mb-8 w-[360px] tb:w-[640px] pc:w-[860px]">
             <FormKit
               type="email"
+              name="email"
               label="会社メールアドレス"
               placeholder="xxxx@bancor.co.jp"
               :validation="[
@@ -245,6 +285,7 @@
           <div class="mb-8 w-[360px] tb:w-[640px] pc:w-[860px]">
             <FormKit
               type="tel"
+              name="tel"
               label="ご連絡可能な電話番号"
               placeholder="00-0000-0000"
               :validation="[
