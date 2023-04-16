@@ -37,7 +37,7 @@
         <AtomsFuturaItalicText
           :text="header.subTitle"
           color="text-white"
-          size="text-[40px]"
+          size="text-[32px] tb-[40px]"
         ></AtomsFuturaItalicText>
       </div>
 
