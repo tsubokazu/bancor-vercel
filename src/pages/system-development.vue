@@ -51,7 +51,7 @@
 </script>
 
 <template>
-  <div class="flex w-full flex-col items-center">
+  <div class="flex w-full flex-col items-center overflow-hidden">
     <!-- ヘッダー -->
     <div class="h-[240px] w-full pc:h-[360px]">
       <AtomsBasicHeader
@@ -228,11 +228,13 @@
             <AtomsBasicImage
               v-show="!clickFlag"
               :imgUrl="problems.problems[0].imgUrl"
-              imgWidth="w-[95%] tb:w-[700px]"
+              img-height="h-auto"
+              imgWidth="w-[95%] tb:w-[700px] "
             ></AtomsBasicImage>
             <AtomsBasicImage
               v-show="clickFlag"
               :imgUrl="problems.problems[1].imgUrl"
+              img-height="h-auto"
               imgWidth="w-[95%] tb:w-[700px]"
             ></AtomsBasicImage>
           </div>
@@ -302,7 +304,7 @@
         <div class="flex w-full flex-col space-y-14">
           <div
             v-for="(feature, index) in features.features"
-            class="flex w-full flex-col items-center justify-between space-y-6 px-20 shadow-lg tb:h-[311px] tb:flex-row pc:space-y-0"
+            class="flex w-full flex-col items-center justify-between space-y-6 shadow-lg tb:h-[311px] tb:flex-row tb:px-20 pc:space-y-0"
             :class="[{ 'flex-row-reverse': index % 2 == 0 }]"
             :key="feature.title"
           >
@@ -319,7 +321,7 @@
               :linkUrl="feature.linkUrl"
             ></MoleculesBasicMenu>
             <AtomsBasicImage
-              img-height="h-[146px] tb:h-[311px]"
+              img-height="h-auto"
               imgWidth="mb-4 pc:mb-0 w-[95%] tb:w-[300px]"
               :imgUrl="feature.imgUrl"
             ></AtomsBasicImage>
@@ -338,6 +340,7 @@
           ></MoleculesDoubleSquareTagMenu>
           <LazyAtomsBasicImage
             :imgUrl="structure.imgUrl"
+            img-height="h-auto"
             imgWidth="w-[95%]"
           ></LazyAtomsBasicImage>
         </div>
@@ -405,8 +408,8 @@
             >
               <AtomsBasicImage
                 :imgUrl="valueUpdate.imgUrls[0].imgUrl"
-                imgHeight="h-[280px]"
-                imgWidth="w-[200px]"
+                imgHeight="h-[200px] tb:h-[280px]"
+                imgWidth="w-[140px] tb:w-[200px]"
               ></AtomsBasicImage>
             </ScrollParallax>
 
@@ -420,8 +423,8 @@
             >
               <AtomsBasicImage
                 :imgUrl="valueUpdate.imgUrls[1].imgUrl"
-                imgHeight="h-[280px]"
-                imgWidth="w-[200px]"
+                imgHeight="h-[200px] tb:h-[280px]"
+                imgWidth="w-[140px] tb:w-[200px]"
               ></AtomsBasicImage>
             </ScrollParallax>
 
@@ -433,8 +436,8 @@
             >
               <AtomsBasicImage
                 :imgUrl="valueUpdate.imgUrls[2].imgUrl"
-                imgHeight="h-[280px]"
-                imgWidth="w-[200px]"
+                imgHeight="h-[200px] tb:h-[280px]"
+                imgWidth="w-[140px] tb:w-[200px]"
               ></AtomsBasicImage>
             </ScrollParallax>
 
@@ -448,8 +451,8 @@
             >
               <AtomsBasicImage
                 :imgUrl="valueUpdate.imgUrls[3].imgUrl"
-                imgHeight="h-[280px]"
-                imgWidth="w-[200px]"
+                imgHeight="h-[200px] tb:h-[280px]"
+                imgWidth="w-[140px] tb:w-[200px]"
               ></AtomsBasicImage>
             </ScrollParallax>
           </div>
