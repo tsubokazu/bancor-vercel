@@ -4,21 +4,10 @@ on:
   workflow_dispatch: # このワークフローは手動でトリガーします
 
 jobs:
-  empty_commit:
+  trigger_deployment:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
-        with:
-          persist-credentials: false # 認証情報を維持しないように設定します
-
-      - name: Set up Git
+      - name: Trigger Vercel Deployment
         run: |
-          git config user.name "GitHub Actions Bot"
-          git config user.email "actions@github.com"
-
-      - name: Create Empty Commit and Push
-        run: |
-          git commit --allow-empty -m "Update Contents"
-          git push origin HEAD:${{ github.ref }}
+          curl -X POST "${{ secrets.VERCEL_DEPLOY_HOOK }}"
