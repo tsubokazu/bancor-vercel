@@ -215,7 +215,7 @@
             <FormKit
               type="email"
               label="会社メールアドレス"
-              placeholder="xxxx@xxxx.co.jp"
+              placeholder="xxxx@bancor.co.jp"
               :validation="[
                 ['required'],
                 ['email'],
