@@ -341,7 +341,7 @@
           <LazyAtomsBasicImage
             :imgUrl="structure.imgUrl"
             img-height="h-auto"
-            imgWidth="w-[95%]"
+            imgWidth="w-[60%]"
           ></LazyAtomsBasicImage>
         </div>
       </div>
@@ -381,7 +381,7 @@
       </div>
 
       <!-- Value Update -->
-      <div class="relative h-[834px] w-[95%] pc:max-w-[1100px]">
+      <div class="relative h-[400px] w-[95%] tb:h-[834px] pc:max-w-[1100px]">
         <!-- Value Updateの大きなタイトル -->
         <AtomsBasicTitle
           class="font-futuraBold"
