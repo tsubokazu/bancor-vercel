@@ -1,9 +1,20 @@
 <script setup lang="ts">
-  const isLoading = ref(true);
+  import { useLoadingStore } from '../stores/loading';
+  const loadingStore = useLoadingStore();
+  const isLoading = ref(false);
+  if (loadingStore.loadingFlag) {
+    isLoading.value = true;
+  } else {
+    isLoading.value = false;
+  }
+
   onMounted(() => {
-    setTimeout(() => {
-      isLoading.value = false;
-    }, 100);
+    if (loadingStore.loadingFlag) {
+      setTimeout(() => {
+        isLoading.value = false;
+        loadingStore.setLoadingFlag(false);
+      }, 1000);
+    }
   });
 </script>
 
