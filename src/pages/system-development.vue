@@ -228,13 +228,11 @@
             <AtomsBasicImage
               v-show="!clickFlag"
               :imgUrl="problems.problems[0].imgUrl"
-              imgHeight="h-fit"
               imgWidth="w-[95%] tb:w-[700px]"
             ></AtomsBasicImage>
             <AtomsBasicImage
               v-show="clickFlag"
               :imgUrl="problems.problems[1].imgUrl"
-              imgHeight="h-fit"
               imgWidth="w-[95%] tb:w-[700px]"
             ></AtomsBasicImage>
           </div>
@@ -321,6 +319,7 @@
               :linkUrl="feature.linkUrl"
             ></MoleculesBasicMenu>
             <AtomsBasicImage
+              img-height="h-[146px] tb:h-[311px]"
               imgWidth="mb-4 pc:mb-0 w-[95%] tb:w-[300px]"
               :imgUrl="feature.imgUrl"
             ></AtomsBasicImage>
