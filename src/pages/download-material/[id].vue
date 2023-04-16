@@ -8,7 +8,6 @@
   } from '~/types/pages/materials';
 
   definePageMeta({
-    middleware: 'check-form-sent',
     layout: 'entry',
   });
 

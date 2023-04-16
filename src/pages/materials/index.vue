@@ -5,6 +5,7 @@
     MaterialsUsefulMaterialList,
     MaterialsBancor,
   } from '~/types/pages/materials';
+
   const isLoading = ref(true);
   onMounted(() => {
     setTimeout(() => {
@@ -50,6 +51,19 @@
 
   // 表示する資料の数
   const displayCount = ref(3);
+
+  // 資料のダウンロードページヘ遷移（フォーム未送信の場合はフォーム画面へ遷移）
+  const goToDownloadPage = (fileId: string) => {
+    if (materialsStore.getFormSentFlag()) {
+      // フォーム送信済みフラグが立っている場合は、資料ダウンロードページに遷移
+      navigateTo(`/sdownload-material/${fileId}`);
+      return;
+    } else {
+      // フォーム送信済みフラグが立っていない場合は、フォーム画面に遷移
+      navigateTo(`/materials/${fileId}`);
+      return;
+    }
+  };
 </script>
 
 <template>
@@ -124,7 +138,7 @@
               ></AtomsBasicOutline>
             </div>
             <!-- ダウンロードボタン -->
-            <div class="flex w-full">
+            <div class="flex w-full" @click="goToDownloadPage(item.fileId)">
               <AtomsButtonOvalArrow
                 bgColor="bg-bancor-black100"
                 textColor="text-white"
@@ -133,7 +147,6 @@
                 buttonWidth="w-[212px]"
                 arrow-color="text-white"
                 arrow-position="right-8"
-                :linkUrl="`${categoryObject.linkUrl}/${item.fileId}`"
               >
                 ダウンロード
               </AtomsButtonOvalArrow>
