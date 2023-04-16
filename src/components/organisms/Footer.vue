@@ -88,7 +88,7 @@
     >
     </MoleculesFooterContactMenus>
     <MoleculesFooterMenu
-      class="h-screen max-h-[520px] w-full tb:max-h-[300px]"
+      class="h-screen max-h-[580px] w-full tb:max-h-[300px]"
     ></MoleculesFooterMenu>
     <AtomsCopyright>Bancor, Inc. </AtomsCopyright>
   </footer>
