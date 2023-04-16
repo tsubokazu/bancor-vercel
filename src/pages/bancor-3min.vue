@@ -293,7 +293,7 @@
                 <div class="flex items-center">
                   <span class="text-bancor-black400">
                     <a
-                      href="http://localhost:3000/privacy"
+                      href="http://localhost:3000/privacy-policy"
                       target="_blank"
                       class="text-bancor-blue200"
                       >個人情報</a
