@@ -229,13 +229,13 @@
               v-show="!clickFlag"
               :imgUrl="problems.problems[0].imgUrl"
               imgHeight="h-fit"
-              imgWidth="tb:w-[700px]"
+              imgWidth="w-[95%] tb:w-[700px]"
             ></AtomsBasicImage>
             <AtomsBasicImage
               v-show="clickFlag"
               :imgUrl="problems.problems[1].imgUrl"
               imgHeight="h-fit"
-              imgWidth="tb:w-[700px]"
+              imgWidth="w-[95%] tb:w-[700px]"
             ></AtomsBasicImage>
           </div>
         </div>
@@ -260,14 +260,14 @@
 
         <!-- イメージ -->
         <AtomsBasicImage
-          imgHeight="w-[380px] h-fit tb:w-[654px]"
+          imgHeight="w-[95%] tb:w-[654px]"
           :imgUrl="team.imgUrl"
         ></AtomsBasicImage>
       </div>
 
       <!-- 3分でわかるBancor -->
       <div
-        class="mb-24 flex h-[500px] w-[95%] flex-col items-center justify-center bg-white shadow-lg tb:h-[245px] tb:w-[800px] tb:flex-row tb:space-x-36"
+        class="mb-24 flex h-[500px] w-[95%] flex-col items-center justify-center space-y-5 bg-white shadow-lg tb:h-[245px] tb:w-[800px] tb:flex-row tb:space-y-0 tb:space-x-36"
       >
         <!-- メニュー -->
         <div class="flex flex-col space-y-2">
@@ -309,7 +309,7 @@
             :key="feature.title"
           >
             <MoleculesBasicMenu
-              class="w-full tb:w-[511px]"
+              class="w-[95%] tb:w-[511px]"
               size="text-[20px] tb:text-[22px] pc:text-[28px]"
               outline-size="text-[14px] pc:text-[16px]"
               spaceY="space-y-5"
@@ -321,8 +321,7 @@
               :linkUrl="feature.linkUrl"
             ></MoleculesBasicMenu>
             <AtomsBasicImage
-              imgHeight="h-fit"
-              imgWidth="mb-4 pc:mb-0 w-[220px] tb:w-[300px]"
+              imgWidth="mb-4 pc:mb-0 w-[95%] tb:w-[300px]"
               :imgUrl="feature.imgUrl"
             ></AtomsBasicImage>
           </div>
@@ -331,7 +330,7 @@
 
       <!-- 開発体制 -->
       <div id="development" class="mb-24 flex w-[95%] pc:max-w-[1100px]">
-        <div class="jus mb-18tify-center flex flex-col space-y-10">
+        <div class="mb-6 flex flex-col justify-center space-y-10">
           <MoleculesDoubleSquareTagMenu
             class="mb-18"
             :title="structure.title"
@@ -340,8 +339,7 @@
           ></MoleculesDoubleSquareTagMenu>
           <LazyAtomsBasicImage
             :imgUrl="structure.imgUrl"
-            imgWidth="w-full"
-            imgHeight="h-fit"
+            imgWidth="w-[95%]"
           ></LazyAtomsBasicImage>
         </div>
       </div>
