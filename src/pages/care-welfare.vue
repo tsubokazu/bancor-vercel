@@ -56,7 +56,7 @@
 </script>
 
 <template>
-  <div class="flex w-full flex-col items-center">
+  <div class="flex w-full flex-col items-center overflow-hidden">
     <!-- ヘッダー -->
     <div class="h-[300px] w-full tb:h-[240px] pc:h-[360px]">
       <AtomsBasicHeader
@@ -314,7 +314,7 @@
 
       <!-- 開発体制 -->
       <div id="development" class="mb-24 flex w-[95%] pc:max-w-[1100px]">
-        <div class="jus mb-18tify-center flex flex-col space-y-10">
+        <div class="mb-6 flex flex-col justify-center space-y-10">
           <MoleculesDoubleSquareTagMenu
             class="mb-18"
             :title="structure.title"
@@ -326,8 +326,8 @@
           ></MoleculesDoubleSquareTagMenu>
           <LazyAtomsBasicImage
             :imgUrl="structure.imgUrl"
-            imgWidth="w-full"
-            imgHeight="h-fit"
+            img-height="h-auto"
+            imgWidth="w-[95%]"
           ></LazyAtomsBasicImage>
         </div>
       </div>
@@ -370,7 +370,7 @@
       </div>
 
       <!-- Value Update -->
-      <div class="relative h-[834px] w-[95%] pc:max-w-[1100px]">
+      <div class="relative h-[400px] w-[95%] tb:h-[834px] pc:max-w-[1100px]">
         <!-- Value Updateの大きなタイトル -->
         <AtomsBasicTitle
           class="font-futuraBold"

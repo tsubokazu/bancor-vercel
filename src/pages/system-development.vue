@@ -322,7 +322,7 @@
             ></MoleculesBasicMenu>
             <AtomsBasicImage
               img-height="h-auto"
-              imgWidth="mb-4 pc:mb-0 w-[95%] tb:w-[300px]"
+              imgWidth="mb-4 pc:mb-0 w-[60%] tb:w-[300px]"
               :imgUrl="feature.imgUrl"
             ></AtomsBasicImage>
           </div>
@@ -341,7 +341,7 @@
           <LazyAtomsBasicImage
             :imgUrl="structure.imgUrl"
             img-height="h-auto"
-            imgWidth="w-[60%]"
+            imgWidth="w-[95%]"
           ></LazyAtomsBasicImage>
         </div>
       </div>
