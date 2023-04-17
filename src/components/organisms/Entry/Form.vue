@@ -459,15 +459,17 @@
           <AtomsFormBasicLabel text="最終学歴" :isRequired="false" class="mb-4">
           </AtomsFormBasicLabel>
           <!-- 在学期間・就学区分 -->
-          <div class="mb-6 flex flex-col items-center pc:flex-row pc:space-x-4">
-            <div class="flex w-full space-x-2 pc:w-[352px]">
+          <div
+            class="mb-6 flex flex-col items-center space-y-6 pc:flex-row pc:space-y-0 pc:space-x-4"
+          >
+            <div class="flex w-full items-center space-x-2 pc:w-[352px]">
               <!-- 入学年月日 -->
               <FormKit
                 type="text"
                 name="entranceDate"
                 placeholder="2020/01"
                 input-class="h-[38px]"
-                inner-class="h-[40px] w-[160px] tb:[300px] pc:w-[272px]"
+                inner-class="h-[40px] w-[160px] tb:[w-300px] pc:w-[272px]"
                 :value="entryStore.entryFormObject.education.entranceDate"
               >
               </FormKit>
@@ -478,7 +480,7 @@
                 name="graduationDate"
                 placeholder="2022/12"
                 input-class="h-[38px]"
-                inner-class="h-[40px] w-[160px] tb:[300px] pc:w-[272px]"
+                inner-class="h-[40px] w-[160px] tb:[w-300px] pc:w-[272px]"
                 :value="entryStore.entryFormObject.education.graduationDate"
               >
               </FormKit>
@@ -571,14 +573,14 @@
             >
             </AtomsFormBasicLabel>
             <!-- 就業期間 -->
-            <div class="mb-6 flex items-center space-x-4">
+            <div class="mb-6 flex items-center space-x-2">
               <!-- 入社年月日 -->
               <FormKit
                 type="text"
                 :name="`employmentDate${recentHistoryNum}`"
                 placeholder="2020/01"
                 input-class="h-[38px]"
-                inner-class="h-[40px] w-[160px] tb:w-[406px]"
+                inner-class="h-[40px] w-[160px] tb:w-[300px] pc:w-[406px]"
                 :value="
                   entryStore.entryFormObject.careers[recentHistoryNum - 1]
                     .employmentDate
@@ -596,7 +598,7 @@
                 :name="`retirementDate${recentHistoryNum}`"
                 placeholder="2022/12"
                 input-class="h-[38px]"
-                inner-class="h-[40px] w-[160px] tb:w-[406px]"
+                inner-class="h-[40px] w-[160px] tb:w-[300px] pc:w-[406px]"
                 :value="
                   entryStore.entryFormObject.careers[recentHistoryNum - 1]
                     .retirementDate
