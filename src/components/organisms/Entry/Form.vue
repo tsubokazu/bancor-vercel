@@ -459,35 +459,37 @@
           <AtomsFormBasicLabel text="最終学歴" :isRequired="false" class="mb-4">
           </AtomsFormBasicLabel>
           <!-- 在学期間・就学区分 -->
-          <div class="mb-6 flex items-center space-x-4">
-            <!-- 入学年月日 -->
-            <FormKit
-              type="text"
-              name="entranceDate"
-              placeholder="2020/01"
-              input-class="h-[38px]"
-              inner-class="h-[40px] w-[160px] tb:w-[272px]"
-              :value="entryStore.entryFormObject.education.entranceDate"
-            >
-            </FormKit>
-            <div>〜</div>
-            <!-- 卒業年月日 -->
-            <FormKit
-              type="text"
-              name="graduationDate"
-              placeholder="2022/12"
-              input-class="h-[38px]"
-              inner-class="h-[40px] w-[160px] tb:w-[272px]"
-              :value="entryStore.entryFormObject.education.graduationDate"
-            >
-            </FormKit>
+          <div class="mb-6 flex flex-col items-center pc:flex-row pc:space-x-4">
+            <div class="flex w-full space-x-2 pc:w-[352px]">
+              <!-- 入学年月日 -->
+              <FormKit
+                type="text"
+                name="entranceDate"
+                placeholder="2020/01"
+                input-class="h-[38px]"
+                inner-class="h-[40px] w-[160px] tb:[300px] pc:w-[272px]"
+                :value="entryStore.entryFormObject.education.entranceDate"
+              >
+              </FormKit>
+              <div>〜</div>
+              <!-- 卒業年月日 -->
+              <FormKit
+                type="text"
+                name="graduationDate"
+                placeholder="2022/12"
+                input-class="h-[38px]"
+                inner-class="h-[40px] w-[160px] tb:[300px] pc:w-[272px]"
+                :value="entryStore.entryFormObject.education.graduationDate"
+              >
+              </FormKit>
+            </div>
             <!-- 就学区分 -->
             <FormKit
               type="select"
               name="educationType"
               placeholder="就学区分"
               input-class="h-[38px]"
-              inner-class="h-[40px] w-[360px] tb:w-[252px]"
+              inner-class="h-[40px] w-[360px] tb:w-[640px] pc:w-[252px]"
               :value="entryStore.entryFormObject.education.educationType"
               :options="[
                 '高校',

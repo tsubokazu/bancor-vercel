@@ -128,7 +128,7 @@
         class="flex w-full flex-col justify-center bg-bancor-light-blue200 tb:h-[256px] tb:flex-row"
       >
         <!-- タイトル -->
-        <div class="flex h-full w-[95%] justify-end tb:w-1/2">
+        <div class="flex h-full w-[95%] justify-end pl-4 tb:w-1/2 pc:pl-0">
           <div class="flex h-full w-full items-center pc:max-w-[550px]">
             <AtomsBasicTitle
               :text="contents.title"
