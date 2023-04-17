@@ -127,7 +127,7 @@
 
 <template>
   <div
-    class="flex w-full flex-col items-center bg-bancor-gray700 pt-[72px] pb-[128px]"
+    class="flex w-full flex-col items-center overflow-hidden bg-bancor-gray700 pt-[72px] pb-[128px]"
   >
     <!-- タイトル -->
     <div class="mb-6 flex w-[95%] items-center space-x-4 pc:max-w-[1100px]">
