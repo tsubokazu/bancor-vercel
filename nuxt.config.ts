@@ -47,7 +47,11 @@ export default defineNuxtConfig({
     ['@pinia/nuxt', { autoImports: ['defineStore', 'acceptHMRUpdate'] }],
     '@formkit/nuxt',
     '@nuxt/image-edge',
+    'nuxt-simple-sitemap',
   ],
+  sitemap: {
+    hostname: 'https://www.bancor.co.jp',
+  },
   build: { transpile: ['@fortawesome/vue-fontawesome'] },
   postcss: {
     plugins: {
