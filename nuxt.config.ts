@@ -50,7 +50,7 @@ export default defineNuxtConfig({
     'nuxt-simple-sitemap',
   ],
   sitemap: {
-    hostname: 'https://www.bancor.co.jp',
+    siteUrl: 'https://www.bancor.co.jp',
   },
   build: { transpile: ['@fortawesome/vue-fontawesome'] },
   postcss: {
