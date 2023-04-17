@@ -14,7 +14,9 @@
   const { header, companyProfile }: CompanyProfileObject =
     pagesCompanyProfileStore;
 
-  const windowWidth = ref(window.innerWidth);
+  const windowWidth = ref(
+    typeof window !== 'undefined' ? window.innerWidth : 0
+  );
   const isSmartPhone = computed(() => windowWidth.value < 768);
 </script>
 
