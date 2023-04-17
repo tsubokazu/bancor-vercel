@@ -53,10 +53,6 @@
       linkUrl: '/privacy-policy',
     },
     {
-      title: '他社商標・著作物',
-      linkUrl: '/trademarks',
-    },
-    {
       title: '本サイトのご利用について',
       linkUrl: '/site-usage',
     },
