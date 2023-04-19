@@ -222,7 +222,7 @@
         ></MoleculesDoubleSquareTagMenu>
         <!-- カード群 -->
         <div
-          class="flex w-full flex-col space-x-0 tb:flex-row tb:space-x-5 pc:space-x-10"
+          class="flex w-full flex-col items-center space-x-0 tb:flex-row tb:space-x-5 pc:space-x-10"
         >
           <!-- カード -->
           <div
