@@ -83,7 +83,7 @@
         class="absolute -top-16 -z-10 hidden h-16 w-full items-center justify-center bg-gray-900 opacity-50 pc:flex"
       ></div>
       <div
-        class="absolute -top-16 z-50 hidden h-16 w-full items-center justify-center space-x-40 pc:flex"
+        class="absolute -top-16 z-40 hidden h-16 w-full items-center justify-center space-x-40 pc:flex"
       >
         <AtomsLinkMoveArrowTitle
           v-for="anchor in header.anchors"

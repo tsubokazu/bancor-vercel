@@ -22,7 +22,6 @@
   <div class="relative w-full">
     <!-- ヘッダー -->
     <Transition
-      class="pointer-events-auto"
       enter-active-class="transition-opacity duration-[2000ms]"
       enter-from-class="opacity-0"
       enter-to-class="opacity-1"
@@ -35,7 +34,6 @@
 
     <!-- ページ -->
     <Transition
-      class="pointer-events-auto"
       enter-active-class="transition-opacity duration-[2000ms]"
       enter-from-class="opacity-0"
       enter-to-class="opacity-1"
@@ -47,7 +45,6 @@
 
     <!-- フッター -->
     <Transition
-      class="pointer-events-auto"
       enter-active-class="transition-opacity duration-[2000ms]"
       enter-from-class="opacity-0"
       enter-to-class="opacity-1"
