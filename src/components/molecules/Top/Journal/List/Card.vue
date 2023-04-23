@@ -14,7 +14,7 @@
 <template>
   <NuxtLink :to="journalLinkUrl">
     <div
-      class="flex h-[73px] w-full items-start"
+      class="flex h-[73px] w-full items-start overflow-hidden"
       @mouseover="mouseOverAction()"
       @mouseleave="mouseLeaveAction()"
     >
