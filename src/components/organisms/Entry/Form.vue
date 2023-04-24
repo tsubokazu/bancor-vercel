@@ -412,7 +412,7 @@
             :value="entryStore.entryFormObject.tel"
             :validation="[
               ['required'],
-              ['matches', /^\d{2,4}-\d{1,4}-\d{1,4}$/],
+              ['matches', /^0\d{1,4}-?\d{1,4}-?\d{3,4}$/],
             ]"
             :validationMessages="{
               required: '電話番号を入力してください',
