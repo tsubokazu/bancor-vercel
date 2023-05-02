@@ -6,7 +6,7 @@
 </script>
 
 <template>
-  <div class="flex w-[388px] justify-between">
+  <div class="flex w-11/12 justify-between tb:w-[388px]">
     <AtomsTopWelfareImage
       class="mr-4 translate-y-3"
       :imgUrl="topWelfareObject.image01Url"

@@ -5,7 +5,7 @@
 </script>
 
 <template>
-  <div class="h-[234px] w-[152px] rounded-sm tb:h-[292px] tb:w-[190px]">
+  <div class="w-[48%] rounded-sm tb:h-[292px] tb:w-[190px]">
     <img class="object-cover" :src="Props.imgUrl" />
   </div>
 </template>
