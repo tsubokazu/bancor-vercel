@@ -24,7 +24,7 @@
 </script>
 
 <template>
-  <div class="flex space-x-5">
+  <div class="flex overflow-hidden pc:space-x-5">
     <div class="flex h-full flex-col space-y-4">
       <MoleculesTopJournalListCard
         v-for="journal in journalListLeft"

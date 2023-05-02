@@ -19,7 +19,7 @@
 </script>
 
 <template>
-  <div class="relative w-full overflow-hidden">
+  <div class="relative w-full">
     <!-- スプラッシュ画面（ローディング画面） -->
     <Transition
       leave-active-class="transition-opacity duration-[2000ms]"
