@@ -19,7 +19,7 @@
 </script>
 
 <template>
-  <div class="relative w-full">
+  <div class="relative w-full overflow-hidden">
     <!-- スプラッシュ画面（ローディング画面） -->
     <Transition
       leave-active-class="transition-opacity duration-[2000ms]"
@@ -33,7 +33,6 @@
 
     <!-- ヘッダー -->
     <Transition
-      class="pointer-events-auto"
       enter-active-class="transition-opacity duration-[2000ms]"
       enter-from-class="opacity-0"
       enter-to-class="opacity-1"
@@ -46,7 +45,6 @@
 
     <!-- ページ -->
     <Transition
-      class="pointer-events-auto"
       enter-active-class="transition-opacity duration-[2000ms]"
       enter-from-class="opacity-0"
       enter-to-class="opacity-1"
@@ -58,7 +56,6 @@
 
     <!-- フッター -->
     <Transition
-      class="pointer-events-auto"
       enter-active-class="transition-opacity duration-[2000ms]"
       enter-from-class="opacity-0"
       enter-to-class="opacity-1"
