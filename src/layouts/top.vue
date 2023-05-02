@@ -19,7 +19,7 @@
 </script>
 
 <template>
-  <div class="relative w-full overflow-hidden">
+  <div class="relative w-full">
     <!-- スプラッシュ画面（ローディング画面） -->
     <Transition
       leave-active-class="transition-opacity duration-[2000ms]"
@@ -60,10 +60,7 @@
       enter-from-class="opacity-0"
       enter-to-class="opacity-1"
     >
-      <OrganismsFooter
-        v-show="!isLoading"
-        class="h-screen max-h-[676px] w-full"
-      ></OrganismsFooter>
+      <OrganismsFooter v-show="!isLoading" class="w-full"></OrganismsFooter>
     </Transition>
   </div>
 </template>

@@ -49,10 +49,7 @@
       enter-from-class="opacity-0"
       enter-to-class="opacity-1"
     >
-      <OrganismsFooter
-        class="h-screen max-h-[676px] w-full"
-        v-show="!isLoading"
-      ></OrganismsFooter>
+      <OrganismsFooter class="w-full" v-show="!isLoading"></OrganismsFooter>
     </Transition>
   </div>
 </template>

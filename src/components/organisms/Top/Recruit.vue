@@ -17,7 +17,7 @@
 
 <template>
   <div
-    class="relative flex h-screen max-h-[340px] items-center justify-center pt-24 pc:max-h-[472px]"
+    class="relative flex h-screen max-h-[340px] w-full items-center justify-center pt-24 pc:max-h-[472px]"
   >
     <div class="flex h-full w-11/12 space-x-10 pc:max-w-[1200px]">
       <MoleculesTopRecruitMenu class="w-[420px]"></MoleculesTopRecruitMenu>
