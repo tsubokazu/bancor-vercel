@@ -4,7 +4,7 @@
 
 <template>
   <div
-    class="flex h-full w-full justify-center overflow-hidden pc:max-h-[642px]"
+    class="flex h-full w-full justify-center tb:overflow-hidden pc:max-h-[642px]"
   >
     <div
       class="relative flex h-full w-11/12 flex-col tb:flex-row tb:space-x-10 pc:max-w-[1200px]"
