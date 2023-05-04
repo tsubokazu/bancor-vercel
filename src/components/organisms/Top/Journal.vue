@@ -7,7 +7,7 @@
           class="mr-0 mb-6 w-full tb:mr-3 tb:mb-0 pc:h-[385px] pc:w-[486px]"
         ></MoleculesTopJournalMain>
         <MoleculesTopJournalList
-          class="h-[385px] w-full tb:w-[280px] pc:w-[486px]"
+          class="h-[385px] w-full tb:w-[280px] pc:w-fit"
         ></MoleculesTopJournalList>
       </div>
     </div>

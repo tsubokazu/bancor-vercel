@@ -108,7 +108,9 @@
 </script>
 
 <template>
-  <div class="flex h-full w-full flex-col items-center justify-center">
+  <div
+    class="flex h-full w-full flex-col items-center justify-center overflow-hidden"
+  >
     <!-- ヘッダーアニメーション -->
     <div class="relative h-[280px] w-full tb:h-[360px]">
       <!-- ヘッダー画像 -->
