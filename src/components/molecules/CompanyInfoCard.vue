@@ -25,7 +25,7 @@
 <template>
   <NuxtLink :to="linkUrl" class="w-full">
     <div
-      class="group relative h-[200px] w-full overflow-hidden rounded-lg tb:w-[360px] pc:h-[264px] pc:w-[520px]"
+      class="group relative h-[200px] w-full overflow-hidden rounded-lg tb:w-[98%] pc:h-[264px] pc:w-[520px]"
       @mouseover="mouseOverAction()"
       @mouseleave="mouseLeaveAction()"
     >
