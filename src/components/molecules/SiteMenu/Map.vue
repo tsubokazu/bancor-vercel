@@ -4,7 +4,7 @@
   const linkObjectsCompanyProfile: Array<LinkObject> = [
     {
       title: '会社概要',
-      linkUrl: '/company-info',
+      linkUrl: '/company-profile',
     },
     {
       title: '代表メッセージ',
@@ -60,7 +60,7 @@
   const pageLinkObjects: Array<PageLinkObject> = [
     {
       title: '会社案内',
-      linkUrl: '/company-profile',
+      linkUrl: '/company-info',
       linkObjects: linkObjectsCompanyProfile,
     },
     {
