@@ -17,9 +17,9 @@
 </script>
 
 <template>
-  <NuxtLink :to="linkUrl">
+  <NuxtLink :to="linkUrl" class="w-full">
     <div
-      class="relative h-[216px] w-[340px] overflow-hidden rounded-lg tb:w-[240px] pc:w-[340px]"
+      class="w-max-[340px] relative h-[216px] w-full overflow-hidden rounded-lg tb:w-[98%] pc:w-[340px]"
       @mouseover="mouseOverAction()"
       @mouseleave="mouseLeaveAction()"
     >
