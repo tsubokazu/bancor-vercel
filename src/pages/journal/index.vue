@@ -285,12 +285,12 @@
             :key="journal.topicsId"
           ></AtomsGridCard>
         </div>
-        <!-- システム開発に関して -->
+        <!-- オススメ記事 -->
         <div class="mb-16 flex flex-col space-y-6">
-          <AtomsBasicTitle text="システム開発に関して"></AtomsBasicTitle>
+          <AtomsBasicTitle text="オススメ記事"></AtomsBasicTitle>
           <div class="mb-16 grid grid-cols-2 gap-4 tb:grid-cols-3">
             <AtomsGridCard
-              v-for="journal in devJournalList.slice(0, 6)"
+              v-for="journal in pickupList.slice(0, 6)"
               :eyeCatchUrl="journal.eyeCatchUrl"
               :tags="journal.hashTag"
               :abstract="trimBodyHTML(journal.bodyHTML, 40)"

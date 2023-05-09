@@ -9,8 +9,13 @@
   if (journalStore.journalList.length == 0) {
     await journalStore.fetchJournals();
   }
-  const { devJournalList }: { devJournalList: Array<JournalObject> } =
-    journalStore;
+  const {
+    devJournalList,
+    pickupList,
+  }: {
+    devJournalList: Array<JournalObject>;
+    pickupList: Array<JournalObject>;
+  } = journalStore;
   // 現在表示している記事以外の開発関連記事のみを抽出
   const otherJournalList: Array<JournalObject> = devJournalList.filter(
     (journal) => journal.topicsId != props.journalObject.topicsId
@@ -44,10 +49,10 @@
       </div>
       <!-- 関連記事 -->
       <div class="flex flex-col space-y-10">
-        <div class="text-[40px] font-bold">システム開発に関して</div>
+        <div class="text-[40px] font-bold">オススメ記事</div>
         <div class="flex space-x-3 overflow-x-scroll pc:overflow-x-hidden">
           <MoleculesBasicCard
-            v-for="journal in otherJournalList.slice(0, 3)"
+            v-for="journal in pickupList.slice(0, 3)"
             :card="journal"
             :key="journal.topicsId"
           ></MoleculesBasicCard>
