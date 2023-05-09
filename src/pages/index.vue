@@ -68,11 +68,13 @@
 </script>
 
 <template>
-  <OrganismsTopFirstview class="mb-[120px]"></OrganismsTopFirstview>
-  <OrganismsTopNews class="mb-[120px]"></OrganismsTopNews>
-  <OrganismsTopWelfare class="mb-[200px] tb:mb-[120px]"></OrganismsTopWelfare>
-  <OrganismsTopService class="mb-[120px]"></OrganismsTopService>
-  <OrganismsTopJournal class="mb-[120px]"></OrganismsTopJournal>
-  <OrganismsTopVision class="mb-[120px]"></OrganismsTopVision>
-  <OrganismsTopRecruit class="mb-[48px]"></OrganismsTopRecruit>
+  <div class="w-full overflow-hidden">
+    <OrganismsTopFirstview class="mb-[120px]"></OrganismsTopFirstview>
+    <OrganismsTopNews class="mb-[120px]"></OrganismsTopNews>
+    <OrganismsTopWelfare class="mb-[200px] tb:mb-[120px]"></OrganismsTopWelfare>
+    <OrganismsTopService class="mb-[120px]"></OrganismsTopService>
+    <OrganismsTopJournal class="mb-[120px]"></OrganismsTopJournal>
+    <OrganismsTopVision class="mb-[120px]"></OrganismsTopVision>
+    <OrganismsTopRecruit class="mb-[48px]"></OrganismsTopRecruit>
+  </div>
 </template>
