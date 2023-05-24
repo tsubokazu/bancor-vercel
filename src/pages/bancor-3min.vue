@@ -72,7 +72,7 @@
 
     <!-- この資料でわかること -->
     <div
-      class="mb-[64px] flex w-[860px] flex-col items-center justify-center space-y-4 rounded-[10px] bg-white pt-6 pb-8"
+      class="mb-[64px] flex w-full flex-col items-center justify-center space-y-4 rounded-[10px] bg-white pt-6 pb-8 pc:w-[860px]"
     >
       <!-- タイトル -->
       <AtomsBasicTitle :text="icons.title" size="text-[20px]"></AtomsBasicTitle>
