@@ -30,7 +30,7 @@ npm run dev
 Build the application for production:
 
 ```bash
-npm run build
+npm run generate
 ```
 
 Locally preview production build:
@@ -38,5 +38,10 @@ Locally preview production build:
 ```bash
 npm run preview
 ```
+
+# Deployment
+
+Committing to this GitHub repository will automatically deploy to Vercel.
+
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
