@@ -17,12 +17,15 @@
     posts.value.details.ext_10,
     posts.value.details.ext_13,
     posts.value.details.ext_16,
+    posts.value.details.ext_19,
   ];
+
   const contentLinksArray: Array<Array<string>> = [
     posts.value.details.ext_8,
     posts.value.details.ext_11,
     posts.value.details.ext_14,
     posts.value.details.ext_17,
+    posts.value.details.ext_20,
   ];
   const getUrlArray = (urlObj: KurocoUrlObject): string => {
     if (Object.keys(urlObj).length <= 0) return '';
@@ -41,7 +44,12 @@
     posts.value.details.ext_18.map((urlObj: KurocoUrlObject) =>
       getUrlArray(urlObj)
     ),
+    posts.value.details.ext_21.map((urlObj: KurocoUrlObject) =>
+      getUrlArray(urlObj)
+    ),
   ];
+  console.log(JSON.stringify(contentImagesArray));
+
   interface MegamenuContent {
     title: string;
     linkUrl: string;

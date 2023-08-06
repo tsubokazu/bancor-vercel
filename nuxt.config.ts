@@ -37,6 +37,7 @@ export default defineNuxtConfig({
     '/system-development': { static: true },
     '/trademarks': { static: true },
     '/vision': { static: true },
+    '/daycare/**': { static: true },
   },
   css: [
     '~/assets/css/main.css',

@@ -32,6 +32,10 @@
       title: 'DX支援事業',
       linkUrl: 'https://d-nuvo.com/service/dx/',
     },
+    {
+      title: '福祉事業',
+      linkUrl: '/daycare',
+    },
   ];
   const linkObjectsRecruit: Array<LinkObject> = [
     {
