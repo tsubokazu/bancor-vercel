@@ -567,15 +567,15 @@ export const usePagesDaycareStore = defineStore('pagesDaycare', () => {
       items: [
         {
           title: 'お問い合わせ',
-          linkUrl: '/daycare-contact',
+          linkUrl: '/daycare/contact',
         },
         {
           title: '保護者様向け\r\nアンケート',
-          linkUrl: '/daycare-questionnaire',
+          linkUrl: '/daycare/questionnaire',
         },
         {
           title: '施設一覧',
-          linkUrl: '/daycare-facility',
+          linkUrl: '/daycare/facility',
         },
       ],
     };

@@ -132,7 +132,7 @@
 <template>
   <div class="flex w-full flex-col items-center overflow-hidden">
     <!-- ヘッダー -->
-    <div class="h-[240px] w-full pc:h-[360px]">
+    <div class="h-[300px] w-full tb:h-[240px] pc:h-[360px]">
       <AtomsBasicHeader
         :imgUrl="header.imgUrl"
         class="h-full w-full"
@@ -143,32 +143,40 @@
     <div class="relative flex w-full flex-col items-center">
       <!-- ヘッダータイトル -->
       <div
-        class="absolute -top-32 flex w-[95%] flex-col space-y-3 pc:-top-48 pc:max-w-[1100px]"
+        class="absolute -top-48 flex w-[95%] flex-col space-y-3 tb:-top-36 pc:-top-48 pc:max-w-[1100px]"
       >
         <div class="text-base text-white">{{ header.title }}</div>
         <AtomsFuturaItalicText
           :text="header.subTitle"
           color="text-white"
-          size="text-[40px]"
+          size="text-[24px] tb:text-[32px] pc:text-[40px]"
         ></AtomsFuturaItalicText>
       </div>
 
       <!-- Topics -->
-      <div class="mb-8 w-[1200px] flex-col justify-center space-y-4">
+      <div
+        class="mb-8 flex w-full flex-col items-center justify-center space-y-4 pc:max-w-[1200px]"
+      >
         <!-- メインTopic -->
         <div
-          class="relative flex w-[95%] items-center rounded-lg px-7 py-[22px] shadow-md pc:max-w-[1200px]"
+          class="relative flex w-[95%] items-center rounded-lg px-3 py-[22px] shadow-md tb:px-7 pc:max-w-[1200px]"
         >
           <!-- アイコンTopics -->
-          <div class="text-[20px] text-bancor-green100">
+          <div
+            class="text-[16px] text-bancor-green100 tb:text-[18px] pc:text-[20px]"
+          >
             <font-awesome-icon :icon="['fas', 'tag']" />
           </div>
           <!-- テキストTopics -->
-          <div class="ml-2 text-[20px] font-bold text-bancor-green100">
+          <div
+            class="ml-2 text-[16px] font-bold text-bancor-green100 tb:text-[18px] pc:text-[20px]"
+          >
             {{ topics.title }}
           </div>
           <!-- 最新のTopic -->
-          <div class="ml-4 text-[20px] font-bold">
+          <div
+            class="ml-4 w-[60%] text-[16px] font-bold tb:w-[90%] tb:text-[18px] pc:text-[20px]"
+          >
             {{ topics.topics[0].title }}
           </div>
           <!-- リンク「>」ボタン -->
@@ -187,15 +195,21 @@
             class="flex w-full items-center space-x-8 border-b-2 border-bancor-gray1400 py-[16px]"
           >
             <!-- タグ -->
-            <div class="text-[16px] font-bold text-bancor-gray1300">
+            <div
+              class="text-[14px] font-bold text-bancor-gray1300 pc:text-[16px]"
+            >
               {{ topic.tag }}
             </div>
             <!-- 日付 -->
-            <div class="text-[16px] font-bold text-bancor-gray1300">
+            <div
+              class="text-[14px] font-bold text-bancor-gray1300 pc:text-[16px]"
+            >
               {{ topic.date }}
             </div>
             <!-- タイトル -->
-            <div class="text-[16px] font-bold text-bancor-gray1300">
+            <div
+              class="text-[14px] font-bold text-bancor-gray1300 pc:text-[16px]"
+            >
               {{ topic.title }}
             </div>
             <!-- リンク「>」ボタン -->
@@ -218,7 +232,7 @@
 
       <!-- お子様だけでなく・・・ -->
       <div
-        class="mb-8 w-[1200px] flex-col items-center justify-center space-y-4"
+        class="mb-8 w-full flex-col items-center justify-center space-y-4 pc:max-w-[1200px]"
       >
         <!-- タイトル -->
         <div class="mb-8 flex w-full flex-col items-center space-y-12 tb:mb-16">
@@ -236,12 +250,12 @@
           >
             <div
               v-for="(feature, index) in features.features"
-              class="relative flex h-[420px] w-[272px] flex-col items-center justify-between bg-white py-6"
+              class="relative flex flex-col items-center justify-between bg-white py-6 pc:max-h-[420px]"
               :key="feature.title"
             >
               <!-- カード内イメージとタイトル -->
               <AtomsBasicIcon
-                size="h-[272px]"
+                size="pc:max-h-[272px]"
                 :iconUrl="feature.imgUrl"
               ></AtomsBasicIcon>
               <AtomsBasicTitle
@@ -1717,6 +1731,59 @@
         </div>
       </div>
 
+      <!-- 利用者向けメニュー -->
+      <div
+        class="mb-20 flex h-[238px] w-[95%] items-center justify-between rounded-lg bg-bancor-green100 py-[24px] pl-[48px] pr-[24px] pc:max-w-[1200px]"
+      >
+        <!-- 左ブロック -->
+        <div class="flex flex-col space-y-6">
+          <!-- タイトル -->
+          <AtomsBasicTitle
+            class="font-futuraBold"
+            size="text-[22px] tb:text-[24px] pc:text-[26px]"
+            :text="menu.title"
+            color="text-bancor-white100"
+            spaceY="space-y-0"
+          ></AtomsBasicTitle>
+          <!-- 説明 -->
+          <AtomsBasicOutline
+            class="pc:max-w-[650px]"
+            size="text-[12px] tb:text-[14px] pc:text-[16px]"
+            :text="menu.outline"
+            color="text-bancor-white100"
+          >
+          </AtomsBasicOutline>
+        </div>
+        <!-- 右ブロック -->
+        <NuxtLink
+          :to="menuItem.linkUrl"
+          v-for="menuItem in menu.items"
+          class="flex h-[206px] items-center justify-center space-x-6 rounded-lg bg-bancor-green200"
+        >
+          <!-- ボタン -->
+          <button class="flex h-full w-[232px] flex-col items-center">
+            <div
+              class="flex h-1/2 items-center justify-center text-[22px] font-bold text-bancor-white100"
+            >
+              <AtomsBasicTitle
+                :text="menuItem.title"
+                color="text-bancor-white100"
+                size="text-[22px]"
+                space-y="space-y-0"
+              ></AtomsBasicTitle>
+            </div>
+            <!-- 矢印丸アイコン -->
+            <div class="flex h-1/2 items-center justify-center">
+              <div
+                class="flex h-[60px] w-[60px] items-center justify-center rounded-full bg-bancor-white100 text-[30px] text-bancor-green100"
+              >
+                <font-awesome-icon :icon="['fas', 'arrow-right']" />
+              </div>
+            </div>
+          </button>
+        </NuxtLink>
+      </div>
+
       <!-- Value Update -->
       <div class="relative h-[400px] w-[95%] tb:h-[834px] pc:max-w-[1100px]">
         <!-- Value Updateの大きなタイトル -->
@@ -1739,7 +1806,7 @@
           <div class="relative flex h-full w-full justify-between px-10">
             <!-- 1枚目 -->
             <ScrollParallax
-              class="absolute left-0 -top-[50%] z-50"
+              class="absolute left-0 -top-[150%] z-50"
               :speed="0.15"
               direction="y"
             >
@@ -1752,7 +1819,7 @@
 
             <!-- 2枚目 -->
             <ScrollParallax
-              class="absolute left-1/4 top-[160%] z-50"
+              class="absolute left-1/4 top-[260%] z-50"
               :speed="0.13"
               :up="false"
               :down="true"
@@ -1767,7 +1834,7 @@
 
             <!-- 3枚目 -->
             <ScrollParallax
-              class="absolute left-2/4 -top-[40%] z-50"
+              class="absolute left-2/4 -top-[140%] z-50"
               :speed="0.12"
               direction="y"
             >
@@ -1780,7 +1847,7 @@
 
             <!-- 4枚目 -->
             <ScrollParallax
-              class="absolute left-3/4 top-[140%] z-50"
+              class="absolute left-3/4 top-[240%] z-50"
               :speed="0.14"
               :up="false"
               :down="true"
