@@ -14,7 +14,7 @@ export interface LeftMenu {
 
 // お問い合わせ内容の項目
 export interface InquiryItemsList {
-  inquiryItemsList: Array<string>;
+  inquiryItems: Array<string>;
 }
 
 export interface EnqueteObject {

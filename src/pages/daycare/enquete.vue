@@ -34,6 +34,13 @@
       ext_02: formData.inquiry.join('\r\n'),
     };
 
+    console.log(
+      `[useMaterialsStore] fetchMaterials: ${baseUrl}${submitEnqueteFormEndpoint}`
+    );
+    console.log(
+      `[useMaterialsStore] fetchMaterials: ${JSON.stringify(postData)}`
+    );
+
     const { data, error } = (await useFetch(
       `${baseUrl}${submitEnqueteFormEndpoint}`,
       {
@@ -246,7 +253,7 @@
                   option-class="font-bold"
                   options-class="space-y-3"
                   name="inquiry"
-                  :options="inquiryItems"
+                  :options="inquiryItems.inquiryItems"
                 >
                 </FormKit>
               </div>

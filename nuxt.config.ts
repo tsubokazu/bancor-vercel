@@ -107,7 +107,7 @@ export default defineNuxtConfig({
       kurocoSubmitEntryForm: '/rcms-api/11/form?id=3', // 採用エントリー
       kurocoSubmitDownloadMaterialForm: '/rcms-api/11/form?id=4', // 資料ダウンロード
       kurocoSubmitContactForm: '/rcms-api/11/form?id=5', // お問い合わせ
-      kurocoSubmitDaycareContactForm: '/rcms-api/11/form?id=6', // 福祉お問い合わせ
+      kurocoSubmitDaycareEnqueteForm: '/rcms-api/11/form?id=6', // 福祉お問い合わせ
       kurocoUploadFile: '/rcms-api/11/file', // ファイルアップロード
       googleMapApiKey: 'AIzaSyAkiUf_mc0OqCF_xaln1IAAxNCEu96__8Q', // GoogleMapのAPIキー
     },
