@@ -90,21 +90,21 @@ export const usePagesDaycareStore = defineStore('pagesDaycare', () => {
           outline:
             '障がいのある就学児童向けの支援サービスの一つです。支援を必要とする障害のあるお子さまに対して、学校や家庭とは異なる時間、空間、人、体験等を通じて、個々のお子さまの状況に応じた発達支援を行います。様々な視点からの支援を行い、お子さまの最善の利益の保証と健全を育みます。',
           imgUrl: '/images/daycare/strength/01.png',
-          linkUrl: '/daycare-contact',
+          linkUrl: '/daycare/contact',
         },
         {
           title: '集団の中での生活を保証する「後方支援」としての役割も担う',
           outline:
             '放課後デイサービスの目的は、特性を持ったお子さまが、一人ひとりの支援計画に基づき、それぞれの発達に応じた支援を受けていただくことです。支援を行う対象はお子さまだけではなく、保護者様に対する支援も含まれており、お子さまの背景にある家庭環境や生育歴にも目を向け、保護者様とのコミュニケーションを取りながら、療育を進めていくことも目的のひとつです。',
           imgUrl: '/images/daycare/strength/02.png',
-          linkUrl: '/daycare-contact',
+          linkUrl: '/daycare/contact',
         },
         {
           title: 'お子さまが将来のための「できる！」をたくさん作ること',
           outline:
             'お子さま一人ひとりのお悩みに合わせた発達支援のサポートを行っています。発達支援サポートの一部として「宿題サポートの課題支援」「遊びを通した療育支援」「様々な発達促進のための支援」等があり、お子さまの未来や社会への不安を、全力でサポート致します。',
           imgUrl: '/images/daycare/strength/03.png',
-          linkUrl: '/daycare-contact',
+          linkUrl: '/daycare/contact',
         },
       ],
     };

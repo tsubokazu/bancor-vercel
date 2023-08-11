@@ -113,6 +113,10 @@
     typeof window !== 'undefined' ? window.innerWidth : 0
   );
   const isSmartPhone = computed(() => windowWidth.value < 768);
+  const isTablet = computed(
+    () => windowWidth.value >= 768 && windowWidth.value < 1280
+  );
+  const isPC = computed(() => windowWidth.value >= 1280);
 
   const updateWidth = () => {
     if (typeof window !== 'undefined') {
@@ -155,7 +159,7 @@
 
       <!-- Topics -->
       <div
-        class="mb-8 flex w-full flex-col items-center justify-center space-y-4 pc:max-w-[1200px]"
+        class="mb-16 flex w-full flex-col items-center justify-center space-y-4 pc:max-w-[1200px]"
       >
         <!-- メインTopic -->
         <div
@@ -192,23 +196,28 @@
           class="relative w-[95%] flex-col items-center pc:max-w-[1200px]"
         >
           <div
-            class="flex w-full items-center space-x-8 border-b-2 border-bancor-gray1400 py-[16px]"
+            class="flex w-full items-center space-x-2 border-b-2 border-bancor-gray1400 py-[16px] tb:space-x-8"
           >
-            <!-- タグ -->
+            <!-- タグ＆日付 -->
             <div
-              class="text-[14px] font-bold text-bancor-gray1300 pc:text-[16px]"
+              class="flex w-[30%] flex-col items-center justify-center pc:flex-row pc:space-x-4"
             >
-              {{ topic.tag }}
-            </div>
-            <!-- 日付 -->
-            <div
-              class="text-[14px] font-bold text-bancor-gray1300 pc:text-[16px]"
-            >
-              {{ topic.date }}
+              <!-- タグ -->
+              <div
+                class="text-[10px] font-bold text-bancor-gray1300 tb:text-[14px] pc:text-[16px]"
+              >
+                {{ topic.tag }}
+              </div>
+              <!-- 日付 -->
+              <div
+                class="text-[14px] font-bold text-bancor-gray1300 tb:text-[14px] pc:text-[16px]"
+              >
+                {{ topic.date }}
+              </div>
             </div>
             <!-- タイトル -->
             <div
-              class="text-[14px] font-bold text-bancor-gray1300 pc:text-[16px]"
+              class="w-[65%] text-[14px] font-bold text-bancor-gray1300 tb:text-[14px] pc:text-[16px]"
             >
               {{ topic.title }}
             </div>
@@ -232,14 +241,14 @@
 
       <!-- お子様だけでなく・・・ -->
       <div
-        class="mb-8 w-full flex-col items-center justify-center space-y-4 pc:max-w-[1200px]"
+        class="mb-16 w-[95%] flex-col items-center justify-center tb:space-y-4 pc:max-w-[1200px]"
       >
         <!-- タイトル -->
         <div class="mb-8 flex w-full flex-col items-center space-y-12 tb:mb-16">
           <AtomsPointColorText
             class="items-center"
             :text="features.title"
-            size="text-[22px] tb:text-[28px] pc:text-[32px]"
+            size="text-[18px] tb:text-[28px] pc:text-[32px]"
             spaceY="space-y-2"
             pointText="温かい未来"
           ></AtomsPointColorText>
@@ -250,12 +259,12 @@
           >
             <div
               v-for="(feature, index) in features.features"
-              class="relative flex flex-col items-center justify-between bg-white py-6 pc:max-h-[420px]"
+              class="relative flex flex-col items-center justify-between bg-white py-2 tb:py-6 pc:max-h-[420px]"
               :key="feature.title"
             >
               <!-- カード内イメージとタイトル -->
               <AtomsBasicIcon
-                size="pc:max-h-[272px]"
+                size="h-[200px] pc:max-h-[272px]"
                 :iconUrl="feature.imgUrl"
               ></AtomsBasicIcon>
               <AtomsBasicTitle
@@ -270,7 +279,9 @@
       </div>
 
       <!-- 施設のスゴイところ -->
-      <div class="mb-8 w-[1200px] flex-col justify-center space-y-4">
+      <div
+        class="mb-16 flex h-[770px] w-[95%] flex-col space-y-4 pc:max-w-[1200px]"
+      >
         <!-- タイトル -->
         <div class="mb-8 flex w-full flex-col items-center space-y-5 tb:mb-16">
           <AtomsPointColorText
@@ -288,15 +299,16 @@
 
           <!-- 強み -->
           <div
-            class="relative mb-12 flex h-[600px] w-[95%] flex-col items-center justify-between space-y-4 tb:flex-row tb:space-x-10 tb:space-y-0 pc:max-w-[1200px]"
+            class=":space-x-10 relative mb-12 flex w-[95%] flex-col items-center justify-between space-y-4 tb:flex-row tb:space-y-0 pc:max-w-[1200px]"
           >
             <!-- スゴイところ3点を切り替える -->
-            <div class="flex w-full items-center space-x-8">
+            <div
+              class="flex w-full flex-col items-center space-x-8 pc:flex-row pc:space-x-0"
+            >
               <!-- イラスト -->
               <AtomsBasicIcon
-                size="h-[550px]"
+                size="h-[330px] pc:h-[550px]"
                 :iconUrl="strength.strengths[strengthFlag].imgUrl"
-                class=""
               ></AtomsBasicIcon>
               <!-- 内容 -->
               <div class="flex-col pc:max-w-[450px]">
@@ -313,19 +325,19 @@
                   size="text-[14px] tb:text-[16px] pc:text-[18px]"
                   color="text-bancor-gray1300"
                   :isBold="false"
+                  class="mb-8"
                 ></AtomsBasicOutline>
                 <!-- お問い合わせボタン -->
-                <NuxtLink :to="strength.strengths[strengthFlag].linkUrl">
-                  <button
-                    class="mt-8 flex items-center justify-center rounded-full py-4 px-11 text-[18px] font-bold text-bancor-green100 shadow-md"
-                  >
-                    お問い合わせ
-                  </button>
+                <NuxtLink
+                  :to="strength.strengths[strengthFlag].linkUrl"
+                  class="mx-0 flex w-[200px] items-center justify-center rounded-full py-4 px-11 text-[18px] font-bold text-bancor-green100 shadow-md"
+                >
+                  お問い合わせ
                 </NuxtLink>
               </div>
               <!-- ボタン3つの◯のボタンでindexの番号で色付けを変える -->
               <button
-                class="absolute bottom-[100px] right-[100px] flex w-[66px] items-center justify-between"
+                class="absolute bottom-[20px] right-0 flex w-[66px] items-center justify-between tb:bottom-[30px] tb:right-[50px] pc:right-[100px]"
                 @click="changeStrengthFlag"
               >
                 <div
@@ -360,7 +372,7 @@
 
       <!-- 教育方針 -->
       <div
-        class="relative mb-12 flex w-[95%] flex-col justify-between space-y-4 tb:space-x-10 tb:space-y-0 pc:max-w-[1200px]"
+        class="relative mb-20 flex w-[95%] flex-col justify-between space-y-4 tb:space-x-10 tb:space-y-0 pc:max-w-[1200px]"
       >
         <!-- タイトル -->
         <div class="mb-8 flex w-full flex-col items-center space-y-5 tb:mb-16">
@@ -378,20 +390,20 @@
           ></AtomsBasicOutline>
         </div>
         <!-- 教育方針とスタッフ一覧をボタンで切り替える -->
-        <div>
+        <div class="flex h-[1000px] justify-center">
           <!-- 教育方針カード -->
           <div
             v-if="!clickPolicyFlag"
-            class="mb-28 flex h-[484px] w-[95%] flex-col items-center justify-between space-y-4 tb:flex-row tb:space-x-10 tb:space-y-0 pc:max-w-[1200px]"
+            class="mb-28 flex w-[95%] flex-col items-center justify-between space-y-4 pc:h-[484px] pc:max-w-[1200px] pc:flex-row pc:space-x-10 pc:space-y-0"
           >
             <div
               v-for="(policyItem, index) in policy.policies"
-              class="relative flex h-[484px] w-[384px] flex-col items-center justify-center space-y-6 rounded-2xl bg-white py-6 px-6 shadow-lg"
+              class="relative flex w-full max-w-[350px] flex-col items-center justify-center space-y-2 rounded-2xl bg-white py-6 px-6 shadow-lg tb:h-[484px] tb:w-[384px] tb:max-w-[400px] tb:space-y-6"
               :key="policyItem.title"
             >
               <!-- カード内イメージとタイトル -->
               <AtomsBasicIcon
-                size="h-[px]"
+                size="h-[100px] pc:h-[157px]"
                 :iconUrl="policyItem.imgUrl"
               ></AtomsBasicIcon>
               <AtomsBasicTitle
@@ -405,12 +417,12 @@
                 "
                 spaceY="space-y-1"
                 :text="policyItem.title"
-                size="text-[24px] tb:text-[28px] pc:text-[32px]"
+                size="text-[24px] tb:text-[24px] pc:text-[32px]"
               ></AtomsBasicTitle>
               <AtomsBasicOutline
                 class="text-center"
                 :text="policyItem.outline"
-                size="text-[12px] tb:text-[14px] pc:text-[16px]"
+                size="text-[14px] tb:text-[14px] pc:text-[16px]"
                 color="text-bancor-gray1300"
                 :isBold="false"
               ></AtomsBasicOutline>
@@ -419,11 +431,12 @@
           <!-- スタッフ一覧 -->
           <div
             v-if="clickPolicyFlag"
-            class="mb-28 flex h-[484px] w-[95%] flex-col items-center space-y-4 rounded-2xl shadow-lg tb:flex-row tb:space-x-10 tb:space-y-0 pc:max-w-[1200px]"
+            class="mb-28 flex h-[800px] w-[95%] flex-col items-center space-y-8 rounded-2xl shadow-lg pc:h-[484px] pc:max-w-[1200px] pc:flex-row pc:space-x-10 pc:space-y-0"
           >
             <!-- タイトル -->
             <div
-              class="flex h-[80%] items-start border-r-2 border-bancor-gray1400 px-10 pt-4"
+              class="flex items-start px-10 pt-4 pc:h-[80%]"
+              :class="[isPC ? 'border-r-2 border-bancor-gray1400' : '']"
             >
               <div class="flex items-center justify-center space-x-2">
                 <!-- 緑丸 -->
@@ -431,12 +444,14 @@
                   class="h-[10px] w-[10px] rounded-full bg-bancor-green100"
                 ></div>
                 <!-- タイトル -->
-                <div class="text-[32px] font-bold">スタッフ一覧</div>
+                <div class="text-[26px] font-bold pc:text-[32px]">
+                  スタッフ一覧
+                </div>
               </div>
             </div>
             <!-- スタッフ一覧 -->
             <div
-              class="flex h-[80%] flex-col items-start justify-center space-y-4"
+              class="flex flex-col items-start justify-center space-y-4 pc:h-[80%]"
             >
               <div v-for="staffItem in policy.staffs" class="">
                 <div class="flex items-center justify-center space-x-4">
@@ -449,14 +464,14 @@
                   <AtomsBasicTitle
                     class="text-center"
                     :text="`${staffItem.name} : ${staffItem.number}`"
-                    size="text-[18px] tb:text-[20px] pc:text-[22px]"
+                    size="text-[18px] tb:text-[18px] pc:text-[22px]"
                   ></AtomsBasicTitle>
                 </div>
               </div>
             </div>
             <!-- イラスト -->
             <AtomsBasicIcon
-              class="absolute bottom-[200px] right-[150px]"
+              class="absolute bottom-[200px] right-[100px] tb:bottom-[200px] tb:right-[150px]"
               size="h-[80%]"
               :iconUrl="policy.imgUrl"
             ></AtomsBasicIcon>
@@ -493,7 +508,7 @@
 
       <!-- 園内環境を知る -->
       <div
-        class="relative mb-12 flex h-[650px] w-[95%] flex-col space-y-4 tb:space-x-10 tb:space-y-0 pc:max-w-[1200px]"
+        class="relative mb-20 flex h-[700px] w-[95%] flex-col space-y-4 tb:h-[650px] tb:space-x-10 tb:space-y-0 pc:max-w-[1200px]"
       >
         <!-- タイトル -->
         <div class="mb-8 flex w-full flex-col items-center space-y-5 tb:mb-16">
@@ -530,18 +545,18 @@
         </div>
         <!-- 写真を切り替える左右ボタン -->
         <div
-          class="absolute right-7 top-5 flex items-center justify-center space-x-4"
+          class="absolute top-48 right-2 flex items-center justify-center space-x-4 tb:top-32 tb:right-4 pc:right-7 pc:top-5"
         >
           <!-- 左ボタン -->
           <button
-            class="flex h-[80px] w-[80px] items-center justify-center rounded-full text-[36px] text-bancor-green100 shadow-md"
+            class="flex h-[32px] w-[32px] items-center justify-center rounded-full text-[24px] text-bancor-green100 shadow-md tb:h-[64px] tb:w-[64px] tb:text-[36px] pc:h-[80px] pc:w-[80px]"
             @click="clickEnvironmentLeftButton"
           >
             <font-awesome-icon :icon="['fas', 'chevron-left']" />
           </button>
           <!-- 右ボタン -->
           <button
-            class="flex h-[80px] w-[80px] items-center justify-center rounded-full text-[36px] text-bancor-green100 shadow-md"
+            class="flex h-[32px] w-[32px] items-center justify-center rounded-full text-[24px] text-bancor-green100 shadow-md tb:h-[64px] tb:w-[64px] tb:text-[36px] pc:h-[80px] pc:w-[80px]"
             @click="clickEnvironmentRightButton"
           >
             <font-awesome-icon :icon="['fas', 'chevron-right']" />
@@ -549,7 +564,7 @@
         </div>
         <!-- 環境写真 -->
         <div
-          class="absolute top-[200px] flex w-[6600px] transition-transform duration-500 ease-out"
+          class="absolute top-[240px] -left-[300px] flex w-[6600px] transition-transform duration-500 ease-out tb:-left-[240px] tb:top-[200px] pc:left-0"
           :style="{
             transform: `translateX(-${(environmentIndex * 100) / 6}%)`,
           }"
@@ -665,10 +680,10 @@
           class="relative flex w-full flex-col space-y-20 rounded-2xl px-[50px] py-[60px]"
         >
           <!-- STEP1 ご見学・ご面談 -->
-          <div class="relative flex space-x-12">
+          <div class="relative flex flex-col pc:flex-row pc:space-x-12">
             <!-- 数字 -->
             <div
-              class="absolute top-0 left-0 translate-x-[50%] -translate-y-[50%]"
+              class="absolute top-0 -left-[25%] translate-x-[50%] -translate-y-[50%] tb:top-0 tb:-left-[15%] pc:top-0 pc:left-0"
             >
               <AtomsBasicIcon
                 size="h-[80px]"
@@ -710,10 +725,10 @@
             </div>
           </div>
           <!-- STEP2 受給者証の申請 -->
-          <div class="relative flex space-x-12">
+          <div class="relative flex flex-col pc:flex-row pc:space-x-12">
             <!-- 数字 -->
             <div
-              class="absolute top-0 left-0 translate-x-[50%] -translate-y-[50%]"
+              class="absolute top-0 -left-[25%] translate-x-[50%] -translate-y-[50%] tb:top-0 tb:-left-[15%] pc:top-0 pc:left-0"
             >
               <AtomsBasicIcon
                 size="h-[80px]"
@@ -750,10 +765,10 @@
             </div>
           </div>
           <!-- STEP3 個別支援計画の作成 -->
-          <div class="relative flex space-x-12">
+          <div class="relative flex flex-col pc:flex-row pc:space-x-12">
             <!-- 数字 -->
             <div
-              class="absolute top-0 left-0 translate-x-[50%] -translate-y-[50%]"
+              class="absolute top-0 -left-[25%] translate-x-[50%] -translate-y-[50%] tb:top-0 tb:-left-[15%] pc:top-0 pc:left-0"
             >
               <AtomsBasicIcon
                 size="h-[80px]"
@@ -802,10 +817,10 @@
             </div>
           </div>
           <!-- STEP4 ご契約 -->
-          <div class="relative flex space-x-12">
+          <div class="relative flex flex-col pc:flex-row pc:space-x-12">
             <!-- 数字 -->
             <div
-              class="absolute top-0 left-0 translate-x-[50%] -translate-y-[50%]"
+              class="absolute top-0 -left-[25%] translate-x-[50%] -translate-y-[50%] tb:top-0 tb:-left-[15%] pc:top-0 pc:left-0"
             >
               <AtomsBasicIcon
                 size="h-[80px]"
@@ -836,10 +851,10 @@
             </div>
           </div>
           <!-- STEP5 サービスの開始 -->
-          <div class="relative flex space-x-12">
+          <div class="relative flex flex-col pc:flex-row pc:space-x-12">
             <!-- 数字 -->
             <div
-              class="absolute top-0 left-0 translate-x-[50%] -translate-y-[50%]"
+              class="absolute top-0 -left-[25%] translate-x-[50%] -translate-y-[50%] tb:top-0 tb:-left-[15%] pc:top-0 pc:left-0"
             >
               <AtomsBasicIcon
                 size="h-[80px]"
@@ -905,6 +920,7 @@
           </div>
           <!-- ステップをつなぐ破線 -->
           <div
+            v-if="isPC"
             class="absolute top-[100px] left-[252px] -z-10 h-[1200px] w-[2px] border-r-2 border-dashed border-bancor-green100"
           ></div>
         </div>
@@ -925,10 +941,12 @@
         <!-- お子さまの1日の過ごし方 -->
         <div
           v-if="guidelineIndex === 1"
-          class="relative flex w-full justify-between rounded-2xl px-[50px] py-[60px]"
+          class="relative flex w-full flex-col space-y-20 rounded-2xl py-[60px] pc:flex-row pc:justify-between pc:space-y-0 pc:px-[50px]"
         >
           <!-- PCでは左ブロック -->
-          <div class="flex w-[50%] flex-col space-y-20">
+          <div
+            class="ml-4 flex flex-col space-y-20 tb:ml-[20%] pc:ml-0 pc:w-[50%]"
+          >
             <!-- 児童発達支援 -->
             <div
               v-for="timeSchedule in guideline.timeSchedules.slice(0, 1)"
@@ -954,7 +972,7 @@
                 ></AtomsBasicIcon>
                 <!-- 時間 -->
                 <div
-                  class="mr-6 w-[50px] text-[16px] font-bold text-bancor-green100 tb:text-[18px] pc:text-[20px]"
+                  class="mr-4 w-[50px] text-[16px] font-bold text-bancor-green100 tb:mr-6 tb:text-[18px] pc:text-[20px]"
                 >
                   {{ event.time }}
                 </div>
@@ -963,7 +981,7 @@
                   class="mr-4 h-[40px] w-[2px] border-b-2 bg-bancor-gray1500"
                 ></div>
                 <!-- 内容 -->
-                <div class="flex items-center">
+                <div class="flex flex-col">
                   <!-- タイトル -->
                   <AtomsBasicTitle
                     class="font-futuraBold"
@@ -982,7 +1000,9 @@
             </div>
           </div>
           <!-- PCでは右ブロック -->
-          <div class="flex w-[50%] flex-col space-y-20">
+          <div
+            class="ml-4 flex flex-col space-y-20 tb:ml-[20%] pc:ml-0 pc:w-[50%]"
+          >
             <!-- 放課後等デイサービス・土曜休み長期休暇 -->
             <div
               v-for="timeSchedule in guideline.timeSchedules.slice(1, 3)"
@@ -1008,7 +1028,7 @@
                 ></AtomsBasicIcon>
                 <!-- 時間 -->
                 <div
-                  class="mr-6 w-[50px] text-[16px] font-bold text-bancor-green100 tb:text-[18px] pc:text-[20px]"
+                  class="mr-4 w-[50px] text-[16px] font-bold text-bancor-green100 tb:mr-6 tb:text-[18px] pc:text-[20px]"
                 >
                   {{ event.time }}
                 </div>
@@ -1017,7 +1037,7 @@
                   class="mr-4 h-[40px] w-[2px] border-b-2 bg-bancor-gray1500"
                 ></div>
                 <!-- 内容 -->
-                <div class="flex items-center">
+                <div class="flex w-[60%] flex-col">
                   <!-- タイトル -->
                   <AtomsBasicTitle
                     class="font-futuraBold"
@@ -1040,7 +1060,7 @@
 
       <!-- お問い合わせ -->
       <div
-        class="mb-20 flex w-[95%] items-center justify-between rounded-lg bg-bancor-green100 py-[24px] pl-[48px] pr-[24px] pc:max-w-[1100px]"
+        class="mb-20 flex w-[95%] flex-col items-center justify-between space-y-6 rounded-lg bg-bancor-green100 py-[24px] pl-[48px] pr-[24px] tb:flex-row tb:space-y-0 pc:max-w-[1100px]"
       >
         <!-- 左ブロック -->
         <div class="flex flex-col space-y-6">
@@ -1053,7 +1073,7 @@
           <!-- タイトル -->
           <AtomsBasicTitle
             class="font-futuraBold"
-            size="text-[24px] tb:text-[28px] pc:text-[32px]"
+            size="text-[24px] tb:text-[24px] pc:text-[32px]"
             :text="contact.title"
             color="text-bancor-white100"
             spaceY="space-y-0"
@@ -1061,7 +1081,7 @@
         </div>
         <!-- 右ブロック -->
         <div
-          class="flex h-[274px] w-[608px] flex-col items-center justify-center space-y-6 rounded-lg bg-bancor-green200"
+          class="flex h-[274px] flex-col items-center justify-center space-y-6 rounded-lg bg-bancor-green200 px-6 pc:w-[608px] pc:px-0"
         >
           <!-- 説明 -->
           <AtomsBasicOutline
@@ -1091,7 +1111,9 @@
       </div>
 
       <!-- 施設情報 -->
-      <div class="relative mb-12 flex w-[95%] flex-col pc:max-w-[1200px]">
+      <div
+        class="relative mb-20 flex w-[95%] flex-col justify-center pc:max-w-[1200px]"
+      >
         <!-- タイトル -->
         <div
           class="mb-4 flex w-full flex-col items-center justify-center space-y-5 tb:mb-16"
@@ -1109,26 +1131,22 @@
             color="text-bancor-gray1300"
           ></AtomsBasicOutline>
         </div>
-        <!-- 会社概要 -->
-        <div class="flex w-[95%] justify-between">
+        <!-- 施設情報 -->
+        <div class="flex w-[95%] pc:justify-between">
           <!-- 情報 -->
-          <div class="flex w-full flex-col pc:max-w-[600px]">
+          <div class="flex w-full flex-col items-center pc:max-w-[600px]">
             <!-- 施設名 -->
-            <div class="flex w-full items-center">
-              <div
-                class="w-[158px] border-b-2 border-bancor-green100 py-[18px] font-bold"
-              >
-                施設名
-              </div>
-              <div
-                class="w-[442px] border-b-2 border-bancor-gray600 py-[18px] pl-4 font-bold"
-              >
+            <div
+              class="relative flex w-full items-center before:absolute before:bottom-0 before:z-10 before:h-[2px] before:w-[100px] before:bg-bancor-green100 after:absolute after:bottom-0 after:right-0 after:h-[2px] after:w-full after:bg-bancor-gray600 pc:before:w-[158px] pc:after:w-[442px]"
+            >
+              <div class="w-[158px] py-[18px] font-bold">施設名</div>
+              <div class="flex w-[442px] flex-col py-[18px] pl-4 font-bold">
                 {{ information.name }}
               </div>
             </div>
             <!-- 所在地 -->
             <div
-              class="relative flex w-full items-center before:absolute before:bottom-0 before:h-[2px] before:w-[158px] before:bg-bancor-green100 after:absolute after:bottom-0 after:right-0 after:h-[2px] after:w-[442px] after:bg-bancor-gray600"
+              class="relative flex w-full items-center before:absolute before:bottom-0 before:z-10 before:h-[2px] before:w-[100px] before:bg-bancor-green100 after:absolute after:bottom-0 after:right-0 after:h-[2px] after:w-full after:bg-bancor-gray600 pc:before:w-[158px] pc:after:w-[442px]"
             >
               <div class="w-[158px] py-[18px] font-bold">所在地</div>
               <div class="flex w-[442px] flex-col py-[18px] pl-4 font-bold">
@@ -1154,7 +1172,7 @@
             </div>
             <!-- 電話 -->
             <div
-              class="relative flex w-full items-center before:absolute before:bottom-0 before:h-[2px] before:w-[158px] before:bg-bancor-green100 after:absolute after:bottom-0 after:right-0 after:h-[2px] after:w-[442px] after:bg-bancor-gray600"
+              class="relative flex w-full items-center before:absolute before:bottom-0 before:z-10 before:h-[2px] before:w-[100px] before:bg-bancor-green100 after:absolute after:bottom-0 after:right-0 after:h-[2px] after:w-full after:bg-bancor-gray600 pc:before:w-[158px] pc:after:w-[442px]"
             >
               <div class="w-[158px] py-[18px] font-bold">電話</div>
               <div class="flex w-[442px] flex-col py-[18px] pl-4 font-bold">
@@ -1163,7 +1181,7 @@
             </div>
             <!-- 運営会社 -->
             <div
-              class="relative flex w-full items-center before:absolute before:bottom-0 before:h-[2px] before:w-[158px] before:bg-bancor-green100 after:absolute after:bottom-0 after:right-0 after:h-[2px] after:w-[442px] after:bg-bancor-gray600"
+              class="relative flex w-full items-center before:absolute before:bottom-0 before:z-10 before:h-[2px] before:w-[100px] before:bg-bancor-green100 after:absolute after:bottom-0 after:right-0 after:h-[2px] after:w-full after:bg-bancor-gray600 pc:before:w-[158px] pc:after:w-[442px]"
             >
               <div class="w-[158px] py-[18px] font-bold">運営会社</div>
               <div class="flex w-[442px] flex-col py-[18px] pl-4 font-bold">
@@ -1172,7 +1190,7 @@
             </div>
             <!-- 利用時間 -->
             <div
-              class="relative flex w-full items-center before:absolute before:bottom-0 before:h-[2px] before:w-[158px] before:bg-bancor-green100 after:absolute after:bottom-0 after:right-0 after:h-[2px] after:w-[442px] after:bg-bancor-gray600"
+              class="relative flex w-full items-center before:absolute before:bottom-0 before:z-10 before:h-[2px] before:w-[100px] before:bg-bancor-green100 after:absolute after:bottom-0 after:right-0 after:h-[2px] after:w-full after:bg-bancor-gray600 pc:before:w-[158px] pc:after:w-[442px]"
             >
               <div class="w-[158px] py-[18px] font-bold">利用時間</div>
               <div class="flex w-[442px] flex-col py-[18px] pl-4 font-bold">
@@ -1207,13 +1225,11 @@
             </div>
             <!-- 利用対象 -->
             <div
-              class="relative flex w-full items-center before:absolute before:bottom-0 before:h-[2px] before:w-[158px] before:bg-bancor-green100 after:absolute after:bottom-0 after:right-0 after:h-[2px] after:w-[442px] after:bg-bancor-gray600"
+              class="relative flex w-full items-center before:absolute before:bottom-0 before:z-10 before:h-[2px] before:w-[100px] before:bg-bancor-green100 after:absolute after:bottom-0 after:right-0 after:h-[2px] after:w-full after:bg-bancor-gray600 pc:before:w-[158px] pc:after:w-[442px]"
             >
               <div class="w-[158px] py-[18px] font-bold">利用対象</div>
-              <div class="flex flex-col">
-                <div
-                  class="mb-4 flex w-[442px] flex-col py-[18px] pl-4 font-bold"
-                >
+              <div class="flex w-[442px] flex-col">
+                <div class="mb-4 flex w-full flex-col py-[18px] pl-4 font-bold">
                   <div class="flex flex-col space-y-2">
                     <div class="font-bold">
                       {{ information.targets[0].title }}
@@ -1223,7 +1239,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="flex w-[442px] flex-col py-[18px] pl-4 font-bold">
+                <div class="flex w-full flex-col py-[18px] pl-4 font-bold">
                   <div class="flex flex-col space-y-2">
                     <div class="font-bold">
                       {{ information.targets[1].title }}
@@ -1238,6 +1254,7 @@
           </div>
           <!-- 画像 -->
           <AtomsBasicIcon
+            v-if="isPC"
             size="h-[524px]"
             class="mt-2"
             :iconUrl="information.imgUrl"
@@ -1320,409 +1337,449 @@
             color="text-bancor-gray1300"
           ></AtomsBasicOutline>
         </div>
-      </div>
 
-      <!-- 「放課後デイサービス」と「児童発達支援」の概要・利用料金を切り替えるボタンを各2つずつ用意 -->
-      <div class="mb-24 flex flex-col items-center justify-center space-y-4">
-        <div class="mb-16 flex items-center">
-          <!-- 「放課後デイサービス」のボタン -->
-          <div class="flex items-center">
-            <div class="mr-4 font-bold text-bancor-gray1300">
-              放課後デイサービス
-            </div>
-            <button
-              class="mr-2 flex h-[44px] w-[200px] items-center justify-center rounded-full text-[18px] font-bold"
-              :class="{
-                'bg-bancor-green100 text-bancor-white100': feeIndex === 0,
-                'bg-bancor-gray1500 text-bancor-gray1300': feeIndex !== 0,
-              }"
-              @click="clickAfterschoolServiceOverview"
-            >
-              概要
-            </button>
-            <button
-              class="flex h-[44px] w-[200px] items-center justify-center rounded-full text-[18px] font-bold"
-              :class="{
-                'bg-bancor-green100 text-bancor-white100': feeIndex === 1,
-                'bg-bancor-gray1500 text-bancor-gray1300': feeIndex !== 1,
-              }"
-              @click="clickAfterschoolServiceFee"
-            >
-              利用料金
-            </button>
-          </div>
-
-          <!-- 「児童発達支援」のボタン -->
-          <div class="ml-12 flex items-center">
-            <div class="mr-4 font-bold text-bancor-gray1300">児童発達支援</div>
-            <button
-              class="mr-2 flex h-[44px] w-[200px] items-center justify-center rounded-full text-[18px] font-bold"
-              :class="{
-                'bg-bancor-green100 text-bancor-white100': feeIndex === 2,
-                'bg-bancor-gray1500 text-bancor-gray1300': feeIndex !== 2,
-              }"
-              @click="clickChildDevelopmentOverview"
-            >
-              概要
-            </button>
-            <button
-              class="flex h-[44px] w-[200px] items-center justify-center rounded-full text-[18px] font-bold"
-              :class="{
-                'bg-bancor-green100 text-bancor-white100': feeIndex === 3,
-                'bg-bancor-gray1500 text-bancor-gray1300': feeIndex !== 3,
-              }"
-              @click="clickChildDevelopmentFee"
-            >
-              利用料金
-            </button>
-          </div>
-        </div>
-
-        <!-- 放課後デイサービス:概要 -->
-        <div v-if="feeIndex === 0" class="flex w-full flex-col">
-          <!-- タイトル -->
-          <div class="flex items-center space-x-4 pc:max-w-[1100px]">
-            <div class="h-[26px] w-[4px] bg-bancor-green100"></div>
-            <div class="text-[26px] font-bold">
-              {{ fee.dayservice.overview.title }}
-            </div>
-          </div>
-          <!-- 説明 -->
-          <AtomsBasicOutline
-            class="my-4 pc:max-w-[1100px]"
-            :text="fee.dayservice.overview.outline"
-            size="text-[12px] tb:text-[14px] pc:text-[16px]"
-            color="text-bancor-gray1300"
-          ></AtomsBasicOutline>
-          <!-- 説明画像 -->
-          <div class="mb-4 flex w-full justify-center">
-            <AtomsBasicIcon
-              class="mt-4"
-              :iconUrl="fee.dayservice.overview.imgUrl"
-              size="h-[588px]"
-            ></AtomsBasicIcon>
-          </div>
-          <!-- 目的 -->
-          <div class="flex items-center space-x-4 pc:max-w-[1100px]">
-            <div class="h-[26px] w-[4px] bg-bancor-green100"></div>
-            <div class="text-[26px] font-bold">
-              {{ fee.dayservice.overview.purpose }}
-            </div>
-          </div>
-          <!-- 説明 -->
-          <AtomsBasicOutline
-            class="my-4 pc:max-w-[1100px]"
-            :text="fee.dayservice.overview.purposeOutline"
-            size="text-[12px] tb:text-[14px] pc:text-[16px]"
-            color="text-bancor-gray1300"
-          ></AtomsBasicOutline>
-        </div>
-
-        <!-- 放課後デイサービス:ご利用料金について -->
-        <div
-          v-if="feeIndex === 1"
-          class="flex w-full flex-col pc:max-w-[1100px]"
-        >
-          <!-- タイトル -->
-          <div class="mb-8 flex items-center space-x-4 pc:max-w-[1100px]">
-            <div class="h-[26px] w-[4px] bg-bancor-green100"></div>
-            <div class="text-[26px] font-bold">ご利用料金について</div>
-          </div>
-          <!-- ご利用料金カード -->
+        <!-- 「放課後デイサービス」と「児童発達支援」の概要・利用料金を切り替えるボタンを各2つずつ用意 -->
+        <div class="mb-24 flex flex-col items-center justify-center space-y-4">
           <div
-            class="mb-8 flex w-full flex-col space-y-8 rounded-2xl bg-green-50 py-10 px-20"
+            class="mb-16 flex flex-col items-center space-y-4 pc:flex-row pc:space-y-0"
           >
-            <div class="text-[24px] font-bold">
-              {{ fee.dayservice.fee.title }}
+            <!-- 「放課後デイサービス」のボタン -->
+            <div class="flex items-center">
+              <div class="mr-4 font-bold text-bancor-gray1300">
+                放課後デイサービス
+              </div>
+              <button
+                class="mr-2 flex h-[44px] w-[200px] items-center justify-center rounded-full text-[18px] font-bold"
+                :class="{
+                  'bg-bancor-green100 text-bancor-white100': feeIndex === 0,
+                  'bg-bancor-gray1500 text-bancor-gray1300': feeIndex !== 0,
+                }"
+                @click="clickAfterschoolServiceOverview"
+              >
+                概要
+              </button>
+              <button
+                class="flex h-[44px] w-[200px] items-center justify-center rounded-full text-[18px] font-bold"
+                :class="{
+                  'bg-bancor-green100 text-bancor-white100': feeIndex === 1,
+                  'bg-bancor-gray1500 text-bancor-gray1300': feeIndex !== 1,
+                }"
+                @click="clickAfterschoolServiceFee"
+              >
+                利用料金
+              </button>
             </div>
-            <!-- 非課税対象のご家庭 -->
-            <div class="mb-8 flex items-center">
-              <div class="w-[60%] text-[20px] font-bold">
-                非課税対象のご家庭
+
+            <!-- 「児童発達支援」のボタン -->
+            <div class="ml-12 flex items-center">
+              <div class="mr-4 font-bold text-bancor-gray1300">
+                児童発達支援
               </div>
-              <div class="text-[20px] font-bold">
-                {{ fee.dayservice.fee.fee1 }}
-              </div>
-            </div>
-            <div
-              class="h-[1px] w-[95%] border-b-2 border-dashed border-bancor-green400"
-            ></div>
-            <!-- 世帯所得約890万までのご家庭 -->
-            <div class="mb-8 flex items-center">
-              <div class="w-[60%] text-[20px] font-bold">
-                世帯所得約890万までのご家庭
-              </div>
-              <div class="text-[20px] font-bold">
-                {{ fee.dayservice.fee.fee2 }}
-              </div>
-            </div>
-            <div
-              class="h-[1px] w-[95%] border-b-2 border-dashed border-bancor-green400"
-            ></div>
-            <!-- 世帯所得約890万以上のご家庭 -->
-            <div class="mb-8 flex items-center">
-              <div class="w-[60%] text-[20px] font-bold">
-                世帯所得約890万以上のご家庭
-              </div>
-              <div class="text-[20px] font-bold">
-                {{ fee.dayservice.fee.fee3 }}
-              </div>
+              <button
+                class="mr-2 flex h-[44px] w-[200px] items-center justify-center rounded-full text-[18px] font-bold"
+                :class="{
+                  'bg-bancor-green100 text-bancor-white100': feeIndex === 2,
+                  'bg-bancor-gray1500 text-bancor-gray1300': feeIndex !== 2,
+                }"
+                @click="clickChildDevelopmentOverview"
+              >
+                概要
+              </button>
+              <button
+                class="flex h-[44px] w-[200px] items-center justify-center rounded-full text-[18px] font-bold"
+                :class="{
+                  'bg-bancor-green100 text-bancor-white100': feeIndex === 3,
+                  'bg-bancor-gray1500 text-bancor-gray1300': feeIndex !== 3,
+                }"
+                @click="clickChildDevelopmentFee"
+              >
+                利用料金
+              </button>
             </div>
           </div>
 
-          <!-- その他備考カード -->
+          <!-- 放課後デイサービス:概要 -->
+          <div v-if="feeIndex === 0" class="flex w-full flex-col">
+            <!-- タイトル -->
+            <div class="flex items-center space-x-4 pc:max-w-[1100px]">
+              <div class="h-[26px] w-[4px] bg-bancor-green100"></div>
+              <div class="text-[26px] font-bold">
+                {{ fee.dayservice.overview.title }}
+              </div>
+            </div>
+            <!-- 説明 -->
+            <AtomsBasicOutline
+              class="my-4 pc:max-w-[1100px]"
+              :text="fee.dayservice.overview.outline"
+              size="text-[12px] tb:text-[14px] pc:text-[16px]"
+              color="text-bancor-gray1300"
+            ></AtomsBasicOutline>
+            <!-- 説明画像 -->
+            <div class="mb-4 flex w-full justify-center">
+              <AtomsBasicIcon
+                class="mt-4"
+                :iconUrl="fee.dayservice.overview.imgUrl"
+                size="h-[588px]"
+              ></AtomsBasicIcon>
+            </div>
+            <!-- 目的 -->
+            <div class="flex items-center space-x-4 pc:max-w-[1100px]">
+              <div class="h-[26px] w-[4px] bg-bancor-green100"></div>
+              <div class="text-[26px] font-bold">
+                {{ fee.dayservice.overview.purpose }}
+              </div>
+            </div>
+            <!-- 説明 -->
+            <AtomsBasicOutline
+              class="my-4 pc:max-w-[1100px]"
+              :text="fee.dayservice.overview.purposeOutline"
+              size="text-[12px] tb:text-[14px] pc:text-[16px]"
+              color="text-bancor-gray1300"
+            ></AtomsBasicOutline>
+          </div>
+
+          <!-- 放課後デイサービス:ご利用料金について -->
           <div
-            class="flex w-full flex-col space-y-8 rounded-2xl bg-gray-50 py-10 px-20"
+            v-if="feeIndex === 1"
+            class="flex w-full flex-col pc:max-w-[1100px]"
           >
-            <div class="text-[24px] font-bold">
-              {{ fee.dayservice.remarks.title }}
+            <!-- タイトル -->
+            <div class="mb-8 flex items-center space-x-4 pc:max-w-[1100px]">
+              <div class="h-[26px] w-[4px] bg-bancor-green100"></div>
+              <div class="text-[26px] font-bold">ご利用料金について</div>
             </div>
-            <!-- ご利用時間 -->
-            <div class="mb-8 flex items-center">
-              <div class="w-[60%] text-[20px] font-bold">ご利用時間</div>
-              <div class="flex flex-col space-y-1">
-                <div class="flex items-center">
-                  <div class="text-[16px] font-bold">時間：</div>
-                  <div class="text-[16px]">
-                    {{ fee.dayservice.remarks.hours }}
-                  </div>
-                </div>
-                <div class="flex items-center">
-                  <div class="text-[16px] font-bold">休園日：</div>
-                  <div class="text-[16px]">
-                    {{ fee.dayservice.remarks.holiday }}
-                  </div>
-                </div>
-              </div>
-            </div>
+            <!-- ご利用料金カード -->
             <div
-              class="h-[1px] w-[95%] border-b-2 border-dashed border-bancor-gray400"
-            ></div>
-            <!-- 定員数 -->
-            <div class="mb-8 flex items-center">
-              <div class="w-[60%] text-[20px] font-bold">定員数</div>
-              <div class="flex flex-col space-y-1">
-                <div class="flex flex-col">
-                  <div class="text-[16px] font-bold">
-                    {{ fee.dayservice.remarks.capacity }}
-                  </div>
-                  <div class="text-[16px]">
-                    {{ fee.dayservice.remarks.capacityNote }}
-                  </div>
+              class="mb-8 flex w-full flex-col space-y-8 rounded-2xl bg-green-50 py-10 px-20"
+            >
+              <div class="text-[24px] font-bold">
+                {{ fee.dayservice.fee.title }}
+              </div>
+              <!-- 非課税対象のご家庭 -->
+              <div class="mb-8 flex items-center">
+                <div
+                  class="w-[70%] text-[18px] font-bold pc:w-[60%] pc:text-[20px]"
+                >
+                  非課税対象のご家庭
+                </div>
+                <div class="text-[18px] font-bold pc:text-[20px]">
+                  {{ fee.dayservice.fee.fee1 }}
+                </div>
+              </div>
+              <div
+                class="h-[1px] w-[95%] border-b-2 border-dashed border-bancor-green400"
+              ></div>
+              <!-- 世帯所得約890万までのご家庭 -->
+              <div class="mb-8 flex items-center">
+                <div
+                  class="w-[70%] text-[18px] font-bold pc:w-[60%] pc:text-[20px]"
+                >
+                  世帯所得約890万までのご家庭
+                </div>
+                <div class="text-[18px] font-bold pc:text-[20px]">
+                  {{ fee.dayservice.fee.fee2 }}
+                </div>
+              </div>
+              <div
+                class="h-[1px] w-[95%] border-b-2 border-dashed border-bancor-green400"
+              ></div>
+              <!-- 世帯所得約890万以上のご家庭 -->
+              <div class="mb-8 flex items-center">
+                <div
+                  class="w-[70%] text-[18px] font-bold pc:w-[60%] pc:text-[20px]"
+                >
+                  世帯所得約890万以上のご家庭
+                </div>
+                <div class="text-[18px] font-bold pc:text-[20px]">
+                  {{ fee.dayservice.fee.fee3 }}
                 </div>
               </div>
             </div>
-            <div
-              class="h-[1px] w-[95%] border-b-2 border-dashed border-bancor-gray400"
-            ></div>
-            <!-- レクリエーション代 -->
-            <div class="mb-8 flex items-center">
-              <div class="w-[60%] text-[20px] font-bold">
-                レクリエーション代
-              </div>
-              <div class="flex flex-col space-y-1">
-                <div class="flex flex-col">
-                  <div class="text-[16px]">
-                    {{ fee.dayservice.remarks.recreationCost }}
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              class="h-[1px] w-[95%] border-b-2 border-dashed border-bancor-gray400"
-            ></div>
-            <!-- ご用意いただくもの -->
-            <div class="mb-8 flex items-center">
-              <div class="w-[60%] text-[20px] font-bold">
-                ご用意いただくもの
-              </div>
-              <div class="flex flex-col space-y-1">
-                <div class="flex flex-col">
-                  <div class="text-[16px]">
-                    {{ fee.dayservice.remarks.requiredItems }}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
 
-        <!-- 児童発達支援:概要 -->
-        <div v-if="feeIndex === 2" class="flex w-full flex-col">
-          <!-- タイトル -->
-          <div class="flex items-center space-x-4 pc:max-w-[1100px]">
-            <div class="h-[26px] w-[4px] bg-bancor-green100"></div>
-            <div class="text-[26px] font-bold">
-              {{ fee.support.overview.title }}
+            <!-- その他備考カード -->
+            <div
+              class="flex w-full flex-col space-y-8 rounded-2xl bg-gray-50 py-10 px-20"
+            >
+              <div class="text-[24px] font-bold">
+                {{ fee.dayservice.remarks.title }}
+              </div>
+              <!-- ご利用時間 -->
+              <div class="mb-8 flex items-center">
+                <div
+                  class="w-[70%] text-[18px] font-bold pc:w-[60%] pc:text-[20px]"
+                >
+                  ご利用時間
+                </div>
+                <div class="flex flex-col space-y-1">
+                  <div class="flex items-center">
+                    <div class="text-[16px] font-bold">時間：</div>
+                    <div class="text-[16px]">
+                      {{ fee.dayservice.remarks.hours }}
+                    </div>
+                  </div>
+                  <div class="flex items-center">
+                    <div class="text-[16px] font-bold">休園日：</div>
+                    <div class="text-[16px]">
+                      {{ fee.dayservice.remarks.holiday }}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="h-[1px] w-[95%] border-b-2 border-dashed border-bancor-gray400"
+              ></div>
+              <!-- 定員数 -->
+              <div class="mb-8 flex items-center">
+                <div
+                  class="w-[70%] text-[18px] font-bold pc:w-[60%] pc:text-[20px]"
+                >
+                  定員数
+                </div>
+                <div class="flex flex-col space-y-1">
+                  <div class="flex flex-col">
+                    <div class="text-[16px] font-bold">
+                      {{ fee.dayservice.remarks.capacity }}
+                    </div>
+                    <div class="text-[16px]">
+                      {{ fee.dayservice.remarks.capacityNote }}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="h-[1px] w-[95%] border-b-2 border-dashed border-bancor-gray400"
+              ></div>
+              <!-- レクリエーション代 -->
+              <div class="mb-8 flex items-center">
+                <div
+                  class="w-[70%] text-[18px] font-bold pc:w-[60%] pc:text-[20px]"
+                >
+                  レクリエーション代
+                </div>
+                <div class="flex flex-col space-y-1">
+                  <div class="flex flex-col">
+                    <div class="text-[16px]">
+                      {{ fee.dayservice.remarks.recreationCost }}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="h-[1px] w-[95%] border-b-2 border-dashed border-bancor-gray400"
+              ></div>
+              <!-- ご用意いただくもの -->
+              <div class="mb-8 flex items-center">
+                <div
+                  class="w-[70%] text-[18px] font-bold pc:w-[60%] pc:text-[20px]"
+                >
+                  ご用意いただくもの
+                </div>
+                <div class="flex flex-col space-y-1">
+                  <div class="flex flex-col">
+                    <div class="text-[16px]">
+                      {{ fee.dayservice.remarks.requiredItems }}
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <!-- 説明 -->
-          <AtomsBasicOutline
-            class="my-4 pc:max-w-[1100px]"
-            :text="fee.support.overview.outline"
-            size="text-[12px] tb:text-[14px] pc:text-[16px]"
-            color="text-bancor-gray1300"
-          ></AtomsBasicOutline>
-          <!-- 説明画像 -->
-          <div class="mb-4 flex w-full justify-center">
-            <AtomsBasicIcon
-              class="mt-4"
-              :iconUrl="fee.support.overview.imgUrl"
-              size="h-[371px]"
-            ></AtomsBasicIcon>
-          </div>
-          <!-- センターとは -->
-          <div class="flex items-center space-x-4 pc:max-w-[1100px]">
-            <div class="h-[26px] w-[4px] bg-bancor-green100"></div>
-            <div class="text-[26px] font-bold">
-              {{ fee.support.overview.center }}
-            </div>
-          </div>
-          <!-- 説明 -->
-          <AtomsBasicOutline
-            class="my-4 pc:max-w-[1100px]"
-            :text="fee.support.overview.centerOutline"
-            size="text-[12px] tb:text-[14px] pc:text-[16px]"
-            color="text-bancor-gray1300"
-          ></AtomsBasicOutline>
-          <!-- 事業所とは -->
-          <div class="flex items-center space-x-4 pc:max-w-[1100px]">
-            <div class="h-[26px] w-[4px] bg-bancor-green100"></div>
-            <div class="text-[26px] font-bold">
-              {{ fee.support.overview.facility }}
-            </div>
-          </div>
-          <!-- 説明 -->
-          <AtomsBasicOutline
-            class="my-4 pc:max-w-[1100px]"
-            :text="fee.support.overview.facilityOutline"
-            size="text-[12px] tb:text-[14px] pc:text-[16px]"
-            color="text-bancor-gray1300"
-          ></AtomsBasicOutline>
-        </div>
 
-        <!-- 児童発達支援:ご利用料金について -->
-        <div
-          v-if="feeIndex === 3"
-          class="flex w-full flex-col pc:max-w-[1100px]"
-        >
-          <!-- タイトル -->
-          <div class="mb-8 flex items-center space-x-4 pc:max-w-[1100px]">
-            <div class="h-[26px] w-[4px] bg-bancor-green100"></div>
-            <div class="text-[26px] font-bold">ご利用料金について</div>
+          <!-- 児童発達支援:概要 -->
+          <div v-if="feeIndex === 2" class="flex w-full flex-col">
+            <!-- タイトル -->
+            <div class="flex items-center space-x-4 pc:max-w-[1100px]">
+              <div class="h-[26px] w-[4px] bg-bancor-green100"></div>
+              <div class="text-[26px] font-bold">
+                {{ fee.support.overview.title }}
+              </div>
+            </div>
+            <!-- 説明 -->
+            <AtomsBasicOutline
+              class="my-4 pc:max-w-[1100px]"
+              :text="fee.support.overview.outline"
+              size="text-[12px] tb:text-[14px] pc:text-[16px]"
+              color="text-bancor-gray1300"
+            ></AtomsBasicOutline>
+            <!-- 説明画像 -->
+            <div class="mb-4 flex w-full justify-center">
+              <AtomsBasicIcon
+                class="mt-4"
+                :iconUrl="fee.support.overview.imgUrl"
+                size="pc:h-[371px]"
+              ></AtomsBasicIcon>
+            </div>
+            <!-- センターとは -->
+            <div class="flex items-center space-x-4 pc:max-w-[1100px]">
+              <div class="h-[26px] w-[4px] bg-bancor-green100"></div>
+              <div class="text-[26px] font-bold">
+                {{ fee.support.overview.center }}
+              </div>
+            </div>
+            <!-- 説明 -->
+            <AtomsBasicOutline
+              class="my-4 pc:max-w-[1100px]"
+              :text="fee.support.overview.centerOutline"
+              size="text-[12px] tb:text-[14px] pc:text-[16px]"
+              color="text-bancor-gray1300"
+            ></AtomsBasicOutline>
+            <!-- 事業所とは -->
+            <div class="flex items-center space-x-4 pc:max-w-[1100px]">
+              <div class="h-[26px] w-[4px] bg-bancor-green100"></div>
+              <div class="text-[26px] font-bold">
+                {{ fee.support.overview.facility }}
+              </div>
+            </div>
+            <!-- 説明 -->
+            <AtomsBasicOutline
+              class="my-4 pc:max-w-[1100px]"
+              :text="fee.support.overview.facilityOutline"
+              size="text-[12px] tb:text-[14px] pc:text-[16px]"
+              color="text-bancor-gray1300"
+            ></AtomsBasicOutline>
           </div>
-          <!-- ご利用料金カード -->
+
+          <!-- 児童発達支援:ご利用料金について -->
           <div
-            class="mb-8 flex w-full flex-col space-y-8 rounded-2xl bg-green-50 py-10 px-20"
+            v-if="feeIndex === 3"
+            class="flex w-full flex-col pc:max-w-[1100px]"
           >
-            <div class="text-[24px] font-bold">
-              {{ fee.support.fee.title }}
+            <!-- タイトル -->
+            <div class="mb-8 flex items-center space-x-4 pc:max-w-[1100px]">
+              <div class="h-[26px] w-[4px] bg-bancor-green100"></div>
+              <div class="text-[26px] font-bold">ご利用料金について</div>
             </div>
-            <!-- 非課税対象のご家庭 -->
-            <div class="mb-8 flex items-center">
-              <div class="w-[60%] text-[20px] font-bold">
-                非課税対象のご家庭
-              </div>
-              <div class="text-[20px] font-bold">
-                {{ fee.support.fee.fee1 }}
-              </div>
-            </div>
+            <!-- ご利用料金カード -->
             <div
-              class="h-[1px] w-[95%] border-b-2 border-dashed border-bancor-green400"
-            ></div>
-            <!-- 世帯所得約890万までのご家庭 -->
-            <div class="mb-8 flex items-center">
-              <div class="w-[60%] text-[20px] font-bold">
-                世帯所得約890万までのご家庭
+              class="mb-8 flex w-full flex-col space-y-8 rounded-2xl bg-green-50 py-10 px-20"
+            >
+              <div class="text-[24px] font-bold">
+                {{ fee.support.fee.title }}
               </div>
-              <div class="text-[20px] font-bold">
-                {{ fee.support.fee.fee2 }}
+              <!-- 非課税対象のご家庭 -->
+              <div class="mb-8 flex items-center">
+                <div
+                  class="w-[70%] text-[18px] font-bold pc:w-[60%] pc:text-[20px]"
+                >
+                  非課税対象のご家庭
+                </div>
+                <div class="text-[18px] font-bold pc:text-[20px]">
+                  {{ fee.support.fee.fee1 }}
+                </div>
+              </div>
+              <div
+                class="h-[1px] w-[95%] border-b-2 border-dashed border-bancor-green400"
+              ></div>
+              <!-- 世帯所得約890万までのご家庭 -->
+              <div class="mb-8 flex items-center">
+                <div
+                  class="w-[70%] text-[18px] font-bold pc:w-[60%] pc:text-[20px]"
+                >
+                  世帯所得約890万までのご家庭
+                </div>
+                <div class="text-[18px] font-bold pc:text-[20px]">
+                  {{ fee.support.fee.fee2 }}
+                </div>
+              </div>
+              <div
+                class="h-[1px] w-[95%] border-b-2 border-dashed border-bancor-green400"
+              ></div>
+              <!-- 世帯所得約890万以上のご家庭 -->
+              <div class="mb-8 flex items-center">
+                <div
+                  class="w-[70%] text-[18px] font-bold pc:w-[60%] pc:text-[20px]"
+                >
+                  世帯所得約890万以上のご家庭
+                </div>
+                <div class="text-[18px] font-bold pc:text-[20px]">
+                  {{ fee.support.fee.fee3 }}
+                </div>
               </div>
             </div>
-            <div
-              class="h-[1px] w-[95%] border-b-2 border-dashed border-bancor-green400"
-            ></div>
-            <!-- 世帯所得約890万以上のご家庭 -->
-            <div class="mb-8 flex items-center">
-              <div class="w-[60%] text-[20px] font-bold">
-                世帯所得約890万以上のご家庭
-              </div>
-              <div class="text-[20px] font-bold">
-                {{ fee.support.fee.fee3 }}
-              </div>
-            </div>
-          </div>
 
-          <!-- その他備考カード -->
-          <div
-            class="flex w-full flex-col space-y-8 rounded-2xl bg-gray-50 py-10 px-20"
-          >
-            <div class="text-[24px] font-bold">
-              {{ fee.support.remarks.title }}
-            </div>
-            <!-- ご利用時間 -->
-            <div class="mb-8 flex items-center">
-              <div class="w-[60%] text-[20px] font-bold">ご利用時間</div>
-              <div class="flex flex-col space-y-1">
-                <div class="flex items-center">
-                  <div class="text-[16px] font-bold">時間：</div>
-                  <div class="text-[16px]">
-                    {{ fee.support.remarks.hours }}
-                  </div>
-                </div>
-                <div class="flex items-center">
-                  <div class="text-[16px] font-bold">休園日：</div>
-                  <div class="text-[16px]">
-                    {{ fee.support.remarks.holiday }}
-                  </div>
-                </div>
-              </div>
-            </div>
+            <!-- その他備考カード -->
             <div
-              class="h-[1px] w-[95%] border-b-2 border-dashed border-bancor-gray400"
-            ></div>
-            <!-- 定員数 -->
-            <div class="mb-8 flex items-center">
-              <div class="w-[60%] text-[20px] font-bold">定員数</div>
-              <div class="flex flex-col space-y-1">
-                <div class="flex flex-col">
-                  <div class="text-[16px] font-bold">
-                    {{ fee.support.remarks.capacity }}
+              class="flex w-full flex-col space-y-8 rounded-2xl bg-gray-50 py-10 px-20"
+            >
+              <div class="text-[24px] font-bold">
+                {{ fee.support.remarks.title }}
+              </div>
+              <!-- ご利用時間 -->
+              <div class="mb-8 flex items-center">
+                <div
+                  class="w-[70%] text-[18px] font-bold pc:w-[60%] pc:text-[20px]"
+                >
+                  ご利用時間
+                </div>
+                <div class="flex flex-col space-y-1">
+                  <div class="flex items-center">
+                    <div class="text-[16px] font-bold">時間：</div>
+                    <div class="text-[16px]">
+                      {{ fee.support.remarks.hours }}
+                    </div>
                   </div>
-                  <div class="text-[16px]">
-                    {{ fee.support.remarks.capacityNote }}
+                  <div class="flex items-center">
+                    <div class="text-[16px] font-bold">休園日：</div>
+                    <div class="text-[16px]">
+                      {{ fee.support.remarks.holiday }}
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div
-              class="h-[1px] w-[95%] border-b-2 border-dashed border-bancor-gray400"
-            ></div>
-            <!-- レクリエーション代 -->
-            <div class="mb-8 flex items-center">
-              <div class="w-[60%] text-[20px] font-bold">
-                レクリエーション代
-              </div>
-              <div class="flex flex-col space-y-1">
-                <div class="flex flex-col">
-                  <div class="text-[16px]">
-                    {{ fee.support.remarks.recreationCost }}
+              <div
+                class="h-[1px] w-[95%] border-b-2 border-dashed border-bancor-gray400"
+              ></div>
+              <!-- 定員数 -->
+              <div class="mb-8 flex items-center">
+                <div
+                  class="w-[70%] text-[18px] font-bold pc:w-[60%] pc:text-[20px]"
+                >
+                  定員数
+                </div>
+                <div class="flex flex-col space-y-1">
+                  <div class="flex flex-col">
+                    <div class="text-[16px] font-bold">
+                      {{ fee.support.remarks.capacity }}
+                    </div>
+                    <div class="text-[16px]">
+                      {{ fee.support.remarks.capacityNote }}
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div
-              class="h-[1px] w-[95%] border-b-2 border-dashed border-bancor-gray400"
-            ></div>
-            <!-- ご用意いただくもの -->
-            <div class="mb-8 flex items-center">
-              <div class="w-[60%] text-[20px] font-bold">
-                ご用意いただくもの
+              <div
+                class="h-[1px] w-[95%] border-b-2 border-dashed border-bancor-gray400"
+              ></div>
+              <!-- レクリエーション代 -->
+              <div class="mb-8 flex items-center">
+                <div
+                  class="w-[70%] text-[18px] font-bold pc:w-[60%] pc:text-[20px]"
+                >
+                  レクリエーション代
+                </div>
+                <div class="flex flex-col space-y-1">
+                  <div class="flex flex-col">
+                    <div class="text-[16px]">
+                      {{ fee.support.remarks.recreationCost }}
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div class="flex flex-col space-y-1">
-                <div class="flex flex-col">
-                  <div class="text-[16px]">
-                    {{ fee.support.remarks.requiredItems }}
+              <div
+                class="h-[1px] w-[95%] border-b-2 border-dashed border-bancor-gray400"
+              ></div>
+              <!-- ご用意いただくもの -->
+              <div class="mb-8 flex items-center">
+                <div
+                  class="w-[70%] text-[18px] font-bold pc:w-[60%] pc:text-[20px]"
+                >
+                  ご用意いただくもの
+                </div>
+                <div class="flex flex-col space-y-1">
+                  <div class="flex flex-col">
+                    <div class="text-[16px]">
+                      {{ fee.support.remarks.requiredItems }}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1733,10 +1790,10 @@
 
       <!-- 利用者向けメニュー -->
       <div
-        class="mb-20 flex h-[238px] w-[95%] items-center justify-between rounded-lg bg-bancor-green100 py-[24px] pl-[48px] pr-[24px] pc:max-w-[1200px]"
+        class="mb-20 flex w-[95%] flex-col items-center justify-between space-y-6 rounded-lg bg-bancor-green100 py-[32px] pl-[48px] pr-[24px] pc:h-[280px] pc:max-w-[1200px] pc:flex-row"
       >
         <!-- 左ブロック -->
-        <div class="flex flex-col space-y-6">
+        <div class="flex flex-col space-y-2 pc:space-y-6">
           <!-- タイトル -->
           <AtomsBasicTitle
             class="font-futuraBold"
@@ -1748,40 +1805,44 @@
           <!-- 説明 -->
           <AtomsBasicOutline
             class="pc:max-w-[650px]"
-            size="text-[12px] tb:text-[14px] pc:text-[16px]"
+            size="text-[16px]"
             :text="menu.outline"
             color="text-bancor-white100"
           >
           </AtomsBasicOutline>
         </div>
         <!-- 右ブロック -->
-        <NuxtLink
-          :to="menuItem.linkUrl"
-          v-for="menuItem in menu.items"
-          class="flex h-[206px] items-center justify-center space-x-6 rounded-lg bg-bancor-green200"
+        <div
+          class="flex w-full flex-col items-center space-y-3 tb:flex-row tb:space-x-5 pc:space-y-0"
         >
-          <!-- ボタン -->
-          <button class="flex h-full w-[232px] flex-col items-center">
-            <div
-              class="flex h-1/2 items-center justify-center text-[22px] font-bold text-bancor-white100"
-            >
-              <AtomsBasicTitle
-                :text="menuItem.title"
-                color="text-bancor-white100"
-                size="text-[22px]"
-                space-y="space-y-0"
-              ></AtomsBasicTitle>
-            </div>
-            <!-- 矢印丸アイコン -->
-            <div class="flex h-1/2 items-center justify-center">
+          <NuxtLink
+            :to="menuItem.linkUrl"
+            v-for="menuItem in menu.items"
+            class="flex h-[170px] w-full items-center justify-center rounded-lg bg-bancor-green200 tb:h-[206px] tb:w-[30%] tb:space-x-6"
+          >
+            <!-- ボタン -->
+            <button class="flex h-full flex-col items-center pc:max-w-[232px]">
               <div
-                class="flex h-[60px] w-[60px] items-center justify-center rounded-full bg-bancor-white100 text-[30px] text-bancor-green100"
+                class="flex h-1/2 items-center justify-center text-[22px] font-bold text-bancor-white100"
               >
-                <font-awesome-icon :icon="['fas', 'arrow-right']" />
+                <AtomsBasicTitle
+                  :text="menuItem.title"
+                  color="text-bancor-white100"
+                  size="text-[22px]"
+                  space-y="space-y-0"
+                ></AtomsBasicTitle>
               </div>
-            </div>
-          </button>
-        </NuxtLink>
+              <!-- 矢印丸アイコン -->
+              <div class="flex h-1/2 items-center justify-center">
+                <div
+                  class="flex h-[60px] w-[60px] items-center justify-center rounded-full bg-bancor-white100 text-[30px] text-bancor-green100"
+                >
+                  <font-awesome-icon :icon="['fas', 'arrow-right']" />
+                </div>
+              </div>
+            </button>
+          </NuxtLink>
+        </div>
       </div>
 
       <!-- Value Update -->
