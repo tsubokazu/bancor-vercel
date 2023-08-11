@@ -4,11 +4,13 @@
     size?: string;
     badgePaddingY?: string;
     isRequired?: boolean;
+    badgeColor?: string;
   }
   const props = withDefaults(defineProps<Props>(), {
     isRequired: false,
     size: 'text-base',
     badgePaddingY: 'py-[3px]',
+    badgeColor: 'bg-bancor-blue300',
   });
 </script>
 
@@ -18,8 +20,8 @@
       <div class="font-bold text-bancor-black100" :class="size">{{ text }}</div>
       <div
         v-if="isRequired"
-        class="rounded bg-bancor-blue300 px-2 text-[12px] font-bold text-white"
-        :class="badgePaddingY"
+        class="rounded px-2 text-[12px] font-bold text-white"
+        :class="[badgePaddingY, badgeColor]"
       >
         必須
       </div>

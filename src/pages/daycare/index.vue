@@ -390,7 +390,7 @@
           ></AtomsBasicOutline>
         </div>
         <!-- 教育方針とスタッフ一覧をボタンで切り替える -->
-        <div class="flex h-[1000px] justify-center">
+        <div class="flex h-[1000px] justify-center pc:h-[600px]">
           <!-- 教育方針カード -->
           <div
             v-if="!clickPolicyFlag"
@@ -1112,6 +1112,7 @@
 
       <!-- 施設情報 -->
       <div
+        id="information"
         class="relative mb-20 flex w-[95%] flex-col justify-center pc:max-w-[1200px]"
       >
         <!-- タイトル -->
@@ -1932,3 +1933,4 @@
     </div>
   </div>
 </template>
+~~/src/types/pages/daycare/daycare ~~/src/stores/pages/daycare/daycare
