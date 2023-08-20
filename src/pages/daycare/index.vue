@@ -56,7 +56,7 @@
   };
 
   // 園内環境の写真をスライドする
-  const environmentIndex = ref(0);
+  const environmentIndex = ref(1);
   const clickEnvironmentLeftButton = () => {
     environmentIndex.value =
       environmentIndex.value - 1 < 0
@@ -268,11 +268,18 @@
                 :iconUrl="feature.imgUrl"
               ></AtomsBasicIcon>
               <AtomsBasicTitle
-                class="text-center"
+                class="mb-2 text-center"
                 spaceY="space-y-1"
                 :text="feature.title"
                 size="text-[16px] tb:text-[18px] pc:text-[20px]"
               ></AtomsBasicTitle>
+              <AtomsBasicOutline
+                class="text-center"
+                :text="feature.outline"
+                size="text-[16px] tb:text-[16px] pc:text-[16px]"
+                color="text-bancor-gray1300"
+                :isBold="false"
+              ></AtomsBasicOutline>
             </div>
           </div>
         </div>
@@ -968,7 +975,7 @@
                 <AtomsBasicIcon
                   size="h-[40px]"
                   class="mr-5"
-                  iconUrl="/images/daycare/guideline/clock-green.png"
+                  iconUrl="/images/daycare/index/guideline/clock-green.png"
                 ></AtomsBasicIcon>
                 <!-- 時間 -->
                 <div
@@ -1024,7 +1031,7 @@
                 <AtomsBasicIcon
                   size="h-[40px]"
                   class="mr-5"
-                  iconUrl="/images/daycare/guideline/clock-green.png"
+                  iconUrl="/images/daycare/index/guideline/clock-green.png"
                 ></AtomsBasicIcon>
                 <!-- 時間 -->
                 <div
@@ -1420,7 +1427,7 @@
               <AtomsBasicIcon
                 class="mt-4"
                 :iconUrl="fee.dayservice.overview.imgUrl"
-                size="h-[588px]"
+                size="pc:h-[588px]"
               ></AtomsBasicIcon>
             </div>
             <!-- 目的 -->
@@ -1791,7 +1798,7 @@
 
       <!-- 利用者向けメニュー -->
       <div
-        class="mb-20 flex w-[95%] flex-col items-center justify-between space-y-6 rounded-lg bg-bancor-green100 py-[32px] pl-[48px] pr-[24px] pc:h-[280px] pc:max-w-[1200px] pc:flex-row"
+        class="mb-20 flex w-[95%] flex-col items-center justify-between space-y-6 rounded-lg bg-bancor-green100 py-[32px] pl-[24px] pr-[24px] pc:h-[280px] pc:max-w-[1200px] pc:flex-row pc:pl-[48px]"
       >
         <!-- 左ブロック -->
         <div class="flex flex-col space-y-2 pc:space-y-6">
