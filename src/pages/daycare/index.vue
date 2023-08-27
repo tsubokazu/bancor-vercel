@@ -1371,12 +1371,14 @@
             class="mb-16 flex flex-col items-center space-y-4 pc:flex-row pc:space-y-0"
           >
             <!-- 「放課後デイサービス」のボタン -->
-            <div class="flex items-center">
-              <div class="mr-4 font-bold text-bancor-gray1300">
+            <div
+              class="flex flex-col items-center space-y-5 tb:flex-row tb:space-y-0"
+            >
+              <div class="font-bold text-bancor-gray1300 tb:mr-4">
                 放課後デイサービス
               </div>
               <button
-                class="mr-2 flex h-[44px] w-[200px] items-center justify-center rounded-full text-[18px] font-bold"
+                class="flex h-[44px] w-[200px] items-center justify-center rounded-full text-[18px] font-bold tb:mr-2"
                 :class="{
                   'bg-bancor-green100 text-bancor-white100': feeIndex === 0,
                   'bg-bancor-gray1500 text-bancor-gray1300': feeIndex !== 0,
@@ -1398,12 +1400,14 @@
             </div>
 
             <!-- 「児童発達支援」のボタン -->
-            <div class="ml-12 flex items-center">
-              <div class="mr-4 font-bold text-bancor-gray1300">
+            <div
+              class="flex flex-col items-center space-y-5 tb:ml-12 tb:flex-row tb:space-y-0"
+            >
+              <div class="font-bold text-bancor-gray1300 tb:mr-4">
                 児童発達支援
               </div>
               <button
-                class="mr-2 flex h-[44px] w-[200px] items-center justify-center rounded-full text-[18px] font-bold"
+                class="flex h-[44px] w-[200px] items-center justify-center rounded-full text-[18px] font-bold tb:mr-2"
                 :class="{
                   'bg-bancor-green100 text-bancor-white100': feeIndex === 2,
                   'bg-bancor-gray1500 text-bancor-gray1300': feeIndex !== 2,
