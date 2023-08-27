@@ -33,25 +33,22 @@ export const usePagesDaycareStore = defineStore('pagesDaycare', () => {
           linkUrl: '/',
         },
         {
-          title:
-            '保護者のためのガイド：地域の放課後デイサービス施設を選ぶポイント',
+          title: '児童発達支援事業所・放課後等デイサービスの施設の選び方',
           tag: '放課後デイサービス',
           date: '2023.05.20',
-          linkUrl: '/',
+          linkUrl: '/journal/100',
         },
         {
-          title:
-            'デイサービスの安全対策：子供たちの安全を確保するための基準とプロトコル',
+          title: '星ノ学園ユニプレキッズとは？',
           tag: '放課後デイサービス',
           date: '2023.05.12',
-          linkUrl: '/',
+          linkUrl: '/journal/101',
         },
         {
-          title:
-            '学びと遊びのバランス：質の高い放課後デイサービスプログラムの設計',
+          title: '星ノ学園ユニプレキッズの療育内容',
           tag: '放課後デイサービス',
           date: '2023.04.01',
-          linkUrl: '/',
+          linkUrl: '/journal/102',
         },
       ],
     };

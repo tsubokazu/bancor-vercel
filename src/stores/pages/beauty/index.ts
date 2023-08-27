@@ -82,11 +82,11 @@ export const usePagesBeautyStore = defineStore('pagesBeauty', () => {
       menus: [
         {
           title: '予約へ進む',
-          linkUrl: '/',
+          linkUrl: 'https://beauty.hotpepper.jp/kr/slnH000596431/',
         },
         {
           title: '口コミをみる',
-          linkUrl: '/',
+          linkUrl: 'https://beauty.hotpepper.jp/kr/slnH000596431/review/',
         },
       ],
     };
@@ -116,7 +116,7 @@ export const usePagesBeautyStore = defineStore('pagesBeauty', () => {
           outline:
             'お客様のお悩みに合わせた機器を使用し小顔矯正を行います。リピーターが急増するブプラではヒアリングを行い、お客様に合った施術方法をご提案いたします。',
           buttonTitle: '予約へ進む',
-          linkUrl: '/',
+          linkUrl: 'https://beauty.hotpepper.jp/kr/slnH000596431/',
           imgUrl: '/images/beauty/index/features/01.png',
         },
         {
@@ -124,7 +124,7 @@ export const usePagesBeautyStore = defineStore('pagesBeauty', () => {
           outline:
             'ブプラではご予約の際にホットペッパービューティーを利用していますが、サロン平均4.87と非常に高い評価をいただいております。',
           buttonTitle: '口コミ評価をみる',
-          linkUrl: '/',
+          linkUrl: 'https://beauty.hotpepper.jp/kr/slnH000596431/review/',
           imgUrl: '/images/beauty/index/features/02.png',
         },
         {
@@ -132,7 +132,7 @@ export const usePagesBeautyStore = defineStore('pagesBeauty', () => {
           outline:
             'ブプラではホットペッパービューティーにてクーポンを発行しています。クーポンを利用することで0円から体験していただけます。',
           buttonTitle: 'クーポンを利用する',
-          linkUrl: '/',
+          linkUrl: 'https://beauty.hotpepper.jp/kr/slnH000596431/coupon/',
           imgUrl: '/images/beauty/index/features/03.png',
         },
       ],
@@ -148,14 +148,14 @@ export const usePagesBeautyStore = defineStore('pagesBeauty', () => {
           title: '頭蓋骨小顔矯正',
           subTitle: '小顔になりたい方へ',
           couponTitle: 'クーポンを利用する',
-          couponLinkUrl: '/',
+          couponLinkUrl: 'https://beauty.hotpepper.jp/kr/slnH000596431/coupon/',
           imgUrl: '/images/beauty/index/treatment/01.png',
         },
         {
           title: '美白＋頭蓋骨小顔矯正',
           subTitle: '小顔も美肌も手に入れたい方へ',
           couponTitle: 'クーポンを利用する',
-          couponLinkUrl: '/',
+          couponLinkUrl: 'https://beauty.hotpepper.jp/kr/slnH000596431/coupon/',
           imgUrl: '/images/beauty/index/treatment/02.png',
         },
       ],
@@ -165,6 +165,7 @@ export const usePagesBeautyStore = defineStore('pagesBeauty', () => {
     review.value = {
       title: 'お客様の声',
       outline: 'お客様に対する高いホスピタリティ精神で身体も心も満足に',
+      linkUrl: 'https://beauty.hotpepper.jp/kr/slnH000596431/coupon/',
       reviews: [
         {
           name: 'しんちゃんまん',
@@ -227,7 +228,7 @@ export const usePagesBeautyStore = defineStore('pagesBeauty', () => {
           name: '健軍店',
           imgUrl: '/images/daycare/index/stores/01.png',
           place: '熊本',
-          linkUrl: '/',
+          linkUrl: '/beauty/stores/0',
         },
       ],
     };
@@ -247,7 +248,7 @@ export const usePagesBeautyStore = defineStore('pagesBeauty', () => {
       outline2:
         '満足度の高い当社スタッフの施術によりむくみやほうれい線、肌のハリなど効果を実感していただけるよう、まずはヒアリングを行い、お客様に合った施術を提供しています。',
       buttonTitle: 'もっとみる',
-      linkUrl: '/',
+      linkUrl: 'https://beauty.hotpepper.jp/kr/slnH000596431/photo/',
     };
 
     // コピー

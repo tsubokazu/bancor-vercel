@@ -5,6 +5,7 @@ export interface BeautyStoresHeader {
 }
 
 export interface Store {
+  imgUrl: string;
   name: string;
   address: string;
   tel: string;

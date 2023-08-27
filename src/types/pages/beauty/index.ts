@@ -24,8 +24,7 @@ export interface BeautyTopics {
 
 export interface Menu {
   title: string;
-  outline: string;
-  imgUrl: string;
+  linkUrl: string;
 }
 
 // 予約・口コミ
@@ -98,6 +97,7 @@ export interface Review {
 export interface BeautyReview {
   title: string;
   outline: string;
+  linkUrl: string;
   reviews: Array<Review>;
 }
 

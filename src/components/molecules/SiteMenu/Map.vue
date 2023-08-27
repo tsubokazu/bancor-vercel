@@ -36,6 +36,10 @@
       title: '福祉事業',
       linkUrl: '/daycare',
     },
+    {
+      title: '美容事業',
+      linkUrl: '/beauty',
+    },
   ];
   const linkObjectsRecruit: Array<LinkObject> = [
     {

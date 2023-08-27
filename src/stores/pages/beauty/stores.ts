@@ -17,21 +17,21 @@ export const useBeautyStoresStore = defineStore('beauty-stores', () => {
     stores.value = {
       stores: [
         {
+          imgUrl: '/images/beauty/stores/01.png',
           name: 'BUPURA健軍店',
           address:
             '熊本県熊本市東区健軍３丁目３９−１２ KINGDOM BLD 1階 002号室',
           tel: '070-8583-9005',
           time: '10:00～18:00',
           access: '「健軍町駅」徒歩7分',
-          reserveUrl: 'https://beauty.hotpepper.jp/smartphone/slnH000412129/',
-          reveiwUrl:
-            'https://beauty.hotpepper.jp/smartphone/kr/slnH000412129/review/',
-          mapUrl: 'https://beauty.hotpepper.jp/smartphone/slnH000412129/map/',
+          reserveUrl: 'https://beauty.hotpepper.jp/kr/slnH000596431/',
+          reveiwUrl: 'https://beauty.hotpepper.jp/kr/slnH000596431/review/',
+          mapUrl: 'https://goo.gl/maps/ADvJRM5hPymqMEcy8',
           gallery: [
-            '/images/beauty/stores/01/01.png',
-            '/images/beauty/stores/01/02.png',
-            '/images/beauty/stores/01/03.png',
-            '/images/beauty/stores/01/04.png',
+            '/images/beauty/stores/02.png',
+            '/images/beauty/stores/03.png',
+            '/images/beauty/stores/04.png',
+            '/images/beauty/stores/05.png',
           ],
         },
       ],

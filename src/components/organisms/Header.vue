@@ -18,6 +18,7 @@
     posts.value.details.ext_13,
     posts.value.details.ext_16,
     posts.value.details.ext_19,
+    posts.value.details.ext_22,
   ];
 
   const contentLinksArray: Array<Array<string>> = [
@@ -26,6 +27,7 @@
     posts.value.details.ext_14,
     posts.value.details.ext_17,
     posts.value.details.ext_20,
+    posts.value.details.ext_23,
   ];
   const getUrlArray = (urlObj: KurocoUrlObject): string => {
     if (Object.keys(urlObj).length <= 0) return '';
@@ -45,6 +47,9 @@
       getUrlArray(urlObj)
     ),
     posts.value.details.ext_21.map((urlObj: KurocoUrlObject) =>
+      getUrlArray(urlObj)
+    ),
+    posts.value.details.ext_24.map((urlObj: KurocoUrlObject) =>
       getUrlArray(urlObj)
     ),
   ];

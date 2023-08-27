@@ -3,6 +3,7 @@
   import { DaycareObject } from '~/types/pages/daycare';
   import { SystemDevObject } from '~/types/pages/system-development';
   import { usePagesSystemDevStore } from '~/stores/pages/system-development';
+  import { JournalObject } from '~/types/Journal';
   import ScrollParallax from 'vue3-parallax/src/components/ScrollParallax.vue';
 
   definePageMeta({
@@ -35,6 +36,22 @@
     await pagesSystemDevStore.fetchPagesSystemDev();
   }
   const { valueUpdate }: SystemDevObject = pagesSystemDevStore;
+
+  // Bancor Journalページ情報をPiniaから取得
+  const journalStore = useJournalStore();
+  if (journalStore.journalList.length == 0) {
+    await journalStore.fetchJournals();
+  }
+  const {
+    journalList,
+  }: {
+    journalList: Array<JournalObject>;
+  } = journalStore;
+
+  // 記事から「福祉」タグがついている記事を取得
+  const welfareJournalList = computed(() =>
+    journalList.filter((journal) => journal.hashTag.toString() == '福祉')
+  );
 
   // 教育方針⇔スタッフ一覧のクリックフラグ
   const clickPolicyFlag = ref(false);
@@ -181,21 +198,22 @@
           <div
             class="ml-4 w-[60%] text-[16px] font-bold tb:w-[90%] tb:text-[18px] pc:text-[20px]"
           >
-            {{ topics.topics[0].title }}
+            <!-- {{ welfareJournalList[0].subject }} -->
           </div>
           <!-- リンク「>」ボタン -->
-          <div
+          <!-- <div
             class="absolute right-4 flex h-11 w-11 items-center justify-center rounded-full border border-bancor-gray1400 text-2xl text-[20px] font-bold font-bold text-bancor-green100"
           >
             <font-awesome-icon :icon="['fas', 'angle-right']" />
-          </div>
+          </div> -->
         </div>
         <!-- サブTopics -->
         <div
           v-for="topic in topics.topics.slice(1, 4)"
           class="relative w-[95%] flex-col items-center pc:max-w-[1200px]"
         >
-          <div
+          <NuxtLink
+            :to="topic.linkUrl"
             class="flex w-full items-center space-x-2 border-b-2 border-bancor-gray1400 py-[16px] tb:space-x-8"
           >
             <!-- タグ＆日付 -->
@@ -227,15 +245,16 @@
             >
               <font-awesome-icon :icon="['fas', 'angle-right']" />
             </div>
-          </div>
+          </NuxtLink>
         </div>
         <!-- もっとみるボタン -->
         <div class="flex w-[95%] items-center justify-center">
-          <div
+          <NuxtLink
+            to="/journal"
             class="flex items-center justify-center rounded-full py-4 px-11 text-[18px] font-bold text-bancor-green100 shadow-md"
           >
             もっとみる
-          </div>
+          </NuxtLink>
         </div>
       </div>
 

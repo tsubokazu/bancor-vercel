@@ -271,13 +271,13 @@
         ></AtomsBasicOutline>
         <div class="flex items-center justify-center space-x-8">
           <NuxtLink
-            :to="menu.menus[0].imgUrl"
+            :to="menu.menus[0].linkUrl"
             class="flex h-[53px] w-[288px] items-center justify-center rounded-full border border-[#e09a39] bg-white font-bold text-[#e09a39]"
           >
             {{ menu.menus[0].title }}
           </NuxtLink>
           <NuxtLink
-            :to="menu.menus[1].imgUrl"
+            :to="menu.menus[1].linkUrl"
             class="flex h-[53px] w-[288px] items-center justify-center rounded-full border border-[#e09a39] bg-white font-bold text-[#e09a39]"
           >
             {{ menu.menus[1].title }}
@@ -563,7 +563,7 @@
         <!-- もっと見るボタン -->
         <div class="flex justify-center">
           <NuxtLink
-            to="/"
+            :to="review.linkUrl"
             class="flex h-[53px] w-[288px] items-center justify-center rounded-full bg-[#e09a39] text-[18px] font-bold text-white"
           >
             口コミをもっとみる
@@ -604,7 +604,10 @@
               ></AtomsBasicIcon>
             </div>
             <!-- 店舗名リンク -->
-            <NuxtLink to="/" class="flex items-center space-x-4 text-[20px]">
+            <NuxtLink
+              :to="item.linkUrl"
+              class="flex items-center space-x-4 text-[20px]"
+            >
               <font-awesome-icon :icon="['fas', 'angle-right']" />
               <div class="font-bold">{{ item.name }}</div>
             </NuxtLink>
@@ -717,7 +720,7 @@
         ></AtomsBasicTitle>
         <!-- 説明 -->
         <AtomsBasicOutline
-          class="mb-[81px] w-[50%]"
+          class="mb-[81px] tb:w-[50%]"
           size="text-[16px]"
           :text="flow.outline"
           :isBold="false"
@@ -746,7 +749,9 @@
               </AtomsBasicTitle>
             </div>
             <!-- 内容 -->
-            <div class="flex justify-between">
+            <div
+              class="flex flex-col items-center tb:flex-row tb:justify-between"
+            >
               <!-- 写真 -->
               <AtomsBasicIcon
                 class="rounded-3xl"
@@ -754,7 +759,9 @@
                 :iconUrl="step.imgUrl"
               ></AtomsBasicIcon>
               <!-- 説明 -->
-              <div class="flex w-[60%] flex-col space-y-[44px]">
+              <div
+                class="flex flex-col items-center space-y-[44px] tb:w-[60%] tb:items-start"
+              >
                 <!-- タイトル -->
                 <AtomsBasicTitle
                   class="text-[#683f17]"
