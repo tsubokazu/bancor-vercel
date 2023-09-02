@@ -78,7 +78,7 @@ export const usePagesBeautyStore = defineStore('pagesBeauty', () => {
     menu.value = {
       title: '形だけじゃない真の美容法',
       outline:
-        '弊社では小顔矯正や熟練のボディリンパ・小顔矯正のハンド技術に加え、最新のハーブピーリングもできる小顔・痩身サロンがを展開しています。お客様の口コミでは高い評価をいただいており、自信を持って施術を提供することができています。今後も皆様に効果を感じて頂ける施術を提供できるようスタッフ一同全力で努めてまいります。',
+        '弊社では小顔矯正や熟練のボディリンパ・小顔矯正のハンド技術に加え、最新のハーブピーリングもできる小顔・痩身サロンを展開しています。お客様の口コミでは高い評価をいただいており、自信を持って施術を提供することができています。今後も皆様に効果を感じて頂ける施術を提供できるようスタッフ一同全力で努めてまいります。',
       menus: [
         {
           title: '予約へ進む',
@@ -148,14 +148,16 @@ export const usePagesBeautyStore = defineStore('pagesBeauty', () => {
           title: '頭蓋骨小顔矯正',
           subTitle: '小顔になりたい方へ',
           couponTitle: 'クーポンを利用する',
-          couponLinkUrl: 'https://beauty.hotpepper.jp/kr/slnH000596431/coupon/',
+          couponLinkUrl:
+            'https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000596431&couponId=CP00000007868233&add=0',
           imgUrl: '/images/beauty/index/treatment/01.png',
         },
         {
           title: '美白＋頭蓋骨小顔矯正',
           subTitle: '小顔も美肌も手に入れたい方へ',
           couponTitle: 'クーポンを利用する',
-          couponLinkUrl: 'https://beauty.hotpepper.jp/kr/slnH000596431/coupon/',
+          couponLinkUrl:
+            'https://beauty.hotpepper.jp/CSP/kr/reserve/?storeId=H000596431&couponId=CP00000007869798&add=0',
           imgUrl: '/images/beauty/index/treatment/02.png',
         },
       ],
@@ -222,13 +224,67 @@ export const usePagesBeautyStore = defineStore('pagesBeauty', () => {
     // 店舗情報
     stores.value = {
       title: '店舗情報',
-      outline: '吸収を中心に店舗を拡大中です！',
+      outline: '九州を中心に店舗を拡大中です！',
       stores: [
         {
           name: '健軍店',
           imgUrl: '/images/daycare/index/stores/01.png',
           place: '熊本',
           linkUrl: '/beauty/stores/0',
+        },
+        {
+          name: '香椎店',
+          imgUrl: '/images/daycare/index/stores/01.png',
+          place: '福岡',
+          linkUrl: '/beauty/stores/1',
+        },
+        {
+          name: '福津店',
+          imgUrl: '/images/daycare/index/stores/01.png',
+          place: '福岡',
+          linkUrl: '/beauty/stores/2',
+        },
+        {
+          name: '久留米店',
+          imgUrl: '/images/daycare/index/stores/01.png',
+          place: '福岡',
+          linkUrl: '/beauty/stores/3',
+        },
+        {
+          name: '春日店',
+          imgUrl: '/images/daycare/index/stores/01.png',
+          place: '福岡',
+          linkUrl: '/beauty/stores/4',
+        },
+        {
+          name: '姪浜店',
+          imgUrl: '/images/daycare/index/stores/01.png',
+          place: '福岡',
+          linkUrl: '/beauty/stores/5',
+        },
+        {
+          name: '金池店',
+          imgUrl: '/images/daycare/index/stores/01.png',
+          place: '大分',
+          linkUrl: '/beauty/stores/6',
+        },
+        {
+          name: '高城店',
+          imgUrl: '/images/daycare/index/stores/01.png',
+          place: '大分',
+          linkUrl: '/beauty/stores/7',
+        },
+        {
+          name: '下関店',
+          imgUrl: '/images/daycare/index/stores/01.png',
+          place: '山口',
+          linkUrl: '/beauty/stores/8',
+        },
+        {
+          name: '宇部店',
+          imgUrl: '/images/daycare/index/stores/01.png',
+          place: '山口',
+          linkUrl: '/beauty/stores/9',
         },
       ],
     };
@@ -278,42 +334,35 @@ export const usePagesBeautyStore = defineStore('pagesBeauty', () => {
           title: 'ご来店',
           subTitle: 'ご予約店舗へ来店',
           outline:
-            'ご予約いただいた店舗へご来店頂きます。 施術中にクレンジング等を行いますが、ご来店の際はいつも通りのメイクや髪型で来ていただけます。また、服装は上半身にタオルを巻いて施術を行いますので、着脱しやすい服装をおすすめしております。',
+            'ご予約いただいた店舗へご来店頂きます。 施術中にクレンジング等を行いますが、ご来店の際はいつも通りのメイクや髪型で来ていただけます。また、メニューによってはお着替えの後施術を行いますので、着脱しやすい服装をおすすめしております。',
           imgUrl: '/images/beauty/index/flow/02.png',
         },
         {
           title: '悩みをスタッフに打ち明けよう。',
           subTitle: 'アンケート・ヒアリング',
           outline:
-            'ご来店後、施術するお部屋へ担当がご案内いたします。 はじめてサロンをご利用されるお客様には、アレルギーや日頃どんなお悩みがあるのかアンケート用紙に記入していただいております。ブプラでは、少しでもお客様のお悩みを重点的に解決に導けるよう施術を行ってまいりますので、どんなお悩みでもまずはご相談ください。',
+            'はじめてサロンをご利用されるお客様には、アレルギーや日頃どんなお悩みがあるのかアンケート用紙に記入していただいております。ブプラでは、少しでもお客様のお悩みを重点的に解決に導けるよう施術を行ってまいりますので、どんなお悩みでもまずはご相談ください。',
           imgUrl: '/images/beauty/index/flow/03.png',
-        },
-        {
-          title: 'お着替え',
-          subTitle: 'お着替え',
-          outline:
-            'ここでいったん担当者は退室させていただき、施術用のタオルに着替えていただきます。大判のタオルにはボタンがついており、肩・腕を出すように胸の上でとめていただけるよう上の服は脱ぎ、下着は着用したまま紐は肩から外すようにしていただきます。下半身はお洋服を着用したままで大丈夫ですし、タオルは膝上までの長さがあるので、ワンピース等でお越し頂いても大丈夫です。',
-          imgUrl: '/images/beauty/index/flow/04.png',
         },
         {
           title: 'さっそく施術開始',
           subTitle: '施術',
           outline:
-            'まず頭蓋骨の形に合わせて全体をほぐします。おでこの生え際を中心にリンパの流れる○に向い、老廃物の流れを促すようマッサージします。 この際、お顔の左半分を先にマッサージさせていただき、変化があるかどうかを途中で鏡で確認することができます。頭全体のマッサージが終わると、フェイスラインをリフトアップマッサージしていきます。\r\nその後、「首」「鎖骨」から「脇の下」「二の腕」のリンパ節に向けてリンパのラインをマッサージして、頭蓋骨小顔矯正を終了致します。スペシャルコース・オプションをご利用のお客様は頭蓋骨小顔矯正終了後そのまま施術を続行いたします。',
+            'まず頭蓋骨の形に合わせて全体をほぐします。おでこの生え際を中心に、老廃物の流れを促すようマッサージします。 この際、お顔の右半分を先にマッサージさせていただき、変化があるかどうかを途中で鏡で確認することができます。頭全体のマッサージが終わると、フェイスラインをリフトアップマッサージして、頭蓋骨小顔矯正を終了致します。スペシャルコース・オプションをご利用のお客様はそのまま施術を続行いたします。',
           imgUrl: '/images/beauty/index/flow/05.png',
         },
         {
           title: '施術が終わったら？',
           subTitle: 'お着替え・お化粧直し',
           outline:
-            '施術が終わりましたら、お着替えしていただき施術中にクレンジングでメイクを落としますので、ヘアメイクのお直しのお時間をご用意しております。\r\nブプラでは、鏡・化粧水・美容液・クリーム・ヘアアイロンをご用意しておりますので、ご自由にお使いください。それ以外に必要なものがある場合は、お客様でご持参いただくようお願いしております。',
+            '施術が終わりましたら、ヘアメイクのお直しのお時間をご用意しております。ブプラでは、鏡・ドライヤー・ヘアブラシをご用意しておりますので、ご自由にお使いください。それ以外に必要なものがある場合は、お客様でご持参いただくようお願いしております。',
           imgUrl: '/images/beauty/index/flow/06.png',
         },
         {
           title: '継続来店でさらに綺麗に',
           subTitle: '次回のご予約',
           outline:
-            'はじめてのお客様には終了後、各コースとお得な回数券のご案内をさせていただいております。ブプラの施術では、２週間に１回のお手入れを推奨しており、定着するまでに6回が目安になります。回数や効果には個人差がございますので、お気軽にご相談ください。\r\nブプラでは、鏡・化粧水・美容液・クリーム・ヘアアイロンをご用意しておりますので、ご自由にお使いください。それ以外に必要なものがある場合は、お客様でご持参いただくようお願いしております。',
+            'はじめてのお客様には終了後、各コースとお得な回数券のご案内をさせていただいております。ブプラの施術では、２週間に１回のお手入れを推奨しており、定着するまでに6回が目安になります。回数や効果には個人差がございますので、お気軽にご相談ください。',
           imgUrl: '/images/beauty/index/flow/07.png',
         },
       ],

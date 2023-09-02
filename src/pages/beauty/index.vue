@@ -171,7 +171,9 @@
         class="mb-9 flex w-[95%] flex-col items-center space-y-4 pc:max-h-[364px] pc:max-w-[1200px]"
       >
         <!-- スライダー本体 -->
-        <div class="flex w-full items-center space-x-8 pc:max-h-[320px]">
+        <div
+          class="flex w-full items-center space-x-0 tb:space-x-8 pc:max-h-[320px]"
+        >
           <!-- ボタン（左） -->
           <div
             class="cursor-pointer text-[40px] text-bancor-gray100"
@@ -185,7 +187,7 @@
           </div>
           <!-- 写真 -->
           <div
-            class="relative flex h-[320px] w-[90%] max-w-[1100px] overflow-hidden rounded-3xl"
+            class="relative flex h-[320px] w-full max-w-[1100px] overflow-hidden rounded-3xl tb:w-[90%]"
           >
             <div
               class="absolute top-0 left-0 h-full w-full bg-cover bg-center"
@@ -269,7 +271,9 @@
           size="text-[16px]"
           :text="menu.outline"
         ></AtomsBasicOutline>
-        <div class="flex items-center justify-center space-x-8">
+        <div
+          class="flex flex-col items-center justify-center space-y-4 tb:flex-row tb:space-y-0 tb:space-x-8"
+        >
           <NuxtLink
             :to="menu.menus[0].linkUrl"
             class="flex h-[53px] w-[288px] items-center justify-center rounded-full border border-[#e09a39] bg-white font-bold text-[#e09a39]"
@@ -345,14 +349,14 @@
           :isBold="false"
         ></AtomsBasicOutline>
         <!-- 特徴3つ -->
-        <div class="flex flex-col space-y-[40px]">
+        <div class="flex w-full flex-col space-y-[40px]">
           <div
             v-for="feature in features.features"
-            class="flex flex-col items-center justify-between tb:flex-row"
+            class="flex w-full flex-col items-center justify-between tb:flex-row"
           >
             <!-- イラスト -->
             <div
-              class="flex h-[237px] w-[446px] items-center justify-center rounded-xl bg-white"
+              class="mb-3 flex h-[237px] w-[90%] items-center justify-center rounded-xl bg-white tb:mb-0 tb:w-[446px]"
             >
               <AtomsBasicIcon
                 size="h-[80%]"
@@ -360,10 +364,10 @@
               ></AtomsBasicIcon>
             </div>
             <!-- 本文 -->
-            <div class="flex w-[60%] flex-col">
+            <div class="flex w-full flex-col items-center tb:w-[60%]">
               <AtomsBasicTitle
                 class="mb-[47px]"
-                size="text-[20px] tb:text-[22px] pc:text-[24px]"
+                size="text-[18px] tb:text-[22px] pc:text-[24px]"
                 :text="feature.title"
                 space-y="space-y-2"
               ></AtomsBasicTitle>
@@ -587,7 +591,7 @@
           :isBold="false"
         ></AtomsBasicOutline>
         <!-- 店舗一覧 -->
-        <div class="flex w-full space-x-4">
+        <div class="flex w-full space-x-4 overflow-auto">
           <div v-for="item in stores.stores" class="flex flex-col space-y-4">
             <!-- 写真 -->
             <div
@@ -606,7 +610,7 @@
             <!-- 店舗名リンク -->
             <NuxtLink
               :to="item.linkUrl"
-              class="flex items-center space-x-4 text-[20px]"
+              class="flex items-center space-x-4 pb-6 text-[20px]"
             >
               <font-awesome-icon :icon="['fas', 'angle-right']" />
               <div class="font-bold">{{ item.name }}</div>
@@ -720,7 +724,7 @@
         ></AtomsBasicTitle>
         <!-- 説明 -->
         <AtomsBasicOutline
-          class="mb-[81px] tb:w-[50%]"
+          class="mb-[81px] w-[50%]"
           size="text-[16px]"
           :text="flow.outline"
           :isBold="false"
@@ -749,9 +753,7 @@
               </AtomsBasicTitle>
             </div>
             <!-- 内容 -->
-            <div
-              class="flex flex-col items-center tb:flex-row tb:justify-between"
-            >
+            <div class="flex justify-between">
               <!-- 写真 -->
               <AtomsBasicIcon
                 class="rounded-3xl"
@@ -759,9 +761,7 @@
                 :iconUrl="step.imgUrl"
               ></AtomsBasicIcon>
               <!-- 説明 -->
-              <div
-                class="flex flex-col items-center space-y-[44px] tb:w-[60%] tb:items-start"
-              >
+              <div class="flex w-[60%] flex-col space-y-[44px]">
                 <!-- タイトル -->
                 <AtomsBasicTitle
                   class="text-[#683f17]"
