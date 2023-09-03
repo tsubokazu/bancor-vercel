@@ -461,7 +461,7 @@
             <!-- ユーザー情報 -->
             <div class="mb-4 flex items-center">
               <AtomsBasicIcon
-                class="ml-[50px]"
+                class="ml-[8px] tb:ml-[50px]"
                 size="h-[40px]"
                 iconUrl="/images/beauty/index/review/icon.png"
               ></AtomsBasicIcon>
@@ -480,7 +480,7 @@
             </div>
             <!-- レビュー内容 -->
             <div
-              class="relative flex w-full flex-col rounded-3xl border border-[#cbd5e1] py-[32px] px-[50px]"
+              class="relative flex w-full flex-col rounded-3xl border border-[#cbd5e1] py-[32px] px-[16px] tb:px-[50px]"
             >
               <!-- ピックアップ -->
               <AtomsBasicIcon
@@ -629,14 +629,14 @@
         </div>
         <!-- 説明 -->
         <AtomsBasicOutline
-          class="mb-[480px]"
+          class="mb-[250px] tb:mb-[480px]"
           size="text-[16px]"
           :text="comparison.outline"
           :isBold="false"
         ></AtomsBasicOutline>
         <!-- プラス説明 -->
         <AtomsBasicOutline
-          class="mb-[57px] w-[60%]"
+          class="mb-[30px] w-[60%] tb:mb-[57px]"
           size="text-[16px]"
           :text="comparison.outline2"
         ></AtomsBasicOutline>
@@ -644,14 +644,16 @@
         <div class="flex justify-center">
           <NuxtLink
             to="/"
-            class="flex h-[53px] w-[288px] items-center justify-center rounded-full bg-white text-[18px] font-bold text-[#e09a39]"
+            class="mb-[50px] flex h-[53px] w-[288px] items-center justify-center rounded-full bg-white text-[18px] font-bold text-[#e09a39]"
           >
             もっとみる
           </NuxtLink>
         </div>
 
         <!-- Before & After -->
-        <div class="absolute bottom-0 -z-10 flex h-[554px] w-screen">
+        <div
+          class="absolute bottom-0 -z-10 flex h-[400px] w-screen tb:h-[554px]"
+        >
           <div class="h-full w-1/2 bg-[#cbd5e1]"></div>
           <div class="h-full w-1/2 bg-[#e09a39]"></div>
         </div>
@@ -667,24 +669,26 @@
         </div>
         <!-- 写真比較 -->
         <AtomsBasicIcon
-          class="absolute bottom-[250px] -translate-x-[200px]"
-          size="h-[398px]"
+          class="absolute bottom-[310px] -translate-x-[100px] tb:bottom-[250px] tb:-translate-x-[200px]"
+          size="h-[200px] tb:h-[398px]"
           iconUrl="/images/beauty/index/comparison/01.png"
         >
         </AtomsBasicIcon>
-        <div class="absolute bottom-[450px] text-[25px] text-[#94a3b8]">
+        <div
+          class="absolute bottom-[350px] text-[25px] text-[#94a3b8] tb:bottom-[450px]"
+        >
           <font-awesome-icon :icon="['fas', 'arrow-right']" />
         </div>
         <AtomsBasicIcon
-          class="absolute bottom-[250px] translate-x-[200px]"
-          size="h-[398px]"
+          class="absolute bottom-[310px] translate-x-[100px] tb:bottom-[250px] tb:translate-x-[200px]"
+          size="h-[200px] tb:h-[398px]"
           iconUrl="/images/beauty/index/comparison/02.png"
         >
         </AtomsBasicIcon>
       </div>
 
       <!-- コピー -->
-      <div class="relative mb-[80px] h-[648px] w-full pc:max-w-[1920px]">
+      <div class="relative h-[648px] w-full tb:mb-[80px] pc:max-w-[1920px]">
         <div class="absolute z-10 h-full w-full bg-[#020620] opacity-40"></div>
         <img
           class="h-full object-cover"
