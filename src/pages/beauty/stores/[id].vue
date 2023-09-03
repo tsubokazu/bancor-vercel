@@ -8,25 +8,17 @@
   import axios from 'axios';
 
   // GoogleMapの中心座標を取得
-  const extractLatLngFromShortenedUrl = async (shortenedUrl: string) => {
-    try {
-      const response = await axios.get(shortenedUrl, {
-        maxRedirects: 0, // リダイレクトを阻止
-        validateStatus: (status) => status >= 300 && status < 400, // 3xx レスポンスをエラーとして扱わない
-      });
-    } catch (error: any) {
-      if (error.response && error.response.headers.location) {
-        const redirectedUrl = error.response.headers.location;
-        const latLngRegex = /@(-?\d+\.\d+),(-?\d+\.\d+)/;
-        const match = redirectedUrl.match(latLngRegex);
-        if (match && match.length >= 3) {
-          return {
-            latitude: parseFloat(match[1]),
-            longitude: parseFloat(match[2]),
-          };
-        }
-      }
+  const extractLatLngFromGoogleMapsUrl = (url: string) => {
+    const latLngRegex = /@(-?\d+\.\d+),(-?\d+\.\d+),\d+z/;
+    const match = url.match(latLngRegex);
+
+    if (match && match.length >= 3) {
+      return {
+        latitude: parseFloat(match[1]),
+        longitude: parseFloat(match[2]),
+      };
     }
+
     return null;
   };
 
@@ -46,12 +38,16 @@
   const { header, stores }: BeautyStoresObject = beautyStoresStore;
 
   // GoogleMapの中心座標を取得
-  const shortenedUrl = stores.stores[storeId].mapUrl;
-  const coordinates = await extractLatLngFromShortenedUrl(shortenedUrl);
+  const url = stores.stores[storeId].mapUrl;
+  const coordinates = extractLatLngFromGoogleMapsUrl(url);
   const center =
     coordinates?.latitude && coordinates?.longitude
       ? { lat: coordinates.latitude, lng: coordinates.longitude }
       : { lat: 33.880568, lng: 130.877602 };
+  console.log(`coordinates: ${JSON.stringify(coordinates)}`);
+
+  console.log(`center: ${JSON.stringify(center)}`);
+
   const config = useRuntimeConfig();
   const googleMapApiKey = config.public.googleMapApiKey;
 
