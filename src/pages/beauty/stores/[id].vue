@@ -5,9 +5,30 @@
   import { usePagesSystemDevStore } from '~/stores/pages/system-development';
   import ScrollParallax from 'vue3-parallax/src/components/ScrollParallax.vue';
   import { GoogleMap, Marker } from 'vue3-google-map';
-  const center = { lat: 32.7831, lng: 130.76051 };
-  const config = useRuntimeConfig();
-  const googleMapApiKey = config.public.googleMapApiKey;
+  import axios from 'axios';
+
+  // GoogleMapの中心座標を取得
+  const extractLatLngFromShortenedUrl = async (shortenedUrl: string) => {
+    try {
+      const response = await axios.get(shortenedUrl, {
+        maxRedirects: 0, // リダイレクトを阻止
+        validateStatus: (status) => status >= 300 && status < 400, // 3xx レスポンスをエラーとして扱わない
+      });
+    } catch (error: any) {
+      if (error.response && error.response.headers.location) {
+        const redirectedUrl = error.response.headers.location;
+        const latLngRegex = /@(-?\d+\.\d+),(-?\d+\.\d+)/;
+        const match = redirectedUrl.match(latLngRegex);
+        if (match && match.length >= 3) {
+          return {
+            latitude: parseFloat(match[1]),
+            longitude: parseFloat(match[2]),
+          };
+        }
+      }
+    }
+    return null;
+  };
 
   definePageMeta({
     layout: 'default',
@@ -17,12 +38,22 @@
   const storeId = Number(route.params.id);
   console.log(`storeId: ${storeId}`);
 
-  // 放課後等デイサービスページ情報をPiniaから取得
+  // 美容事業ページ情報をPiniaから取得
   const beautyStoresStore = useBeautyStoresStore();
   if (Object.keys(beautyStoresStore.header).length == 0) {
     await beautyStoresStore.fetchBeautyStores();
   }
   const { header, stores }: BeautyStoresObject = beautyStoresStore;
+
+  // GoogleMapの中心座標を取得
+  const shortenedUrl = stores.stores[storeId].mapUrl;
+  const coordinates = await extractLatLngFromShortenedUrl(shortenedUrl);
+  const center =
+    coordinates?.latitude && coordinates?.longitude
+      ? { lat: coordinates.latitude, lng: coordinates.longitude }
+      : { lat: 33.880568, lng: 130.877602 };
+  const config = useRuntimeConfig();
+  const googleMapApiKey = config.public.googleMapApiKey;
 
   // ウィンドウサイズからスマホかどうかを判定
   const windowWidth = ref(
@@ -59,7 +90,7 @@
 <template>
   <div class="flex w-full flex-col items-center overflow-hidden">
     <!-- ヘッダー -->
-    <div class="h-[240px] w-full pc:h-[293px]">
+    <div class="h-[160px] w-full tb:h-[240px] pc:h-[293px]">
       <AtomsBasicHeader
         :imgUrl="header.imgUrl"
         class="h-full w-full"
@@ -70,28 +101,32 @@
     <div class="relative flex w-full flex-col items-center">
       <!-- ヘッダータイトル -->
       <div
-        class="absolute -top-32 flex w-[95%] flex-col space-y-3 pc:-bottom-[60px] pc:max-w-[1200px]"
+        class="absolute -top-14 flex w-[95%] flex-col space-y-3 tb:-top-32 pc:-bottom-[60px] pc:max-w-[1200px]"
       >
-        <div class="text-[32px] font-bold">{{ header.title }}</div>
+        <div class="text-[26px] font-bold tb:text-[32px]">
+          {{ header.title }}
+        </div>
       </div>
 
       <!-- 店舗情報 -->
       <div
-        class="flex w-[95%] flex-col rounded-[40px] py-[64px] px-[50px] pc:max-w-[1100px]"
+        class="flex w-full flex-col rounded-[40px] py-[64px] px-[50px] tb:w-[95%] pc:max-w-[1100px]"
       >
         <!-- 店舗写真＆アクセス等 -->
         <div
-          class="mb-[64px] flex flex-col space-y-6 tb:flex-row tb:space-y-0 tb:space-x-14"
+          class="mb-[32px] flex flex-col space-y-6 tb:mb-[64px] tb:flex-row tb:space-y-0 tb:space-x-14"
         >
           <!-- 店舗写真 -->
           <AtomsBasicIcon
-            size="h-[258px]"
+            size="h-auto tb:h-[258px]"
             :iconUrl="stores.stores[storeId].imgUrl"
           ></AtomsBasicIcon>
           <!-- アクセス等 -->
           <div class="flex flex-col">
             <!-- 店舗名 -->
-            <div class="mb-[34px] text-[24px] font-bold text-[#683f17]">
+            <div
+              class="mb-[20px] text-[20px] font-bold text-[#683f17] tb:mb-[34px] tb:text-[24px]"
+            >
               {{ stores.stores[storeId].name }}
             </div>
             <!-- 住所 -->
@@ -139,12 +174,12 @@
 
         <!-- 予約・口コミ -->
         <div
-          class="flex w-[95%] flex-col items-center tb:flex-row tb:justify-between pc:max-w-[1100px]"
+          class="flex w-[95%] flex-col items-center space-y-4 tb:flex-row tb:justify-between tb:space-y-0 pc:max-w-[1100px]"
         >
           <!-- 予約 -->
           <NuxtLink
             :to="stores.stores[storeId].reserveUrl"
-            class="relative flex h-[128px] w-[45%] flex-col items-center justify-center space-y-4 rounded-[10px] border border-[#e2e8f0]"
+            class="relative flex h-[128px] w-full flex-col items-center justify-center space-y-4 rounded-[10px] border border-[#e2e8f0] tb:w-[45%]"
           >
             <AtomsBasicIcon
               size="h-[42.3px]"
@@ -161,7 +196,7 @@
           <!-- 口コミ -->
           <NuxtLink
             :to="stores.stores[storeId].reserveUrl"
-            class="relative flex h-[128px] w-[45%] flex-col items-center justify-center space-y-4 rounded-[10px] border border-[#e2e8f0]"
+            class="relative flex h-[128px] w-full flex-col items-center justify-center space-y-4 rounded-[10px] border border-[#e2e8f0] tb:w-[45%]"
           >
             <AtomsBasicIcon
               size="h-[42.3px]"
