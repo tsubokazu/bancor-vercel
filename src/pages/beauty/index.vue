@@ -329,7 +329,11 @@
       >
         <AtomsBasicIcon
           size="pc:h-[410px]"
-          iconUrl="/images/beauty/index/problem/01.png"
+          :iconUrl="
+            isSmartPhone
+              ? `/images/beauty/index/problem/02.png`
+              : `/images/beauty/index/problem/01.png`
+          "
         ></AtomsBasicIcon>
       </div>
 

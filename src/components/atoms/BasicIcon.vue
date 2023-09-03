@@ -15,6 +15,6 @@
 
 <template>
   <div>
-    <img :src="iconUrl" alt="altText" :class="size" />
+    <img :src="iconUrl" alt="altText" class="object-contain" :class="size" />
   </div>
 </template>
