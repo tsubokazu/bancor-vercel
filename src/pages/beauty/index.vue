@@ -359,7 +359,7 @@
               class="mb-3 flex h-[237px] w-[90%] items-center justify-center rounded-xl bg-white tb:mb-0 tb:w-[446px]"
             >
               <AtomsBasicIcon
-                size="h-[80%]"
+                size="h-[70%]"
                 :iconUrl="feature.imgUrl"
               ></AtomsBasicIcon>
             </div>
@@ -688,7 +688,7 @@
       </div>
 
       <!-- コピー -->
-      <div class="relative h-[648px] w-full tb:mb-[80px] pc:max-w-[1920px]">
+      <div class="relative mb-[80px] h-[648px] w-full pc:max-w-[1920px]">
         <div class="absolute z-10 h-full w-full bg-[#020620] opacity-40"></div>
         <img
           class="h-full object-cover"
@@ -723,12 +723,12 @@
       <div class="mb-[141px] flex w-[95%] flex-col pc:max-w-[1200px]">
         <!-- タイトル -->
         <AtomsBasicTitle
-          class="mb-[64px] text-[40px] font-bold text-[#683f17]"
+          class="mb-[30px] text-[40px] font-bold text-[#683f17] tb:mb-[64px]"
           :text="flow.title"
         ></AtomsBasicTitle>
         <!-- 説明 -->
         <AtomsBasicOutline
-          class="mb-[81px] w-[50%]"
+          class="mb-[40px] tb:mb-[81px] tb:w-[50%]"
           size="text-[16px]"
           :text="flow.outline"
           :isBold="false"
@@ -740,7 +740,7 @@
             class="flex flex-col space-y-6 text-[#683f17]"
           >
             <!-- ステップタイトル -->
-            <div class="flex space-x-6">
+            <div class="flex items-center space-x-6">
               <!-- 数字 -->
               <div
                 class="flex h-[68px] w-[68px] items-center justify-center rounded-full border border-[#683f17] text-[24px] font-bold"
@@ -750,14 +750,16 @@
               <!-- タイトル -->
               <AtomsBasicTitle
                 class="flex items-center"
-                size="text-[28px]"
+                size="text-[24px] tb:text-[28px]"
                 :text="step.title"
                 color="text-[#683f17]"
               >
               </AtomsBasicTitle>
             </div>
             <!-- 内容 -->
-            <div class="flex justify-between">
+            <div
+              class="flex flex-col justify-between space-y-4 tb:flex-row tb:space-y-0"
+            >
               <!-- 写真 -->
               <AtomsBasicIcon
                 class="rounded-3xl"
@@ -765,7 +767,9 @@
                 :iconUrl="step.imgUrl"
               ></AtomsBasicIcon>
               <!-- 説明 -->
-              <div class="flex w-[60%] flex-col space-y-[44px]">
+              <div
+                class="flex w-full flex-col space-y-4 tb:w-[60%] tb:space-y-[44px]"
+              >
                 <!-- タイトル -->
                 <AtomsBasicTitle
                   class="text-[#683f17]"
@@ -774,7 +778,7 @@
                 ></AtomsBasicTitle>
                 <!-- 説明 -->
                 <AtomsBasicOutline
-                  class="w-[80%]"
+                  class="w-full tb:w-[80%]"
                   size="text-[16px]"
                   :text="step.outline"
                   :isBold="false"
