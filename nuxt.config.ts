@@ -104,6 +104,7 @@ export default defineNuxtConfig({
       kurocoPagesPrivacyPolicy: '/rcms-api/10/pages?topics_group_id=29', // プライバシーポリシーページ
       kurocoPagesTrademarks: '/rcms-api/10/pages?topics_group_id=30', // 他者商標・著作物ページ
       kurocoPagesSiteUsage: '/rcms-api/10/pages?topics_group_id=31', // 本サイトのご利用についてページ
+      kurocoPagesBeautyQuestions: '/rcms-api/10/pages?topics_group_id=33', // よくあるご質問ページ
       kurocoSubmitEntryForm: '/rcms-api/11/form?id=3', // 採用エントリー
       kurocoSubmitDownloadMaterialForm: '/rcms-api/11/form?id=4', // 資料ダウンロード
       kurocoSubmitContactForm: '/rcms-api/11/form?id=5', // お問い合わせ

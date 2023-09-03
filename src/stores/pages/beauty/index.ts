@@ -372,7 +372,7 @@ export const usePagesBeautyStore = defineStore('pagesBeauty', () => {
     question.value = {
       title: 'よくあるご質問',
       subTitle: 'Questions',
-      linkUrl: '/',
+      linkUrl: '/beauty/questions',
     };
   };
   return {

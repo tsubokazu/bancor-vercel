@@ -16,5 +16,5 @@ export interface BeautyQuestionsQuestions {
 
 export interface BeautyQuestionsObject {
   header: BeautyQuestionsHeader;
-  stores: BeautyQuestionsQuestions;
+  questions: BeautyQuestionsQuestions;
 }
