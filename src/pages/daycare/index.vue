@@ -64,16 +64,15 @@
   };
 
   // 園内環境ページへのクリックフラグ
-  const clickEnvironmentFlag = ref(0);
+  const environmentIndex = ref(1);
   const clickEnvironmentButton = () => {
-    clickEnvironmentFlag.value =
-      clickEnvironmentFlag.value + 1 < environment.environments.length
-        ? clickEnvironmentFlag.value + 1
+    environmentIndex.value =
+      environmentIndex.value + 1 < environment.environments.length
+        ? environmentIndex.value + 1
         : 0;
   };
 
   // 園内環境の写真をスライドする
-  const environmentIndex = ref(1);
   const clickEnvironmentLeftButton = () => {
     environmentIndex.value =
       environmentIndex.value - 1 < 0
@@ -124,6 +123,11 @@
       strengthFlag.value = 0;
     }
   };
+
+  // 3秒ごとにstrengthFlagを切り替える
+  setInterval(() => {
+    changeStrengthFlag();
+  }, 3000);
 
   // ウィンドウサイズからスマホかどうかを判定
   const windowWidth = ref(
@@ -250,7 +254,7 @@
         <!-- もっとみるボタン -->
         <div class="flex w-[95%] items-center justify-center">
           <NuxtLink
-            to="/journal"
+            to="/journal?tag=福祉"
             class="flex items-center justify-center rounded-full py-4 px-11 text-[18px] font-bold text-bancor-green100 shadow-md"
           >
             もっとみる
@@ -605,7 +609,7 @@
             ></AtomsBasicIcon>
           </div>
         </div>
-        <!-- clickEnvironmentFlagを切り替えるためのボタン -->
+        <!-- environmentIndexを切り替えるためのボタン -->
         <button
           class="group absolute bottom-0 right-0 flex items-center justify-center space-x-6"
           @click="clickEnvironmentButton"

@@ -1,5 +1,8 @@
 <script setup lang="ts">
   import { useLoadingStore } from '../stores/loading';
+  import { useHead } from '@vueuse/head';
+  import { useHeadTag } from '~/stores/headTag';
+  import { HeadTag } from '~/types/headTag';
   const loadingStore = useLoadingStore();
   const isLoading = ref(false);
   if (loadingStore.loadingFlag) {
@@ -15,6 +18,34 @@
         loadingStore.setLoadingFlag(false);
       }, 1000);
     }
+  });
+  // headタグの情報をPiniaから取得
+  const headTagStore = useHeadTag();
+  console.log(
+    `Object.keys(headTagStore.headTag): ${Object.keys(headTagStore.headTag)}`
+  );
+
+  if (Object.keys(headTagStore.headTag).length == 0) {
+    await headTagStore.fetchHeadTag();
+  }
+  const { headTag } = headTagStore;
+
+  useHead({
+    title: headTag.title,
+    meta: [
+      {
+        hid: 'description',
+        name: 'description',
+        content: headTag.description,
+      },
+    ],
+    link: [
+      {
+        rel: 'icon',
+        type: 'image/x-icon',
+        href: '/favicon.ico',
+      },
+    ],
   });
 </script>
 

@@ -19,8 +19,13 @@
     tagList: Array<string>;
   } = journalStore;
 
+  // URLのクエリにtagがある場合は、そのタグの記事を表示する
+  const route = useRoute();
+  const tag = route.query.tag as string;
+  console.log(`tag: ${tag}`);
+
   // 記事一覧に表示するカテゴリ(new: 新着記事、pickup: ピックアップ記事、feature: 注目記事、tag: ハッシュタグ記事)
-  const category = ref('New Article');
+  const category = tag === undefined ? ref('New Article') : ref(tag);
   const clickCategoryNew = () => (category.value = 'New Article');
   const clickCategoryPickup = () => (category.value = 'Pickup');
   const clickCategoryFeature = () => (category.value = 'Feature');
@@ -35,13 +40,10 @@
       return pickupList;
     } else if (category.value == 'Feature') {
       return featureList;
-    } else if (category.value.includes('#')) {
+    } else {
       return journalList.filter((journal: JournalObject) => {
         return journal.hashTag.includes(category.value.replace(' #', ''));
       });
-    } else {
-      category.value = 'New Article';
-      return journalList;
     }
   });
 

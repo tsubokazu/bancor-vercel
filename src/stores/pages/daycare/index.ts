@@ -565,7 +565,7 @@ export const usePagesDaycareStore = defineStore('pagesDaycare', () => {
       items: [
         {
           title: 'お問い合わせ',
-          linkUrl: '/daycare/enquete',
+          linkUrl: '/daycare/contact',
         },
         {
           title: '保護者様向け\r\nアンケート',
