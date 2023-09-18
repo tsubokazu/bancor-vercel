@@ -1,5 +1,8 @@
 <script setup lang="ts">
   import { useTopSplashStore } from '../stores/top-splash';
+  import { useHead } from '@vueuse/head';
+  import { useBancorHeadTag } from '~/stores/headTag/bancor';
+  import { HeadTag } from '~/types/headTag';
   const topSplashStore = useTopSplashStore();
   const isLoading = ref(false);
   if (topSplashStore.topSplashFlag) {
@@ -15,6 +18,46 @@
         topSplashStore.setTopSplashFlag(false);
       }, 2500);
     }
+  });
+
+  // headタグの情報をPiniaから取得
+  const bancorHeadTagStore = useBancorHeadTag();
+  console.log(
+    `Object.keys(bancorHeadTagStore.headTags): ${Object.keys(
+      bancorHeadTagStore.headTags
+    )}`
+  );
+
+  if (Object.keys(bancorHeadTagStore.headTags).length == 0) {
+    await bancorHeadTagStore.fetchHeadTag();
+  }
+  const { headTags } = bancorHeadTagStore as any | HeadTag[];
+  let headTag: HeadTag = headTags[0];
+
+  const route = useRoute();
+  watch(route, (newRoute, oldRoute) => {
+    for (let i = 0; i < headTags.length; i++) {
+      if (headTags[i].linkUrl == route.path) {
+        headTag = headTags[i];
+      }
+    }
+
+    useHead({
+      title: headTag.title,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: headTag.description,
+        },
+      ],
+      link: [
+        {
+          rel: 'icon',
+          href: '/favicon.ico',
+        },
+      ],
+    });
   });
 </script>
 

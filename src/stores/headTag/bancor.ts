@@ -1,6 +1,7 @@
-export const useHeadTag = defineStore('headTag', () => {
+import { HeadTag } from '~/types/headTag';
+export const useBancorHeadTag = defineStore('headTag', () => {
   // headタグについての情報をKurocoから取得
-  const headTag: any = ref([]); // headタグの情報
+  const headTags: any | HeadTag[] = ref([]); // headタグの情報
 
   const fetchHeadTag = async () => {
     console.log('fetchHeadTag');
@@ -18,15 +19,16 @@ export const useHeadTag = defineStore('headTag', () => {
         (data: any): any => data.topics_id == 104
       )[0];
       // 取得したデータを型に当てはめる
-      headTag.value = {
-        title: data.ext_1,
-        description: data.ext_2,
-      };
+      headTags.value = data.ext_1.map((title: string, index: number) => ({
+        title: title,
+        description: data.ext_2[index],
+        linkUrl: data.ext_3[index],
+      }));
     }
   };
 
   return {
-    headTag,
+    headTags,
     fetchHeadTag,
   };
 });

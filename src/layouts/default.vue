@@ -1,7 +1,7 @@
 <script setup lang="ts">
   import { useLoadingStore } from '../stores/loading';
   import { useHead } from '@vueuse/head';
-  import { useHeadTag } from '~/stores/headTag';
+  import { useBancorHeadTag } from '~/stores/headTag/bancor';
   import { HeadTag } from '~/types/headTag';
   const loadingStore = useLoadingStore();
   const isLoading = ref(false);
@@ -19,33 +19,45 @@
       }, 1000);
     }
   });
+
   // headタグの情報をPiniaから取得
-  const headTagStore = useHeadTag();
+  const bancorHeadTagStore = useBancorHeadTag();
   console.log(
-    `Object.keys(headTagStore.headTag): ${Object.keys(headTagStore.headTag)}`
+    `Object.keys(bancorHeadTagStore.headTags): ${Object.keys(
+      bancorHeadTagStore.headTags
+    )}`
   );
 
-  if (Object.keys(headTagStore.headTag).length == 0) {
-    await headTagStore.fetchHeadTag();
+  if (Object.keys(bancorHeadTagStore.headTags).length == 0) {
+    await bancorHeadTagStore.fetchHeadTag();
   }
-  const { headTag } = headTagStore;
+  const { headTags } = bancorHeadTagStore as any | HeadTag[];
+  let headTag: HeadTag = headTags[0];
 
-  useHead({
-    title: headTag.title,
-    meta: [
-      {
-        hid: 'description',
-        name: 'description',
-        content: headTag.description,
-      },
-    ],
-    link: [
-      {
-        rel: 'icon',
-        type: 'image/x-icon',
-        href: '/favicon.ico',
-      },
-    ],
+  const route = useRoute();
+  watch(route, (newRoute, oldRoute) => {
+    for (let i = 0; i < headTags.length; i++) {
+      if (headTags[i].linkUrl == route.path) {
+        headTag = headTags[i];
+      }
+    }
+
+    useHead({
+      title: headTag.title,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: headTag.description,
+        },
+      ],
+      link: [
+        {
+          rel: 'icon',
+          href: '/favicon.ico',
+        },
+      ],
+    });
   });
 </script>
 
