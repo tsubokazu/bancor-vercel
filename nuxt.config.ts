@@ -9,7 +9,6 @@ export default defineNuxtConfig({
     '/download-material/**': { static: true },
     '/journal/**': { static: true },
     '/news/**': { static: true },
-    '/care-welfare': { static: true },
     '/bancor-3min': { static: true },
     '/company-info': { static: true },
     '/company-profile': { static: true },
@@ -24,7 +23,6 @@ export default defineNuxtConfig({
     '/system-development': { static: true },
     '/trademarks': { static: true },
     '/vision': { static: true },
-    '/daycare/**': { static: true },
   },
   css: [
     '~/assets/css/main.css',
@@ -93,6 +91,8 @@ export default defineNuxtConfig({
       kurocoPagesSiteUsage: '/rcms-api/10/pages?topics_group_id=31', // 本サイトのご利用についてページ
       kurocoPagesBeautyQuestions: '/rcms-api/10/pages?topics_group_id=33', // よくあるご質問ページ
       kurocoHeadTag: '/rcms-api/10/pages?topics_group_id=34', // Headタグ
+      kurocoWelfareHeadTag: '/rcms-api/10/pages?topics_group_id=35', // 福祉Headタグ
+      kurocoBeautyHeadTag: '/rcms-api/10/pages?topics_group_id=36', // 美容Headタグ
       kurocoSubmitEntryForm: '/rcms-api/11/form?id=3', // 採用エントリー
       kurocoSubmitDownloadMaterialForm: '/rcms-api/11/form?id=4', // 資料ダウンロード
       kurocoSubmitContactForm: '/rcms-api/11/form?id=5', // お問い合わせ
