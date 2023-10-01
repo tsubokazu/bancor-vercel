@@ -34,6 +34,23 @@
   const { headTags } = bancorHeadTagStore as any | HeadTag[];
   let headTag: HeadTag = headTags[0];
 
+  useHead({
+    title: headTag.title,
+    meta: [
+      {
+        hid: 'description',
+        name: 'description',
+        content: headTag.description,
+      },
+    ],
+    link: [
+      {
+        rel: 'icon',
+        href: '/favicon.ico',
+      },
+    ],
+  });
+
   const route = useRoute();
   watch(route, (newRoute, oldRoute) => {
     for (let i = 0; i < headTags.length; i++) {
