@@ -20,7 +20,7 @@
 <template>
   <div
     class="text-bancorbla flex flex-col"
-    :class="[props.size, props.color, { 'font-bold': isBold }, spaceY]"
+    :class="[props.size, props.color, { 'font-bold': isBold }, props.spaceY]"
   >
     {{ titleText.slice(0, maxChars) + '...' }}
   </div>
