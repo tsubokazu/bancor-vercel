@@ -33,6 +33,12 @@
   }
   const { headTags } = bancorHeadTagStore as any | HeadTag[];
   let headTag: HeadTag = headTags[0];
+  const route = useRoute();
+  for (let i = 0; i < headTags.length; i++) {
+    if (headTags[i].linkUrl == route.path) {
+      headTag = headTags[i];
+    }
+  }
 
   useHead({
     title: headTag.title,
@@ -51,7 +57,6 @@
     ],
   });
 
-  const route = useRoute();
   watch(route, (newRoute, oldRoute) => {
     for (let i = 0; i < headTags.length; i++) {
       if (headTags[i].linkUrl == route.path) {
