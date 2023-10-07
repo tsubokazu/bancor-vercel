@@ -46,10 +46,13 @@
       <div
         class="flex w-[95%] flex-col items-center justify-between space-y-10 tb:flex-row tb:space-y-0 pc:max-w-[1000px]"
       >
-        <AtomsBasicTitle :text="message.mainMessage"></AtomsBasicTitle>
+        <AtomsBasicTitle
+          size="text-[32px] tb:text-[48px] pc:text-[60px]"
+          :text="message.mainMessage"
+        ></AtomsBasicTitle>
         <AtomsBasicImage
           :imgUrl="message.imgUrl"
-          imgHeight="h-[200px] w-[320px] tb:w-[480px] tb:h-[250px] pc:w-[640px] pc:h-[324px]"
+          imgHeight="max-w-[95%] h-[382px] w-[428px] tb:w-[480px] tb:h-[428px] pc:w-[538px] pc:h-[480px]"
         ></AtomsBasicImage>
       </div>
 
