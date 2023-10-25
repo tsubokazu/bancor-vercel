@@ -7,7 +7,6 @@ export default defineNuxtConfig({
     '/': { static: true },
     '/contact': { static: true },
     '/download-material/**': { static: true },
-    '/journal/**': { static: true },
     '/news/**': { static: true },
     '/bancor-3min': { static: true },
     '/company-info': { static: true },
