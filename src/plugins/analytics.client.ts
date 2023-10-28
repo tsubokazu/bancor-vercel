@@ -11,7 +11,7 @@ export default defineNuxtPlugin((nuxtApp) => {
     {
       appName: 'bancor.co.jp', // サイトの名称
       pageTrackerScreenviewEnabled: true, // ページトラッキングスクリーンビューを有効
-      config: { id: `G-GV2HWN595B` }, // GoogleAnalytics(GA4)の測定IDを指定する
+      config: { id: `G-56VL1DLNHS` }, // GoogleAnalytics(GA4)の測定IDを指定する
     },
     router
   );
