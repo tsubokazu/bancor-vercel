@@ -2,9 +2,8 @@
   import { JournalObject } from '~/types/Journal';
   // Bancor JournalをPiniaから取得
   const journalStore = useJournalStore();
-  if (journalStore.journalList.length == 0) {
-    await journalStore.fetchJournals();
-  }
+  await journalStore.fetchJournals();
+
   const {
     journalList,
     pickupList,
