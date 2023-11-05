@@ -26,3 +26,222 @@
 html {
   scroll-behavior: smooth;
 }
+
+.kuroco-article {
+  color: #101010;
+}
+
+.kuroco-article h1 {
+  font-size: 32px;
+  line-height: 32px;
+  font-weight: bold;
+  margin: 52px 0;
+}
+
+.kuroco-article h2 {
+  font-size: 28px;
+  line-height: 28px;
+  font-weight: bold;
+  margin: 48px 0;
+}
+
+.kuroco-article h3 {
+  font-size: 24px;
+  line-height: 24px;
+  font-weight: bold;
+  margin: 32px 0;
+}
+
+.kuroco-article h4 {
+  font-size: 20px;
+  line-height: 20px;
+  font-weight: bold;
+  margin: 24px 0;
+}
+
+.kuroco-article p {
+  font-size: 16px;
+  line-height: 16px;
+  margin: 16px 0;
+}
+
+.kuroco-article .nuvers-notice-normal {
+  display: block;
+  background-color: #ededed;
+  margin: 32px 0;
+  padding: 16px;
+  border-radius: 5px;
+}
+
+.kuroco-article .nuvers-notice-yellow {
+  display: block;
+  background-color: #fff8e6;
+  margin: 32px 0;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.kuroco-article .nuvers-notice-red {
+  position: relative;
+  background-color: #ffefef;
+  margin: 32px 0;
+  padding: 16px 16px 16px 16px;
+  border-radius: 8px;
+}
+
+.kuroco-article .nuvers-notice-red-icon {
+  position: absolute;
+  top: 16px;
+  left: 19px;
+  width: 18px;
+  height: 18px;
+  background-image: url('https://bancor.g.kuroco-img.app/files/user/nuvers-design-asset/nuvers-notice/nuvers-notice-red.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.kuroco-article .nuvers-notice-text {
+  margin-left: 28px;
+}
+
+.kuroco-article .nuvers-notice-blue {
+  display: block;
+  background-color: #f7f7f7;
+  margin: 32px 0;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.kuroco-article blockquote {
+  position: relative;
+  padding: 8px 20px;
+  color: #797979;
+}
+
+.kuroco-article blockquote::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background-color: #797979;
+  border-radius: 4px;
+}
+
+.kuroco-article li {
+  margin: 12px 0;
+  padding-left: 20px;
+  position: relative;
+}
+
+.kuroco-article ul li::before {
+  position: absolute;
+  top: 9px;
+  left: 0;
+  content: '';
+  display: block;
+  width: 6px;
+  height: 6px;
+  background-color: #464646;
+  border-radius: 100%;
+  margin-right: 12px;
+}
+
+.kuroco-article ul li li::before {
+  background-color: #fff;
+  border: solid 1px #464646;
+}
+
+.kuroco-article ul li li li::before {
+  background-color: #464646;
+  border-radius: 0;
+}
+
+.kuroco-article ol {
+  counter-reset: item;
+}
+
+.kuroco-article ol li {
+  counter-increment: item;
+  position: relative;
+}
+
+.kuroco-article ol li:before {
+  content: counter(item) '. ';
+  position: absolute;
+  left: 0;
+}
+
+.kuroco-article ol ol {
+  counter-reset: item;
+}
+
+.kuroco-article ol ol li {
+  counter-increment: item;
+  position: relative;
+  padding-left: 28px;
+}
+
+.kuroco-article ol ol li:before {
+  content: counters(item, '.') ' ';
+  margin-right: 8px;
+}
+
+.kuroco-article ol ol ol li {
+  counter-increment: item;
+  position: relative;
+  padding-left: 40px;
+}
+
+.kuroco-article blockquote li::before {
+  background-color: #797979;
+}
+
+.kuroco-article .nuvers-blog-card {
+  display: flex;
+  align-items: center;
+  height: 128px;
+  margin: 32px 0;
+  border-radius: 8px;
+  border: solid 1px #d6d6d6;
+  overflow: hidden;
+}
+
+.kuroco-article .nuvers-blog-card-text {
+  padding: 16px;
+  width: 70%;
+}
+
+.kuroco-article .nuvers-blog-card-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.kuroco-article .nuvers-blog-card-abstract {
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+
+.kuroco-article .nuvers-blog-card-url {
+  font-size: 14px;
+  color: #8b8b8b;
+}
+
+.kuroco-article .nuvers-blog-card-image {
+  width: 30%;
+  height: 100%;
+  background-color: #797979;
+}
+
+.kuroco-article a {
+  color: #0070f3;
+  text-decoration: none;
+}
+
+.kuroco-article a:hover {
+  text-decoration: underline;
+}
