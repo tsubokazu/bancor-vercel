@@ -557,7 +557,7 @@
                         class="text-[14px] text-bancor-black400 tb:text-[16px]"
                       >
                         <a
-                          href="http://localhost:3000/privacy-policy"
+                          href="https://www.bancor.co.jp/privacy-policy"
                           target="_blank"
                           class="text-[14px] text-bancor-blue200 tb:text-[16px]"
                           >個人情報</a
