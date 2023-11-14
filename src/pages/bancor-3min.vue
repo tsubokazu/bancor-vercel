@@ -62,7 +62,10 @@
     <div
       class="mb-[56px] flex w-full flex-col items-center justify-center space-x-4 space-y-8 pc:max-w-[1100px]"
     >
-      <AtomsBasicTitle :text="title.title" size="text-[32px]"></AtomsBasicTitle>
+      <AtomsBasicTitle
+        :text="title.title"
+        size="text-[24px] tb:text-[32px]"
+      ></AtomsBasicTitle>
       <AtomsBasicOutline
         size="text-[15px]"
         :text="title.outline"
@@ -79,11 +82,11 @@
       <!-- 装飾線 -->
       <div class="mt-4 mb-8 h-[3px] w-[32px] bg-bancor-blue200"></div>
       <!-- アイコンカードグリッド -->
-      <div class="grid grid-cols-2 gap-x-3 tb:grid-cols-4">
+      <div class="grid grid-cols-2 gap-x-3 gap-y-3 tb:grid-cols-4">
         <!-- カード -->
         <div
           v-for="icon in icons.icons"
-          class="flex h-[108px] w-[196px] flex-col items-center justify-center space-y-3 rounded-[5px] border border-bancor-gray600"
+          class="flex h-[108px] w-[180px] flex-col items-center justify-center space-y-3 rounded-[5px] border border-bancor-gray600 tb:w-[196px]"
           :key="icon.title"
         >
           <AtomsBasicIcon

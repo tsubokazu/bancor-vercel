@@ -71,6 +71,7 @@
             v-else
             class="absolute -z-20"
             :imgUrl="defaultImage"
+            :objectPosition="'object-right'"
           >
           </AtomsTopServiceBackground>
         </Transition>

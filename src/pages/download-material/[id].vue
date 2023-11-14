@@ -126,7 +126,9 @@
 </script>
 
 <template>
-  <div class="flex h-full w-full flex-col items-center justify-center">
+  <div
+    class="flex h-full w-full flex-col items-center justify-center overflow-hidden"
+  >
     <div
       class="mb-[72px] flex w-full flex-col items-center justify-center rounded-[10px] bg-bancor-gray700 pt-[72px] pb-[128px]"
     >
@@ -143,11 +145,11 @@
         <AtomsBasicTitle
           text="ご送信ありがとうございました"
           class="mb-8"
-          size="text-[28px]"
+          size="text-[24px] tb:text-[28px]"
         ></AtomsBasicTitle>
         <!-- サブメッセージ -->
         <AtomsBasicOutline
-          class="mb-12 items-center"
+          class="mx-3 mb-12 items-center"
           :text="`ダウンロードからBancorサービス資料をダンロードしていただけます。\r\n
           また他に気になる資料があれば、下記より一括でのダウンロードが可能です。`"
           size="text-[15px]"
@@ -182,7 +184,7 @@
         <AtomsBasicTitle
           class="mb-6"
           text="その他の資料のダウンロードはこちらから"
-          size="text-[28px]"
+          size="mx-3 text-[24px] tb:text-[28px]"
         ></AtomsBasicTitle>
         <!-- 真ん中が青い仕切り線 -->
         <div class="relative mb-[56px] h-[2px] w-[604px]">
@@ -198,20 +200,20 @@
           <!-- 資料ダウンロードメニュー -->
           <div
             v-for="material in otherMaterials.list"
-            class="flex h-[90%] items-center justify-center"
+            class="flex h-[90%] flex-col items-center justify-center space-y-3 tb:flex-row tb:space-y-0"
             :key="material.title"
           >
             <!-- サムネイル -->
             <AtomsBasicImage
               :imgUrl="material.imgUrl"
               imgHeight="h-full"
-              imgWidth="w-[169px]"
+              imgWidth="tb:w-[169px]"
               radius="rounded-[5px]"
               class="mr-[24px]"
             ></AtomsBasicImage>
             <!-- タイトルとアウトライン -->
             <div
-              class="mr-[66px] flex flex-col justify-center space-y-4 pc:max-w-[540px]"
+              class="flex flex-col justify-center space-y-4 tb:mr-[66px] pc:max-w-[540px]"
             >
               <!-- タイトル -->
               <AtomsBasicTitle
