@@ -245,3 +245,25 @@ html {
 .kuroco-article a:hover {
   text-decoration: underline;
 }
+
+.kuroco-article .nuvers-yellow-underline span {
+  background-color: rgba(255, 255, 255, 0) !important;
+}
+
+.kuroco-article .nuvers-yellow-underline {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 2px;
+}
+
+.kuroco-article .nuvers-yellow-underline::after {
+  content: '';
+  z-index: -1;
+  display: block;
+  position: absolute;
+  bottom: 0.3rem;
+  left: 0;
+  width: 100%;
+  height: 0.7rem;
+  background-color: yellow;
+}
