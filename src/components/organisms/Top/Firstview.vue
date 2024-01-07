@@ -14,6 +14,38 @@
 
   provide<TopFirstViewObject>('topFirstViewObject', topFirstViewObject);
 
+  // Top01からデータを取得
+  import { useTop01Store } from '~/stores/top01';
+  import { Top01 } from '~/types/top01';
+  const top01Store = useTop01Store();
+  if (Object.keys(top01Store.topTitles).length == 0) {
+    await top01Store.fetchTop01();
+  }
+  const top01Object: Top01 = top01Store;
+  console.log(
+    `top01Object.topTitles: ${JSON.stringify(top01Object.topTitles)}`
+  );
+
+  // TOPメッセージを4秒ごとに切り替えるアニメーション
+  const currentTopTitleIndex = ref(0);
+  const topTitle = ref(top01Object.topTitles[currentTopTitleIndex.value]);
+  const isOpacity0 = ref(false);
+  const changeTopTitle = async () => {
+    isOpacity0.value = true;
+    await new Promise((resolve) => setTimeout(resolve, 300));
+    if (currentTopTitleIndex.value + 1 < top01Object.topTitles.length) {
+      currentTopTitleIndex.value += 1;
+    } else {
+      currentTopTitleIndex.value = 0;
+    }
+    topTitle.value = top01Object.topTitles[currentTopTitleIndex.value];
+    await new Promise((resolve) => setTimeout(resolve, 300));
+    isOpacity0.value = false;
+  };
+  setInterval(async () => {
+    await changeTopTitle();
+  }, 4000);
+
   // ウィンドウサイズからスマホかどうかを判定
   const windowWidth = ref(1300);
   const isSmartPhone = computed(() => windowWidth.value < 768);
@@ -120,14 +152,10 @@
         class="relative w-[95%] rounded-full border-4 border-red-900 bg-red-500 text-center tb:w-auto"
       >
         <div
-          class="px-[20px] py-[10px] text-[20px] font-bold text-white pc:px-[50px] pc:py-[28px] pc:text-[40px]"
+          class="px-[20px] py-[10px] text-[20px] font-bold text-white transition-opacity duration-1000 pc:px-[50px] pc:py-[28px] pc:text-[40px]"
+          :class="{ 'opacity-0': isOpacity0, 'opacity-100': !isOpacity0 }"
         >
-          <div v-if="isPC || isTablet">
-            圧倒的な成果を実現！成果が出なければ全額返金保証
-          </div>
-          <div v-else>
-            圧倒的な成果を実現！<br />成果が出なければ全額返金保証
-          </div>
+          {{ topTitle }}
         </div>
         <!-- ボーダーの下線部一部消す用 -->
         <div
@@ -185,8 +213,8 @@
           <!-- アイキャッチ画像 -->
           <div class="h-[420px] w-full overflow-hidden">
             <img
-              :src="journalListSlider[number].eyeCatchUrl"
-              :alt="journalListSlider[number].subject"
+              :src="top01Object.sliderContents[number].imgUrl"
+              :alt="top01Object.sliderContents[number].title"
               class="h-full w-full scale-100 object-cover transition-transform duration-500 hover:scale-125"
             />
           </div>
@@ -196,11 +224,15 @@
             <div
               class="flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 bg-white"
             >
-              <img src="logo-black.png" alt="Bancor" class="w-8 object-cover" />
+              <img
+                :src="`${top01Object.sliderContents[number].iconUrl}`"
+                alt="Bancor"
+                class="w-8 object-cover"
+              />
             </div>
             <!-- タイトル -->
             <div class="w-[85%] text-[14px] font-bold pc:text-[18px]">
-              {{ journalListSlider[number].subject }}
+              {{ top01Object.sliderContents[number].title }}
             </div>
           </div>
         </NuxtLink>
@@ -241,14 +273,14 @@
         :style="{ animationDuration: `${12 * 60}s` }"
       >
         <div
-          v-for="(item, index) in Array(48).fill(null)"
+          v-for="(item, index) in Array(
+            top01Object.achievementLogos.length * 4
+          ).fill(null)"
           :key="index"
           class="h-full w-[216px] flex-shrink-0"
         >
           <img
-            :src="`/companies/${((index % 12) + 1)
-              .toString()
-              .padStart(2, '0')}.png`"
+            :src="`${top01Object.achievementLogos[index % 12].imgUrl}`"
             alt=""
             class="h-full w-full object-cover"
           />

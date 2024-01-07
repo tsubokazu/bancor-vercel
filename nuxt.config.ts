@@ -98,6 +98,7 @@ export default defineNuxtConfig({
       kurocoSubmitDaycareEnqueteForm: '/rcms-api/11/form?id=6', // 福祉お問い合わせ
       kurocoUploadFile: '/rcms-api/11/file', // ファイルアップロード
       googleMapApiKey: 'AIzaSyAkiUf_mc0OqCF_xaln1IAAxNCEu96__8Q', // GoogleMapのAPIキー
+      kurocoTop01: '/rcms-api/14/top01/128', // TOPページ01
     },
   },
 });
