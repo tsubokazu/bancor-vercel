@@ -16,6 +16,17 @@ module.exports = {
       pc: '1280px',
     },
     extend: {
+      transitionDuration: {
+        2000: '2000ms',
+        3000: '3000ms',
+        4000: '4000ms',
+        5000: '5000ms',
+        6000: '6000ms',
+        7000: '7000ms',
+        8000: '8000ms',
+        9000: '9000ms',
+        10000: '10000ms',
+      },
       fontSize: {
         '4.5xl': ['40px', '40px'],
       },
@@ -86,6 +97,7 @@ module.exports = {
         'bancor-yellow100': '#a37f03',
       },
       animation: {
+        'slide-infinite': 'slide 30s linear infinite',
         'slide-out-up': 'slide-out-up 2.5s ease-in-out both',
         'slide-out-down': 'slide-out-down 2.5s ease-in-out both',
         'slide-in-right': 'slide-in-right 2.5s ease-in-out both',
@@ -158,6 +170,10 @@ module.exports = {
         'scale-in-site-menu-rv': 'scale-in-site-menu-rv 0.5s ease-out both',
       },
       keyframes: {
+        'slide': {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(100%)' },
+        },
         'slide-out-up': {
           '0%': {
             transform: 'translateY(0)',
