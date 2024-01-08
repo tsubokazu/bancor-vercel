@@ -99,6 +99,7 @@ export default defineNuxtConfig({
       kurocoUploadFile: '/rcms-api/11/file', // ファイルアップロード
       googleMapApiKey: 'AIzaSyAkiUf_mc0OqCF_xaln1IAAxNCEu96__8Q', // GoogleMapのAPIキー
       kurocoTop01: '/rcms-api/14/top01/128', // TOPページ01
+      kurocoTop02: '/rcms-api/14/top02/129', // TOPページ02
     },
   },
 });
