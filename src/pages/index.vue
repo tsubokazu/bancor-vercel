@@ -74,8 +74,7 @@
     <OrganismsTopNews class="mb-[112px]"></OrganismsTopNews>
     <OrganismsTopVision class="mb-[138px]"></OrganismsTopVision>
     <OrganismsTopMnAService class="mb-[112px]"></OrganismsTopMnAService>
-    <OrganismsTopWelfare class="mb-[200px] tb:mb-[120px]"></OrganismsTopWelfare>
-    <OrganismsTopService class="mb-[120px]"></OrganismsTopService>
+    <OrganismsTopService class="mb-[139px]"></OrganismsTopService>
     <OrganismsTopJournal class="mb-[120px]"></OrganismsTopJournal>
     <OrganismsTopRecruit class="mb-[48px]"></OrganismsTopRecruit>
   </div>
