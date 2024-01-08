@@ -46,7 +46,7 @@
     <div class="flex w-11/12 flex-col pc:max-w-[1200px]">
       <!-- ニュースコンテンツタイトルともっとみる -->
       <div class="flex justify-between">
-        <div class="text-[30px] font-bold">News</div>
+        <div class="text-[26px] font-bold tb:text-[30px]">News</div>
         <NuxtLink
           to="/news"
           class="group flex items-center gap-3 text-[#94a3b8] transition-colors duration-300 hover:text-black"
@@ -59,9 +59,7 @@
         </NuxtLink>
       </div>
       <!-- ニュースリスト -->
-      <div
-        class="mt-6 h-[492px] w-full rounded-lg bg-white pl-8 pt-2 shadow-lg"
-      >
+      <div class="mt-6 w-full rounded-lg bg-white px-3 pt-2 shadow-lg tb:px-8">
         <NuxtLink
           v-for="(data, index) in newsListLatest"
           :to="`/news/${data.topicsId}`"
@@ -79,7 +77,7 @@
           </div>
           <!-- 記事タイトル -->
           <div
-            class="text-[18px] font-bold transition-opacity duration-200 group-hover:opacity-60"
+            class="text-[16px] font-bold transition-opacity duration-200 group-hover:opacity-60 tb:text-[18px]"
           >
             {{ data.subject }}
           </div>
