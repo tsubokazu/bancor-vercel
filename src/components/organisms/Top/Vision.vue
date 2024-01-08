@@ -12,16 +12,18 @@
         <div class="h-full w-1/2 bg-[#2f56fd]"></div>
       </div>
       <!-- ビジョン -->
-      <div class="mt-12 flex justify-between">
+      <div
+        class="mt-12 flex flex-col justify-between gap-10 tb:flex-row tb:gap-0"
+      >
         <div class="flex flex-col">
-          <div class="text-[40px] font-bold text-[#2563eb]">
+          <div class="text-[30px] font-bold text-[#2563eb] pc:text-[40px]">
             変化に柔軟で<br />
             途切れることのない<br />
             果てしない情熱を
           </div>
           <NuxtLink
             to="/vision"
-            class="group mt-[156px] flex items-center gap-3 text-[#94a3b8] transition-colors duration-300 hover:text-black"
+            class="group mt-4 flex items-center gap-3 text-[#94a3b8] transition-colors duration-300 hover:text-black tb:mt-[156px]"
           >
             <div class="text-[16px] font-bold">もっとみる</div>
             <font-awesome-icon
@@ -31,7 +33,7 @@
           </NuxtLink>
         </div>
         <div class="flex max-w-[471px] flex-col items-end font-semibold">
-          <div class="text-[17px] leading-[2.47rem]">
+          <div class="text-[14px] tb:text-[17px] tb:leading-[2.47rem]">
             私たちBancorメンバーの最大の目的は世界中のインフラを構築すること。<br />
             人々にとって必要かそうでないかを考える隙もなく、自然と生活の一部に取り入れているもの。<br />
             それをBancorではインフラと呼んでいます。<br />
