@@ -69,7 +69,9 @@
 
 <template>
   <div class="w-full overflow-hidden">
-    <OrganismsTopFirstview class="mb-[120px]"></OrganismsTopFirstview>
+    <OrganismsTopFirstview
+      class="mb-[60px] tb:mb-[120px]"
+    ></OrganismsTopFirstview>
     <OrganismsTopAdSpace class="mb-[120px]"></OrganismsTopAdSpace>
     <OrganismsTopNews class="mb-[120px]"></OrganismsTopNews>
     <OrganismsTopWelfare class="mb-[200px] tb:mb-[120px]"></OrganismsTopWelfare>

@@ -38,7 +38,9 @@
 </script>
 
 <template>
-  <div class="flex w-full flex-col items-center justify-center tb:flex-row">
+  <div
+    class="flex w-full flex-col items-center justify-center gap-4 tb:flex-row"
+  >
     <NuxtLink
       v-for="(data, index) in top01Object.adSpaces"
       :to="data.linkUrl"

@@ -265,8 +265,7 @@
     </div>
     <!-- 協賛会社一覧 -->
     <div
-      v-if="isPC"
-      class="mt-8 flex h-[88px] items-center justify-start overflow-hidden bg-white"
+      class="mt-8 flex h-[44px] items-center justify-start overflow-hidden bg-white tb:h-[88px]"
     >
       <div
         class="flex animate-slide-infinite"
@@ -277,41 +276,10 @@
             top01Object.achievementLogos.length * 4
           ).fill(null)"
           :key="index"
-          class="h-full w-[216px] flex-shrink-0"
+          class="h-full w-[108px] flex-shrink-0 tb:w-[216px]"
         >
           <img
             :src="`${top01Object.achievementLogos[index % 12].imgUrl}`"
-            alt=""
-            class="h-full w-full object-cover"
-          />
-        </div>
-      </div>
-    </div>
-    <div
-      v-else
-      class="mt-8 flex h-[88px] flex-col items-center justify-center bg-white"
-    >
-      <div class="flex translate-x-[-27px]">
-        <div
-          v-for="(item, index) in Array(6).fill(null)"
-          :key="index"
-          class="h-full w-[108px]"
-        >
-          <img
-            :src="`/companies/${(index + 1).toString().padStart(2, '0')}.png`"
-            alt=""
-            class="h-full w-full object-cover"
-          />
-        </div>
-      </div>
-      <div class="flex translate-x-[27px]">
-        <div
-          v-for="(item, index) in Array(6).fill(null)"
-          :key="index"
-          class="h-full w-[108px]"
-        >
-          <img
-            :src="`/companies/${(index + 7).toString().padStart(2, '0')}.png`"
             alt=""
             class="h-full w-full object-cover"
           />
