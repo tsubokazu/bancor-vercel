@@ -1,29 +1,35 @@
-<script setup lang="ts">
-  import { TopRecruitObject } from '~/types/Top';
-  const config = useRuntimeConfig();
-  const baseUrl = config.public.kurocoApiUrl;
-  const endpoint = config.public.kurocoTopRecruit;
-  const { data: kuroco } = (await useFetch(`${baseUrl}${endpoint}`)) as any;
-
-  const topRecruitObject: TopRecruitObject = {
-    title: kuroco.value.details.ext_1,
-    subTitle: kuroco.value.details.ext_2,
-    outline: kuroco.value.details.ext_3,
-    imageUrl: kuroco.value.details.ext_4.url,
-    linkUrl: kuroco.value.details.ext_10,
-  };
-  provide<TopRecruitObject>('topRecruitObject', topRecruitObject);
-</script>
+<script setup lang="ts"></script>
 
 <template>
-  <div
-    class="relative flex h-screen max-h-[340px] w-full items-center justify-center pt-24 pc:max-h-[472px]"
-  >
-    <div class="flex h-full w-11/12 space-x-10 pc:max-w-[1200px]">
-      <MoleculesTopRecruitMenu class="w-[420px]"></MoleculesTopRecruitMenu>
+  <div class="relative flex w-full items-center justify-center pt-24">
+    <div
+      class="flex w-11/12 items-center justify-between space-x-10 pc:max-w-[1300px]"
+    >
+      <!-- 画像イラスト -->
+      <div class="w-full max-w-[631px] tb:w-1/2 pc:h-[468px]">
+        <img src="/top-recruit.png" alt="" class="h-full w-full object-cover" />
+      </div>
+      <!-- メッセージコンテンツ -->
+      <div class="flex w-full flex-col tb:w-1/2 pc:max-w-[565px]">
+        <!-- タイトル -->
+        <div class="text-[30px] font-bold">採用情報</div>
+        <!-- メッセージ -->
+        <div class="mt-10 text-[16px] text-[#18181b]">
+          Bancorは、一緒に挑戦する仲間を募集しています。<br />
+          ビジョン、会社紹介、募集職種などさまざまな情報を公開していますのでぜひご確認ください。
+        </div>
+        <!-- ダウンロードページリンク -->
+        <NuxtLink
+          to="/recruit-dx"
+          class="group mt-10 flex items-center gap-3 text-[#94a3b8] transition-colors duration-300 hover:text-[#020617]"
+        >
+          <div class="text-[16px] font-bold">もっとみる</div>
+          <font-awesome-icon
+            class="text-[16px] transition-transform duration-700 group-hover:translate-x-1"
+            :icon="['fas', 'right-long']"
+          />
+        </NuxtLink>
+      </div>
     </div>
-    <MoleculesTopRecruitImage
-      class="absolute -z-10 h-full w-full"
-    ></MoleculesTopRecruitImage>
   </div>
 </template>

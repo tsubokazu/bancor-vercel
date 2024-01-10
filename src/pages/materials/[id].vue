@@ -161,12 +161,11 @@
           ></AtomsBasicOutline>
         </div>
         <!-- イメージ -->
-        <AtomsBasicImage
-          :imgUrl="selectedCategory.list[0].imgUrl"
-          img-height="h-full"
-          img-width="w-full tb:w-[550px]"
-          radius="rounded-[10px]"
-        ></AtomsBasicImage>
+        <div
+          class="flex h-full w-full items-center justify-center rounded-md tb:w-[550px]"
+        >
+          <img :src="item.imgUrl" alt="" class="h-full object-cover" />
+        </div>
       </div>
     </div>
 

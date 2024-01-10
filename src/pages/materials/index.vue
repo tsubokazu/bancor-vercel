@@ -105,7 +105,7 @@
 
         <!-- リスト -->
         <div
-          class="grid w-[95%] grid-cols-1 items-center justify-center gap-x-10 gap-y-12 overflow-hidden tb:grid-cols-2 pc:max-w-[1100px] pc:grid-cols-3"
+          class="grid w-[95%] grid-cols-1 items-start justify-center gap-x-10 gap-y-12 overflow-hidden tb:grid-cols-2 pc:max-w-[1100px] pc:grid-cols-3"
         >
           <!-- リストカード -->
           <div
@@ -114,13 +114,11 @@
             :key="item.title"
           >
             <!-- イメージ -->
-            <AtomsBasicImage
-              :imgUrl="item.imgUrl"
-              img-height="h-[172px]"
-              img-width="w-full"
-              radius="rounded-[5px]"
-              class="shadow-lg"
-            ></AtomsBasicImage>
+            <div
+              class="flex h-[172px] w-full items-center justify-center rounded-md"
+            >
+              <img :src="item.imgUrl" alt="" class="h-full object-cover" />
+            </div>
             <!-- 日付とタイトル -->
             <div class="flex flex-col">
               <!-- 日付 -->

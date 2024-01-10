@@ -73,7 +73,7 @@ export const useTop02Store = defineStore('top02', () => {
         youtubeUrl: top02.value.ext_15,
       };
 
-      bancorBusinessList.value = top02.value.ext_9.map(
+      bancorBusinessList.value = top02.value.ext_16.map(
         (data: any, index: number) => ({
           title: top02.value.ext_16[index],
           imgUrl: top02.value.ext_17[index]?.url || '',

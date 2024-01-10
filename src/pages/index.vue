@@ -76,7 +76,10 @@
     <OrganismsTopMnAService class="mb-[112px]"></OrganismsTopMnAService>
     <OrganismsTopService class="mb-[139px]"></OrganismsTopService>
     <OrganismsTopBancorMedia class="mb-[139px]"></OrganismsTopBancorMedia>
-    <OrganismsTopJournal class="mb-[120px]"></OrganismsTopJournal>
+    <OrganismsTopBancorBusiness class="mb-[139px]"></OrganismsTopBancorBusiness>
+    <OrganismsTopDownloadDocument
+      class="mb-[48px]"
+    ></OrganismsTopDownloadDocument>
     <OrganismsTopRecruit class="mb-[48px]"></OrganismsTopRecruit>
   </div>
 </template>
