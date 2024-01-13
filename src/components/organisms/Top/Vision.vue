@@ -2,7 +2,7 @@
 
 <template>
   <div class="flex w-full justify-center">
-    <div class="flex w-11/12 flex-col pc:max-w-[1200px]">
+    <div class="flex w-11/12 flex-col pc:max-w-[1100px]">
       <!-- アクセント -->
       <div class="flex h-[28px] w-[60px]">
         <div class="flex h-full w-1/2 flex-col">
