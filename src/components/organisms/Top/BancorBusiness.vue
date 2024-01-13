@@ -30,7 +30,9 @@
 
   // スライダー用ボタンのメソッド
   const currentIndex = ref(0);
-  const moveValue = computed(() => (isPC.value ? 1012 + 24 : 320 + 24));
+  const moveValue = computed(() =>
+    isPC.value ? 1012 + 24 : isTablet.value ? 720 + 24 : 320 + 24
+  );
   const currentPosition = ref(businessNums % 2 == 0 ? -moveValue.value / 2 : 0);
   const sliderIndexArray = Array.from(
     { length: businessNums * 3 },
@@ -101,7 +103,7 @@
 <template>
   <div class="flex w-full flex-col items-center justify-center overflow-hidden">
     <div
-      class="flex h-[512px] w-full items-center justify-center gap-4"
+      class="flex w-full items-center justify-center gap-4 pc:h-[512px]"
       :class="{
         'transition-transform': isTransition,
         'duration-500': isTransition,
@@ -112,7 +114,7 @@
       <NuxtLink
         v-for="(number, index) in sliderIndexArray"
         :to="businessList[number].linkUrl"
-        class="duration-600 relative h-full w-[320px] flex-none overflow-hidden rounded-2xl shadow-lg transition-transform pc:w-[1012px]"
+        class="duration-600 relative h-full w-[320px] flex-none overflow-hidden rounded-2xl shadow-lg transition-transform tb:w-[720px] pc:w-[1012px]"
       >
         <img
           :src="businessList[number].imgUrl"
@@ -120,17 +122,17 @@
           class="h-full w-full object-cover"
         />
         <div
-          class="absolute top-[75%] left-[5%] w-[90%] text-[30px] font-bold text-white"
+          class="absolute top-[75%] left-[5%] w-[90%] text-[12px] font-bold text-white tb:text-[20px] pc:text-[30px]"
         >
           {{ businessList[number].title }}
         </div>
       </NuxtLink>
     </div>
     <!-- ナビゲーション -->
-    <div class="mt-16 flex items-center justify-center gap-6">
+    <div class="mt-6 flex items-center justify-center gap-3 pc:mt-16 pc:gap-6">
       <div
         v-for="(data, index) in businessNums"
-        class="h-2.5 w-2.5"
+        class="h-1.5 w-1.5 pc:h-2.5 pc:w-2.5"
         :class="{
           'bg-[#cbd5e1]': index != currentIndex,
           'bg-[#020617]': index == currentIndex,
