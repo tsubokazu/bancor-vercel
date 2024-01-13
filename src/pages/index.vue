@@ -78,8 +78,8 @@
     <OrganismsTopBancorMedia class="mb-[139px]"></OrganismsTopBancorMedia>
     <OrganismsTopBancorBusiness class="mb-[139px]"></OrganismsTopBancorBusiness>
     <OrganismsTopDownloadDocument
-      class="mb-[48px]"
+      class="mb-[64px]"
     ></OrganismsTopDownloadDocument>
-    <OrganismsTopRecruit class="mb-[48px]"></OrganismsTopRecruit>
+    <OrganismsTopRecruit class="mb-[116px]"></OrganismsTopRecruit>
   </div>
 </template>
