@@ -140,9 +140,7 @@
 </script>
 
 <template>
-  <div
-    class="relative flex w-full flex-col items-center pc:h-screen pc:max-h-[1000px]"
-  >
+  <div class="relative flex w-full flex-col items-center">
     <AtomsTopFirstviewBackground></AtomsTopFirstviewBackground>
     <!-- TOP最上部メッセージ -->
     <div
