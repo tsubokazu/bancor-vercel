@@ -82,14 +82,12 @@
 </script>
 
 <template>
-  <footer class="h-full w-full">
+  <footer class="relative mt-[370px] h-full w-full tb:mt-[282px]">
     <MoleculesFooterContactMenus
-      class="h-screen max-h-[500px] tb:max-h-[320px]"
+      class="absolute top-[-370px] -z-10 tb:top-[-282px]"
     >
     </MoleculesFooterContactMenus>
-    <MoleculesFooterMenu
-      class="h-screen max-h-[580px] w-full tb:max-h-[300px]"
-    ></MoleculesFooterMenu>
+    <MoleculesFooterMenu class="mt-[370px] tb:mt-[282px]"></MoleculesFooterMenu>
     <AtomsCopyright>Bancor, Inc. </AtomsCopyright>
   </footer>
 </template>
