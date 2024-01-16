@@ -458,12 +458,6 @@
           </div>
         </div>
       </div>
-
-      <!-- お問い合わせ -->
-      <MoleculesFooterContact></MoleculesFooterContact>
-
-      <!-- Bancorの取り組み　フッター -->
-      <OrganismsAboutMore></OrganismsAboutMore>
     </div>
   </div>
 </template>

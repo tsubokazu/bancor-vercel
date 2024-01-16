@@ -127,8 +127,5 @@
         </div>
       </div>
     </div>
-
-    <!-- Bancorの取り組み　フッター -->
-    <OrganismsAboutMore></OrganismsAboutMore>
   </div>
 </template>
