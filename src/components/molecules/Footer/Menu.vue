@@ -119,7 +119,9 @@
             <NuxtLink to="https://d-nuvo.com/service/dx/">DX支援事業</NuxtLink>
             <NuxtLink to="https://d-nuvo.com/service/marketing/">M&A</NuxtLink>
             <NuxtLink to="https://welfare.bancor.co.jp/">福祉事業</NuxtLink>
-            <NuxtLink to="/care-welfare">介護施設向けSI事業</NuxtLink>
+            <NuxtLink to="https://welfare.bancor.co.jp/care-welfare "
+              >介護施設向けSI事業</NuxtLink
+            >
             <NuxtLink to="https://beauty.bancor.co.jp/">美容事業</NuxtLink>
           </div>
         </div>
