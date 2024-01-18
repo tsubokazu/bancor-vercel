@@ -142,31 +142,6 @@
 <template>
   <div class="relative flex w-full flex-col items-center">
     <AtomsTopFirstviewBackground></AtomsTopFirstviewBackground>
-    <!-- TOP最上部メッセージ -->
-    <div
-      class="mt-[100px] flex h-[102px] w-full items-center justify-center pc:mt-[132px]"
-    >
-      <div
-        class="relative w-[95%] rounded-full border-4 border-red-900 bg-red-500 text-center tb:w-auto"
-      >
-        <div
-          class="px-[20px] py-[10px] text-[20px] font-bold text-white transition-opacity duration-1000 pc:px-[50px] pc:py-[28px] pc:text-[40px]"
-          :class="{ 'opacity-0': isOpacity0, 'opacity-100': !isOpacity0 }"
-        >
-          {{ topTitle }}
-        </div>
-        <!-- ボーダーの下線部一部消す用 -->
-        <div
-          class="absolute left-[28.5%] bottom-[-2px] z-10 h-[4px] w-4 bg-red-500"
-        ></div>
-        <div
-          class="absolute left-[28.5%] bottom-[-6px] z-10 h-[4px] w-4 bg-white"
-        ></div>
-        <div
-          class="absolute left-[28.5%] bottom-[-4px] z-20 h-[4px] w-4 rotate-45 rounded-full bg-red-900"
-        ></div>
-      </div>
-    </div>
     <!-- TOPスライダー（Bancor Journal） -->
     <div
       class="relative mt-4 flex w-full flex-col items-center justify-center overflow-hidden pc:mt-[60px]"
