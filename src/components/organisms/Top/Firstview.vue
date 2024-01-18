@@ -213,7 +213,7 @@
     </div>
     <!-- TOPスライダーのプログレスバー -->
     <div
-      class="mt-10 flex h-[26px] w-[296px] items-center justify-center gap-3 rounded-full bg-[#f8fafc]"
+      class="mt-10 flex h-[26px] w-[296px] items-center justify-center gap-3 rounded-full bg-white opacity-0 brightness-[20%] backdrop-blur-[2px]"
     >
       <div
         v-for="(number, index) in [0, 1, 2, 3, 4]"
