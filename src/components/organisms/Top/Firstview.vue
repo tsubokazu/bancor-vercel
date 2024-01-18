@@ -144,11 +144,11 @@
     <AtomsTopFirstviewBackground></AtomsTopFirstviewBackground>
     <!-- TOPスライダー（Bancor Journal） -->
     <div
-      class="relative mt-4 flex w-full flex-col items-center justify-center overflow-hidden pc:mt-[60px]"
+      class="relative mt-[100px] flex w-full flex-col items-center justify-center overflow-hidden pc:mt-[100px]"
     >
       <!-- 左やじるし -->
       <button
-        @click="move(1)"
+        @click="move(-1)"
         class="absolute left-[5%] top-[50%] z-20 flex h-8 w-8 translate-y-[-50%] items-center justify-center rounded-full bg-black pc:h-16 pc:w-16"
       >
         <font-awesome-icon
@@ -158,7 +158,7 @@
       </button>
       <!-- 右やじるし -->
       <button
-        @click="move(-1)"
+        @click="move(1)"
         class="absolute right-[5%] top-[50%] z-20 flex h-8 w-8 translate-y-[-50%] items-center justify-center rounded-full bg-black pc:h-16 pc:w-16"
       >
         <font-awesome-icon
@@ -242,7 +242,7 @@
     >
       <div
         class="flex animate-slide-infinite"
-        :style="{ animationDuration: `${12 * 60}s` }"
+        :style="{ animationDuration: `${6 * 60}s` }"
       >
         <div
           v-for="(item, index) in Array(
