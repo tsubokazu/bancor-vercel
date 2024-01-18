@@ -3,7 +3,7 @@
 <template>
   <div class="relative flex w-full items-center justify-center pt-24">
     <div
-      class="flex w-11/12 flex-col items-center justify-between gap-6 tb:flex-row tb:gap-0 tb:space-x-10 pc:max-w-[1300px]"
+      class="flex w-11/12 flex-col items-center justify-between gap-6 rounded-2xl bg-white p-6 tb:flex-row tb:gap-0 tb:space-x-10 pc:max-w-[1300px]"
     >
       <!-- メッセージコンテンツ -->
       <div class="flex flex-col">

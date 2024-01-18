@@ -33,7 +33,7 @@
 
 <template>
   <div class="flex w-full justify-center">
-    <div class="relative flex w-11/12 flex-col pc:max-w-[1200px]">
+    <div class="relative flex w-11/12 flex-col bg-white pc:max-w-[1200px]">
       <!-- Bancorのサービスタイトルとサービス一覧へ -->
       <div class="flex justify-between">
         <div class="text-[20px] font-bold tb:text-[30px]">Bancorのサービス</div>

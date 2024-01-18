@@ -159,13 +159,13 @@
         </div>
       </div>
       <!-- コンテンツ -->
-      <div class="mt-3 flex w-full gap-6 tb:mt-6">
+      <div class="mt-3 flex w-full gap-6 bg-white tb:mt-6">
         <!-- 記事リスト -->
         <div v-if="!isSmartPhone" class="flex flex-col gap-4 tb:w-[416px]">
           <button
             v-for="(data, index) in bancorMediaContents"
             @click="selectContent(index)"
-            class="flex h-[112px] w-full items-center rounded-3xl border border-[#e2e8f0]"
+            class="flex h-[112px] w-full items-center rounded-3xl border border-[#e2e8f0] bg-white"
           >
             <div
               class="h-full w-[164px] flex-none overflow-hidden rounded-l-3xl"
@@ -191,7 +191,7 @@
         <div class="flex flex-col items-center pc:max-w-[860px]">
           <!-- メイン -->
           <div
-            class="flex w-full flex-col overflow-hidden rounded-3xl border border-[#e2e8f0] transition-opacity duration-1000 pc:h-[620px]"
+            class="flex w-full flex-col overflow-hidden rounded-3xl border border-[#e2e8f0] bg-white transition-opacity duration-1000 pc:h-[620px]"
             :class="{ 'opacity-0': dissolve, 'opacity-100': !dissolve }"
           >
             <!-- サムネイル -->
@@ -266,7 +266,7 @@
           </div>
           <!-- Back/Next -->
           <div
-            class="flex h-[102px] w-full items-center justify-center gap-6 rounded-3xl border border-[#e2e8f0] text-[#94a3b8] pc:gap-12"
+            class="flex h-[102px] w-full items-center justify-center gap-6 rounded-3xl border border-[#e2e8f0] bg-white text-[#94a3b8] pc:gap-12"
           >
             <!-- Back -->
             <button

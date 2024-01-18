@@ -8,7 +8,7 @@
 
 <template>
   <div
-    class="absolute -z-50 h-full w-full"
+    class="fixed -z-50 h-full w-full"
     :style="{
       backgroundImage: `url(${matrixBgImgUrl})`,
       backgroundSize: '200px 200px',

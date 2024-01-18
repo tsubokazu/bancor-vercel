@@ -238,7 +238,7 @@
     </div>
     <!-- 協賛会社一覧 -->
     <div
-      class="mt-8 flex h-[44px] items-center justify-start overflow-hidden bg-white tb:h-[88px]"
+      class="mt-8 flex h-[44px] items-center justify-start overflow-hidden tb:h-[88px]"
     >
       <div
         class="flex animate-slide-infinite"

@@ -35,7 +35,7 @@
 <template>
   <div class="flex w-full justify-center">
     <div
-      class="relative flex w-11/12 flex-col justify-between rounded-lg py-[36px] pl-4 pr-4 shadow-lg tb:flex-row tb:pl-[40px] pc:max-w-[1200px] pc:py-[78px] pc:pl-[80px] pc:pr-[30px]"
+      class="relative flex w-11/12 flex-col justify-between rounded-lg bg-white py-[36px] pl-4 pr-4 shadow-lg tb:flex-row tb:pl-[40px] pc:max-w-[1200px] pc:py-[78px] pc:pl-[80px] pc:pr-[30px]"
     >
       <!-- M&Aサービス説明メニュー -->
       <div class="flex max-w-[513px] flex-col">
