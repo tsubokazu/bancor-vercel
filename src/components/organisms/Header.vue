@@ -21,6 +21,15 @@
     posts.value.details.ext_22,
   ];
 
+  const contentOutlinesArray: Array<Array<string>> = [
+    posts.value.details.ext_6,
+    posts.value.details.ext_25,
+    posts.value.details.ext_26,
+    posts.value.details.ext_27,
+    posts.value.details.ext_28,
+    posts.value.details.ext_29,
+  ];
+
   const contentLinksArray: Array<Array<string>> = [
     posts.value.details.ext_8,
     posts.value.details.ext_11,
@@ -57,6 +66,7 @@
 
   interface MegamenuContent {
     title: string;
+    outline: string;
     linkUrl: string;
     imgUrl: string;
   }
@@ -76,6 +86,10 @@
 
       contents.push({
         title: contentTitles[i],
+        outline:
+          Object.keys(contentOutlinesArray[j]).length >= i + 1
+            ? contentOutlinesArray[j][i]
+            : '',
         linkUrl:
           Object.keys(contentLinksArray[j]).length >= i + 1
             ? contentLinksArray[j][i]
@@ -95,40 +109,12 @@
     });
   }
 
-  const hoverFlag = ref(false);
-  const hoverIndex = ref(-1);
-  const hoverAnimation = ref('');
-  interface Content {
-    title: string;
-    linkUrl: string;
-    imgUrl: string;
-  }
-  const hoverMenuObject: {
-    title: string;
-    linkUrl: string;
-    enTitle: string;
-    subTitle: string;
-    contents: Array<Content>;
-  } = reactive({
-    linkUrl: '',
-    title: '',
-    enTitle: '',
-    subTitle: '',
-    contents: [],
-  });
+  const mouseOverIndex = ref(-1);
   const mouseOverAction = (index: number) => {
-    hoverFlag.value = true;
-    hoverIndex.value = index;
-    hoverAnimation.value = 'animate-scale-down-ver-top';
-    hoverMenuObject.linkUrl = menuObjects[index].linkUrl;
-    hoverMenuObject.title = menuObjects[index].title;
-    hoverMenuObject.enTitle = menuObjects[index].enTitle;
-    hoverMenuObject.subTitle = menuObjects[index].subTitle;
-    hoverMenuObject.contents = menuObjects[index].contents;
+    mouseOverIndex.value = index;
   };
   const mouseLeaveAction = () => {
-    hoverIndex.value = -1;
-    hoverAnimation.value = 'animate-scale-up-ver-top';
+    mouseOverIndex.value = -1;
   };
 
   const humbergerStore = useHumbergerStore();
@@ -143,6 +129,7 @@
       v-show="!humbergerStore.clickHumbergerFlag"
       class="flex h-[72px] w-[95%] items-center justify-between rounded-lg bg-white pr-4"
     >
+      <!-- ホームロゴ -->
       <div class="flex h-full items-center justify-center">
         <AtomsLogo
           logoUrl="/logo-black-l.png"
@@ -151,6 +138,7 @@
           height="39"
         ></AtomsLogo>
       </div>
+      <!-- リンクメニュー -->
       <div class="flex h-full items-center space-x-8 pr-16">
         <MoleculesUnderLineTextButton
           v-for="(menuObject, index) in menuObjects"
@@ -159,9 +147,55 @@
           :hoverIndex="hoverIndex"
           :menuIndex="index"
           @mouseover="mouseOverAction(index)"
-          class="hidden pc:block"
-          >{{ menuObject.title }}</MoleculesUnderLineTextButton
-        >
+          class="relative hidden pc:block"
+          >{{ menuObject.title }}
+          <!-- ホバー時のポップアップメニュー -->
+          <div
+            class="absolute top-10 left-1/2 grid h-fit -translate-x-1/2 grid-flow-row gap-2 rounded-md bg-white px-5 py-3 shadow-[0_0_4px_4px_rgba(0,0,0,0.1)] transition-opacity duration-300"
+            :class="{
+              'w-[680px] grid-cols-2': menuObject.contents.length > 3,
+              'w-[340px] grid-cols-1': menuObject.contents.length <= 3,
+              'hidden': menuObject.contents.length == 0,
+              'scale-0 opacity-0': index != mouseOverIndex,
+              'opacity-1 scale-100': index == mouseOverIndex,
+            }"
+          >
+            <NuxtLink
+              :to="content.linkUrl"
+              v-for="content in menuObject.contents"
+              class="group my-2 flex w-[292px] items-center gap-4"
+            >
+              <!-- アイコン -->
+              <div
+                class="flex h-11 w-11 flex-none items-center justify-center rounded-full bg-[#F1F5F9]"
+              >
+                <img
+                  :src="content.imgUrl"
+                  alt=""
+                  class="h-[26px] object-cover"
+                />
+              </div>
+              <!-- タイトル・テキスト -->
+              <div class="flex flex-col">
+                <!-- タイトルとやじるし -->
+                <div class="flex items-center gap-2">
+                  <div class="text-[16px] font-bold text-[#020617]">
+                    {{ content.title }}
+                  </div>
+                  <div class="flex-none overflow-hidden">
+                    <font-awesome-icon
+                      :icon="['fas', 'right-long']"
+                      class="-translate-x-full text-[12px] text-[#2563EB] transition-transform duration-300 group-hover:translate-x-0"
+                    />
+                  </div>
+                </div>
+                <div class="text-[12px] font-thin text-[#64748B]">
+                  {{ content.outline }}
+                </div>
+              </div>
+            </NuxtLink>
+          </div>
+        </MoleculesUnderLineTextButton>
         <AtomsDivLine class="hidden pc:block"></AtomsDivLine>
         <!-- <AtomsButtonSearch class="hidden pc:block"></AtomsButtonSearch> -->
         <AtomsButtonOval
@@ -176,16 +210,6 @@
         >
       </div>
     </div>
-    <OrganismsMegaMenu
-      v-show="
-        hoverFlag &&
-        hoverMenuObject.contents.length > 0 &&
-        !humbergerStore.clickHumbergerFlag
-      "
-      class="relative top-2 w-[95%]"
-      :class="hoverAnimation"
-      :menuObject="hoverMenuObject"
-    ></OrganismsMegaMenu>
     <Transition
       enter-active-class="transition-opacity duration-500"
       enter-from-class="opacity-0"
