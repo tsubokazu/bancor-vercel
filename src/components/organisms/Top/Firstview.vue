@@ -144,7 +144,7 @@
     <AtomsTopFirstviewBackground></AtomsTopFirstviewBackground>
     <!-- TOPスライダー（Bancor Journal） -->
     <div
-      class="relative mt-[100px] flex w-full flex-col items-center justify-center overflow-hidden pc:mt-[100px]"
+      class="relative mt-[100px] flex w-full flex-col items-center justify-center overflow-hidden py-5 pc:mt-[100px]"
     >
       <!-- 左やじるし -->
       <button
@@ -181,14 +181,14 @@
           v-for="(number, index) in sliderIndexArray"
           :to="`/journal/${journalListSlider[number].topicsId}`"
           :key="index"
-          class="flex h-[320px] w-[320px] flex-none flex-col overflow-hidden rounded-2xl shadow-md pc:h-[500px] pc:w-[500px]"
+          class="flex h-[320px] w-[320px] flex-none flex-col overflow-hidden rounded-2xl shadow-[0_0_4px_4px_rgba(0,0,0,0.1)] pc:h-[500px] pc:w-[500px]"
         >
           <!-- アイキャッチ画像 -->
           <div class="h-[268.8px] w-full overflow-hidden pc:h-[420px]">
             <img
               :src="top01Object.sliderContents[number].imgUrl"
               :alt="top01Object.sliderContents[number].title"
-              class="h-full w-full scale-100 object-cover transition-transform duration-500 hover:scale-125"
+              class="h-full w-full scale-100 object-cover transition-transform duration-500 hover:scale-110"
             />
           </div>
           <!-- タイトル枠 -->
