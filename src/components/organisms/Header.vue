@@ -200,10 +200,7 @@
         <!-- <AtomsButtonSearch class="hidden pc:block"></AtomsButtonSearch> -->
         <AtomsButtonOval
           linkUrl="/contact"
-          bgColor="bg-bancor-blue300"
-          :isGradient="true"
-          fromColor="from-bancor-blue300"
-          toColor="to-bancor-blue400"
+          bgColor="bg-[#2563eb]"
           textColor="text-white"
           class="hidden tb:block"
           >お問い合わせ</AtomsButtonOval

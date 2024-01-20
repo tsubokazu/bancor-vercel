@@ -11,7 +11,9 @@
     'rounded-lg',
     'transition-all',
     'duration-500',
-    humbergerStore.clickHumbergerFlag ? 'bg-white' : 'bg-bancor-gray900',
+    'border',
+    'border-[#e2e8f0]',
+    humbergerStore.clickHumbergerFlag ? 'bg-white' : 'bg-white',
   ]);
   const lineCommonClassArray = computed(() => [
     'absolute',
@@ -20,7 +22,7 @@
     'rounded-full',
     'transition-all',
     'duration-500',
-    humbergerStore.clickHumbergerFlag ? 'bg-bancor-gray900' : 'bg-white',
+    humbergerStore.clickHumbergerFlag ? 'bg-bancor-gray900' : 'bg-[#020617]',
   ]);
   const line1ClassArray = computed(() =>
     humbergerStore.clickHumbergerFlag
