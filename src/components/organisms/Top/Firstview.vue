@@ -184,7 +184,7 @@
           class="flex h-[320px] w-[320px] flex-none flex-col overflow-hidden rounded-2xl shadow-md pc:h-[500px] pc:w-[500px]"
         >
           <!-- アイキャッチ画像 -->
-          <div class="h-[420px] w-full overflow-hidden">
+          <div class="h-[268.8px] w-full overflow-hidden pc:h-[420px]">
             <img
               :src="top01Object.sliderContents[number].imgUrl"
               :alt="top01Object.sliderContents[number].title"
@@ -213,7 +213,7 @@
     </div>
     <!-- TOPスライダーのプログレスバー -->
     <div
-      class="mt-10 flex h-[26px] w-[296px] items-center justify-center gap-3 rounded-full bg-white opacity-0 brightness-[20%] backdrop-blur-[2px]"
+      class="mt-10 flex h-[26px] w-[296px] items-center justify-center gap-3 rounded-full bg-white backdrop-blur-xl"
     >
       <div
         v-for="(number, index) in [0, 1, 2, 3, 4]"
