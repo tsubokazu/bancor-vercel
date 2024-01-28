@@ -240,19 +240,14 @@
     <div
       class="mt-8 flex h-[44px] items-center justify-start overflow-hidden tb:h-[88px]"
     >
-      <div
-        class="flex animate-slide-infinite"
-        :style="{ animationDuration: `${6 * 60}s` }"
-      >
+      <div v-for="n in 3" class="flex animate-slide-infinite">
         <div
-          v-for="(item, index) in Array(
-            top01Object.achievementLogos.length * 4
-          ).fill(null)"
+          v-for="(item, index) in top01Object.achievementLogos.length"
           :key="index"
           class="h-full w-[108px] flex-shrink-0 tb:w-[216px]"
         >
           <img
-            :src="`${top01Object.achievementLogos[index % 12].imgUrl}`"
+            :src="`${top01Object.achievementLogos[index].imgUrl}`"
             alt=""
             class="h-full w-full object-cover"
           />
