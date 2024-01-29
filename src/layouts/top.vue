@@ -11,6 +11,13 @@
     isLoading.value = false;
   }
 
+  const isFixed = ref(false);
+
+  const checkScroll = () => {
+    isFixed.value = window.scrollY <= 1080;
+    console.log(`scrollY: ${window.scrollY}`);
+  };
+
   onMounted(() => {
     if (topSplashStore.topSplashFlag) {
       setTimeout(() => {
@@ -18,6 +25,17 @@
         topSplashStore.setTopSplashFlag(false);
       }, 2500);
     }
+
+    // スクロールイベントリスナーを登録
+    window.addEventListener('scroll', checkScroll);
+
+    // 初期値を設定
+    checkScroll();
+  });
+
+  onUnmounted(() => {
+    // コンポーネントがアンマウントされたときにイベントリスナーを解除
+    window.removeEventListener('scroll', checkScroll);
   });
 
   // headタグの情報をPiniaから取得
@@ -104,7 +122,8 @@
     >
       <OrganismsHeader
         v-show="!isLoading"
-        class="pointer-events-auto absolute top-3 z-50 w-full"
+        class="pointer-events-auto z-50 w-full"
+        :class="`${isFixed ? 'fixed top-3' : 'absolute top-[1092px]'}`"
       ></OrganismsHeader>
     </Transition>
 
