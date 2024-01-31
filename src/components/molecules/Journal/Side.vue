@@ -27,7 +27,7 @@
       </div>
       <div class="relative h-px w-full">
         <div class="absolute left-0 z-20 h-full w-1/2 bg-bancor-blue200"></div>
-        <div class="absolute z-10 h-full w-full bg-bancor-gray500"></div>
+        <div class="absolute z-10 h-full w-full bg-[#e2e8f0]"></div>
       </div>
       <MoleculesJournalSideCard
         v-for="journal in journalListOthers"

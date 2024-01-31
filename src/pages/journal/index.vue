@@ -239,45 +239,47 @@
       </button>
     </div>
     <!-- ボディ -->
-    <div class="flex w-[95%] space-x-8 pc:max-w-[1200px]">
+    <div class="mt-8 flex w-[95%] space-x-8 tb:mt-2 pc:mt-0 pc:max-w-[1272px]">
       <!-- 記事一覧 -->
-      <div class="spacey-3 flex w-full flex-col pc:max-w-[720px]">
+      <div class="spacey-3 flex w-full flex-col pc:max-w-[1000px]">
         <!-- メイン記事 -->
-        <div
-          v-for="journal in displayJournalList.slice(0, 1)"
-          class="relative mb-16 flex w-full flex-col space-y-3"
-          :key="journal.topicsId"
-        >
-          <!-- カテゴリタグ -->
+        <div class="flex flex-col items-center gap-0 tb:flex-row tb:gap-8">
           <div
-            class="absolute font-futuraMediumItalic text-[40px] font-bold tb:top-6 tb:left-4 pc:top-56 pc:-left-12"
+            v-for="(journal, index) in displayJournalList.slice(0, 2)"
+            class="relative mb-16 flex w-full flex-col space-y-3 tb:w-[48%]"
+            :key="journal.topicsId"
           >
-            {{ category }}
-          </div>
-          <!-- メイン記事 -->
-          <NuxtLink :to="`/journal/${journal.topicsId}`">
-            <div class="flex w-full flex-col">
-              <AtomsBasicEyecatch
-                :imgUrl="journal.eyeCatchUrl"
-                imgHeight="pc:h-[296px]"
-                imgWidth="w-full pc:w-[720px]"
-                radius="rounded-sm"
-              ></AtomsBasicEyecatch>
-              <AtomsBasicTitle
-                :text="journal.subject"
-                size="text-[20px] tb:text-[28px]"
-              ></AtomsBasicTitle>
-              <AtomsBasicOutline
-                size="text-[14px] tb:text-[16px]"
-                :text="trimBodyHTML(journal.bodyHTML, 100)"
-              ></AtomsBasicOutline>
+            <!-- カテゴリタグ -->
+            <div
+              v-show="index == 0"
+              class="absolute bg-[#020617] font-futuraMediumItalic text-[40px] font-bold text-white tb:top-6 tb:left-4 pc:top-56 pc:-left-12"
+            >
+              {{ category }}
             </div>
-          </NuxtLink>
+            <!-- メイン記事 -->
+            <NuxtLink :to="`/journal/${journal.topicsId}`">
+              <div class="flex w-full flex-col gap-5">
+                <AtomsBasicEyecatch
+                  :imgUrl="journal.eyeCatchUrl"
+                  imgHeight="pc:h-[296px]"
+                  imgWidth="w-full"
+                  radius="rounded-md"
+                ></AtomsBasicEyecatch>
+                <AtomsBasicTitle
+                  :text="journal.subject"
+                  size="text-[20px] tb:text-[28px]"
+                ></AtomsBasicTitle>
+                <div class="text-[12px] font-bold text-[#7c8186]">
+                  最終更新日：{{ journal.updateDate }}
+                </div>
+              </div>
+            </NuxtLink>
+          </div>
         </div>
         <!-- サブ記事（グリッド表示） -->
         <div class="mb-16 grid grid-cols-2 gap-4 tb:grid-cols-3">
           <AtomsGridCard
-            v-for="journal in displayJournalList.slice(1, 7)"
+            v-for="journal in displayJournalList.slice(2, 8)"
             :eyeCatchUrl="journal.eyeCatchUrl"
             :tags="journal.hashTag"
             :abstract="trimBodyHTML(journal.bodyHTML, 40)"
@@ -314,7 +316,9 @@
               size="text-2xl"
             ></AtomsBasicTitle>
           </div>
-          <div class="grid grid-cols-2 gap-3 pl-6 tb:grid-cols-5">
+          <div
+            class="grid grid-cols-2 gap-3 pl-6 tb:grid-cols-5 pc:grid-cols-7"
+          >
             <button
               v-for="tag in tagList"
               @click="clickTagButton"
