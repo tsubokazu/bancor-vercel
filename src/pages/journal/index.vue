@@ -329,6 +329,14 @@
             </button>
           </div>
         </div>
+
+        <!-- パンくずリスト -->
+        <div class="ml-6 mb-6 flex items-center gap-2 font-bold text-[#101010]">
+          <font-awesome-icon :icon="['fas', 'house']" class="text-[10px]" />
+          <NuxtLink to="/" class="text-xs">TOP</NuxtLink>
+          <div class="text-xs">></div>
+          <NuxtLink to="/journal" class="text-xs">Bancor Journal</NuxtLink>
+        </div>
       </div>
       <!-- サイド記事 -->
       <MoleculesJournalSide
