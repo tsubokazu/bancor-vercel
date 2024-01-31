@@ -113,7 +113,7 @@
     class="flex h-full w-full flex-col items-center justify-center overflow-hidden"
   >
     <!-- ヘッダーアニメーション -->
-    <div class="relative h-[280px] w-full tb:h-[360px]">
+    <div class="relative h-[280px] w-full tb:h-[360px] pc:h-[640px]">
       <!-- ヘッダー画像 -->
       <AtomsBasicHeader
         v-for="(journal, index) in top5JournalList"
