@@ -81,7 +81,7 @@
     >
       <!-- ロゴ -->
       <NuxtLink
-        to="https://www.bancor.co.jp/"
+        to="/"
         class="flex h-[59px] w-[242px] items-center justify-center tb:mr-[80px] pc:ml-6"
       >
         <img src="/logo-white.png" alt="" class="h-full w-full object-cover" />
