@@ -1,22 +1,4 @@
-<script setup lang="ts">
-  import { useTopSplashStore } from '~/stores/top-splash';
-  const topSplashStore = useTopSplashStore();
-  const isLoading = ref(false);
-  if (topSplashStore.topSplashFlag) {
-    isLoading.value = true;
-  } else {
-    isLoading.value = false;
-  }
-
-  onMounted(() => {
-    if (topSplashStore.topSplashFlag) {
-      setTimeout(() => {
-        isLoading.value = false;
-        topSplashStore.setTopSplashFlag(false);
-      }, 2500);
-    }
-  });
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <div class="absolute h-screen w-full">

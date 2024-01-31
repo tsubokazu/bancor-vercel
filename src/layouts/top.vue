@@ -11,10 +11,10 @@
     isLoading.value = false;
   }
 
-  const isFixed = ref(false);
+  const isShowHeader = ref(true);
 
   const checkScroll = () => {
-    isFixed.value = window.scrollY <= 1080;
+    isShowHeader.value = window.scrollY > 1080 ? false : true;
     console.log(`scrollY: ${window.scrollY}`);
   };
 
@@ -119,11 +119,13 @@
       enter-active-class="transition-opacity duration-[2000ms]"
       enter-from-class="opacity-0"
       enter-to-class="opacity-1"
+      leave-active-class="transition-opacity duration-[2000ms]"
+      leave-from-class="opacity-1"
+      leave-to-class="opacity-0"
     >
       <OrganismsHeader
-        v-show="!isLoading"
-        class="pointer-events-auto z-50 w-full"
-        :class="`${isFixed ? 'fixed top-3' : 'absolute top-[1092px]'}`"
+        v-show="!isLoading && isShowHeader"
+        class="pointer-events-auto fixed top-3 z-50 w-full"
       ></OrganismsHeader>
     </Transition>
 

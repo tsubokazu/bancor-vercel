@@ -133,7 +133,7 @@
       <div class="flex h-full items-center justify-center">
         <AtomsLogo
           logoUrl="/logo-black-l.png"
-          linkUrl="/"
+          linkUrl="https://www.bancor.co.jp/"
           width="189"
           height="39"
         ></AtomsLogo>
@@ -141,7 +141,7 @@
       <!-- リンクメニュー -->
       <div class="flex h-full items-center space-x-8 pr-16">
         <div
-          class="grid translate-y-[8px] grid-cols-5 items-center justify-items-center gap-4"
+          class="grid translate-y-2 grid-cols-5 items-center justify-items-center gap-4"
         >
           <MoleculesUnderLineTextButton
             v-for="(menuObject, index) in menuObjects"
