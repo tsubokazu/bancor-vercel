@@ -148,5 +148,20 @@
     >
       <OrganismsFooter v-show="!isLoading" class="w-full"></OrganismsFooter>
     </Transition>
+
+    <!-- Cookieの同意 -->
+    <Transition
+      enter-active-class="transition-opacity duration-[2000ms]"
+      enter-from-class="opacity-0"
+      enter-to-class="opacity-1"
+      leave-active-class="transition-opacity duration-[2000ms]"
+      leave-from-class="opacity-1"
+      leave-to-class="opacity-0"
+    >
+      <OrganismsCookieConsent
+        v-show="!isLoading"
+        class="fixed bottom-8 left-1/2 -translate-x-1/2"
+      ></OrganismsCookieConsent>
+    </Transition>
   </div>
 </template>
