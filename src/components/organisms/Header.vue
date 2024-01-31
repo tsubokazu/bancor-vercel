@@ -140,62 +140,68 @@
       </div>
       <!-- リンクメニュー -->
       <div class="flex h-full items-center space-x-8 pr-16">
-        <MoleculesUnderLineTextButton
-          v-for="(menuObject, index) in menuObjects"
-          :key="menuObject.linkUrl"
-          :linkUrl="menuObject.linkUrl"
-          :hoverIndex="hoverIndex"
-          :menuIndex="index"
-          @mouseover="mouseOverAction(index)"
-          class="relative hidden pc:block"
-          >{{ menuObject.title }}
+        <div
+          class="grid translate-y-[8px] grid-cols-5 items-center justify-items-center gap-4"
+        >
+          <MoleculesUnderLineTextButton
+            v-for="(menuObject, index) in menuObjects"
+            :key="menuObject.linkUrl"
+            :linkUrl="menuObject.linkUrl"
+            :hoverIndex="hoverIndex"
+            :menuIndex="index"
+            @mouseover="mouseOverAction(index)"
+            class="relative hidden pc:block"
+            >{{ menuObject.title }}
+          </MoleculesUnderLineTextButton>
           <!-- ホバー時のポップアップメニュー -->
-          <div
-            class="absolute top-10 left-1/2 grid h-fit -translate-x-1/2 grid-flow-row gap-2 rounded-md bg-white px-5 py-3 shadow-[0_0_4px_4px_rgba(0,0,0,0.1)] transition-opacity duration-300"
-            :class="{
-              'w-[680px] grid-cols-2': menuObject.contents.length > 3,
-              'w-[340px] grid-cols-1': menuObject.contents.length <= 3,
-              'hidden': menuObject.contents.length == 0,
-              'scale-0 opacity-0': index != mouseOverIndex,
-              'opacity-1 scale-100': index == mouseOverIndex,
-            }"
-          >
-            <NuxtLink
-              :to="content.linkUrl"
-              v-for="content in menuObject.contents"
-              class="group my-2 flex w-[292px] items-center gap-4"
+          <div class="relative" v-for="(menuObject, index) in menuObjects">
+            <div
+              class="absolute top-0 left-1/2 grid h-fit -translate-x-1/2 grid-flow-row gap-2 rounded-md bg-white px-5 py-3 shadow-[0_0_4px_4px_rgba(0,0,0,0.1)] transition-opacity duration-300"
+              :class="{
+                'w-[680px] grid-cols-2': menuObject.contents.length > 3,
+                'w-[340px] grid-cols-1': menuObject.contents.length <= 3,
+                'hidden': menuObject.contents.length == 0,
+                'scale-0 opacity-0': index != mouseOverIndex,
+                'opacity-1 scale-100': index == mouseOverIndex,
+              }"
             >
-              <!-- アイコン -->
-              <div
-                class="flex h-11 w-11 flex-none items-center justify-center rounded-full bg-[#F1F5F9]"
+              <NuxtLink
+                :to="content.linkUrl"
+                v-for="content in menuObject.contents"
+                class="group my-2 flex w-[292px] items-center gap-4"
               >
-                <img
-                  :src="content.imgUrl"
-                  alt=""
-                  class="h-[26px] object-cover"
-                />
-              </div>
-              <!-- タイトル・テキスト -->
-              <div class="flex flex-col">
-                <!-- タイトルとやじるし -->
-                <div class="flex items-center gap-2">
-                  <div class="text-[16px] font-bold text-[#020617]">
-                    {{ content.title }}
+                <!-- アイコン -->
+                <div
+                  class="flex h-11 w-11 flex-none items-center justify-center rounded-full bg-[#F1F5F9]"
+                >
+                  <img
+                    :src="content.imgUrl"
+                    alt=""
+                    class="h-[26px] object-cover"
+                  />
+                </div>
+                <!-- タイトル・テキスト -->
+                <div class="flex flex-col">
+                  <!-- タイトルとやじるし -->
+                  <div class="flex items-center gap-2">
+                    <div class="text-[16px] font-bold text-[#020617]">
+                      {{ content.title }}
+                    </div>
+                    <div class="flex-none overflow-hidden">
+                      <font-awesome-icon
+                        :icon="['fas', 'right-long']"
+                        class="-translate-x-full text-[12px] text-[#2563EB] transition-transform duration-300 group-hover:translate-x-0"
+                      />
+                    </div>
                   </div>
-                  <div class="flex-none overflow-hidden">
-                    <font-awesome-icon
-                      :icon="['fas', 'right-long']"
-                      class="-translate-x-full text-[12px] text-[#2563EB] transition-transform duration-300 group-hover:translate-x-0"
-                    />
+                  <div class="text-[12px] font-thin text-[#64748B]">
+                    {{ content.outline }}
                   </div>
                 </div>
-                <div class="text-[12px] font-thin text-[#64748B]">
-                  {{ content.outline }}
-                </div>
-              </div>
-            </NuxtLink>
+              </NuxtLink>
+            </div>
           </div>
-        </MoleculesUnderLineTextButton>
+        </div>
         <AtomsDivLine class="hidden pc:block"></AtomsDivLine>
         <!-- <AtomsButtonSearch class="hidden pc:block"></AtomsButtonSearch> -->
         <AtomsButtonOval
