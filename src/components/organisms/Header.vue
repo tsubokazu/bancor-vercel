@@ -133,7 +133,7 @@
       <div class="flex h-full items-center justify-center">
         <AtomsLogo
           logoUrl="/logo-black-l.png"
-          linkUrl="https://www.bancor.co.jp/"
+          linkUrl="/"
           width="189"
           height="39"
         ></AtomsLogo>
