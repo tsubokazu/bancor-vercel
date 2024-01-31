@@ -7,18 +7,12 @@
     linkUrl: '/',
     isBold: false,
   });
-
-  const navigateToLink = () => {
-    console.log(`Props.linkUrl: ${Props.linkUrl}`);
-
-    window.location.href = Props.linkUrl;
-  };
 </script>
 
 <template>
   <div :class="{ 'font-semibold': Props.isBold }">
-    <button @click="navigateToLink">
+    <NuxtLink :to="linkUrl">
       <slot />
-    </button>
+    </NuxtLink>
   </div>
 </template>
