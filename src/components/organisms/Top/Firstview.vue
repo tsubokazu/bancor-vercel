@@ -106,9 +106,6 @@
       currentIndex.value += direction;
     }
     currentPosition.value -= moveValue.value * direction;
-    console.log(
-      `direction: ${direction}, currentIndex: ${currentIndex.value}, currentPosition: ${currentPosition.value}`
-    );
   };
 
   const resetProgressBar = async () => {
