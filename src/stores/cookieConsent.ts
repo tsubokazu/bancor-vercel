@@ -14,11 +14,16 @@ export const useCookieConsentStore = defineStore('cookieConsent', () => {
   }
 
   function checkConsent() {
-    console.log(`checkConsent: ${consent.value}`);
     const consentValue = localStorage.getItem('cookie_consent');
     consent.value =
       consentValue === 'true' ? true : consentValue === 'false' ? false : null;
+    console.log(`checkConsent: ${consent.value}`);
   }
+
+  onMounted(() => {
+    console.log('Initializing cookie consent store');
+    checkConsent();
+  });
 
   return {
     consent,

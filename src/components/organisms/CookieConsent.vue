@@ -1,19 +1,21 @@
 <script setup lang="ts">
   import { storeToRefs } from 'pinia';
   const store = useCookieConsentStore();
-  const { consent } = storeToRefs(store);
-  const { giveConsent, disableCookies } = store;
+  const isShowConsent = ref(false);
+  console.log(`isShowConsent: ${isShowConsent.value}`);
 
-  onMounted(() => {
-    console.log(`consent: ${consent.value}`);
-
-    store.checkConsent();
+  watchEffect(() => {
+    if (store.consent == null) {
+      isShowConsent.value = true;
+    } else {
+      isShowConsent.value = false;
+    }
   });
 </script>
 
 <template>
   <div
-    v-show="consent === null"
+    v-if="isShowConsent"
     class="flex w-[95%] flex-col items-center justify-center gap-2 rounded-xl bg-white py-4 shadow-[0_0_2px_2px_rgba(0,0,0,0.1)] pc:h-[72px] pc:w-[850px] pc:flex-row pc:gap-8 pc:py-0"
   >
     <!-- 同意のメッセージとボタンを表示 -->
@@ -31,13 +33,13 @@
     <div class="flex items-center gap-6">
       <button
         class="rounded-full bg-[#2563eb] py-2 px-6 text-center text-[15px] font-bold text-white pc:py-4 pc:px-10 pc:text-[17px]"
-        @click="giveConsent"
+        @click="store.giveConsent()"
       >
         同意する
       </button>
       <button
         class="rounded-full py-2 text-center text-[15px] text-[#2563eb] pc:py-4 pc:text-[17px]"
-        @click="disableCookies"
+        @click="store.disableCookies()"
       >
         Cookieを無効化
       </button>
