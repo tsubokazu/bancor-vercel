@@ -43,6 +43,13 @@
 
   onMounted(() => {
     window.addEventListener('resize', updateWidth);
+    document.documentElement.style.scrollBehavior = 'smooth';
+    document.body.style.scrollBehavior = 'smooth';
+  });
+
+  onBeforeUnmount(() => {
+    document.documentElement.style.scrollBehavior = '';
+    document.body.style.scrollBehavior = '';
   });
 
   onUnmounted(() => {
@@ -51,7 +58,7 @@
 </script>
 
 <template>
-  <div class="flex w-full flex-col items-center overflow-hidden">
+  <div class="flex w-full flex-col items-center overflow-hidden scroll-smooth">
     <!-- ヘッダー -->
     <div class="h-[240px] w-full pc:h-[360px]">
       <AtomsBasicHeader
