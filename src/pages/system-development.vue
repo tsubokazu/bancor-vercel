@@ -51,7 +51,7 @@
 </script>
 
 <template>
-  <div class="flex w-full flex-col items-center overflow-hidden scroll-smooth">
+  <div class="flex w-full flex-col items-center overflow-hidden">
     <!-- ヘッダー -->
     <div class="h-[240px] w-full pc:h-[360px]">
       <AtomsBasicHeader
