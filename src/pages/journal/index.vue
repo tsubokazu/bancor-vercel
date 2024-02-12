@@ -316,13 +316,11 @@
               size="text-2xl"
             ></AtomsBasicTitle>
           </div>
-          <div
-            class="grid grid-cols-2 gap-3 pl-6 tb:grid-cols-5 pc:grid-cols-7"
-          >
+          <div class="flex flex-wrap gap-6 pl-6">
             <button
               v-for="tag in tagList"
               @click="clickTagButton"
-              class="flex h-6 w-28 items-center justify-center rounded-xl border border-gray-300 bg-white text-xs font-bold"
+              class="flex h-6 w-36 flex-none items-center justify-center rounded-xl border border-gray-300 bg-white text-[16px] text-xs font-bold"
               :key="tag"
             >
               #{{ tag }}
