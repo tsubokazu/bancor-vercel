@@ -100,6 +100,10 @@
     };
   });
 
+  console.log(
+    `[materials/_id] otherMaterials: ${JSON.stringify(otherMaterials.value)}`
+  );
+
   // フォームの設定
   const myForm: any = ref(null);
   const submitForm = () => {
@@ -164,7 +168,11 @@
         <div
           class="flex h-full w-full items-center justify-center rounded-md tb:w-[550px]"
         >
-          <img :src="item.imgUrl" alt="" class="h-full object-cover" />
+          <img
+            :src="selectedCategory.list[0].imgUrl"
+            alt=""
+            class="h-full object-cover"
+          />
         </div>
       </div>
     </div>
