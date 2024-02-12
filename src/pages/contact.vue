@@ -84,42 +84,44 @@
         class="flex w-[95%] flex-col justify-between space-y-4 tb:flex-row tb:space-x-8 tb:space-y-0 pc:mt-[100px] pc:max-w-[1100px]"
       >
         <!-- 左メニュー -->
-        <div
-          class="mb-[36px] flex w-full flex-col items-center space-y-8 tb:mb-0 tb:w-[390px] tb:items-start"
-        >
-          <!-- タイトル -->
-          <AtomsBasicTitle
-            :text="leftMenu.title"
-            size="text-[28px]"
-          ></AtomsBasicTitle>
-          <!-- イメージ -->
-          <div class="flex h-fit w-full justify-center">
-            <AtomsBasicImage
-              :imgUrl="leftMenu.imgUrl"
-              imgHeight="h-[162px]"
-              imgWidth="w-[197px]"
-            ></AtomsBasicImage>
-          </div>
-          <!-- アウトライン -->
-          <AtomsBasicOutline
-            :text="leftMenu.outline"
-            size="text-[16px]"
-          ></AtomsBasicOutline>
-          <!-- リスト -->
-          <div class="flex flex-col space-y-6">
-            <!-- リストタイトル -->
+        <div class="relative">
+          <div
+            class="sticky top-[100px] mb-[36px] flex w-full flex-col items-center space-y-8 tb:mb-0 tb:w-[390px] tb:items-start"
+          >
+            <!-- タイトル -->
             <AtomsBasicTitle
-              :text="leftMenu.listTitle"
-              size="text-[20px]"
+              :text="leftMenu.title"
+              size="text-[28px]"
             ></AtomsBasicTitle>
+            <!-- イメージ -->
+            <div class="flex h-fit w-full justify-center">
+              <AtomsBasicImage
+                :imgUrl="leftMenu.imgUrl"
+                imgHeight="h-[162px]"
+                imgWidth="w-[197px]"
+              ></AtomsBasicImage>
+            </div>
+            <!-- アウトライン -->
+            <AtomsBasicOutline
+              :text="leftMenu.outline"
+              size="text-[16px]"
+            ></AtomsBasicOutline>
             <!-- リスト -->
-            <div class="flex flex-col space-y-1">
-              <div
-                v-for="item in leftMenu.list"
-                class="text-[14px] font-bold text-bancor-blue200"
-                :key="item"
-              >
-                {{ `・${item}` }}
+            <div class="flex flex-col space-y-6">
+              <!-- リストタイトル -->
+              <AtomsBasicTitle
+                :text="leftMenu.listTitle"
+                size="text-[20px]"
+              ></AtomsBasicTitle>
+              <!-- リスト -->
+              <div class="flex flex-col space-y-1">
+                <div
+                  v-for="item in leftMenu.list"
+                  class="text-[14px] font-bold text-bancor-blue200"
+                  :key="item"
+                >
+                  {{ `・${item}` }}
+                </div>
               </div>
             </div>
           </div>
