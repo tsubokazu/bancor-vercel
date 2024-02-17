@@ -154,7 +154,11 @@
               'text-[#707070]': index != mouseOverIndex && mouseOverIndex != -1,
               'translate-x-6': index == 0,
             }"
-            >{{ menuObject.title }}
+          >
+            <AtomsBasicTitle
+              :text="menuObject.title"
+              size="text-base"
+            ></AtomsBasicTitle>
           </NuxtLink>
           <!-- ホバー時のポップアップメニュー -->
           <div class="relative" v-for="(menuObject, index) in menuObjects">
@@ -187,9 +191,11 @@
                 <div class="flex flex-col">
                   <!-- タイトルとやじるし -->
                   <div class="flex items-center gap-2">
-                    <div class="text-[16px] font-bold text-[#020617]">
-                      {{ content.title }}
-                    </div>
+                    <AtomsBasicTitle
+                      :text="content.title"
+                      :space-y="0"
+                      size="text-base"
+                    ></AtomsBasicTitle>
                     <div class="flex-none overflow-hidden">
                       <font-awesome-icon
                         :icon="['fas', 'right-long']"
