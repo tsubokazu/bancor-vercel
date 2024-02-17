@@ -19,16 +19,44 @@
     }
   };
 
+  // ウィンドウサイズからスマホかどうかを判定
+  const windowWidth = ref(1300);
+  const isSmartPhone = computed(() => windowWidth.value < 768);
+  const isTablet = computed(
+    () => windowWidth.value >= 768 && windowWidth.value < 1280
+  );
+  const isPC = computed(() => windowWidth.value >= 1280);
+
+  const updateWidth = () => {
+    if (typeof window !== 'undefined') {
+      windowWidth.value = window.innerWidth;
+    }
+  };
+
   // スクロールを移動するメソッド
+  const moveValue = computed(() =>
+    isPC.value ? 445 + 24 : isTablet.value ? 445 + 24 : 320 + 24
+  );
   const move = (direction: number) => {
     const container = document.querySelector('#bancorServices');
     if (container) {
       container.scrollTo({
-        left: container.scrollLeft + direction * 100, // 100はスクロール量を調整するための値です
+        left: container.scrollLeft + direction * moveValue.value, // 100はスクロール量を調整するための値です
         behavior: 'smooth', // スクロールをなめらかにする
       });
     }
   };
+
+  onMounted(() => {
+    nextTick(() => {
+      updateWidth();
+    });
+    window.addEventListener('resize', updateWidth);
+  });
+
+  onUnmounted(() => {
+    window.removeEventListener('resize', updateWidth);
+  });
 </script>
 
 <template>
