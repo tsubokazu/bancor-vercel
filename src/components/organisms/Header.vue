@@ -143,16 +143,19 @@
         <div
           class="grid translate-y-2 grid-cols-5 items-center justify-items-center gap-4"
         >
-          <MoleculesUnderLineTextButton
+          <NuxtLink
             v-for="(menuObject, index) in menuObjects"
             :key="menuObject.linkUrl"
-            :linkUrl="menuObject.linkUrl"
-            :hoverIndex="hoverIndex"
-            :menuIndex="index"
+            :to="menuObject.linkUrl"
             @mouseover="mouseOverAction(index)"
-            class="relative hidden pc:block"
+            class="relative hidden font-bold pc:block"
+            :class="{
+              'text-[#020202]': index == mouseOverIndex || mouseOverIndex == -1,
+              'text-[#707070]': index != mouseOverIndex && mouseOverIndex != -1,
+              'translate-x-6': index == 0,
+            }"
             >{{ menuObject.title }}
-          </MoleculesUnderLineTextButton>
+          </NuxtLink>
           <!-- ホバー時のポップアップメニュー -->
           <div class="relative" v-for="(menuObject, index) in menuObjects">
             <div
