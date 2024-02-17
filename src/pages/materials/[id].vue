@@ -149,10 +149,10 @@
     >
       <!-- タイトルとイメージ -->
       <div
-        class="flex h-[264px] w-[95%] flex-col items-center justify-between tb:flex-row tb:space-x-[100px] pc:max-w-[1100px]"
+        class="flex h-[264px] w-[95%] flex-col items-center justify-between tb:flex-row tb:space-x-[50px] pc:max-w-[1100px]"
       >
         <!-- タイトル -->
-        <div class="flex w-full flex-col space-y-10 tb:w-[450px]">
+        <div class="flex w-full flex-col space-y-10 tb:w-[500px]">
           <AtomsBasicTitle
             :text="selectedCategory.list[0].title"
             size="text-[24px] tb:text-[28px]"
