@@ -44,16 +44,21 @@
 
       <!-- メインメッセージ -->
       <div
-        class="flex w-[95%] flex-col items-center justify-between space-y-10 tb:flex-row tb:space-y-0 pc:max-w-[1000px]"
+        class="flex h-[480px] w-[95%] flex-col items-center justify-between space-y-10 tb:flex-row tb:space-y-0 pc:max-w-[1200px]"
       >
         <AtomsBasicTitle
-          size="text-[32px] tb:text-[48px] pc:text-[60px]"
+          size="text-[32px] tb:text-[38px] pc:text-[60px]"
           :text="message.mainMessage"
         ></AtomsBasicTitle>
-        <AtomsBasicImage
-          :imgUrl="message.imgUrl"
-          imgHeight="max-w-[95%] h-[382px] w-[428px] tb:w-[480px] tb:h-[428px] pc:w-[538px] pc:h-[480px]"
-        ></AtomsBasicImage>
+        <div
+          class="flex h-full w-full items-center justify-center overflow-hidden tb:w-[40%] pc:w-[538px]"
+        >
+          <img
+            :src="message.imgUrl"
+            alt="代表写真"
+            class="w-full object-cover"
+          />
+        </div>
       </div>
 
       <!-- メッセージ本文 -->
