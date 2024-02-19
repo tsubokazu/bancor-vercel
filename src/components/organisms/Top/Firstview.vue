@@ -176,7 +176,7 @@
       >
         <NuxtLink
           v-for="(number, index) in sliderIndexArray"
-          :to="`/journal/${journalListSlider[number].topicsId}`"
+          :to="top01Object.sliderContents[number].linkUrl"
           :key="index"
           class="flex h-[320px] w-[320px] flex-none flex-col overflow-hidden rounded-2xl shadow-[0_0_4px_4px_rgba(0,0,0,0.1)] pc:h-[500px] pc:w-[500px]"
         >
