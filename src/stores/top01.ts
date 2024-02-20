@@ -31,7 +31,7 @@ export const useTop01Store = defineStore('top01', () => {
           title: top01.value.ext_2[index],
           imgUrl: top01.value.ext_3[index].url,
           iconUrl: top01.value.ext_4[index].url,
-          linkUrl: top01.value.ext_5[index].url,
+          linkUrl: top01.value.ext_5[index],
         })
       );
 
