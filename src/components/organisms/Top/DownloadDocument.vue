@@ -13,7 +13,7 @@
         </div>
         <!-- メッセージ -->
         <div
-          class="mt-4 text-[20px] font-bold text-[#94a3b8] tb:text-[24px] pc:text-[40px]"
+          class="mt-4 flex-none text-[18px] font-bold text-[#94a3b8] tb:text-[24px] pc:text-[40px]"
         >
           NUVO M&A<span class="text-[#020617]">独自の価値基準</span
           >に基づき<br />
@@ -24,14 +24,14 @@
         <!-- ダウンロードページリンク -->
         <NuxtLink
           to="/materials/130"
-          class="mt-[20px] flex items-center gap-2 text-[14px] text-[#94a3b8] transition-colors duration-300 hover:text-[#020617] pc:mt-[72px] pc:text-[18px]"
+          class="mt-[20px] flex min-w-[335px] items-center gap-2 text-[14px] text-[#94a3b8] transition-colors duration-300 hover:text-[#020617] tb:min-w-[410px] pc:mt-[72px] pc:min-w-[670px] pc:text-[18px]"
         >
           <div>ダウンロード</div>
           <font-awesome-icon :icon="['fas', 'download']" />
         </NuxtLink>
       </div>
       <!-- 画像イラスト -->
-      <div class="w-full max-w-[532px] tb:w-1/2 pc:h-[420px]">
+      <div class="w-full max-w-[532px] overflow-hidden tb:w-1/2 pc:h-[420px]">
         <img
           src="/top-document.png"
           alt=""
