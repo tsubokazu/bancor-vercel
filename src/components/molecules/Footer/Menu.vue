@@ -147,8 +147,8 @@
             <div class="text-[16px] font-bold text-white">Recruit</div>
             <div class="flex flex-col gap-5 text-[14px] text-[#cbd5e1]">
               <NuxtLink to="/recruit-dx">DX支援採用情報</NuxtLink>
-              <NuxtLink to="/recruit-nuvo">M&A事業採用情報</NuxtLink>
-              <NuxtLink to="/recruit-development">福祉事業採用情報</NuxtLink>
+              <NuxtLink to="/recruit-nuvo">NUVO関連採用情報</NuxtLink>
+              <NuxtLink to="/recruit-development">エンジニア採用情報</NuxtLink>
             </div>
           </div>
           <div class="flex flex-col gap-7">
