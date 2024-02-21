@@ -26,7 +26,7 @@
       height="39"
     ></AtomsLogo>
     <div class="mb-3 h-px w-[90%] bg-gray-700"></div>
-    <div class="w-[360px] py-4">
+    <div class="w-[90%] py-4">
       <AtomsLinkOutline
         :text="serviceObject.outline"
         :linkUrl="serviceObject.linkUrl"
