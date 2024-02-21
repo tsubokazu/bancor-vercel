@@ -119,7 +119,7 @@
       textSize="text-2xl"
     ></MoleculesDoubleSquareTag>
     <!-- サイトマップ各メニュー -->
-    <div class="ml-8 flex w-[90%] flex-col flex-wrap tb:h-[700px]">
+    <div class="ml-8 flex w-[90%] flex-col flex-wrap tb:h-[700px] tb:w-full">
       <MoleculesSiteMenuPageLinks
         class="mb-8 h-fit tb:mr-8 pc:w-2/5"
         v-for="pageLinkObject in pageLinkObjects"

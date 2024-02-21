@@ -56,7 +56,10 @@
       @mouseover="mouseOverAction()"
       @mouseleave="mouseLeaveAction()"
     >
-      <div class="flex flex-col font-bold" :class="[color, size, hoverOpacity]">
+      <div
+        class="flex flex-none flex-col font-bold"
+        :class="[color, size, hoverOpacity]"
+      >
         <div v-for="titleText in titleTexts" :key="titleText">
           {{ titleText }}
         </div>
