@@ -77,19 +77,16 @@
     </div>
     <!-- サイトマップ -->
     <div
-      class="flex w-11/12 flex-col items-center pt-8 tb:items-start tb:gap-10 pc:w-full pc:max-w-[1300px] pc:flex-row pc:gap-0 pc:pt-[56px]"
+      class="mb-10 flex w-11/12 flex-col items-start pt-8 tb:items-start tb:gap-10 pc:w-full pc:max-w-[1300px] pc:flex-row pc:gap-0 pc:pt-[56px]"
     >
       <!-- ロゴ -->
       <NuxtLink
         to="/"
-        class="flex h-[59px] w-[242px] items-center justify-center tb:mr-[80px] pc:ml-6"
+        class="mb-5 flex h-[59px] w-[242px] items-center justify-center tb:mb-0 tb:mr-[80px] pc:ml-6"
       >
         <img src="/logo-white.png" alt="" class="h-full w-full object-cover" />
       </NuxtLink>
-      <div
-        v-if="isTablet || isPC"
-        class="ml-6 flex gap-10 pc:ml-0 pc:gap-[112px]"
-      >
+      <div class="ml-6 flex flex-col gap-10 tb:flex-row pc:ml-0 pc:gap-[112px]">
         <!-- About us, Media -->
         <div class="flex flex-col gap-8">
           <div class="flex flex-col gap-7">
@@ -165,7 +162,7 @@
     </div>
     <!-- Security -->
     <div
-      class="mb-4 mt-4 flex w-11/12 flex-col items-center justify-center gap-6 rounded-lg border-[#334155] py-3 px-6 text-[#cbd5e1] tb:mt-16 tb:flex-row tb:justify-start tb:border tb:py-5 pc:w-full pc:max-w-[1300px] pc:gap-16 pc:px-16"
+      class="mb-4 mt-4 flex w-11/12 flex-col items-center justify-center gap-6 rounded-lg border border-[#334155] py-5 px-6 text-[#cbd5e1] tb:mt-16 tb:flex-row tb:justify-start tb:py-5 pc:w-full pc:max-w-[1300px] pc:gap-16 pc:px-16"
     >
       <div class="text-[18px] font-bold">Security</div>
       <div class="flex flex-col items-center gap-6 text-[14px] tb:flex-row">
