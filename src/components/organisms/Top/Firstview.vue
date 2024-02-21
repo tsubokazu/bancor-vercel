@@ -111,7 +111,6 @@
   const resetProgressBar = async () => {
     currentIndex.value = -1;
     await new Promise((resolve) => setTimeout(resolve, 50));
-    console.log('resetProgressBar');
   };
 
   setInterval(() => {
