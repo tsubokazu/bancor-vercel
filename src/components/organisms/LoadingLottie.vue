@@ -34,7 +34,7 @@
     <!-- Lottieアニメーション 地球儀 -->
     <div
       ref="lottieContainer"
-      class="absolute top-1/2 left-1/2 h-full w-[1000px] -translate-x-1/2 -translate-y-1/2 animate-after5s-vanish tb:w-[2000px] pc:w-full"
+      class="absolute top-1/2 left-1/2 h-full w-[1500px] -translate-x-1/2 -translate-y-1/2 animate-after5s-vanish tb:w-[3000px] pc:w-full"
     />
     <!-- ファーストビューの背景 -->
     <AtomsTopFirstviewBackground class="absolute animate-slide-up-background" />
