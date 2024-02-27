@@ -100,18 +100,22 @@
     });
   });
 
-  // ローディング状態が変わった時に実行されるウォッチャー
-  watch(
-    () => isLoading.value,
-    (newVal) => {
-      if (newVal) {
-        document.body.classList.add('overflow-hidden');
-      } else {
-        document.body.classList.remove('overflow-hidden');
-      }
-    },
-    { immediate: true }
-  );
+  onMounted(() => {
+    // ローディング状態が変わった時に実行されるウォッチャー
+    watch(
+      () => isLoading.value,
+      (newVal) => {
+        if (typeof document !== 'undefined') {
+          if (newVal) {
+            document.body.classList.add('overflow-hidden');
+          } else {
+            document.body.classList.remove('overflow-hidden');
+          }
+        }
+      },
+      { immediate: true }
+    );
+  });
 </script>
 
 <template>
