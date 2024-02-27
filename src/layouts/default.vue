@@ -113,7 +113,7 @@
       leave-to-class="opacity-0"
     >
       <OrganismsHeader
-        v-show="!isLoading && isShowHeader"
+        v-show="!isLoading"
         class="pointer-events-auto fixed top-3 z-50 w-full"
       ></OrganismsHeader>
     </Transition>
