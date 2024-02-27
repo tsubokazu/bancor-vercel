@@ -137,7 +137,6 @@
 
 <template>
   <div class="relative flex w-full flex-col items-center">
-    <AtomsTopFirstviewBackground></AtomsTopFirstviewBackground>
     <!-- TOPスライダー（Bancor Journal） -->
     <div
       class="relative mt-[100px] flex w-full flex-col items-center justify-center overflow-hidden py-5 pc:mt-[100px]"

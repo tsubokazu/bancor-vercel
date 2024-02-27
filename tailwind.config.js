@@ -46,6 +46,7 @@ module.exports = {
         futuraMediumItalic: ['futura medium italic'],
         futuraBold: ['futura bold'],
         futuraMedium: ['futura medium'],
+        gothamBoldItalic: ['gotham bold italic'],
       },
       colors: {
         'bancor-light-blue100': '#F2F7FF',
@@ -168,6 +169,10 @@ module.exports = {
         'scale-up-image-rv': 'scale-up-image-rv 0.5s ease-out both',
         'scale-in-site-menu': 'scale-in-site-menu 0.5s ease-out both',
         'scale-in-site-menu-rv': 'scale-in-site-menu-rv 0.5s ease-out both',
+        'slide-up-background': 'slideUpBackground 6s ease-out both',
+        'opaicity-0-to-1': 'opacity0To1 6s ease-out both',
+        'scale-500-to-100': 'scale500To100 6s ease-in-out both',
+        'after5s-vanish': 'after5sVanish 6s ease-in-out both',
       },
       keyframes: {
         'slide': {
@@ -1024,6 +1029,70 @@ module.exports = {
             'transform-origin': 'center',
             'opacity': '0',
             'transform': 'scale(0.5)',
+          },
+        },
+        'slideUpBackground': {
+          '0%': {
+            transform: 'translateY(100%)',
+            opacity: '0',
+          },
+          '16.7%': {
+            opacity: '0',
+          },
+          '50%': {
+            transform: 'translateY(0)',
+            opacity: '1',
+          },
+          'to': {
+            transform: 'translateY(0)',
+            opacity: '1',
+          },
+        },
+        'opacity0To1': {
+          '0%': {
+            opacity: '0',
+          },
+          '50%': {
+            opacity: '0',
+          },
+          '83.4%': {
+            opacity: '1',
+          },
+          'to': {
+            opacity: '0',
+          },
+        },
+        'scale500To100': {
+          '0%': {
+            transform: 'scale(4)',
+            opacity: '0',
+            transformOrigin: 'center',
+          },
+          '50%': {
+            transform: 'scale(4)',
+            opacity: '0',
+            transformOrigin: 'center',
+          },
+          '83.4%': {
+            transform: 'scale(1)',
+            opacity: '1',
+            transformOrigin: 'center',
+          },
+          'to': {
+            transform: 'scale(1)',
+            opacity: '0',
+            transformOrigin: 'center',
+          },
+        },
+        'after5sVanish': {
+          '0%': {
+            opacity: '1',
+          },
+          '83.4%': {
+            opacity: '1',
+          },
+          'to': {
+            opacity: '0',
           },
         },
       },

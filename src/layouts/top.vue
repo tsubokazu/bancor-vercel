@@ -23,7 +23,7 @@
       setTimeout(() => {
         isLoading.value = false;
         topSplashStore.setTopSplashFlag(false);
-      }, 2500);
+      }, 6000);
     }
 
     // スクロールイベントリスナーを登録
@@ -99,27 +99,38 @@
       ],
     });
   });
+
+  // ローディング状態が変わった時に実行されるウォッチャー
+  watch(
+    () => isLoading.value,
+    (newVal) => {
+      if (newVal) {
+        document.body.classList.add('overflow-hidden');
+      } else {
+        document.body.classList.remove('overflow-hidden');
+      }
+    },
+    { immediate: true }
+  );
 </script>
 
 <template>
   <div class="relative w-full">
     <!-- スプラッシュ画面（ローディング画面） -->
-    <Transition
-      leave-active-class="transition-opacity duration-[2000ms]"
-      leave-to-class="opacity-0"
-    >
-      <OrganismsLoadingScreen
-        class="pointer-events-none"
-        v-show="isLoading"
-      ></OrganismsLoadingScreen>
-    </Transition>
+    <OrganismsLoadingLottie
+      class="pointer-events-none"
+      v-show="isLoading"
+    ></OrganismsLoadingLottie>
+
+    <!-- トップビューの背景 -->
+    <AtomsTopFirstviewBackground></AtomsTopFirstviewBackground>
 
     <!-- ヘッダー -->
     <Transition
-      enter-active-class="transition-opacity duration-[2000ms]"
+      enter-active-class="transition-opacity duration-[1000ms]"
       enter-from-class="opacity-0"
       enter-to-class="opacity-1"
-      leave-active-class="transition-opacity duration-[2000ms]"
+      leave-active-class="transition-opacity duration-[1000ms]"
       leave-from-class="opacity-1"
       leave-to-class="opacity-0"
     >
@@ -131,7 +142,7 @@
 
     <!-- ページ -->
     <Transition
-      enter-active-class="transition-opacity duration-[2000ms]"
+      enter-active-class="transition-opacity duration-[1000ms]"
       enter-from-class="opacity-0"
       enter-to-class="opacity-1"
     >
@@ -142,7 +153,7 @@
 
     <!-- フッター -->
     <Transition
-      enter-active-class="transition-opacity duration-[2000ms]"
+      enter-active-class="transition-opacity duration-[1000ms]"
       enter-from-class="opacity-0"
       enter-to-class="opacity-1"
     >
@@ -151,10 +162,10 @@
 
     <!-- Cookieの同意 -->
     <Transition
-      enter-active-class="transition-opacity duration-[2000ms]"
+      enter-active-class="transition-opacity duration-[1000ms]"
       enter-from-class="opacity-0"
       enter-to-class="opacity-1"
-      leave-active-class="transition-opacity duration-[2000ms]"
+      leave-active-class="transition-opacity duration-[1000ms]"
       leave-from-class="opacity-1"
       leave-to-class="opacity-0"
     >

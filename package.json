@@ -39,6 +39,7 @@
     "@pinia/nuxt": "^0.4.6",
     "axios": "^1.6.0",
     "cheerio": "^1.0.0-rc.12",
+    "lottie-web": "^5.12.2",
     "pinia": "^2.0.30",
     "vue-gtag": "^2.0.1",
     "vue3-google-map": "^0.15.0",
