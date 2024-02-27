@@ -17,6 +17,11 @@
   src: url('~/assets/font/futura-medium.otf');
 }
 
+@font-face {
+  font-family: 'gotham bold italic';
+  src: url('~/assets/font/gotham-bold-italic.ttf');
+}
+
 @layer utilities {
   .pause {
     animation-play-state: paused;
