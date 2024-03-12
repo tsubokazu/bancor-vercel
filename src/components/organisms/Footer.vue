@@ -7,6 +7,20 @@
     PageLinkObject,
   } from '~/types/Footer';
 
+  const props = defineProps({
+    isRounded: {
+      type: Boolean,
+      default: true,
+    },
+    bgColor: {
+      type: String,
+      default: 'bg-[#f1f5f9]',
+    },
+  });
+
+  provide('isRounded', props.isRounded);
+  provide('bgColor', props.bgColor);
+
   const config = useRuntimeConfig();
   const baseUrl = config.public.kurocoApiUrl;
   const FooterEndpoint = config.public.kurocoFooter;

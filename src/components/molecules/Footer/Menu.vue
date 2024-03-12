@@ -1,4 +1,7 @@
 <script setup lang="ts">
+  // Footerから提供された値を受け取る
+  const isRounded = inject('isRounded');
+
   const contentList = [
     {
       icon: '/footer-contact.png',
@@ -42,7 +45,12 @@
 
 <template>
   <div
-    class="flex flex-col items-center rounded-t-[25px] bg-[#1e293b] pt-[40px] tb:h-[910px] tb:rounded-t-[50px] pc:rounded-t-[100px] pc:pt-[80px]"
+    class="flex flex-col items-center bg-[#1e293b] pt-[40px] tb:h-[910px] pc:pt-[80px]"
+    :class="[
+      isRounded
+        ? 'rounded-t-[25px] tb:rounded-t-[50px] pc:rounded-t-[100px]'
+        : '',
+    ]"
   >
     <!-- お問いあわせ・資料 -->
     <div

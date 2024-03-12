@@ -1,4 +1,8 @@
 <script setup lang="ts">
+  // Footerから提供された値を受け取る
+  const isRounded = inject('isRounded');
+  const bgColor = inject('bgColor');
+
   const mediaList = [
     {
       icon: '/footer-notion.png',
@@ -31,7 +35,11 @@
 
 <template>
   <div
-    class="flex h-[524px] w-full justify-center rounded-[25px] bg-[#f1f5f9] pt-6 tb:rounded-[50px] tb:pt-[56px] pc:rounded-[100px]"
+    :class="[
+      'flex h-[524px] w-full justify-center pt-6 pc:pt-14',
+      isRounded ? 'rounded-[25px] tb:rounded-[50px] pc:rounded-[100px]' : '',
+      bgColor,
+    ]"
   >
     <div
       class="grid h-[168px] grid-cols-1 items-start justify-items-center gap-y-6 gap-x-0 tb:grid-cols-2 tb:gap-x-5"
