@@ -275,3 +275,10 @@
   padding-bottom: 2px;
   box-decoration-break: clone;
 }
+
+.text-gradient-bancor-blue {
+  background-image: linear-gradient(110deg, #1488cc, #2b32b2);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}

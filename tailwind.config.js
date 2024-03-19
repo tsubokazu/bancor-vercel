@@ -97,6 +97,12 @@ module.exports = {
         'bancor-green400': '#caebbe',
         'bancor-yellow100': '#a37f03',
       },
+      backgroundImage: {
+        'gradient-to-tr':
+          'linear-gradient(to top right, rgba(2, 6, 27, 0.8) 0%, rgba(2, 6, 27, 0.1) 50%, rgba(2, 6, 27, 0) 100%)',
+        'text-gradient-bancor-blue':
+          'linear-gradient(110deg, #1488cc, #2b32b2)',
+      },
       animation: {
         'slide-infinite': 'slide 30s linear infinite',
         'slide-out-up': 'slide-out-up 2.5s ease-in-out both',

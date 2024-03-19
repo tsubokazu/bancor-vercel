@@ -20,51 +20,23 @@
 </script>
 
 <template>
-  <div class="flex w-full flex-col items-center">
+  <div class="relative flex w-full flex-col items-center bg-[#f1f5f9]">
     <!-- ヘッダー -->
-    <div class="h-[240px] w-full pc:h-[360px]">
-      <AtomsBasicHeader
-        :imgUrl="header.imgUrl"
-        class="h-full w-full"
-      ></AtomsBasicHeader>
-    </div>
+    <div
+      class="h-[240px] w-[95%] pc:h-[320px] pc:w-full pc:max-w-[1460px]"
+    ></div>
+    <!-- 背景アニメーション -->
+    <div
+      class="h-[240px] w-[95%] pc:h-[360px] pc:w-full pc:max-w-[1460px]"
+    ></div>
     <!-- ボディ -->
-    <div class="relative mb-40 flex w-full flex-col items-center space-y-24">
-      <!-- ヘッダータイトル -->
+    <div class="flex w-[95%] pc:w-full pc:max-w-[1460px]">
+      <!-- サイド -->
+      <OrganismsCompanyInfoSideMenu />
+      <!-- メイン -->
       <div
-        class="absolute -top-32 flex w-[95%] flex-col space-y-3 pc:max-w-[1000px]"
-      >
-        <div class="text-base text-white">{{ header.title }}</div>
-        <AtomsFuturaItalicText
-          :text="header.subTitle"
-          color="text-white"
-          size="text-[40px]"
-        ></AtomsFuturaItalicText>
-      </div>
-
-      <!-- メインメッセージ -->
-      <div
-        class="flex h-[480px] w-[95%] flex-col items-center justify-between space-y-10 tb:flex-row tb:space-y-0 pc:max-w-[1200px]"
-      >
-        <AtomsBasicTitle
-          size="text-[32px] tb:text-[38px] pc:text-[60px]"
-          :text="message.mainMessage"
-        ></AtomsBasicTitle>
-        <div
-          class="flex h-full w-full items-center justify-center overflow-hidden tb:w-[40%] pc:w-[538px]"
-        >
-          <img
-            :src="message.imgUrl"
-            alt="代表写真"
-            class="w-full object-cover"
-          />
-        </div>
-      </div>
-
-      <!-- メッセージ本文 -->
-      <div class="flex w-[95%] pc:max-w-[1000px]">
-        <div class="post prose" v-html="message.message"></div>
-      </div>
+        class="relative mb-40 flex w-full flex-col items-center space-y-24"
+      ></div>
     </div>
   </div>
 </template>

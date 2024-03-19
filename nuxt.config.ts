@@ -92,6 +92,8 @@ export default defineNuxtConfig({
       kurocoHeadTag: '/rcms-api/10/pages?topics_group_id=34', // Headタグ
       kurocoWelfareHeadTag: '/rcms-api/10/pages?topics_group_id=35', // 福祉Headタグ
       kurocoBeautyHeadTag: '/rcms-api/10/pages?topics_group_id=36', // 美容Headタグ
+      kurocoBoardMember: '/rcms-api/10/pages?topics_group_id=43', // 役員・責任者紹介ページ - メンバー
+      kurocoBoardMemberCommon: '/rcms-api/10/pages?topics_group_id=44', // 役員・責任者紹介ページ - 共通部分
       kurocoSubmitEntryForm: '/rcms-api/11/form?id=3', // 採用エントリー
       kurocoSubmitDownloadMaterialForm: '/rcms-api/11/form?id=4', // 資料ダウンロード
       kurocoSubmitContactForm: '/rcms-api/11/form?id=5', // お問い合わせ

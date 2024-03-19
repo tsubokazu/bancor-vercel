@@ -13,8 +13,10 @@
     spaceY: 'space-y-1',
     maxChars: 100,
   });
+  console.log(`text: ${props.text}`);
 
   const titleText = computed(() => props.text.replace(/\r?\n/g, ''));
+  console.log(`titleText: ${titleText.value}`);
 </script>
 
 <template>
