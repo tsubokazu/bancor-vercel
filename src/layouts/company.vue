@@ -15,7 +15,6 @@
 
   const checkScroll = () => {
     isShowHeader.value = window.scrollY <= 1080;
-    console.log(`scrollY: ${window.scrollY}`);
   };
 
   onMounted(() => {

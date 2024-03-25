@@ -94,6 +94,8 @@ export default defineNuxtConfig({
       kurocoBeautyHeadTag: '/rcms-api/10/pages?topics_group_id=36', // 美容Headタグ
       kurocoBoardMember: '/rcms-api/10/pages?topics_group_id=43', // 役員・責任者紹介ページ - メンバー
       kurocoBoardMemberCommon: '/rcms-api/10/pages?topics_group_id=44', // 役員・責任者紹介ページ - 共通部分
+      kurocoServiceList: '/rcms-api/10/pages?topics_group_id=45', // サービス一覧(サイドメニュー用)
+      kurocoServiceDetails: '/rcms-api/10/pages?topics_group_id=46', // サービス一覧(本体詳細用)
       kurocoSubmitEntryForm: '/rcms-api/11/form?id=3', // 採用エントリー
       kurocoSubmitDownloadMaterialForm: '/rcms-api/11/form?id=4', // 資料ダウンロード
       kurocoSubmitContactForm: '/rcms-api/11/form?id=5', // お問い合わせ
@@ -102,6 +104,7 @@ export default defineNuxtConfig({
       googleMapApiKey: 'AIzaSyAkiUf_mc0OqCF_xaln1IAAxNCEu96__8Q', // GoogleMapのAPIキー
       kurocoTop01: '/rcms-api/14/top01/128', // TOPページ01
       kurocoTop02: '/rcms-api/14/top02/129', // TOPページ02
+      kurocoWelfareJournal: '/rcms-api/12/welfare-journals', // 福祉事業記事
     },
   },
 });
