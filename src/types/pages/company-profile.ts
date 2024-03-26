@@ -24,7 +24,15 @@ export interface CompanyProfile {
   mapIconUrl: string;
 }
 
+// 会社写真
+export interface CompanyPhoto {
+  imgUrl: string;
+  imgSubTitle: string;
+  imgDetail: string;
+}
+
 export interface CompanyProfileObject {
   header: CompanyProfileHeader;
   companyProfile: CompanyProfile;
+  companyPhotos: CompanyPhoto[];
 }

@@ -4,6 +4,7 @@ export const usePagesCompanyProfileStore = defineStore(
     // 会社概要ページの情報をKurocoから取得
     const header: any = ref({}); // ヘッダー
     const companyProfile: any = ref({}); // 会社概要情報
+    const companyPhotos: any = ref([]); // 会社写真
 
     const fetchPagesCompanyProfile = async () => {
       const config = useRuntimeConfig();
@@ -48,10 +49,36 @@ export const usePagesCompanyProfileStore = defineStore(
       }
     };
 
+    const fetchPagesCompanyPhotos = async () => {
+      const config = useRuntimeConfig();
+      const baseUrl = config.public.kurocoApiUrl;
+      const pagesCompanyPhotosEndpoint = config.public.kurocoCompanyPhotos;
+      const { data: kuroco, error } = (await useFetch(
+        `${baseUrl}${pagesCompanyPhotosEndpoint}`
+      )) as any;
+      if (!kuroco.value || error.value) {
+        console.error(
+          `[usePagesCompanyProfileStore] fetchPages error: ${error.value}`
+        );
+      } else {
+        const data: any = kuroco.value.list[0];
+        console.log('data', data);
+
+        // 会社写真
+        companyPhotos.value = data.image.map((photo: any, index: number) => ({
+          imgUrl: data.image[index].url,
+          imgSubTitle: data.sub_title[index],
+          imgDetail: data.detail[index],
+        }));
+      }
+    };
+
     return {
       header,
       companyProfile,
       fetchPagesCompanyProfile,
+      companyPhotos,
+      fetchPagesCompanyPhotos,
     };
   }
 );

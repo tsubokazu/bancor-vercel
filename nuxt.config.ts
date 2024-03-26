@@ -96,6 +96,7 @@ export default defineNuxtConfig({
       kurocoBoardMemberCommon: '/rcms-api/10/pages?topics_group_id=44', // 役員・責任者紹介ページ - 共通部分
       kurocoServiceList: '/rcms-api/10/pages?topics_group_id=45', // サービス一覧(サイドメニュー用)
       kurocoServiceDetails: '/rcms-api/10/pages?topics_group_id=46', // サービス一覧(本体詳細用)
+      kurocoCompanyPhotos: '/rcms-api/10/pages?topics_group_id=47', // 会社写真
       kurocoSubmitEntryForm: '/rcms-api/11/form?id=3', // 採用エントリー
       kurocoSubmitDownloadMaterialForm: '/rcms-api/11/form?id=4', // 資料ダウンロード
       kurocoSubmitContactForm: '/rcms-api/11/form?id=5', // お問い合わせ
