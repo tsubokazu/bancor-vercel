@@ -1107,5 +1107,13 @@ module.exports = {
   plugins: [
     require('@tailwindcss/typography'),
     require('@formkit/themes/tailwindcss'),
+    function ({ addUtilities }) {
+      const newUtilities = {
+        '.clip-xywh': {
+          clipPath: 'xywh(0 0 100% 100% round 0 200px / 0 200px)',
+        },
+      };
+      addUtilities(newUtilities);
+    },
   ],
 };

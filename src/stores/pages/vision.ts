@@ -23,7 +23,10 @@ export const usePagesVisionStore = defineStore('pagesVision', () => {
       header.value = {
         title: data.ext_1,
         subTitle: data.ext_2,
+        outline: data.ext_21,
         imgUrl: data.ext_3.url,
+        linkTitle: data.ext_19,
+        linkUrl: data.ext_20,
       };
 
       // サブパーパス情報

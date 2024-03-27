@@ -18,8 +18,13 @@
 
 <template>
   <div
-    class="text-bancorbla flex flex-col"
-    :class="[props.size, props.color, { 'font-bold': isBold }, spaceY]"
+    class="flex flex-col"
+    :class="[
+      props.size,
+      props.color,
+      props.isBold ? 'font-bold' : '',
+      props.spaceY,
+    ]"
   >
     <div v-for="titleText in titleTexts" :key="titleText">
       {{ titleText }}

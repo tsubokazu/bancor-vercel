@@ -2,7 +2,10 @@
 export interface VisionHeader {
   title: string;
   subTitle: string;
+  outline: string;
   imgUrl: string;
+  linkTitle: string;
+  linkUrl: string;
 }
 
 export interface VisionSub {

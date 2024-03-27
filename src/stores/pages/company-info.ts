@@ -1,8 +1,11 @@
 export const usePagesCompanyInfoStore = defineStore('pagesCompanyInfo', () => {
   // 会社案内ページの情報をKurocoから取得
-  const header: any = ref({}); // ヘッダー
-  const vision: any = ref({}); // ミッション
-  const defendJapan: any = ref({}); // 日本のために
+  const vision: any = ref({}); // ビジョン・パーパス
+  const infographics: any = ref([]); // インフォグラフィック
+  const boardMember: any = ref({}); // 役員・責任者紹介
+  const technology: any = ref({}); // 技術力
+  const technologyStacks: any = ref([]); // 技術スタック
+  const pageLinks: any = ref([]); // ページリンク
 
   const fetchPagesCompanyInfo = async () => {
     const config = useRuntimeConfig();
@@ -16,59 +19,76 @@ export const usePagesCompanyInfoStore = defineStore('pagesCompanyInfo', () => {
         `[usePagesCompanyInfoStore] fetchPages error: ${error.value}`
       );
     } else {
-      const headerData: any = kuroco.value.list.filter(
-        (data: any): any => data.topics_id == 35
-      )[0];
-      const visionData: any = kuroco.value.list.filter(
-        (data: any): any => data.topics_id == 33
-      )[0];
-      const defendJapanData: any = kuroco.value.list.filter(
-        (data: any): any => data.topics_id == 34
-      )[0];
+      const data: any = kuroco.value.list[0];
 
       // 取得したデータを型に当てはめる
-      // ヘッダー
-      header.value = {
-        title: headerData.ext_1,
-        subTitle: headerData.ext_2,
-        imgUrl: headerData.ext_4.url,
-      };
-
-      // ミッション
+      // ビジョン・パーパス
       vision.value = {
-        title: visionData.ext_1,
-        subTitle: visionData.ext_2,
-        outline: visionData.ext_3,
-        imgUrl: visionData.ext_4.url,
-        linkUrl: visionData.ext_10,
-        contents: [
-          {
-            title: visionData.ext_5[0],
-            imgUrl: visionData.ext_8[0].url,
-            linkUrl: visionData.ext_9[0],
-          },
-          {
-            title: visionData.ext_5[1],
-            imgUrl: visionData.ext_8[1].url,
-            linkUrl: visionData.ext_9[1],
-          },
-        ],
+        title: data.vision_title,
+        subTitle: data.vision_sub_title,
+        outline: data.vision_outline,
+        linkTitle: data.vision_link_title,
+        linkUrl: data.vision_link_url,
       };
 
-      // 日本のために
-      defendJapan.value = {
-        title: defendJapanData.ext_1,
-        subTitle: defendJapanData.ext_2,
-        outline: defendJapanData.ext_3,
-        imgUrl: defendJapanData.ext_4.url,
+      // インフォグラフィック
+      infographics.value = data.infographic_image.map(
+        (infographic: any, index: number) => {
+          return {
+            title: data.infographic_title[index],
+            imgUrl: data.infographic_image[index].url,
+            value: data.infographic_value[index],
+            unit: data.infographic_unit[index],
+            description: data.infographic_description[index],
+          };
+        }
+      );
+
+      // 役員・責任者紹介
+      boardMember.value = {
+        title: data.board_member_title,
+        outline: data.board_member_outline,
+        imgUrl: data.board_member_image.url,
+        logoUrl: data.board_member_logo.url,
+        linkTitle: data.board_member_link_title,
+        linkUrl: data.board_member_link_url,
       };
+
+      // 技術力
+      technology.value = {
+        title: data.tech_title,
+        outline: data.tech_outline,
+      };
+
+      // 技術スタック
+      technologyStacks.value = data.tech_image.map(
+        (techStack: any, index: number) => {
+          return {
+            imgUrl: data.tech_image[index].url,
+            imgAlt: data.tech_image[index].desc,
+          };
+        }
+      );
+
+      // ページリンク
+      pageLinks.value = data.pages_link_title.map(
+        (pageLink: any, index: number) => {
+          return {
+            title: data.pages_link_title[index],
+            linkUrl: data.pages_link_url[index],
+          };
+        }
+      );
     }
   };
 
   return {
-    header,
     vision,
-    defendJapan,
+    infographics,
+    boardMember,
+    technology,
+    technologyStacks,
+    pageLinks,
     fetchPagesCompanyInfo,
   };
 });

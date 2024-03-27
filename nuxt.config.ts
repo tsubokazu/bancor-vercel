@@ -22,6 +22,7 @@ export default defineNuxtConfig({
     '/system-development': { static: true },
     '/trademarks': { static: true },
     '/vision': { static: true },
+    '/board-member': { static: true },
   },
   css: [
     '~/assets/css/main.css',
@@ -70,10 +71,10 @@ export default defineNuxtConfig({
       kurocoTopRecruit: '/rcms-api/6/top/18', // TOPページ（採用）
       kurocoEditor: '/rcms-api/9/member', // 編集者メンバー
       kurocoPagesService: '/rcms-api/10/pages?topics_group_id=14', // 事業内容ページ
-      kurocoPagesCompanyInfo: '/rcms-api/10/pages?topics_group_id=13', // 会社案内ページ
+      kurocoPagesCompanyInfo: '/rcms-api/10/pages?topics_group_id=48', // 会社案内ページ
       kurocoPagesMoreAbourBancor: '/rcms-api/10/pages?topics_group_id=15', // Bancor取組内容
       kurocoPagesCompanyProfile: '/rcms-api/10/pages?topics_group_id=16', // 会社概要ページ
-      kurocoPagesMessage: '/rcms-api/10/pages?topics_group_id=17', // 会社概要ページ
+      kurocoPagesMessage: '/rcms-api/10/pages?topics_group_id=17', // 会社案内ページ
       kurocoPagesVision: '/rcms-api/10/pages?topics_group_id=18', // 会社概要ページ
       kurocoPagesSystemDev: '/rcms-api/10/pages?topics_group_id=19', // システム開発のページ
       kurocoPagesCareWelfare: '/rcms-api/10/pages?topics_group_id=20', // 福祉向けシステム開発のページ
