@@ -20,6 +20,68 @@
     technologyStacks,
     pageLinks,
   }: CompanyInfoObject = pagesCompanyInfoStore;
+
+  // サイドバーの固定まわり
+  const sidebar = ref(null);
+  const main = ref(null);
+
+  const handleScroll = () => {
+    if (isSmartPhone.value) return;
+    // sidebarがHTMLElementであることをTypeScriptに伝える
+    const sidebarElement = sidebar.value as HTMLElement | null;
+    const mainElement = main.value as HTMLElement | null;
+    if (!sidebarElement) return;
+    if (!mainElement) return;
+
+    const sidebarTop = sidebarElement.getBoundingClientRect().top;
+
+    // mainの高さを取得
+    const mainHeight = mainElement.offsetHeight;
+
+    if (
+      sidebarTop <= 144 &&
+      window.scrollY > 170 &&
+      window.scrollY <= mainHeight - 500
+    ) {
+      sidebarElement.style.position = 'fixed';
+      sidebarElement.style.top = '144px';
+    } else if (window.scrollY > mainHeight - 500) {
+      sidebarElement.style.position = 'fixed';
+      sidebarElement.style.top = `${
+        144 - (window.scrollY - (mainHeight - 500))
+      }px`;
+    } else {
+      sidebarElement.style.position = 'relative';
+      sidebarElement.style.top = 'auto';
+    }
+  };
+
+  // ウィンドウサイズからスマホかどうかを判定
+  const windowWidth = ref(1300);
+  const isSmartPhone = computed(() => windowWidth.value < 768);
+  const isTablet = computed(
+    () => windowWidth.value >= 768 && windowWidth.value < 1280
+  );
+  const isPC = computed(() => windowWidth.value >= 1280);
+
+  const updateWidth = () => {
+    if (typeof window !== 'undefined') {
+      windowWidth.value = window.innerWidth;
+    }
+  };
+
+  onMounted(() => {
+    nextTick(() => {
+      updateWidth();
+    });
+    window.addEventListener('resize', updateWidth);
+    window.addEventListener('scroll', handleScroll);
+  });
+
+  onUnmounted(() => {
+    window.removeEventListener('resize', updateWidth);
+    window.removeEventListener('scroll', handleScroll);
+  });
 </script>
 
 <template>
@@ -53,9 +115,13 @@
       class="flex w-[95%] flex-col gap-4 tb:flex-row pc:max-w-[1460px] pc:gap-8"
     >
       <!-- サイド -->
-      <OrganismsCompanyInfoSideMenu />
+      <div class="relative w-[238px] flex-none">
+        <div ref="sidebar">
+          <OrganismsCompanyInfoSideMenu />
+        </div>
+      </div>
       <!-- メイン -->
-      <div class="mb-[128px] flex w-full flex-col gap-14">
+      <div ref="main" class="mb-[128px] flex w-full flex-col gap-14">
         <div
           class="relative flex w-full flex-col items-center rounded-[10px] border border-[#cbd5e1] bg-white pt-[100px]"
         >

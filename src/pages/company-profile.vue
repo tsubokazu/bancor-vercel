@@ -69,16 +69,53 @@
     }
   };
 
+  // サイドバーの固定まわり
+  const sidebar = ref(null);
+  const main = ref(null);
+
+  const handleScroll = () => {
+    if (isSmartPhone.value) return;
+    // sidebarがHTMLElementであることをTypeScriptに伝える
+    const sidebarElement = sidebar.value as HTMLElement | null;
+    const mainElement = main.value as HTMLElement | null;
+    if (!sidebarElement) return;
+    if (!mainElement) return;
+
+    const sidebarTop = sidebarElement.getBoundingClientRect().top;
+
+    // mainの高さを取得
+    const mainHeight = mainElement.offsetHeight;
+
+    if (
+      sidebarTop <= 144 &&
+      window.scrollY > 170 &&
+      window.scrollY <= mainHeight - 500
+    ) {
+      sidebarElement.style.position = 'fixed';
+      sidebarElement.style.top = '144px';
+    } else if (window.scrollY > mainHeight - 500) {
+      sidebarElement.style.position = 'fixed';
+      sidebarElement.style.top = `${
+        144 - (window.scrollY - (mainHeight - 500))
+      }px`;
+    } else {
+      sidebarElement.style.position = 'relative';
+      sidebarElement.style.top = 'auto';
+    }
+  };
+
   onMounted(() => {
     nextTick(() => {
       updateWidth();
       updateSliderImgWidth();
     });
     window.addEventListener('resize', updateWidth);
+    window.addEventListener('scroll', handleScroll);
   });
 
   onUnmounted(() => {
     window.removeEventListener('resize', updateWidth);
+    window.removeEventListener('scroll', handleScroll);
   });
 </script>
 
@@ -115,8 +152,12 @@
       class="flex w-[95%] flex-col gap-4 tb:flex-row pc:max-w-[1460px] pc:gap-8"
     >
       <!-- サイド -->
-      <OrganismsCompanyInfoSideMenu />
-      <div class="flex w-full flex-col gap-8">
+      <div class="relative w-[238px] flex-none">
+        <div ref="sidebar">
+          <OrganismsCompanyInfoSideMenu />
+        </div>
+      </div>
+      <div ref="main" class="flex w-full flex-col gap-8">
         <!-- 詳細情報 -->
         <div class="text-[28px] font-bold">詳細情報</div>
         <!-- メイン -->

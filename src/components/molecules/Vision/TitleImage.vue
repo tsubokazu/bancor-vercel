@@ -25,7 +25,7 @@
       class="absolute right-0 top-0"
       :imgUrl="imgUrl"
       imgHeight="h-full"
-      imgWidth="w-[864px]"
+      imgWidth="pc:w-[864px] w-[90%]"
     ></AtomsBasicImage>
   </div>
 </template>
