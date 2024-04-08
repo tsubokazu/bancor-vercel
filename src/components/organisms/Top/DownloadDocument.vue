@@ -13,7 +13,7 @@
         </div>
         <!-- メッセージ -->
         <div
-          class="mt-4 flex-none text-[18px] font-bold text-[#94a3b8] tb:text-[24px] pc:text-[40px]"
+          class="mt-4 flex-none text-[18px] font-bold text-[#94a3b8] tb:w-[420px] tb:text-[24px] pc:w-[700px] pc:text-[40px]"
         >
           NUVO M&A<span class="text-[#020617]">独自の価値基準</span
           >に基づき<br />
