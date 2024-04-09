@@ -13,6 +13,7 @@
     await pagesSystemDevStore.fetchPagesSystemDev();
   }
   const {
+    headerBg,
     header,
     issues,
     dxDev,
@@ -58,54 +59,37 @@
 </script>
 
 <template>
-  <div class="flex w-full flex-col items-center overflow-hidden scroll-smooth">
+  <div
+    class="relative flex w-full flex-col items-center overflow-hidden scroll-smooth"
+  >
+    <!-- ヘッダー背景画像 -->
+    <div class="absolute top-0 right-0 -z-10 h-[450px] w-[779px]">
+      <img :src="headerBg.imgUrl" alt="" class="h-full w-full object-cover" />
+    </div>
     <!-- ヘッダー -->
-    <div class="h-[240px] w-full pc:h-[360px]">
-      <AtomsBasicHeader
-        :imgUrl="header.imgUrl"
-        class="h-full w-full"
-      ></AtomsBasicHeader>
+    <div class="h-[240px] w-full max-w-[1200px] pc:h-[450px]">
+      <!-- タイトル画像 -->
+      <div class="mt-[174px] mb-6 pc:h-[117px] pc:w-[534px]">
+        <img
+          :src="header.imgUrl"
+          alt="タイトル画像"
+          class="h-full w-full object-cover"
+        />
+      </div>
+      <!-- サブタイトル -->
+      <div
+        class="w-fit rounded-md bg-[#020617] px-4 py-1 text-[16px] font-bold text-white"
+      >
+        {{ header.subTitle }}
+      </div>
     </div>
     <!-- ボディ -->
     <div class="relative flex w-full flex-col items-center">
-      <!-- ヘッダータイトル -->
-      <div
-        class="absolute -top-32 flex w-[95%] flex-col space-y-3 pc:-top-48 pc:max-w-[1100px]"
-      >
-        <div class="text-base text-white">{{ header.title }}</div>
-        <AtomsFuturaItalicText
-          :text="header.subTitle"
-          color="text-white"
-          size="text-[40px]"
-        ></AtomsFuturaItalicText>
-      </div>
-
-      <!-- ヘッダーメニュー -->
-      <div
-        class="absolute -top-16 -z-10 hidden h-16 w-full items-center justify-center bg-gray-900 opacity-50 pc:flex"
-      ></div>
-      <div
-        class="absolute -top-16 z-40 hidden h-16 w-full items-center justify-center space-x-40 pc:flex"
-      >
-        <AtomsLinkMoveArrowTitle
-          v-for="anchor in header.anchors"
-          :text="anchor.title"
-          :linkUrl="anchor.linkUrl"
-          color="text-white"
-          size="text-base"
-          :isAngle="false"
-          :isRight="false"
-          :isRotate="true"
-          :isOpacity="true"
-          :key="anchor.title"
-        ></AtomsLinkMoveArrowTitle>
-      </div>
-
       <!-- こんな課題を解決します -->
       <div id="test" class="mt-16 mb-14 flex w-full flex-col items-center">
         <!-- メニュータイトル -->
         <MoleculesDoubleSquareTagMenu
-          class="w-[95%] pc:max-w-[1100px]"
+          class="w-[95%] pc:max-w-[1200px]"
           :title="issues.title"
           :subTitle="issues.subTitle"
         ></MoleculesDoubleSquareTagMenu>
@@ -113,11 +97,11 @@
 
       <!-- カード -->
       <div
-        class="mb-12 flex w-[95%] flex-col items-center justify-between space-y-4 tb:flex-row tb:space-y-0 pc:max-w-[1100px]"
+        class="mb-12 flex w-[95%] flex-col items-center justify-between space-y-4 tb:flex-row tb:space-y-0 pc:max-w-[1200px]"
       >
         <div
           v-for="(issue, index) in issues.issues"
-          class="relative flex h-[240px] w-[332px] flex-col items-center justify-between rounded-lg border border-bancor-gray600 bg-white py-6"
+          class="relative flex h-[300px] w-[378px] flex-col items-center justify-between rounded-lg border border-bancor-gray600 bg-white py-5 px-8"
           :key="issue.title"
         >
           <!-- Case N -->
@@ -133,16 +117,18 @@
           ></AtomsFuturaMediumText>
 
           <!-- カード内イメージとタイトル -->
-          <AtomsBasicIcon
-            size="h-[121px]"
-            :iconUrl="issue.imgUrl"
-          ></AtomsBasicIcon>
-          <AtomsBasicTitle
-            class="text-center"
+          <div class="mb-3 h-[148px] w-[148px] flex-none">
+            <img
+              :src="issue.imgUrl"
+              alt=""
+              class="h-full w-full object-cover"
+            />
+          </div>
+          <AtomsParticleColorTitle
             spaceY="space-y-2"
             :text="issue.title"
             size="text-[18px] tb:text-[16px] pc:text-[18px]"
-          ></AtomsBasicTitle>
+          ></AtomsParticleColorTitle>
 
           <!-- カードの吹き出し -->
           <div
@@ -170,37 +156,10 @@
         ></div>
       </div>
 
-      <!-- DX推進時代の開発手法 -->
-      <div
-        class="mb-24 flex w-[95%] flex-col items-center justify-between space-y-8 tb:flex-row pc:max-w-[1100px] pc:space-y-0"
-      >
-        <!-- メニュー -->
-        <div class="flex flex-col space-y-10 tb:w-[458px]">
-          <AtomsBasicTitle
-            :text="dxDev.title"
-            size="text-[32px]"
-          ></AtomsBasicTitle>
-          <AtomsBasicOutline :text="dxDev.subTitle"></AtomsBasicOutline>
-          <AtomsBasicOutline
-            :text="dxDev.outline"
-            :isBold="false"
-          ></AtomsBasicOutline>
-          <MoleculesDetailButton
-            :linkUrl="dxDev.linkUrl"
-          ></MoleculesDetailButton>
-        </div>
-
-        <!-- イメージ -->
-        <AtomsBasicIcon
-          :iconUrl="dxDev.imgUrl"
-          size="h-[300px] pc:h-[435px]"
-        ></AtomsBasicIcon>
-      </div>
-
       <!-- デジタル化の課題 -->
       <div
         id="resource"
-        class="mb-24 flex w-[95%] flex-col items-center pc:max-w-[1100px]"
+        class="mb-24 flex w-[95%] flex-col items-center pc:max-w-[1200px]"
       >
         <!-- タイトル -->
         <div class="mb-8 flex flex-col items-center space-y-12 tb:mb-16">
@@ -217,7 +176,7 @@
 
         <!-- 課題のグラフ -->
         <div
-          class="flex w-[95%] flex-col justify-between space-y-10 pc:max-w-[1100px] pc:flex-row pc:space-y-0"
+          class="flex w-[95%] flex-col justify-between space-y-10 pc:max-w-[1200px] pc:flex-row pc:space-y-0"
         >
           <!-- 課題の項目ボタン -->
           <div class="flex w-[238px] flex-col space-y-3">
@@ -248,9 +207,36 @@
         </div>
       </div>
 
+      <!-- DX推進時代の開発手法 -->
+      <div
+        class="mb-24 flex w-[95%] flex-col items-center justify-between space-y-8 tb:flex-row pc:max-w-[1200px] pc:space-y-0"
+      >
+        <!-- メニュー -->
+        <div class="flex flex-col space-y-10 tb:w-[458px]">
+          <AtomsBasicTitle
+            :text="dxDev.title"
+            size="text-[32px]"
+          ></AtomsBasicTitle>
+          <AtomsBasicOutline :text="dxDev.subTitle"></AtomsBasicOutline>
+          <AtomsBasicOutline
+            :text="dxDev.outline"
+            :isBold="false"
+          ></AtomsBasicOutline>
+          <MoleculesDetailButton
+            :linkUrl="dxDev.linkUrl"
+          ></MoleculesDetailButton>
+        </div>
+
+        <!-- イメージ -->
+        <AtomsBasicIcon
+          :iconUrl="dxDev.imgUrl"
+          size="h-[300px] pc:h-[435px]"
+        ></AtomsBasicIcon>
+      </div>
+
       <!-- パートナーとしてではなくチームの一員 -->
       <!-- デジタル化の課題 -->
-      <div class="mb-24 flex w-[95%] flex-col items-center pc:max-w-[1100px]">
+      <div class="mb-24 flex w-[95%] flex-col items-center pc:max-w-[1200px]">
         <!-- タイトル -->
         <div class="mb-16 flex flex-col items-center space-y-12">
           <AtomsAsteriskSmallText
@@ -272,36 +258,8 @@
         ></AtomsBasicImage>
       </div>
 
-      <!-- 3分でわかるBancor -->
-      <div
-        class="mb-24 flex h-[500px] w-[95%] flex-col items-center justify-center space-y-5 bg-white shadow-lg tb:h-[245px] tb:w-[800px] tb:flex-row tb:space-y-0 tb:space-x-36"
-      >
-        <!-- メニュー -->
-        <div class="flex flex-col space-y-2">
-          <AtomsFuturaBoldText
-            size="text-[13px]"
-            :text="bancor3min.subTitle"
-            color="text-bancor-blue100"
-          ></AtomsFuturaBoldText>
-          <AtomsBasicTitle
-            size="text-[22px]"
-            spaceY="space-y-2"
-            :text="bancor3min.title"
-          ></AtomsBasicTitle>
-          <MoleculesDetailButton
-            class="pt-8"
-            :linkUrl="bancor3min.linkUrl"
-          ></MoleculesDetailButton>
-        </div>
-
-        <!-- 3分でわかるBancor -->
-        <div class="h-[146px] w-[286px] shadow-lg">
-          <img :src="bancor3min.imgUrl" class="h-full w-full object-cover" />
-        </div>
-      </div>
-
       <!-- 開発体制の特徴 -->
-      <div id="feature" class="mb-14 flex w-[95%] flex-col pc:max-w-[1100px]">
+      <div id="feature" class="mb-14 flex w-[95%] flex-col pc:max-w-[1200px]">
         <MoleculesDoubleSquareTagMenu
           class="mb-14"
           :title="features.title"
@@ -311,8 +269,8 @@
         <div class="flex w-full flex-col space-y-14">
           <div
             v-for="(feature, index) in features.features"
-            class="flex w-full flex-col items-center justify-between space-y-6 shadow-lg tb:h-[311px] tb:flex-row tb:px-20 pc:space-y-0"
-            :class="[{ 'flex-row-reverse': index % 2 == 0 }]"
+            class="flex w-full flex-col items-center justify-between space-y-6 shadow-lg tb:h-[311px] tb:px-20 pc:space-y-0"
+            :class="[index % 2 == 0 ? 'tb:flex-row-reverse' : 'tb:flex-row']"
             :key="feature.title"
           >
             <MoleculesBasicMenu
@@ -337,7 +295,7 @@
       </div>
 
       <!-- 開発体制 -->
-      <div id="development" class="mb-24 flex w-[95%] pc:max-w-[1100px]">
+      <div id="development" class="mb-24 flex w-[95%] pc:max-w-[1200px]">
         <div class="mb-6 flex flex-col justify-center space-y-10">
           <MoleculesDoubleSquareTagMenu
             class="mb-18"
@@ -354,7 +312,7 @@
       </div>
 
       <!-- 保守・運用 -->
-      <div class="mb-24 flex w-[95%] pc:max-w-[1100px]">
+      <div class="mb-24 flex w-[95%] pc:max-w-[1200px]">
         <div class="flex flex-col justify-center space-y-10">
           <MoleculesDoubleSquareTagMenu
             :title="maintenances.title"
@@ -388,7 +346,7 @@
       </div>
 
       <!-- Value Update -->
-      <div class="relative h-[400px] w-[95%] tb:h-[834px] pc:max-w-[1100px]">
+      <div class="relative h-[400px] w-[95%] tb:h-[834px] pc:max-w-[1200px]">
         <!-- Value Updateの大きなタイトル -->
         <AtomsBasicTitle
           class="font-futuraBold"

@@ -3,6 +3,11 @@ export interface Anchor {
   linkUrl: string;
 }
 
+// ヘッダー背景
+export interface HeaderBg {
+  imgUrl: string;
+}
+
 // ヘッダー
 export interface SystemDevHeader {
   title: string;
@@ -110,6 +115,7 @@ export interface SystemDevValueUpdate {
 
 // 事業内容オブジェクト
 export interface SystemDevObject {
+  headerBg: HeaderBg;
   header: SystemDevHeader;
   issues: SystemDevIssues;
   dxDev: SystemDevDX;

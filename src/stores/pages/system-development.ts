@@ -1,5 +1,6 @@
 export const usePagesSystemDevStore = defineStore('pagesSystemDev', () => {
   // 会社案内ページの情報をKurocoから取得
+  const headerBg: any = ref({}); // ヘッダー背景
   const header: any = ref({}); // ヘッダー
   const issues: any = ref({}); // こんな課題解決します
   const dxDev: any = ref({}); // DX推進時代の開発手法
@@ -23,6 +24,9 @@ export const usePagesSystemDevStore = defineStore('pagesSystemDev', () => {
         `[usePagesSystemDevStore] fetchPages error: ${error.value}`
       );
     } else {
+      const headerBgData: any = kuroco.value.list.filter(
+        (data: any): any => data.topics_id == 154
+      )[0];
       const headerData: any = kuroco.value.list.filter(
         (data: any): any => data.topics_id == 44
       )[0];
@@ -55,6 +59,11 @@ export const usePagesSystemDevStore = defineStore('pagesSystemDev', () => {
       )[0];
 
       // 取得したデータを型に当てはめる
+      // ヘッダー背景
+      headerBg.value = {
+        imgUrl: headerBgData.ext_4.url,
+      };
+
       // ヘッダー
       header.value = {
         title: headerData.ext_1,
@@ -162,6 +171,7 @@ export const usePagesSystemDevStore = defineStore('pagesSystemDev', () => {
   };
 
   return {
+    headerBg,
     header,
     issues,
     dxDev,
