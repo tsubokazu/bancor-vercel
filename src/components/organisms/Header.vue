@@ -132,7 +132,7 @@
       <!-- ホームロゴ -->
       <div class="flex h-full items-center justify-center">
         <AtomsLogo
-          :logoUrl="logoUrl"
+          logoUrl="/logo-black-l.png"
           linkUrl="/"
           width="189"
           height="39"
