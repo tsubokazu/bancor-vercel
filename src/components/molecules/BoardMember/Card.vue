@@ -35,7 +35,7 @@
         <!-- メンバー画像 -->
         <img
           :src="member.imgUrl"
-          class="h-full scale-100 object-cover transition-transform duration-300 group-hover:scale-110"
+          class="w-full scale-100 object-cover transition-transform duration-300 group-hover:scale-110"
         />
       </div>
       <!-- 名前（英語） -->

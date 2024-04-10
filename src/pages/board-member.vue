@@ -194,7 +194,7 @@
               <div
                 v-for="(department, departmentIndex) in departments"
                 :key="department.department"
-                class="absolute top-0 flex w-full flex-col flex-wrap justify-between gap-5 pl-[20px] transition-transform duration-500 pc:flex-row pc:gap-0"
+                class="absolute top-0 flex h-full w-full flex-col justify-start gap-5 pl-[20px] transition-transform duration-500 pc:flex-row pc:flex-wrap pc:justify-between pc:gap-0"
                 :class="
                   currentDepartmentIndex === departmentIndex
                     ? 'translate-y-0'
