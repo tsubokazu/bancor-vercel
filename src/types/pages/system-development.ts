@@ -68,6 +68,16 @@ export interface NuvoIn3mins {
   linkUrl: string;
 }
 
+// 開発支援事例
+export interface SystemDevCase {
+  title: string;
+  mainMessage: string;
+  outline: string;
+  tags: Array<string>;
+  imgUrl: string;
+  linkUrl: string;
+}
+
 export interface Feature {
   title: string;
   subTitle: string;
@@ -122,6 +132,7 @@ export interface SystemDevObject {
   problems: SystemDevProblems;
   team: SystemDevTeam;
   bancor3min: NuvoIn3mins;
+  devCase: SystemDevCase;
   features: SystemDevFeatures;
   structure: SystemDevStructure;
   maintenances: SystemDevMaintenances;

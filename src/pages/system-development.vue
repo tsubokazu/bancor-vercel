@@ -20,6 +20,7 @@
     problems,
     team,
     bancor3min,
+    devCase,
     features,
     structure,
     maintenances,
@@ -63,13 +64,17 @@
     class="relative flex w-full flex-col items-center overflow-hidden scroll-smooth"
   >
     <!-- ヘッダー背景画像 -->
-    <div class="absolute top-0 right-0 -z-10 h-[450px] w-[779px]">
-      <img :src="headerBg.imgUrl" alt="" class="h-full w-full object-cover" />
-    </div>
     <!-- ヘッダー -->
-    <div class="h-[240px] w-full max-w-[1200px] pc:h-[450px]">
+    <div
+      class="relative flex h-[340px] w-full max-w-[1200px] flex-col items-center tb:h-[400px] tb:items-start pc:h-[450px]"
+    >
+      <div
+        class="absolute top-0 right-0 -z-10 h-[200px] w-[346px] tb:h-[300px] tb:w-[520px] pc:h-[450px] pc:w-[780px]"
+      >
+        <img :src="headerBg.imgUrl" alt="" class="h-full w-full object-cover" />
+      </div>
       <!-- タイトル画像 -->
-      <div class="mt-[174px] mb-6 pc:h-[117px] pc:w-[534px]">
+      <div class="mt-[174px] mb-6 w-[95%] tb:h-[117px] tb:w-[534px]">
         <img
           :src="header.imgUrl"
           alt="タイトル画像"
@@ -78,7 +83,7 @@
       </div>
       <!-- サブタイトル -->
       <div
-        class="w-fit rounded-md bg-[#020617] px-4 py-1 text-[16px] font-bold text-white"
+        class="w-[95%] rounded-md bg-[#020617] px-4 py-1 text-[16px] font-bold text-white pc:w-fit"
       >
         {{ header.subTitle }}
       </div>
@@ -101,7 +106,7 @@
       >
         <div
           v-for="(issue, index) in issues.issues"
-          class="relative flex h-[300px] w-[378px] flex-col items-center justify-between rounded-lg border border-bancor-gray600 bg-white py-5 px-8"
+          class="pc-[378px] relative flex h-[320px] w-[95%] flex-col items-center justify-between rounded-lg border border-bancor-gray600 bg-white py-5 px-8 tb:h-[320px] tb:w-[32%] tb:px-3 pc:h-[300px] pc:px-8"
           :key="issue.title"
         >
           <!-- Case N -->
@@ -139,7 +144,7 @@
       </div>
 
       <!-- アウトライン -->
-      <div class="relative mb-40 flex w-full items-center justify-center">
+      <div class="relative mb-40 flex w-full items-center justify-center px-1">
         <AtomsBasicOutline
           class="text-center"
           :text="issues.outline"
@@ -258,6 +263,59 @@
         ></AtomsBasicImage>
       </div>
 
+      <!-- 開発支援事例 -->
+      <div class="mb-14 flex w-[95%] flex-col pc:max-w-[1200px]">
+        <MoleculesDoubleSquareTagMenu
+          class="mb-14"
+          :title="devCase.title"
+          subTitle="Case Study"
+        ></MoleculesDoubleSquareTagMenu>
+        <!-- カード -->
+        <div class="flex w-full flex-col space-y-14">
+          <div
+            class="flex w-full flex-col items-center justify-between gap-3 space-y-6 py-5 shadow-lg tb:flex-row pc:h-[586px] pc:space-y-0 pc:px-20"
+          >
+            <AtomsBasicImage
+              img-height="h-auto"
+              imgWidth="mb-4 pc:mb-0 w-[95%] tb:w-[500px]"
+              :imgUrl="devCase.imgUrl"
+            ></AtomsBasicImage>
+            <div
+              class="flex w-[95%] flex-col space-y-5 tb:w-[520px] pc:flex-none"
+            >
+              <div class="text-[14px] font-bold text-[#475569]">
+                MEMBERS株式会社
+              </div>
+              <AtomsBasicTitle
+                :text="devCase.mainMessage"
+                size="text-[19px] tb:text-[22px] pc:text-[28px]"
+                :isBold="true"
+                spaceY="space-y-2"
+              ></AtomsBasicTitle>
+              <AtomsBasicOutline
+                size="text-[14px] pc:text-[16px]"
+                :text="devCase.outline.slice(0, 165)"
+                color="text-[#475569]"
+                :isBold="false"
+              ></AtomsBasicOutline>
+              <div class="flex w-full flex-wrap gap-3">
+                <div
+                  class="rounded-full border border-[#93c5fd] bg-[#dbeafe] py-2 px-4 text-[15px] text-[#1e40af]"
+                  v-for="tag in devCase.tags"
+                >
+                  {{ tag }}
+                </div>
+              </div>
+              <MoleculesDetailButton
+                v-if="devCase.linkUrl.length > 0"
+                :linkUrl="devCase.linkUrl"
+                text="詳しくみる"
+              ></MoleculesDetailButton>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- 開発体制の特徴 -->
       <div id="feature" class="mb-14 flex w-[95%] flex-col pc:max-w-[1200px]">
         <MoleculesDoubleSquareTagMenu
@@ -284,6 +342,7 @@
               :subTitle="feature.subTitle"
               :outline="feature.outline"
               :linkUrl="feature.linkUrl"
+              :isOutlineBold="false"
             ></MoleculesBasicMenu>
             <AtomsBasicImage
               img-height="h-auto"

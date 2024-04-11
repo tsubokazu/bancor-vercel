@@ -7,6 +7,7 @@ export const usePagesSystemDevStore = defineStore('pagesSystemDev', () => {
   const problems: any = ref({}); // デジタル化推進における課題
   const team: any = ref({}); // 外部パートナーとしてではなくチーム一員
   const bancor3min: any = ref({}); // 資料「3分でわかるNUVO」
+  const devCase: any = ref({}); // 開発支援事例
   const features: any = ref({}); // 開発体制の特徴
   const structure: any = ref({}); // 開発体制
   const maintenances: any = ref({}); // 保守・運用
@@ -44,6 +45,9 @@ export const usePagesSystemDevStore = defineStore('pagesSystemDev', () => {
       )[0];
       const bancor3minData: any = kuroco.value.list.filter(
         (data: any): any => data.topics_id == 49
+      )[0];
+      const devCaseData: any = kuroco.value.list.filter(
+        (data: any): any => data.topics_id == 155
       )[0];
       const featuresData: any = kuroco.value.list.filter(
         (data: any): any => data.topics_id == 50
@@ -123,6 +127,16 @@ export const usePagesSystemDevStore = defineStore('pagesSystemDev', () => {
         linkUrl: bancor3minData.ext_5,
       };
 
+      // 開発支援事例
+      devCase.value = {
+        title: devCaseData.subject,
+        mainMessage: devCaseData.ext_1,
+        outline: devCaseData.ext_3,
+        tags: devCaseData.ext_2.split(','),
+        imgUrl: devCaseData.ext_4.url,
+        linkUrl: devCaseData.ext_5,
+      };
+
       // 開発体制の特徴
       features.value = {
         title: featuresData.ext_1,
@@ -178,6 +192,7 @@ export const usePagesSystemDevStore = defineStore('pagesSystemDev', () => {
     problems,
     team,
     bancor3min,
+    devCase,
     features,
     structure,
     maintenances,
