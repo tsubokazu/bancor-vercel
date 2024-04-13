@@ -141,7 +141,7 @@
     </div>
     <!-- 背景アニメーション -->
     <div
-      class="absolute top-[-130px] right-[-400px] -z-10 h-[731px] w-[960px] overflow-hidden tb:right-[-150px]"
+      class="fixed top-[-130px] right-[-400px] -z-10 h-[731px] w-[960px] overflow-hidden tb:right-[-150px]"
     >
       <video autoplay loop muted playsinline class="h-full w-full object-cover">
         <source src="/movies/sc.mp4" type="video/mp4" />
