@@ -93,6 +93,36 @@ export interface SystemDevFeatures {
   features: Array<Feature>;
 }
 
+export interface FreeSupportCard {
+  title: string;
+  outline: string;
+  imgUrl: string;
+  linkTitle: string;
+  linkUrl: string;
+}
+
+// 支援開始前の無償サポート
+export interface SystemDevFreeSupport {
+  title: string;
+  subTitle: string;
+  outline: string;
+  cards: Array<FreeSupportCard>;
+}
+
+export interface NuvoContent {
+  title: string;
+  imgUrl: string;
+  outlines: Array<string>;
+}
+
+// NUVOのシステム開発
+export interface SystemDevNuvoContents {
+  title: string;
+  subTitle: string;
+  outline: string;
+  contents: Array<NuvoContent>;
+}
+
 // 開発体制
 export interface SystemDevStructure {
   title: string;
@@ -115,6 +145,31 @@ export interface SystemDevMaintenances {
   maintenances: Array<Maintenance>;
 }
 
+export interface Question {
+  question: string;
+  answer: string;
+}
+
+// よくあるご質問
+export interface SystemDevQuestions {
+  title: string;
+  subTitle: string;
+  outline: string;
+  questions: Array<Question>;
+}
+
+// お問い合わせ
+export interface SystemDevContact {
+  title: string;
+  subTitle: string;
+  outline: string;
+  contentTitle: string;
+  contentOutline: string;
+  contentSubTitle: string;
+  contentImgUrl: string;
+  contentLink: string;
+}
+
 // Value Update
 export interface SystemDevValueUpdate {
   title: string;
@@ -131,10 +186,14 @@ export interface SystemDevObject {
   dxDev: SystemDevDX;
   problems: SystemDevProblems;
   team: SystemDevTeam;
+  freeSupport: SystemDevFreeSupport;
+  nuvoContents: SystemDevNuvoContents;
   bancor3min: NuvoIn3mins;
   devCase: SystemDevCase;
   features: SystemDevFeatures;
   structure: SystemDevStructure;
   maintenances: SystemDevMaintenances;
+  questions: SystemDevQuestions;
+  contact: SystemDevContact;
   valueUpdate: SystemDevValueUpdate;
 }

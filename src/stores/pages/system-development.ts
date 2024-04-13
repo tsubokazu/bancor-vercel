@@ -9,8 +9,12 @@ export const usePagesSystemDevStore = defineStore('pagesSystemDev', () => {
   const bancor3min: any = ref({}); // 資料「3分でわかるNUVO」
   const devCase: any = ref({}); // 開発支援事例
   const features: any = ref({}); // 開発体制の特徴
+  const freeSupport: any = ref({}); // 支援開始前の無償サポート
+  const nuvoContents: any = ref({}); // NUVOのシステム開発
   const structure: any = ref({}); // 開発体制
   const maintenances: any = ref({}); // 保守・運用
+  const questions: any = ref({}); // よくあるご質問
+  const contact: any = ref({}); // お問い合わせ
   const valueUpdate: any = ref({}); // Value Update
 
   const fetchPagesSystemDev = async () => {
@@ -52,11 +56,23 @@ export const usePagesSystemDevStore = defineStore('pagesSystemDev', () => {
       const featuresData: any = kuroco.value.list.filter(
         (data: any): any => data.topics_id == 50
       )[0];
+      const freeSupportData: any = kuroco.value.list.filter(
+        (data: any): any => data.topics_id == 156
+      )[0];
+      const nuvoContentsData: any = kuroco.value.list.filter(
+        (data: any): any => data.topics_id == 157
+      )[0];
       const structureData: any = kuroco.value.list.filter(
         (data: any): any => data.topics_id == 51
       )[0];
       const maintenancesData: any = kuroco.value.list.filter(
         (data: any): any => data.topics_id == 52
+      )[0];
+      const questionsData: any = kuroco.value.list.filter(
+        (data: any): any => data.topics_id == 158
+      )[0];
+      const contactData: any = kuroco.value.list.filter(
+        (data: any): any => data.topics_id == 159
       )[0];
       const valueUpdateData: any = kuroco.value.list.filter(
         (data: any): any => data.topics_id == 53
@@ -150,6 +166,32 @@ export const usePagesSystemDevStore = defineStore('pagesSystemDev', () => {
         })),
       };
 
+      // 支援開始前の無償サポート
+      freeSupport.value = {
+        title: freeSupportData.ext_1,
+        subTitle: freeSupportData.ext_2,
+        outline: freeSupportData.ext_3,
+        cards: freeSupportData.ext_6.map((data: any, index: number) => ({
+          title: freeSupportData.ext_6[index],
+          linkTitle: freeSupportData.ext_7[index],
+          outline: freeSupportData.ext_8[index],
+          imgUrl: freeSupportData.ext_9[index].url,
+          linkUrl: freeSupportData.ext_10[index],
+        })),
+      };
+
+      // NUVOのシステム開発
+      nuvoContents.value = {
+        title: nuvoContentsData.ext_1,
+        subTitle: nuvoContentsData.ext_2,
+        outline: nuvoContentsData.ext_3,
+        contents: nuvoContentsData.ext_6.map((data: any, index: number) => ({
+          title: nuvoContentsData.ext_6[index],
+          imgUrl: nuvoContentsData.ext_9[index].url,
+          outlines: nuvoContentsData.ext_8[index].split('\r\n'),
+        })),
+      };
+
       // 開発体制
       structure.value = {
         title: structureData.ext_1,
@@ -170,6 +212,29 @@ export const usePagesSystemDevStore = defineStore('pagesSystemDev', () => {
             imgUrl: maintenancesData.ext_9[index].url,
           })
         ),
+      };
+
+      // よくあるご質問
+      questions.value = {
+        title: questionsData.ext_1,
+        subTitle: questionsData.ext_2,
+        outline: questionsData.ext_3,
+        questions: questionsData.ext_6.map((data: any, index: number) => ({
+          question: questionsData.ext_6[index],
+          answer: questionsData.ext_8[index],
+        })),
+      };
+
+      // お問い合わせ
+      contact.value = {
+        title: contactData.ext_1,
+        subTitle: contactData.ext_2,
+        outline: contactData.ext_3,
+        contentTitle: contactData.ext_6[0],
+        contentOutline: contactData.ext_8[0],
+        contentSubTitle: contactData.ext_7[0],
+        contentImgUrl: contactData.ext_9[0].url,
+        contentLink: contactData.ext_10[0],
       };
 
       // Value Update
@@ -194,8 +259,12 @@ export const usePagesSystemDevStore = defineStore('pagesSystemDev', () => {
     bancor3min,
     devCase,
     features,
+    freeSupport,
+    nuvoContents,
     structure,
     maintenances,
+    questions,
+    contact,
     valueUpdate,
     fetchPagesSystemDev,
   };
