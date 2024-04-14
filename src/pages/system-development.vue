@@ -678,11 +678,26 @@
             :subTitle="structure.subTitle"
             :outline="structure.outline"
           ></MoleculesDoubleSquareTagMenu>
-          <LazyAtomsBasicImage
-            :imgUrl="structure.imgUrl"
-            img-height="h-auto"
-            imgWidth="w-[95%]"
-          ></LazyAtomsBasicImage>
+          <!-- 画像 -->
+          <div
+            class="tb:gap-18 relative flex flex-col items-center justify-center gap-10 tb:flex-row pc:gap-28"
+          >
+            <img
+              :src="structure.img01Url"
+              alt="structure.title"
+              class="w-[95%] tb:w-[360px] pc:w-[480px]"
+            />
+            <img
+              :src="structure.imgArrowUrl"
+              alt="structure.title"
+              class="absolute left-1/2 top-1/2 w-[15%] -translate-x-1/2 -translate-y-1/2 -rotate-90 tb:w-[100px] pc:w-[150px] pc:rotate-0"
+            />
+            <img
+              :src="structure.img02Url"
+              alt="structure.title"
+              class="w-[80%] tb:w-[260px] pc:w-[340px]"
+            />
+          </div>
         </div>
       </div>
 

@@ -198,6 +198,9 @@ export const usePagesSystemDevStore = defineStore('pagesSystemDev', () => {
         subTitle: structureData.ext_2,
         outline: structureData.ext_3,
         imgUrl: structureData.ext_4.url,
+        img01Url: structureData.ext_9[0].url,
+        img02Url: structureData.ext_9[2].url,
+        imgArrowUrl: structureData.ext_9[1].url,
       };
 
       // 保守・運用

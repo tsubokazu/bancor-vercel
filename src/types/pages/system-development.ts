@@ -129,6 +129,9 @@ export interface SystemDevStructure {
   subTitle: string;
   outline: string;
   imgUrl: string;
+  img01Url: string;
+  img02Url: string;
+  imgArrowUrl: string;
 }
 
 export interface Maintenance {
