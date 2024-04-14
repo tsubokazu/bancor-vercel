@@ -28,7 +28,7 @@ export default defineNuxtConfig({
     '~/assets/css/main.css',
     '@fortawesome/fontawesome-svg-core/styles.css',
   ],
-  plugins: ['@/plugins/fontawesome.ts'],
+  plugins: ['@/plugins/fontawesome.ts', '@/plugins/fadeInDirective.ts'],
   modules: [
     ['@pinia/nuxt', { autoImports: ['defineStore', 'acceptHMRUpdate'] }],
     '@formkit/nuxt',

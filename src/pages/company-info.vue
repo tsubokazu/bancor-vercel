@@ -82,6 +82,81 @@
     window.removeEventListener('resize', updateWidth);
     window.removeEventListener('scroll', handleScroll);
   });
+
+  // インフォグラフィクスの数値カウントアップアニメーション
+  const countUp = (
+    start: number,
+    end: number,
+    duration: number,
+    callback: (current: number) => void
+  ) => {
+    let current = start * 10; // 小数点を1桁右にずらす
+    const endInt = end * 10; // 終了値も同様に小数点を1桁右にずらす
+    const range = endInt - current;
+    const isInteger = Number.isInteger(end);
+    const increment = isInteger ? 10 : 3; // 整数の場合は10を加算、小数の場合は1を加算
+    const stepTime = Math.abs(Math.floor(duration / range));
+
+    const timer = setInterval(() => {
+      current += increment;
+      callback(current / 10); // コールバックに渡す値を元のスケールに戻す
+      if (current >= endInt) {
+        current = endInt;
+        callback(current / 10);
+        clearInterval(timer);
+      }
+    }, stepTime);
+  };
+
+  type ObservedElement = {
+    el: Element;
+    value: number;
+    animated: boolean;
+  };
+
+  const observedElements = ref<ObservedElement[]>([]);
+  let observer: IntersectionObserver;
+
+  onMounted(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const targetElement = observedElements.value.find(
+              (element) => element.el === entry.target
+            );
+            if (targetElement && !targetElement.animated) {
+              countUp(
+                0,
+                Number((targetElement.el as HTMLElement).innerText),
+                2000,
+                (val) => {
+                  (targetElement.el as HTMLElement).innerText = val.toString();
+                }
+              );
+              targetElement.animated = true;
+            }
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    document.querySelectorAll('.count-up').forEach((el) => {
+      observer.observe(el);
+      observedElements.value.push({
+        el,
+        value: parseInt(el.getAttribute('data-value') ?? '0', 10),
+        animated: false,
+      });
+    });
+  });
+
+  onUnmounted(() => {
+    observedElements.value.forEach((element) => {
+      observer.unobserve(element.el);
+    });
+  });
 </script>
 
 <template>
@@ -126,7 +201,7 @@
           class="relative flex w-full flex-col items-center rounded-[10px] border border-[#cbd5e1] bg-white pt-[100px]"
         >
           <!-- 全世界80億人の為のインフラを。 -->
-          <div class="mb-[156px] flex flex-col items-center">
+          <div v-fade-in class="mb-[156px] flex flex-col items-center">
             <!-- サブタイトル -->
             <div class="mb-[40px] text-[24px] font-bold">
               {{ vision.subTitle }}
@@ -161,6 +236,7 @@
             <div
               v-for="(infographic, index) in infographics"
               :key="infographic.title"
+              v-fade-in
               class="flex h-[364px] w-[320px] flex-col items-center gap-4 tb:h-[364px] tb:w-[395px]"
             >
               <!-- イラスト -->
@@ -178,7 +254,7 @@
               <!-- 数字情報 -->
               <div class="flex items-end gap-2">
                 <div
-                  class="text-[72px] font-bold leading-[72px] text-[#2563eb]"
+                  class="count-up text-[72px] font-bold leading-[72px] text-[#2563eb]"
                 >
                   {{ infographic.value }}
                 </div>
@@ -196,7 +272,7 @@
           </div>
 
           <!-- 役員・責任者紹介 -->
-          <div class="relative mb-[96px] h-[646px] w-full">
+          <div v-fade-in class="relative mb-[96px] h-[646px] w-full">
             <!-- 背景 -->
             <img
               src="/company-info-board-member-bg.png"
@@ -247,7 +323,7 @@
           </div>
 
           <!-- 技術力 -->
-          <div class="mb-[96px] flex flex-col items-center">
+          <div v-fade-in class="mb-[96px] flex flex-col items-center">
             <AtomsBasicTitle
               size="text-[28px] tb:text-[36px] pc:text-[56px]"
               :text="technology.title"
@@ -318,6 +394,7 @@
 
           <!-- ページリンク -->
           <div
+            v-fade-in
             class="mb-[112px] flex flex-wrap items-center justify-center gap-y-5 pc:gap-x-5"
           >
             <NuxtLink
