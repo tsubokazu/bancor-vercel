@@ -159,7 +159,7 @@
             </div>
           </div>
           <!-- メインメッセージ -->
-          <div class="mb-16 flex w-[95%] pc:max-w-[1000px]">
+          <div v-fade-in class="mb-16 flex w-[95%] pc:max-w-[1000px]">
             <div
               class="text-[22px] font-bold text-[#2563eb] tb:text-[30px] pc:text-[60px]"
             >
@@ -167,7 +167,7 @@
             </div>
           </div>
           <!-- メッセージ本文 -->
-          <div class="flex w-[95%] pc:max-w-[1000px]">
+          <div v-fade-in class="flex w-[95%] pc:max-w-[1000px]">
             <div class="post prose" v-html="message.message"></div>
           </div>
         </div>

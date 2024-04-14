@@ -70,16 +70,26 @@
 <template>
   <div class="w-full overflow-hidden">
     <OrganismsTopFirstview class="mb-[53px]"></OrganismsTopFirstview>
-    <OrganismsTopAdSpace class="mb-[56px]"></OrganismsTopAdSpace>
-    <OrganismsTopNews class="mb-[112px]"></OrganismsTopNews>
-    <OrganismsTopVision class="mb-[138px]"></OrganismsTopVision>
-    <OrganismsTopMnAService class="mb-[112px]"></OrganismsTopMnAService>
-    <OrganismsTopService class="mb-[139px]"></OrganismsTopService>
-    <OrganismsTopBancorMedia class="mb-[139px]"></OrganismsTopBancorMedia>
-    <OrganismsTopBancorBusiness class="mb-[139px]"></OrganismsTopBancorBusiness>
+    <OrganismsTopAdSpace v-fade-in class="mb-[56px]"></OrganismsTopAdSpace>
+    <OrganismsTopNews v-fade-in class="mb-[112px]"></OrganismsTopNews>
+    <OrganismsTopVision v-fade-in class="mb-[138px]"></OrganismsTopVision>
+    <OrganismsTopMnAService
+      v-fade-in
+      class="mb-[112px]"
+    ></OrganismsTopMnAService>
+    <OrganismsTopService v-fade-in class="mb-[139px]"></OrganismsTopService>
+    <OrganismsTopBancorMedia
+      v-fade-in
+      class="mb-[139px]"
+    ></OrganismsTopBancorMedia>
+    <OrganismsTopBancorBusiness
+      v-fade-in
+      class="mb-[139px]"
+    ></OrganismsTopBancorBusiness>
     <OrganismsTopDownloadDocument
+      v-fade-in
       class="mb-[64px]"
     ></OrganismsTopDownloadDocument>
-    <OrganismsTopRecruit class="mb-[116px]"></OrganismsTopRecruit>
+    <OrganismsTopRecruit v-fade-in class="mb-[116px]"></OrganismsTopRecruit>
   </div>
 </template>

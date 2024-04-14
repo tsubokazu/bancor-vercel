@@ -102,11 +102,12 @@
       class="flex w-[95%] flex-col gap-4 tb:flex-row pc:max-w-[1460px] pc:gap-8"
     >
       <!-- サイド -->
-      <OrganismsServiceSideMenu :serviceList="serviceListForSide" />
+      <OrganismsServiceSideMenu v-fade-in :serviceList="serviceListForSide" />
       <!-- メイン -->
       <div class="mb-[128px] flex w-full flex-col gap-14">
         <!-- システム開発 -->
         <OrganismsServiceDetail
+          v-fade-in
           :service="systemDevelopmentService"
           :modalIndex="0"
         >
@@ -116,14 +117,22 @@
           />
         </OrganismsServiceDetail>
         <!-- DXサポート -->
-        <OrganismsServiceDetail :service="dxSupportService" :modalIndex="1">
+        <OrganismsServiceDetail
+          v-fade-in
+          :service="dxSupportService"
+          :modalIndex="1"
+        >
           <OrganismsServiceDxSupportModal
             v-if="isModalOpen && currentModalIndex === 1"
             :dxSupportService="dxSupportService"
           />
         </OrganismsServiceDetail>
         <!-- 福祉 -->
-        <OrganismsServiceDetail :service="welfareService" :modalIndex="2">
+        <OrganismsServiceDetail
+          v-fade-in
+          :service="welfareService"
+          :modalIndex="2"
+        >
           <OrganismsServiceWelfareModal
             v-if="isModalOpen && currentModalIndex === 2"
             :welfareService="welfareService"
@@ -131,21 +140,29 @@
           </OrganismsServiceWelfareModal>
         </OrganismsServiceDetail>
         <!-- 保育 -->
-        <OrganismsServiceDetail :service="dayCareSiService" :modalIndex="3">
+        <OrganismsServiceDetail
+          v-fade-in
+          :service="dayCareSiService"
+          :modalIndex="3"
+        >
           <OrganismsServiceDayCareSiModal
             v-if="isModalOpen && currentModalIndex === 3"
             :dayCareSiService="dayCareSiService"
           ></OrganismsServiceDayCareSiModal>
         </OrganismsServiceDetail>
         <!-- 美容 -->
-        <OrganismsServiceDetail :service="beautyService" :modalIndex="4">
+        <OrganismsServiceDetail
+          v-fade-in
+          :service="beautyService"
+          :modalIndex="4"
+        >
           <OrganismsServiceBeautyModal
             v-if="isModalOpen && currentModalIndex === 4"
             :beautyService="beautyService"
           ></OrganismsServiceBeautyModal>
         </OrganismsServiceDetail>
         <!-- マーケティング -->
-        <OrganismsServiceDetail :service="maService" />
+        <OrganismsServiceDetail v-fade-in :service="maService" />
       </div>
     </div>
     <!-- 詳細をみる時のグレーフィルター -->

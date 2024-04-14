@@ -286,6 +286,7 @@
 
       <!-- デジタル化の課題 -->
       <div
+        v-fade-in
         id="resource"
         class="mb-24 flex w-[95%] flex-col items-center pc:max-w-[1200px]"
       >
@@ -337,6 +338,7 @@
 
       <!-- DX推進時代の開発手法 -->
       <div
+        v-fade-in
         class="mb-24 flex w-[95%] flex-col items-center justify-between space-y-8 tb:flex-row pc:max-w-[1200px] pc:space-y-0"
       >
         <!-- メニュー -->
@@ -364,7 +366,10 @@
 
       <!-- パートナーとしてではなくチームの一員 -->
       <!-- デジタル化の課題 -->
-      <div class="mb-24 flex w-[95%] flex-col items-center pc:max-w-[1200px]">
+      <div
+        v-fade-in
+        class="mb-24 flex w-[95%] flex-col items-center pc:max-w-[1200px]"
+      >
         <!-- タイトル -->
         <div class="mb-16 flex flex-col items-center space-y-12">
           <AtomsAsteriskSmallText
@@ -387,7 +392,7 @@
       </div>
 
       <!-- 開発支援事例 -->
-      <div class="mb-14 flex w-[95%] flex-col pc:max-w-[1200px]">
+      <div v-fade-in class="mb-14 flex w-[95%] flex-col pc:max-w-[1200px]">
         <MoleculesDoubleSquareTagMenu
           class="mb-14"
           :title="devCase.title"
@@ -440,7 +445,7 @@
       </div>
 
       <!-- 開発体制の特徴 -->
-      <div class="mb-14 flex w-[95%] flex-col pc:max-w-[1200px]">
+      <div v-fade-in class="mb-14 flex w-[95%] flex-col pc:max-w-[1200px]">
         <MoleculesDoubleSquareTagMenu
           class="mb-14"
           :title="features.title"
@@ -477,7 +482,7 @@
       </div>
 
       <!-- 支援開始前の無償サポート -->
-      <div class="mb-14 flex w-[95%] flex-col pc:max-w-[1200px]">
+      <div v-fade-in class="mb-14 flex w-[95%] flex-col pc:max-w-[1200px]">
         <MoleculesDoubleSquareTagMenu
           class="mb-4"
           :title="freeSupport.title"
@@ -527,7 +532,10 @@
       </div>
 
       <!-- NUVOのシステム開発 -->
-      <div class="mb-14 flex w-[95%] flex-col items-center pc:max-w-[1200px]">
+      <div
+        v-fade-in
+        class="mb-14 flex w-[95%] flex-col items-center pc:max-w-[1200px]"
+      >
         <MoleculesDoubleSquareTagMenu
           class="mb-4"
           :title="nuvoContents.title"
@@ -670,7 +678,11 @@
       </div>
 
       <!-- 開発体制 -->
-      <div id="development" class="mb-24 flex w-[95%] pc:max-w-[1200px]">
+      <div
+        v-fade-in
+        id="development"
+        class="mb-24 flex w-[95%] pc:max-w-[1200px]"
+      >
         <div class="mb-6 flex flex-col justify-center space-y-10">
           <MoleculesDoubleSquareTagMenu
             class="mb-18"
@@ -702,7 +714,7 @@
       </div>
 
       <!-- 保守・運用 -->
-      <div class="mb-24 flex w-[95%] pc:max-w-[1200px]">
+      <div v-fade-in class="mb-24 flex w-[95%] pc:max-w-[1200px]">
         <div class="flex flex-col justify-center space-y-10">
           <MoleculesDoubleSquareTagMenu
             :title="maintenances.title"
@@ -736,7 +748,7 @@
       </div>
 
       <!-- よくあるご質問 -->
-      <div class="mb-14 flex w-[95%] flex-col pc:max-w-[1200px]">
+      <div v-fade-in class="mb-14 flex w-[95%] flex-col pc:max-w-[1200px]">
         <MoleculesDoubleSquareTagMenu
           class="mb-4"
           :title="questions.title"
@@ -808,7 +820,7 @@
       </div>
 
       <!-- お問い合わせ -->
-      <div class="mb-14 flex w-[95%] flex-col pc:max-w-[1200px]">
+      <div v-fade-in class="mb-14 flex w-[95%] flex-col pc:max-w-[1200px]">
         <MoleculesDoubleSquareTagMenu
           class="mb-4"
           :title="contact.title"
@@ -862,7 +874,10 @@
       </div>
 
       <!-- Value Update -->
-      <div class="relative h-[400px] w-[95%] tb:h-[834px] pc:max-w-[1200px]">
+      <div
+        v-fade-in
+        class="relative h-[400px] w-[95%] tb:h-[834px] pc:max-w-[1200px]"
+      >
         <!-- Value Updateの大きなタイトル -->
         <AtomsBasicTitle
           class="font-futuraBold"

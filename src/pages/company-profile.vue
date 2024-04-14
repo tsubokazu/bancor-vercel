@@ -229,7 +229,7 @@
         </div>
 
         <!-- 写真スライダー -->
-        <div class="mb-[40px] flex w-full flex-col gap-8">
+        <div v-fade-in class="mb-[40px] flex w-full flex-col gap-8">
           <!-- タイトル -->
           <div class="relative flex w-full items-center">
             <!-- タイトル -->
@@ -308,6 +308,7 @@
 
         <!-- アクセスマップ -->
         <div
+          v-fade-in
           class="mb-20 flex w-full flex-col items-center justify-center space-y-3"
         >
           <div class="flex w-full items-center justify-between">

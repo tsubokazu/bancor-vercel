@@ -165,6 +165,7 @@
           </div>
           <!-- パーパス -->
           <div
+            v-fade-in
             class="flex w-[95%] flex-col space-y-6 tb:space-y-12 pc:max-w-[1000px]"
           >
             <!-- タイトルとイメージ -->
@@ -184,7 +185,10 @@
           </div>
 
           <!-- ミッション -->
-          <div class="flex w-[95%] flex-col space-y-12 pc:max-w-[1000px]">
+          <div
+            v-fade-in
+            class="flex w-[95%] flex-col space-y-12 pc:max-w-[1000px]"
+          >
             <!-- タイトルとイメージ -->
             <MoleculesVisionTitleImage
               :title="mission.title"
@@ -202,7 +206,10 @@
           </div>
 
           <!-- バリュー -->
-          <div class="flex w-[95%] flex-col space-y-12 pc:max-w-[1000px]">
+          <div
+            v-fade-in
+            class="flex w-[95%] flex-col space-y-12 pc:max-w-[1000px]"
+          >
             <!-- タイトルとイメージ -->
             <MoleculesVisionTitleImage
               :title="value.title"

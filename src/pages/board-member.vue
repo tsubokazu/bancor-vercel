@@ -213,7 +213,7 @@
             </div>
           </div>
           <!-- 全世界80億人の為のインフラを。 -->
-          <div class="mb-[156px] flex flex-col items-center">
+          <div v-fade-in class="mb-[156px] flex flex-col items-center">
             <!-- 画像 -->
             <div class="relative flex h-[450px] w-full items-center">
               <div class="h-[360px] w-full overflow-hidden">
