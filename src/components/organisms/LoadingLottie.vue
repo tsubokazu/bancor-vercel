@@ -8,13 +8,14 @@
   onMounted(() => {
     if (lottieContainer.value) {
       // nullチェック
-      Lottie.loadAnimation({
+      const animation = Lottie.loadAnimation({
         container: lottieContainer.value,
         renderer: 'svg',
         loop: true,
         autoplay: true,
         animationData,
       });
+      animation.setSpeed(2); // 速度を2倍に設定
     }
   });
 </script>

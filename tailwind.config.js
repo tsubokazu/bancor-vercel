@@ -175,10 +175,10 @@ module.exports = {
         'scale-up-image-rv': 'scale-up-image-rv 0.5s ease-out both',
         'scale-in-site-menu': 'scale-in-site-menu 0.5s ease-out both',
         'scale-in-site-menu-rv': 'scale-in-site-menu-rv 0.5s ease-out both',
-        'slide-up-background': 'slideUpBackground 6s ease-out both',
-        'opaicity-0-to-1': 'opacity0To1 6s ease-out both',
-        'scale-500-to-100': 'scale500To100 6s ease-in-out both',
-        'after5s-vanish': 'after5sVanish 6s ease-in-out both',
+        'slide-up-background': 'slideUpBackground 3s ease-out both',
+        'opaicity-0-to-1': 'opacity0To1 3s ease-out both',
+        'scale-500-to-100': 'scale500To100 3s ease-in-out both',
+        'after5s-vanish': 'after5sVanish 3s ease-in-out both',
       },
       keyframes: {
         'slide': {

@@ -11,30 +11,13 @@
     isLoading.value = false;
   }
 
-  const isShowHeader = ref(true);
-
-  const checkScroll = () => {
-    isShowHeader.value = window.scrollY > 1080 ? false : true;
-  };
-
   onMounted(() => {
     if (topSplashStore.topSplashFlag) {
       setTimeout(() => {
         isLoading.value = false;
         topSplashStore.setTopSplashFlag(false);
-      }, 6000);
+      }, 2000);
     }
-
-    // スクロールイベントリスナーを登録
-    window.addEventListener('scroll', checkScroll);
-
-    // 初期値を設定
-    checkScroll();
-  });
-
-  onUnmounted(() => {
-    // コンポーネントがアンマウントされたときにイベントリスナーを解除
-    window.removeEventListener('scroll', checkScroll);
   });
 
   // headタグの情報をPiniaから取得
@@ -128,54 +111,30 @@
     <!-- トップビューの背景 -->
     <AtomsTopFirstviewBackground></AtomsTopFirstviewBackground>
 
-    <!-- ヘッダー -->
     <Transition
-      enter-active-class="transition-opacity duration-[1000ms]"
+      enter-active-class="transition-opacity duration-[500ms]"
       enter-from-class="opacity-0"
       enter-to-class="opacity-1"
-      leave-active-class="transition-opacity duration-[1000ms]"
-      leave-from-class="opacity-1"
-      leave-to-class="opacity-0"
     >
-      <OrganismsHeader
-        v-show="!isLoading"
-        class="pointer-events-auto fixed top-3 z-50 w-full"
-      ></OrganismsHeader>
-    </Transition>
+      <div v-show="!isLoading">
+        <!-- ヘッダー -->
+        <OrganismsHeader
+          class="pointer-events-auto fixed top-3 z-50 w-full"
+        ></OrganismsHeader>
 
-    <!-- ページ -->
-    <Transition
-      enter-active-class="transition-opacity duration-[1000ms]"
-      enter-from-class="opacity-0"
-      enter-to-class="opacity-1"
-    >
-      <div v-show="!isLoading" class="h-full w-full">
-        <slot />
+        <!-- ページ -->
+        <div v-show="!isLoading" class="h-full w-full">
+          <slot />
+        </div>
+
+        <!-- フッター -->
+        <OrganismsFooter class="w-full"></OrganismsFooter>
+
+        <!-- Cookieの同意 -->
+        <OrganismsCookieConsent
+          class="fixed bottom-8 left-1/2 -translate-x-1/2"
+        ></OrganismsCookieConsent>
       </div>
-    </Transition>
-
-    <!-- フッター -->
-    <Transition
-      enter-active-class="transition-opacity duration-[1000ms]"
-      enter-from-class="opacity-0"
-      enter-to-class="opacity-1"
-    >
-      <OrganismsFooter v-show="!isLoading" class="w-full"></OrganismsFooter>
-    </Transition>
-
-    <!-- Cookieの同意 -->
-    <Transition
-      enter-active-class="transition-opacity duration-[1000ms]"
-      enter-from-class="opacity-0"
-      enter-to-class="opacity-1"
-      leave-active-class="transition-opacity duration-[1000ms]"
-      leave-from-class="opacity-1"
-      leave-to-class="opacity-0"
-    >
-      <OrganismsCookieConsent
-        v-show="!isLoading"
-        class="fixed bottom-8 left-1/2 -translate-x-1/2"
-      ></OrganismsCookieConsent>
     </Transition>
   </div>
 </template>
