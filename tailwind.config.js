@@ -1076,11 +1076,6 @@ module.exports = {
           },
           '50%': {
             transform: 'scale(4)',
-            opacity: '0',
-            transformOrigin: 'center',
-          },
-          '83.4%': {
-            transform: 'scale(1)',
             opacity: '1',
             transformOrigin: 'center',
           },
