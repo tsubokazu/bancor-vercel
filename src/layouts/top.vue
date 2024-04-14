@@ -109,7 +109,15 @@
     ></OrganismsLoadingLottie>
 
     <!-- トップビューの背景 -->
-    <AtomsTopFirstviewBackground></AtomsTopFirstviewBackground>
+    <Transition
+      enter-active-class="transition-opacity duration-[500ms]"
+      enter-from-class="opacity-0"
+      enter-to-class="opacity-1"
+    >
+      <AtomsTopFirstviewBackground
+        v-show="!isLoading"
+      ></AtomsTopFirstviewBackground>
+    </Transition>
 
     <Transition
       enter-active-class="transition-opacity duration-[500ms]"
@@ -123,7 +131,7 @@
         ></OrganismsHeader>
 
         <!-- ページ -->
-        <div v-show="!isLoading" class="h-full w-full">
+        <div class="h-full w-full">
           <slot />
         </div>
 

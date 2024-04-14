@@ -176,7 +176,7 @@ module.exports = {
         'scale-in-site-menu': 'scale-in-site-menu 0.5s ease-out both',
         'scale-in-site-menu-rv': 'scale-in-site-menu-rv 0.5s ease-out both',
         'slide-up-background': 'slideUpBackground 3s ease-out both',
-        'opaicity-0-to-1': 'opacity0To1 3s ease-out both',
+        'opaicity-0-to-1': 'opacity0To1 4s ease-out both',
         'scale-500-to-100': 'scale500To100 3s ease-in-out both',
         'after5s-vanish': 'after5sVanish 3s ease-in-out both',
       },
@@ -1058,10 +1058,10 @@ module.exports = {
           '0%': {
             opacity: '0',
           },
-          '50%': {
-            opacity: '0',
+          '25%': {
+            opacity: '1',
           },
-          '83.4%': {
+          '75%': {
             opacity: '1',
           },
           'to': {
@@ -1075,7 +1075,7 @@ module.exports = {
             transformOrigin: 'center',
           },
           '50%': {
-            transform: 'scale(4)',
+            transform: 'scale(1)',
             opacity: '1',
             transformOrigin: 'center',
           },
