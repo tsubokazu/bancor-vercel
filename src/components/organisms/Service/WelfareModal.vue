@@ -23,11 +23,11 @@
   >
     <div class="flex items-center gap-3">
       <!-- アイコン -->
-      <div class="h-8 w-fit">
+      <div class="h-8 w-8">
         <img
           :src="welfareService.infoIcon"
           :alt="welfareService.name"
-          class="h-full w-full object-cover"
+          class="h-full object-cover"
         />
       </div>
       <div class="text-[22px] font-bold">
@@ -41,11 +41,11 @@
     <!-- ヘルプタイトル -->
     <div class="flex items-center gap-3">
       <!-- アイコン -->
-      <div class="h-8 w-fit">
+      <div class="h-8 w-8">
         <img
           :src="welfareService.helpIcon"
           :alt="welfareService.name"
-          class="h-full w-full object-cover"
+          class="h-full object-cover"
         />
       </div>
       <div class="text-[22px] font-bold">
