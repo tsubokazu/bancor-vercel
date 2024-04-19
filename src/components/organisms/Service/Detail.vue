@@ -60,7 +60,7 @@
           <img
             :src="service.infoIcon"
             :alt="service.name"
-            class="h-full w-full object-cover"
+            class="h-full object-cover"
           />
         </div>
         <div class="text-[22px] font-bold">
