@@ -104,16 +104,21 @@
       <!-- サイド -->
       <OrganismsServiceSideMenu v-fade-in :serviceList="serviceListForSide" />
       <!-- メイン -->
-      <div class="mb-[128px] flex w-full flex-col gap-14">
+      <div class="relative mb-[128px] flex w-full flex-col gap-14">
         <!-- システム開発 -->
         <OrganismsServiceDetail
           v-fade-in
           :service="systemDevelopmentService"
           :modalIndex="0"
+          class="z-[10]"
         >
           <OrganismsServiceSystemDevelopmentModal
             v-if="isModalOpen && currentModalIndex === 0"
             :systemDevelopmentService="systemDevelopmentService"
+          />
+          <OrganismsServiceGrayFilter
+            v-if="isModalOpen && currentModalIndex === 0"
+            @click="closeModal"
           />
         </OrganismsServiceDetail>
         <!-- DXサポート -->
@@ -121,10 +126,15 @@
           v-fade-in
           :service="dxSupportService"
           :modalIndex="1"
+          class="z-[9]"
         >
           <OrganismsServiceDxSupportModal
             v-if="isModalOpen && currentModalIndex === 1"
             :dxSupportService="dxSupportService"
+          />
+          <OrganismsServiceGrayFilter
+            v-if="isModalOpen && currentModalIndex === 1"
+            @click="closeModal"
           />
         </OrganismsServiceDetail>
         <!-- 福祉 -->
@@ -132,45 +142,54 @@
           v-fade-in
           :service="welfareService"
           :modalIndex="2"
+          class="z-[8]"
         >
           <OrganismsServiceWelfareModal
             v-if="isModalOpen && currentModalIndex === 2"
             :welfareService="welfareService"
           >
           </OrganismsServiceWelfareModal>
+          <OrganismsServiceGrayFilter
+            v-if="isModalOpen && currentModalIndex === 2"
+            @click="closeModal"
+          />
         </OrganismsServiceDetail>
         <!-- 保育 -->
         <OrganismsServiceDetail
           v-fade-in
           :service="dayCareSiService"
           :modalIndex="3"
+          class="z-[7]"
         >
           <OrganismsServiceDayCareSiModal
             v-if="isModalOpen && currentModalIndex === 3"
             :dayCareSiService="dayCareSiService"
           ></OrganismsServiceDayCareSiModal>
+          <OrganismsServiceGrayFilter
+            v-if="isModalOpen && currentModalIndex === 3"
+            @click="closeModal"
+          />
         </OrganismsServiceDetail>
         <!-- 美容 -->
         <OrganismsServiceDetail
           v-fade-in
           :service="beautyService"
           :modalIndex="4"
+          class="z-[6]"
         >
           <OrganismsServiceBeautyModal
             v-if="isModalOpen && currentModalIndex === 4"
             :beautyService="beautyService"
           ></OrganismsServiceBeautyModal>
+          <OrganismsServiceGrayFilter
+            v-if="isModalOpen && currentModalIndex === 4"
+            @click="closeModal"
+          />
         </OrganismsServiceDetail>
         <!-- マーケティング -->
-        <OrganismsServiceDetail v-fade-in :service="maService" />
+        <OrganismsServiceDetail v-fade-in :service="maService" class="z-[5]" />
       </div>
     </div>
-    <!-- 詳細をみる時のグレーフィルター -->
-    <div
-      v-if="isModalOpen"
-      class="fixed top-0 left-0 z-40 h-screen w-screen bg-[#000000] bg-opacity-50"
-      @click="closeModal"
-    ></div>
   </div>
 </template>
 
