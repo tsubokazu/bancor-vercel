@@ -56,7 +56,7 @@
     <div class="flex flex-col gap-[18px] bg-white py-8 px-5 tb:px-12">
       <div class="flex items-center gap-3">
         <!-- アイコン -->
-        <div class="h-8 w-fit">
+        <div class="h-8 w-fit flex-none">
           <img
             :src="service.infoIcon"
             :alt="service.name"
