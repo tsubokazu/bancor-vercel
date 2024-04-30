@@ -38,6 +38,10 @@
         return 'bg-[#2563eb]';
     }
   };
+
+  const newsCategory = (category: string) => {
+    return category.toLowerCase().replace(' ', '-');
+  };
 </script>
 
 <template>
@@ -62,7 +66,7 @@
       <div class="mt-6 w-full rounded-lg bg-white px-3 pt-2 shadow-lg tb:px-8">
         <NuxtLink
           v-for="(data, index) in newsListLatest"
-          :to="`/news/${data.topicsId}`"
+          :to="`/news/${newsCategory(data.category)}/${data.topicsId}`"
           class="group mb-5 flex flex-col gap-1"
         >
           <!-- カテゴリと日付 -->
