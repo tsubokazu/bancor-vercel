@@ -103,7 +103,7 @@
           <div class="text-[40px] font-bold">関連記事一覧</div>
         </div>
         <!-- カード -->
-        <div class="flex space-x-3">
+        <div class="flex w-[95%] space-x-3">
           <MoleculesNewsCard
             v-for="news in otherNewsList.slice(0, 3)"
             :card="news"
