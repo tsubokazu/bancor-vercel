@@ -93,6 +93,68 @@
     },
   ];
 
+  // サイドバーの固定まわり
+  const sidebar = ref(null);
+  const main = ref(null);
+
+  const handleScroll = () => {
+    if (isSmartPhone.value) return;
+    // sidebarがHTMLElementであることをTypeScriptに伝える
+    const sidebarElement = sidebar.value as HTMLElement | null;
+    const mainElement = main.value as HTMLElement | null;
+    if (!sidebarElement) return;
+    if (!mainElement) return;
+
+    const sidebarTop = sidebarElement.getBoundingClientRect().top;
+
+    // mainの高さを取得
+    const mainHeight = mainElement.offsetHeight;
+
+    if (
+      sidebarTop <= 144 &&
+      window.scrollY > 103.5 &&
+      window.scrollY <= mainHeight - 500
+    ) {
+      sidebarElement.style.position = 'fixed';
+      sidebarElement.style.top = '144px';
+    } else if (window.scrollY > mainHeight - 500) {
+      sidebarElement.style.position = 'fixed';
+      sidebarElement.style.top = `${
+        144 - (window.scrollY - (mainHeight - 500))
+      }px`;
+    } else {
+      sidebarElement.style.position = 'relative';
+      sidebarElement.style.top = 'auto';
+    }
+  };
+
+  // ウィンドウサイズからスマホかどうかを判定
+  const windowWidth = ref(1300);
+  const isSmartPhone = computed(() => windowWidth.value < 768);
+  const isTablet = computed(
+    () => windowWidth.value >= 768 && windowWidth.value < 1280
+  );
+  const isPC = computed(() => windowWidth.value >= 1280);
+
+  const updateWidth = () => {
+    if (typeof window !== 'undefined') {
+      windowWidth.value = window.innerWidth;
+    }
+  };
+
+  onMounted(() => {
+    nextTick(() => {
+      updateWidth();
+    });
+    window.addEventListener('resize', updateWidth);
+    window.addEventListener('scroll', handleScroll);
+  });
+
+  onUnmounted(() => {
+    window.removeEventListener('resize', updateWidth);
+    window.removeEventListener('scroll', handleScroll);
+  });
+
   // ホバーしたときに文字の透明度を変更
   const hoverIndex = ref(-1);
   const mouseOverAction = (index: number) => {
@@ -132,36 +194,40 @@
       </div>
     </div>
     <!-- 記事 -->
-    <div class="flex w-[95%] flex-row space-x-10 pc:w-[1100px]">
+    <div ref="main" class="flex w-[95%] flex-row space-x-10 pc:w-[1100px]">
       <MoleculesBasicNews
         class="mb-32 w-full pc:max-w-[820px]"
         :newsObject="selectedNews"
       ></MoleculesBasicNews>
-      <!-- ニュース一覧 カテゴリ別 -->
-      <div class="hidden w-[240px] flex-col pc:flex">
-        <!-- タイトル -->
-        <div class="mb-[10px] flex w-full items-center space-x-3">
-          <img src="/book-icon.png" class="h-[16px] w-[16px]" />
-          <div class="text-xl font-bold text-bancor-black100">ニュース一覧</div>
-        </div>
-        <!-- 区切り線 -->
-        <div class="relative mb-4 flex h-px w-full">
-          <div class="absolute h-px w-full bg-bancor-gray500"></div>
-          <div class="absolute h-px w-1/2 bg-bancor-blue200"></div>
-        </div>
-        <!-- メニュー -->
-        <div class="flex flex-col space-y-4">
-          <AtomsNewsCategoryButton
-            v-for="(item, index) in categoryList"
-            @mouseover="mouseOverAction(index)"
-            @mouseleave="mouseLeaveAction(index)"
-            :hover-index="hoverIndex"
-            :link-url="item.linkUrl"
-            :menu-index="index"
-            :text="item.label"
-            :key="item.category"
-          >
-          </AtomsNewsCategoryButton>
+      <!-- ニュース一覧 カテゴリ別　サイドメニュー -->
+      <div class="relative h-full w-[240px] flex-col pc:flex">
+        <div ref="sidebar" class="w-[240px]">
+          <!-- タイトル -->
+          <div class="mb-[10px] flex w-full items-center space-x-3">
+            <img src="/book-icon.png" class="h-[16px] w-[16px]" />
+            <div class="text-xl font-bold text-bancor-black100">
+              ニュース一覧
+            </div>
+          </div>
+          <!-- 区切り線 -->
+          <div class="relative mb-4 flex h-px w-full">
+            <div class="absolute h-px w-full bg-bancor-gray500"></div>
+            <div class="absolute h-px w-1/2 bg-bancor-blue200"></div>
+          </div>
+          <!-- メニュー -->
+          <div class="flex flex-col space-y-4">
+            <AtomsNewsCategoryButton
+              v-for="(item, index) in categoryList"
+              @mouseover="mouseOverAction(index)"
+              @mouseleave="mouseLeaveAction(index)"
+              :hover-index="hoverIndex"
+              :link-url="item.linkUrl"
+              :menu-index="index"
+              :text="item.label"
+              :key="item.category"
+            >
+            </AtomsNewsCategoryButton>
+          </div>
         </div>
       </div>
     </div>
