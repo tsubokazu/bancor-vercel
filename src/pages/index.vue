@@ -77,18 +77,21 @@
       v-fade-in
       class="mb-[112px]"
     ></OrganismsTopMnAService>
-    <OrganismsTopService v-fade-in class="mb-[139px]"></OrganismsTopService>
+    <OrganismsTopService
+      v-fade-in
+      class="mb-[72px] tb:mb-[139px]"
+    ></OrganismsTopService>
     <OrganismsTopBancorMedia
       v-fade-in
-      class="mb-[139px]"
+      class="mb-[72px] tb:mb-[139px]"
     ></OrganismsTopBancorMedia>
     <OrganismsTopBancorBusiness
       v-fade-in
-      class="mb-[139px]"
+      class="mb-[72px] tb:mb-[139px]"
     ></OrganismsTopBancorBusiness>
     <OrganismsTopDownloadDocument
       v-fade-in
-      class="mb-[64px]"
+      class="mb-[72px] tb:mb-[139px]"
     ></OrganismsTopDownloadDocument>
     <OrganismsTopRecruit v-fade-in class="mb-[116px]"></OrganismsTopRecruit>
   </div>

@@ -141,7 +141,7 @@
     <div class="relative flex w-11/12 flex-col pc:max-w-[1200px]">
       <!-- Bancorメディアのタイトルと各種メディア切り替えボタン -->
       <div
-        class="flex flex-col items-center justify-between gap-2 tb:flex-row tb:gap-0"
+        class="mb-6 flex flex-col items-center justify-between gap-6 tb:flex-row tb:gap-0"
       >
         <div class="text-[20px] font-bold tb:text-[30px]">Bancorを深く知る</div>
         <div class="flex h-[30px] items-center tb:h-[60px]">
