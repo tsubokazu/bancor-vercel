@@ -85,7 +85,7 @@
     class="relative flex w-full flex-col items-center justify-between overflow-hidden"
   >
     <!-- 背景 -->
-    <div class="absolute top-0 left-0 -z-50 h-full w-full bg-[#f1f5f9]"></div>
+    <div class="absolute top-0 left-0 -z-50 h-full w-full bg-[#f3f7fa]"></div>
     <!-- ヘッダー -->
     <div class="flex h-[180px] w-[95%] tb:h-[320px] pc:max-w-[1460px]">
       <div class="mt-[100px] flex flex-col gap-1 tb:mt-[160px] tb:gap-3">

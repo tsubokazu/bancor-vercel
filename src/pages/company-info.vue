@@ -164,7 +164,7 @@
     class="relative flex w-full flex-col items-center justify-between overflow-hidden"
   >
     <!-- 背景 -->
-    <div class="absolute top-0 left-0 -z-50 h-full w-full bg-[#f1f5f9]"></div>
+    <div class="absolute top-0 left-0 -z-50 h-full w-full bg-[#f3f7fa]"></div>
     <!-- ヘッダー -->
     <div class="flex h-[180px] w-[95%] tb:h-[320px] pc:max-w-[1460px]">
       <div class="mt-[100px] flex flex-col gap-1 tb:mt-[160px] tb:gap-3">
@@ -346,7 +346,7 @@
                     6
                   )"
                   :key="index"
-                  class="flex h-[40px] w-[40px] items-center justify-center rounded-full border border-[#cbd5e1] bg-[#f1f5f9] tb:h-[65px] tb:w-[65px] pc:h-[90px] pc:w-[90px]"
+                  class="flex h-[40px] w-[40px] items-center justify-center rounded-full border border-[#cbd5e1] bg-[#f3f7fa] tb:h-[65px] tb:w-[65px] pc:h-[90px] pc:w-[90px]"
                 >
                   <img
                     :src="technologyStack.imgUrl"
@@ -362,7 +362,7 @@
                     11
                   )"
                   :key="index"
-                  class="flex h-[40px] w-[40px] items-center justify-center rounded-full border border-[#cbd5e1] bg-[#f1f5f9] tb:h-[65px] tb:w-[65px] pc:h-[90px] pc:w-[90px]"
+                  class="flex h-[40px] w-[40px] items-center justify-center rounded-full border border-[#cbd5e1] bg-[#f3f7fa] tb:h-[65px] tb:w-[65px] pc:h-[90px] pc:w-[90px]"
                 >
                   <img
                     :src="technologyStack.imgUrl"
@@ -378,7 +378,7 @@
                     17
                   )"
                   :key="index"
-                  class="flex h-[40px] w-[40px] items-center justify-center rounded-full border border-[#cbd5e1] bg-[#f1f5f9] tb:h-[65px] tb:w-[65px] pc:h-[90px] pc:w-[90px]"
+                  class="flex h-[40px] w-[40px] items-center justify-center rounded-full border border-[#cbd5e1] bg-[#f3f7fa] tb:h-[65px] tb:w-[65px] pc:h-[90px] pc:w-[90px]"
                 >
                   <img
                     :src="technologyStack.imgUrl"

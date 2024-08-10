@@ -67,7 +67,7 @@
 <template>
   <div class="relative flex w-full flex-col items-center">
     <!-- 背景 -->
-    <div class="absolute -z-50 h-full w-full bg-[#f1f5f9]"></div>
+    <div class="absolute -z-50 h-full w-full bg-[#f3f7fa]"></div>
     <!-- 背景アニメーション -->
     <div
       class="fixed top-[-0px] right-[-400px] -z-10 h-[731px] w-[960px] overflow-hidden tb:right-[-150px]"

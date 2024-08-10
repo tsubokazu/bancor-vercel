@@ -124,7 +124,7 @@
     class="relative flex w-full flex-col items-center justify-between overflow-hidden"
   >
     <!-- 背景 -->
-    <div class="absolute top-0 left-0 -z-50 h-full w-full bg-[#f1f5f9]"></div>
+    <div class="absolute top-0 left-0 -z-50 h-full w-full bg-[#f3f7fa]"></div>
     <!-- ヘッダー -->
     <div class="flex h-[180px] w-[95%] tb:h-[320px] pc:max-w-[1460px]">
       <div class="mt-[100px] flex flex-col gap-1 tb:mt-[160px] tb:gap-3">
@@ -250,11 +250,11 @@
           >
             <!-- 右端のぼかし -->
             <div
-              class="via-[#f1f5f9 absolute top-0 right-0 z-20 h-full w-[40px] bg-gradient-to-l from-[#f1f5f9] to-transparent"
+              class="via-[#f3f7fa absolute top-0 right-0 z-20 h-full w-[40px] bg-gradient-to-l from-[#f3f7fa] to-transparent"
             ></div>
             <!-- 左端のぼかし -->
             <div
-              class="absolute top-0 left-0 z-20 h-full w-[40px] bg-gradient-to-r from-[#f1f5f9] via-[#f1f5f9] to-transparent"
+              class="absolute top-0 left-0 z-20 h-full w-[40px] bg-gradient-to-r from-[#f3f7fa] via-[#f3f7fa] to-transparent"
             ></div>
             <!-- 写真連続 -->
             <div
@@ -266,7 +266,7 @@
             >
               <div
                 v-for="(photo, index) in companyPhotos"
-                class="h-full w-[320px] flex-none overflow-hidden rounded-[10px] bg-[#f1f5f9] tb:w-[480px] pc:w-[768px]"
+                class="h-full w-[320px] flex-none overflow-hidden rounded-[10px] bg-[#f3f7fa] tb:w-[480px] pc:w-[768px]"
               >
                 <img :src="photo.imgUrl" class="h-full w-full object-cover" />
               </div>
