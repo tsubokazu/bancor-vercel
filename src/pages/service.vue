@@ -67,14 +67,15 @@
 <template>
   <div class="relative flex w-full flex-col items-center">
     <!-- 背景 -->
-    <div class="fixed top-0 right-0 -z-40 h-screen">
-      <img
-        src="/service-page-bg.png"
-        alt="service-bg"
-        class="h-full object-cover"
-      />
-    </div>
     <div class="absolute -z-50 h-full w-full bg-[#f1f5f9]"></div>
+    <!-- 背景アニメーション -->
+    <div
+      class="fixed top-[-0px] right-[-400px] -z-10 h-[731px] w-[960px] overflow-hidden tb:right-[-150px]"
+    >
+      <video autoplay loop muted playsinline class="h-full w-full object-cover">
+        <source src="/movies/sc.mp4" type="video/mp4" />
+      </video>
+    </div>
     <!-- ヘッダー -->
     <div
       class="flex min-h-[500px] w-[95%] flex-col justify-between tb:min-h-[700px] pc:min-h-screen pc:max-w-[1460px]"
