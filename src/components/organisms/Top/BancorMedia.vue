@@ -10,14 +10,14 @@
 
   // Bancorメディア3種（Notion, Note, YouTube）
   const bancorMediaNames: ('Notion' | 'Note' | 'YouTube')[] = [
-    'Notion',
+    // 'Notion',
     'Note',
-    'YouTube',
+    // 'YouTube',
   ];
   const bancorMediaSmallNames: ('notion' | 'note' | 'youtube')[] = [
-    'notion',
+    // 'notion',
     'note',
-    'youtube',
+    // 'youtube',
   ];
   const selectedMediaIndex = ref(0);
   const selectMedia = (index: number) => {
@@ -204,9 +204,12 @@
             </div>
             <div class="mt-3 flex flex-col px-3 pc:mt-8 pc:px-6">
               <!-- タイトル -->
-              <div class="text-[18px] font-bold pc:h-[80px] pc:text-[28px]">
+              <NuxtLink
+                :to="bancorMediaContents[selectedContentIndex].linkUrl"
+                class="text-[18px] font-bold pc:h-[80px] pc:text-[28px]"
+              >
                 {{ bancorMediaContents[selectedContentIndex].title }}
-              </div>
+              </NuxtLink>
               <!-- タグ -->
               <div class="mt-2 flex gap-2 pc:mt-4">
                 <div
