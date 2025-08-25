@@ -1,4 +1,4 @@
-import { EntryFormObject, Career } from '~/types/pages/entry';
+import type { EntryFormObject, Career } from '~/types/pages/entry';
 
 export const usePagesEntryStore = defineStore('pagesEntry', () => {
   // 採用エントリーページのSTEP

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { PrivacyPolicyObject } from '~/types/pages/privacy-policy';
+  import type { PrivacyPolicyObject } from '~/types/pages/privacy-policy';
   const privacyPolicyStore = usePrivacyPolicyStore();
   if (Object.keys(privacyPolicyStore.privacyPolicyObject).length == 0) {
     await privacyPolicyStore.fetchPrivacyPolicy();

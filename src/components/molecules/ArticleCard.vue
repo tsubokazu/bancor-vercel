@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { NewsObject } from '~/types/News';
+  import type { NewsObject } from '~/types/News';
   const props = defineProps<{ card: NewsObject }>();
   const category = computed(() => {
     switch (props.card.category) {

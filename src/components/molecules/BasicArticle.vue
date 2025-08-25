@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { JournalObject } from '~/types/Journal';
+  import type { JournalObject } from '~/types/Journal';
   import { load } from 'cheerio';
   import axios from 'axios';
   const props = defineProps<{ journalObject: JournalObject }>();

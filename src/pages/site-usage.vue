@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { SiteUsageObject } from '~/types/pages/site-usage';
+  import type { SiteUsageObject } from '~/types/pages/site-usage';
   const siteUsageStore = useSiteUsageStore();
   if (Object.keys(siteUsageStore.siteUsageObject).length == 0) {
     await siteUsageStore.fetchSiteUsage();

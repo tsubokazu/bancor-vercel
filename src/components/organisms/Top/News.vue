@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { NewsObject } from '~/types/News';
+  import type { NewsObject } from '~/types/News';
 
   // ニュースルームの記事をPiniaから取得
   const newsStore = useNewsStore();

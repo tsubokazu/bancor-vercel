@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { PageLinkObject } from '~/types/Footer';
+  import type { PageLinkObject } from '~/types/Footer';
 
   const props = defineProps<{
     pageLinkObjects: Array<PageLinkObject>;

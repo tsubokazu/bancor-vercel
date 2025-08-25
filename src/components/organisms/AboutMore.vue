@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { AboutMore } from '~/types/AboutMore';
+  import type { AboutMore } from '~/types/AboutMore';
 
   // Bancor 取り組みについてをPiniaから取得
   const aboutMoreStore = useAboutMoreStore();

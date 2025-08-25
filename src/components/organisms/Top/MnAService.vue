@@ -1,35 +1,44 @@
 <script setup lang="ts">
   // Top01からデータを取得
   import { useTop01Store } from '~/stores/top01';
-  import { Top01 } from '~/types/top01';
   const top01Store = useTop01Store();
-  if (Object.keys(top01Store.topTitles).length == 0) {
+  if (top01Store.topTitles.length === 0) {
     await top01Store.fetchTop01();
   }
-  const top01Object: Top01 = top01Store;
 
+  // MnAContentsとMnAIllusts用のcomputed
+  const mnAContents = computed(() => top01Store.MnAContents || []);
+  const mnAIllusts = computed(() => top01Store.MnAIllusts || []);
+  
   // TOPメッセージを4秒ごとに切り替えるアニメーション
   const currentMnAIllustIndex = ref(0);
   const currentMnAIllust = ref(
-    top01Object.MnAIllusts[currentMnAIllustIndex.value]
+    mnAIllusts.value[currentMnAIllustIndex.value] || { imgUrl: '' }
   );
   const isOpacity0 = ref(false);
   const changeMnAIllust = async () => {
+    if (!mnAIllusts.value.length) return;
+    
     isOpacity0.value = true;
     await new Promise((resolve) => setTimeout(resolve, 150));
-    if (currentMnAIllustIndex.value + 1 < top01Object.MnAIllusts.length) {
+    if (currentMnAIllustIndex.value + 1 < mnAIllusts.value.length) {
       currentMnAIllustIndex.value += 1;
     } else {
       currentMnAIllustIndex.value = 0;
     }
     currentMnAIllust.value =
-      top01Object.MnAIllusts[currentMnAIllustIndex.value];
+      mnAIllusts.value[currentMnAIllustIndex.value];
     await new Promise((resolve) => setTimeout(resolve, 150));
     isOpacity0.value = false;
   };
-  setInterval(async () => {
-    await changeMnAIllust();
-  }, 3000);
+  
+  onMounted(() => {
+    if (mnAIllusts.value.length) {
+      setInterval(async () => {
+        await changeMnAIllust();
+      }, 3000);
+    }
+  });
 </script>
 
 <template>
@@ -55,7 +64,7 @@
           class="mt-6 flex w-full flex-col gap-4 rounded-lg bg-[#f8fafc] px-6 py-8"
         >
           <NuxtLink
-            v-for="(data, index) in top01Object.MnAContents"
+            v-for="(data, index) in mnAContents"
             :key="index"
             :to="data.linkUrl"
             class="group flex items-center justify-between"
@@ -95,7 +104,7 @@
       <!-- イラスト切り替えナビゲーション -->
       <div class="absolute bottom-10 right-10 flex gap-2 tb:gap-3">
         <div
-          v-for="(data, index) in top01Object.MnAIllusts.length"
+          v-for="(data, index) in mnAIllusts.length"
           class="h-1.5 w-1.5 tb:h-2.5 tb:w-2.5"
           :class="{
             'bg-[#020617]': currentMnAIllustIndex == index,

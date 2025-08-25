@@ -1,4 +1,4 @@
-import { HeadTag } from '~/types/headTag';
+import type { HeadTag } from '~/types/headTag';
 export const useBancorHeadTag = defineStore('headTag', () => {
   // headタグについての情報をKurocoから取得
   const headTags: any | HeadTag[] = ref([]); // headタグの情報

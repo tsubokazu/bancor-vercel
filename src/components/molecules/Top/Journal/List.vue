@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { JournalObject } from '~/types/Journal'; // Bancor JournalをPiniaから取得
+  import type { JournalObject } from '~/types/Journal'; // Bancor JournalをPiniaから取得
   import type { Ref } from 'vue';
   const journalStore = useJournalStore();
   if (journalStore.journalList.length == 0) {

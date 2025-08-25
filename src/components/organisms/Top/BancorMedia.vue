@@ -1,12 +1,10 @@
 <script setup lang="ts">
   // Top02からデータを取得
   import { useTop02Store } from '~/stores/top02';
-  import { Top02 } from '~/types/top02';
   const top02Store = useTop02Store();
-  if (Object.keys(top02Store.bancorNotionList).length == 0) {
+  if (top02Store.bancorNotionList.length === 0) {
     await top02Store.fetchTop02();
   }
-  const top02Object: Top02 = top02Store;
 
   // Bancorメディア3種（Notion, Note, YouTube）
   const bancorMediaNames: ('Notion' | 'Note' | 'YouTube')[] = [
@@ -22,20 +20,17 @@
   const selectedMediaIndex = ref(0);
   const selectMedia = (index: number) => {
     selectedMediaIndex.value = index;
-    console.log(
-      `bancorMediaContents: ${JSON.stringify(bancorMediaContents.value)}`
-    );
   };
   const bancorMediaContents = computed(() => {
     switch (selectedMediaIndex.value) {
       case 0:
-        return top02Object.bancorNotionList;
+        return top02Store.bancorNotionList || [];
       case 1:
-        return top02Object.bancorNoteList;
+        return top02Store.bancorNoteList || [];
       case 2:
-        return top02Object.bancorYouTubeList;
+        return top02Store.bancorYouTubeList || [];
       default:
-        return top02Object.bancorNotionList;
+        return top02Store.bancorNotionList || [];
     }
   });
 
@@ -99,7 +94,6 @@
       });
     } else {
       // Fallback for browsers that do not support the Web Share API
-      console.log(`Web Share API 未対応ブラウザ`);
       const url = bancorMediaContents.value[selectedContentIndex.value].linkUrl;
       const text = 'Check out this content!';
       const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(
@@ -319,7 +313,7 @@
           <div class="mt-3 flex w-full justify-end">
             <NuxtLink
               :to="
-                top02Object.bancorMediaLink[
+                top02Store.bancorMediaLink[
                   `${bancorMediaSmallNames[selectedMediaIndex]}Url`
                 ]
               "

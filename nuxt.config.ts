@@ -38,7 +38,17 @@ export default defineNuxtConfig({
   sitemap: {
     siteUrl: 'https://www.bancor.co.jp',
   },
-  build: { transpile: ['@fortawesome/vue-fontawesome'] },
+  build: { 
+    transpile: ['@fortawesome/vue-fontawesome'] 
+  },
+  ssr: {
+    noExternal: []
+  },
+  nitro: {
+    experimental: {
+      wasm: true
+    }
+  },
   postcss: {
     plugins: {
       tailwindcss: {},

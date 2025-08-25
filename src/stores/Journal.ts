@@ -1,4 +1,4 @@
-import { JournalObject } from '~/types/Journal';
+import type { JournalObject } from '~/types/Journal';
 import type { Ref } from 'vue';
 
 export const useJournalStore = defineStore('journal', () => {

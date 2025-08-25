@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { BoardMemberObject } from '~/types/pages/board-member';
+  import type { BoardMemberObject } from '~/types/pages/board-member';
   import { usePagesBoardMemberStore } from '~/stores/pages/board-member';
 
   // layoutを指定

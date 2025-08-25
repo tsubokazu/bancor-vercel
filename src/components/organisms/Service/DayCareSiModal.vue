@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { DayCareSi } from '~/types/pages/service';
+  import type { DayCareSi } from '~/types/pages/service';
   const props = defineProps<{ dayCareSiService: DayCareSi }>();
 </script>
 

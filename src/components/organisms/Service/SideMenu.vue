@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { ServiceListItem } from '~/types/pages/service';
+  import type { ServiceListItem } from '~/types/pages/service';
 
   const props = defineProps<{ serviceList: ServiceListItem[] }>();
   console.log(`serviceList: ${JSON.stringify(props)}`);

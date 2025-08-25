@@ -2,7 +2,7 @@
   import { useLoadingStore } from '../stores/loading';
   import { useHead } from '@vueuse/head';
   import { useBancorHeadTag } from '~/stores/headTag/bancor';
-  import { HeadTag } from '~/types/headTag';
+  import type { HeadTag } from '~/types/headTag';
   const loadingStore = useLoadingStore();
   const isLoading = ref(false);
   if (loadingStore.loadingFlag) {

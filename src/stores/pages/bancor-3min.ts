@@ -1,5 +1,5 @@
-import { Bancor3minMaterial } from '~/types/pages/bancor-3min';
-import { MaterialObject } from '~/types/pages/materials';
+import type { Bancor3minMaterial } from '~/types/pages/bancor-3min';
+import type { MaterialObject } from '~/types/pages/materials';
 
 export const useBancor3minStore = defineStore('bancor-3min', () => {
   // 資料一覧をKurocoから取得

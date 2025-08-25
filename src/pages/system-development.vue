@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { SystemDevObject } from '~/types/pages/system-development';
+  import type { SystemDevObject } from '~/types/pages/system-development';
   import { usePagesSystemDevStore } from '~/stores/pages/system-development';
   import ScrollParallax from 'vue3-parallax/src/components/ScrollParallax.vue';
 

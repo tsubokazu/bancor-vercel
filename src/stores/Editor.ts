@@ -1,4 +1,4 @@
-import { EditorObject } from '~/types/Editor';
+import type { EditorObject } from '~/types/Editor';
 
 export const useEditorStore = defineStore('editor', () => {
   // 編集者情報をKurocoから取得

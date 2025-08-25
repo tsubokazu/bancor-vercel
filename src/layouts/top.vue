@@ -2,7 +2,7 @@
   import { useTopSplashStore } from '../stores/top-splash';
   import { useHead } from '@vueuse/head';
   import { useBancorHeadTag } from '~/stores/headTag/bancor';
-  import { HeadTag } from '~/types/headTag';
+  import type { HeadTag } from '~/types/headTag';
   const topSplashStore = useTopSplashStore();
   const isLoading = ref(false);
   if (topSplashStore.topSplashFlag) {

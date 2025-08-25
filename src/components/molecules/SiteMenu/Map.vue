@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { LinkObject, PageLinkObject, SiteMapObject } from '~/types/SiteMenu';
+  import type { LinkObject, PageLinkObject, SiteMapObject } from '~/types/SiteMenu';
 
   const linkObjectsCompanyProfile: Array<LinkObject> = [
     {

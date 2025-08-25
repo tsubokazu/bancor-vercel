@@ -1,15 +1,12 @@
 <script setup lang="ts">
   // Top01からデータを取得
   import { useTop01Store } from '~/stores/top01';
-  import { Top01 } from '~/types/top01';
+  import type { Top01 } from '~/types/top01';
   const top01Store = useTop01Store();
   if (Object.keys(top01Store.topTitles).length == 0) {
     await top01Store.fetchTop01();
   }
   const top01Object: Top01 = top01Store;
-  console.log(
-    `top01Object.topTitles: ${JSON.stringify(top01Object.topTitles)}`
-  );
 
   // ウィンドウサイズからスマホかどうかを判定
   const windowWidth = ref(1300);

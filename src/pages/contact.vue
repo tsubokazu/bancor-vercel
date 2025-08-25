@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { ContactObject } from '~/types/pages/contact';
+  import type { ContactObject } from '~/types/pages/contact';
   import { FormKitMessages } from '@formkit/vue';
 
   // 資料一覧ページのヘッダーとBancor情報をPiniaから取得

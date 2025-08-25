@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { Bancor3minObject } from '~/types/pages/bancor-3min';
+  import type { Bancor3minObject } from '~/types/pages/bancor-3min';
   import { useBancor3minStore } from '~/stores/pages/bancor-3min';
   import { emailValidation } from '~/assets/utils/bannedEmailDomains';
 

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { TopFirstViewObject } from '~/types/Top';
+  import type { TopFirstViewObject } from '~/types/Top';
   const config = useRuntimeConfig();
   const baseUrl = config.public.kurocoApiUrl;
   const endpoint = config.public.kurocoTopFirstview;
@@ -16,15 +16,12 @@
 
   // Top01からデータを取得
   import { useTop01Store } from '~/stores/top01';
-  import { Top01 } from '~/types/top01';
+  import type { Top01 } from '~/types/top01';
   const top01Store = useTop01Store();
   if (Object.keys(top01Store.topTitles).length == 0) {
     await top01Store.fetchTop01();
   }
   const top01Object: Top01 = top01Store;
-  console.log(
-    `top01Object.topTitles: ${JSON.stringify(top01Object.topTitles)}`
-  );
 
   // TOPメッセージを4秒ごとに切り替えるアニメーション
   const currentTopTitleIndex = ref(0);
@@ -42,9 +39,6 @@
     await new Promise((resolve) => setTimeout(resolve, 300));
     isOpacity0.value = false;
   };
-  setInterval(async () => {
-    await changeTopTitle();
-  }, 4000);
 
   // ウィンドウサイズからスマホかどうかを判定
   const windowWidth = ref(1300);
@@ -55,7 +49,7 @@
   const isPC = computed(() => windowWidth.value >= 1280);
 
   // TOPのスライダー用の記事取得
-  import { JournalObject } from '~/types/Journal'; // Bancor JournalをPiniaから取得
+  import type { JournalObject } from '~/types/Journal'; // Bancor JournalをPiniaから取得
   const journalStore = useJournalStore();
   if (journalStore.journalList.length == 0) {
     await journalStore.fetchJournals();
@@ -113,10 +107,6 @@
     await new Promise((resolve) => setTimeout(resolve, 50));
   };
 
-  setInterval(() => {
-    move(1);
-  }, 5000);
-
   const updateWidth = () => {
     if (typeof window !== 'undefined') {
       windowWidth.value = window.innerWidth;
@@ -126,6 +116,12 @@
   onMounted(() => {
     nextTick(() => {
       updateWidth();
+      setInterval(async () => {
+        await changeTopTitle();
+      }, 4000);
+      setInterval(() => {
+        move(1);
+      }, 5000);
     });
     window.addEventListener('resize', updateWidth);
   });

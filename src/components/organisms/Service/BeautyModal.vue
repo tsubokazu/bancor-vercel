@@ -1,6 +1,6 @@
 <script setup lang="ts">
-  import { Service } from '~/types/pages/service';
-  import { BeautyObject } from '~/types/pages/beauty';
+  import type { Service } from '~/types/pages/service';
+  import type { BeautyObject } from '~/types/pages/beauty';
   import { usePagesBeautyStore } from '~/stores/pages/beauty';
   const props = defineProps<{ beautyService: Service }>();
 

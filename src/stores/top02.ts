@@ -1,4 +1,4 @@
-import { Top02, BancorMediaLink } from '~/types/top02';
+import type { Top02, BancorMediaLink } from '~/types/top02';
 
 export const useTop02Store = defineStore('top02', () => {
   // TOPページ情報をKurocoから取得
@@ -19,11 +19,7 @@ export const useTop02Store = defineStore('top02', () => {
     const top02Endpoint = config.public.kurocoTop02;
     const response = await useFetch(`${baseUrl}${top02Endpoint}`);
 
-    console.log(`Response: ${JSON.stringify(response)}`);
-
     const { data, error } = response as any;
-    console.log(`Data: ${JSON.stringify(data)}`);
-    console.log(`Error: ${JSON.stringify(error)}`);
 
     if (!data.value || error.value) {
       console.error(`[useTop02Store] fetchTop02 error: ${error.value}`);
@@ -81,7 +77,6 @@ export const useTop02Store = defineStore('top02', () => {
         })
       );
 
-      console.log(`bancorBusinessList: ${bancorBusinessList.value}`);
     }
   };
 

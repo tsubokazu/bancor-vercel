@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { VisionObject } from '~/types/pages/vision';
+  import type { VisionObject } from '~/types/pages/vision';
   import { usePagesVisionStore } from '~/stores/pages/vision';
 
   // layoutを指定

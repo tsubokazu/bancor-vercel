@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { EditorObject, EditorList } from '~/types/Editor';
+  import type { EditorObject, EditorList } from '~/types/Editor';
   const props = defineProps<{ editorId: number }>();
 
   // 編集者情報をPiniaから取得

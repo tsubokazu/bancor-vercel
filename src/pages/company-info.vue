@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { CompanyInfoObject } from '~/types/pages/company-info';
+  import type { CompanyInfoObject } from '~/types/pages/company-info';
   import { usePagesCompanyInfoStore } from '~/stores/pages/company-info';
 
   // layoutを指定

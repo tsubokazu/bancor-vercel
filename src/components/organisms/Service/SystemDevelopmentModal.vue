@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { SystemDevelopment } from '~/types/pages/service';
+  import type { SystemDevelopment } from '~/types/pages/service';
   const props = defineProps<{ systemDevelopmentService: SystemDevelopment }>();
 </script>
 

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { ServiceObject } from '~/types/SiteMenu';
+  import type { ServiceObject } from '~/types/SiteMenu';
   const serviceObject: ServiceObject = {
     title: '運営サービス',
     logoUrl: '/logo-nuvo-white.png',

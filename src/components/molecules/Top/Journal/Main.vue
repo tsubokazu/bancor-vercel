@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { TopJournalObject } from '~/types';
+  import type { TopJournalObject } from '~/types';
   const { journalList } = inject<TopJournalObject>(
     'topJournalObject'
   ) as TopJournalObject;

@@ -1,4 +1,4 @@
-import { NewsObject } from '~/types/News';
+import type { NewsObject } from '~/types/News';
 
 export const useNewsStore = defineStore('news', () => {
   // ニュースルームの記事をKurocoから取得

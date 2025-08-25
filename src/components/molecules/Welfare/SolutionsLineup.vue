@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { CareWelfareSolutions } from '~/types/pages/care-welfare';
+  import type { CareWelfareSolutions } from '~/types/pages/care-welfare';
   const props = defineProps<{
     solutions: CareWelfareSolutions;
   }>();

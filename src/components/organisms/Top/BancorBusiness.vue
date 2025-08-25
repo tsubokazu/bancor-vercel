@@ -1,7 +1,7 @@
 <script setup lang="ts">
   // Top02からデータを取得
   import { useTop02Store } from '~/stores/top02';
-  import { Top02, BancorBusiness } from '~/types/top02';
+  import type { Top02, BancorBusiness } from '~/types/top02';
   const top02Store = useTop02Store();
   if (Object.keys(top02Store.bancorNotionList).length == 0) {
     await top02Store.fetchTop02();
@@ -81,13 +81,12 @@
     currentIndex.value = 0;
   };
 
-  setInterval(() => {
-    move(1);
-  }, 6000);
-
   onMounted(() => {
     nextTick(() => {
       updateWidth();
+      setInterval(() => {
+        move(1);
+      }, 6000);
     });
     window.addEventListener('resize', updateWidth);
   });

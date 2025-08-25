@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { TopFirstViewObject } from '~/types/Top';
+  import type { TopFirstViewObject } from '~/types/Top';
   const { subCopy } = inject<TopFirstViewObject>(
     'topFirstViewObject'
   ) as TopFirstViewObject;

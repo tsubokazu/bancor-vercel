@@ -1,13 +1,13 @@
 <script setup lang="ts">
   import { ref, onMounted } from 'vue';
-  import Lottie from 'lottie-web';
   import animationData from '@/assets/lottie/bancor_lottie.json';
 
   const lottieContainer = ref(null); // DOM要素への参照を保持するためのref
 
-  onMounted(() => {
-    if (lottieContainer.value) {
-      // nullチェック
+  onMounted(async () => {
+    if (process.client && lottieContainer.value) {
+      // クライアントサイドでのみlottie-webをインポート
+      const { default: Lottie } = await import('lottie-web');
       const animation = Lottie.loadAnimation({
         container: lottieContainer.value,
         renderer: 'svg',

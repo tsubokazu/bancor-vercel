@@ -4,7 +4,7 @@
     TopPressReleaseList,
     TopServiceNewsList,
   } from '~/types';
-  import { NewsObject } from '~/types/News';
+  import type { NewsObject } from '~/types/News';
   const props = defineProps<{ newsObject: NewsObject }>();
   const instagramShareLink = `https://www.instagram.com/`;
   const twitterShareLink = `http://twitter.com/share?url=http://bancor.co.jp/news/${props.newsObject.topicsId}`;

@@ -1,6 +1,6 @@
 <script setup lang="ts">
-  import { KurocoUrlObject } from '~/types/kuroco';
-  import {
+  import type { KurocoUrlObject } from '~/types/kuroco';
+  import type {
     FooterContactMenuObject,
     FooterObject,
     SNSObject,

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { FooterContactMenuObject } from '~/types/Footer';
+  import type { FooterContactMenuObject } from '~/types/Footer';
   const props = defineProps<{ obj: FooterContactMenuObject }>();
 
   const hoverBgAnimation = ref('');

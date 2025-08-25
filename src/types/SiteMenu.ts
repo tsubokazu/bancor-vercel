@@ -1,4 +1,4 @@
-import { JournalObject } from '~/types/Journal';
+import type { JournalObject } from '~/types/Journal';
 
 export interface LinkObject {
   title: string;

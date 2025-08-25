@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { TrademarksObject } from '~/types/pages/trademarks';
+  import type { TrademarksObject } from '~/types/pages/trademarks';
   const trademarksStore = useTrademarksStore();
   if (Object.keys(trademarksStore.trademarksObject).length == 0) {
     await trademarksStore.fetchTrademarks();

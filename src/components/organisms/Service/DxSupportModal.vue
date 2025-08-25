@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { DxSupport } from '~/types/pages/service';
+  import type { DxSupport } from '~/types/pages/service';
   const props = defineProps<{ dxSupportService: DxSupport }>();
   console.log(`dxSupportService: ${JSON.stringify(props)}`);
 </script>

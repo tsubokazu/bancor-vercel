@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { Service } from '~/types/pages/service';
+  import type { Service } from '~/types/pages/service';
   const props = defineProps<{ service: Service; modalIndex: number }>();
 
   const isModalOpen = inject('isModalOpen') as Ref<boolean>;

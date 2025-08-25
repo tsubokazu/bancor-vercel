@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { LinkObject, PageLinkObject } from '~/types/SiteMenu';
+  import type { LinkObject, PageLinkObject } from '~/types/SiteMenu';
   const props = defineProps<{ pageLinkObject: PageLinkObject }>();
   const humbergerStore = useHumbergerStore();
 </script>

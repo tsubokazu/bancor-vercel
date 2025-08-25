@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { MaterialsBancor } from '~/types/pages/materials';
+  import type { MaterialsBancor } from '~/types/pages/materials';
 
   const props = defineProps<{
     bancor: MaterialsBancor;

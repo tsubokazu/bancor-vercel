@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { MemberInfo } from '~/types/pages/board-member';
+  import type { MemberInfo } from '~/types/pages/board-member';
   const props = defineProps<{
     member: MemberInfo;
     memberBg: string;

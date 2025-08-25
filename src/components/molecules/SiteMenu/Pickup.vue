@@ -1,6 +1,6 @@
 <script setup lang="ts">
-  import { JournalObject } from '~/types/Journal';
-  import { PickupObject } from '~/types/SiteMenu';
+  import type { JournalObject } from '~/types/Journal';
+  import type { PickupObject } from '~/types/SiteMenu';
   // Bancor JournalをPiniaから取得
   const journalStore = useJournalStore();
   if (journalStore.journalList.length == 0) {

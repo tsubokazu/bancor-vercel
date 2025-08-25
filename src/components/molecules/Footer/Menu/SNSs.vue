@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { SNSObject } from '~/types/Footer';
+  import type { SNSObject } from '~/types/Footer';
 
   const props = defineProps<{
     snsObjects: Array<SNSObject>;

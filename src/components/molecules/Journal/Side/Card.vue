@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { JournalObject } from '~/types/Journal';
+  import type { JournalObject } from '~/types/Journal';
   const props = defineProps<{ card: JournalObject }>();
   const journalLinkUrl = `/journal/${props.card.topicsId}`;
 </script>

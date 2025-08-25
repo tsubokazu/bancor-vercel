@@ -1,15 +1,24 @@
-import { Top01 } from '~/types/top01';
+import type { 
+  Top01,
+  TopTitle,
+  SliderContent,
+  AchievementLogo,
+  AdSpace,
+  MnAContent,
+  MnAIllust,
+  BancorService
+} from '~/types/top01';
 
 export const useTop01Store = defineStore('top01', () => {
   // TOPページ情報をKurocoから取得
   const top01: any = ref({});
-  const topTitles = ref([]);
-  const sliderContents = ref([]);
-  const achievementLogos = ref([]);
-  const adSpaces = ref([]);
-  const MnAContents = ref([]);
-  const MnAIllusts = ref([]);
-  const bancorServices = ref([]);
+  const topTitles = ref<TopTitle[]>([]);
+  const sliderContents = ref<SliderContent[]>([]);
+  const achievementLogos = ref<AchievementLogo[]>([]);
+  const adSpaces = ref<AdSpace[]>([]);
+  const MnAContents = ref<MnAContent[]>([]);
+  const MnAIllusts = ref<MnAIllust[]>([]);
+  const bancorServices = ref<BancorService[]>([]);
 
   const fetchTop01 = async () => {
     const config = useRuntimeConfig();
@@ -22,7 +31,6 @@ export const useTop01Store = defineStore('top01', () => {
       console.error(`[useTop01Store] fetchTop01 error: ${error.value}`);
     } else {
       top01.value = data.value.details;
-      console.log(`fetchTop01:`);
 
       topTitles.value = top01.value.ext_1;
 

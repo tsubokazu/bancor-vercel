@@ -1,4 +1,4 @@
-import { RecruitPositionCategory } from '~/types/pages/recruit';
+import type { RecruitPositionCategory } from '~/types/pages/recruit';
 
 export const usePagesRecruitStore = defineStore('pagesRecruit', () => {
   // 採用情報ページの情報をKurocoから取得

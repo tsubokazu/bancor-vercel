@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { KurocoUrlObject } from '~/types/kuroco';
+  import type { KurocoUrlObject } from '~/types/kuroco';
   const config = useRuntimeConfig();
   const baseUrl = config.public.kurocoApiUrl;
   const headerEndpoint = config.public.kurocoHeader;

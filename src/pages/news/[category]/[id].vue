@@ -4,7 +4,7 @@
     TopPressReleaseList,
     TopServiceNewsList,
   } from '~/types';
-  import { NewsObject } from '~/types/News';
+  import type { NewsObject } from '~/types/News';
 
   const isLoading = ref(true);
   onMounted(() => {

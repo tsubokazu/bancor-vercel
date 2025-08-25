@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { CompanyProfileObject } from '~/types/pages/company-profile';
+  import type { CompanyProfileObject } from '~/types/pages/company-profile';
   import { usePagesCompanyProfileStore } from '~/stores/pages/company-profile';
   import { GoogleMap, Marker } from 'vue3-google-map';
   const center = { lat: 33.5894734, lng: 130.3923709 };

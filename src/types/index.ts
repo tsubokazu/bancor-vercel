@@ -1,5 +1,5 @@
-import { JournalObject } from '~/types/Journal';
-import { NewsObject } from '~/types/News';
+import type { JournalObject } from '~/types/Journal';
+import type { NewsObject } from '~/types/News';
 
 export interface TopTopicNotificationList {
   notificationList: Array<NewsObject>;

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { JournalObject } from '~/types/Journal';
+  import type { JournalObject } from '~/types/Journal';
   const humbergerStore = useHumbergerStore();
   const props = defineProps<{ card: JournalObject }>();
 

@@ -1,4 +1,4 @@
-import { MaterialObject } from '~/types/pages/materials';
+import type { MaterialObject } from '~/types/pages/materials';
 
 export const useMaterialsStore = defineStore('materials', () => {
   persist: true;

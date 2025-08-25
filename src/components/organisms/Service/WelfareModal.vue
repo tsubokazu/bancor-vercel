@@ -1,8 +1,8 @@
 <script setup lang="ts">
-  import { Service } from '~/types/pages/service';
+  import type { Service } from '~/types/pages/service';
   const props = defineProps<{ welfareService: Service }>();
 
-  import { JournalObject } from '~/types/Journal';
+  import type { JournalObject } from '~/types/Journal';
   // Bancor Journalページ情報をPiniaから取得
   const journalStore = useWelfareJournalStore();
   if (Object.keys(journalStore.journals).length == 0) {

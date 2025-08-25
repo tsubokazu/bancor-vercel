@@ -1,4 +1,4 @@
-import { ContactObject } from '~/types/pages/contact';
+import type { ContactObject } from '~/types/pages/contact';
 
 export const useContactStore = defineStore('contact', () => {
   persist: true;

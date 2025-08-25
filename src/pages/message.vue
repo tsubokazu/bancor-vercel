@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { MessageObject } from '~/types/pages/message';
+  import type { MessageObject } from '~/types/pages/message';
   import { usePagesMessageStore } from '~/stores/pages/message';
 
   // layoutを指定
