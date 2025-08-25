@@ -62,7 +62,6 @@
       getUrlArray(urlObj)
     ),
   ];
-  console.log(JSON.stringify(contentImagesArray));
 
   interface MegamenuContent {
     title: string;
