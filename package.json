@@ -20,7 +20,7 @@
     "eslint-plugin-import": "^2.27.4",
     "eslint-plugin-tailwindcss": "^3.8.0",
     "eslint-plugin-vue": "^9.9.0",
-    "nuxt": "^3.3.1",
+    "nuxt": "^3.18.1",
     "nuxt-simple-sitemap": "^2.4.11",
     "postcss": "^8.4.21",
     "prettier": "^2.8.3",
@@ -47,10 +47,6 @@
     "vue3-parallax": "^0.1.4"
   },
   "overrides": {
-    "vue": "^3.5.19",
-    "oxc-parser": "^0.60.0"
-  },
-  "resolutions": {
-    "oxc-parser": "^0.60.0"
+    "vue": "^3.5.19"
   }
 }
