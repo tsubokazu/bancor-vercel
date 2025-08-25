@@ -39,11 +39,6 @@
 
   // headタグの情報をPiniaから取得
   const bancorHeadTagStore = useBancorHeadTag();
-  console.log(
-    `Object.keys(bancorHeadTagStore.headTags): ${Object.keys(
-      bancorHeadTagStore.headTags
-    )}`
-  );
 
   if (Object.keys(bancorHeadTagStore.headTags).length == 0) {
     await bancorHeadTagStore.fetchHeadTag();
