@@ -55,7 +55,7 @@
     <!-- カード説明 -->
     <div class="flex flex-wrap gap-6">
       <NuxtLink
-        :to="`https://welfare.bancor.co.jp/journal/${journal.topicsId}`"
+        :to="`/welfare/journal/${journal.topicsId}`"
         v-for="journal in journalList.slice(0, 3)"
         class="relative flex w-[262px] flex-col gap-4 rounded-[10px] border border-[#cbd5e1] bg-white py-3 px-3"
       >

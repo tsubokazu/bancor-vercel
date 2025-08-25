@@ -26,7 +26,7 @@
     },
     {
       title: '福祉施設向けシステム開発事業',
-      linkUrl: 'https://welfare.bancor.co.jp/care-welfare',
+      linkUrl: '/welfare/care-welfare',
     },
     {
       title: 'DX支援事業',
@@ -34,11 +34,11 @@
     },
     {
       title: '福祉事業',
-      linkUrl: 'https://welfare.bancor.co.jp',
+      linkUrl: '/welfare',
     },
     {
       title: '美容事業',
-      linkUrl: 'https://beauty.bancor.co.jp',
+      linkUrl: '/beauty',
     },
   ];
   const linkObjectsRecruit: Array<LinkObject> = [

@@ -1,24 +1,47 @@
-// ヘッダー
-export interface ContactHeader {
+// アンケートヘッダー
+export interface EnqueteHeader {
   title: string;
   subTitle: string;
   imgUrl: string;
 }
 
-// お問い合わせページの左メニュー
-export interface LeftMenu {
+// メッセージ
+export interface EnqueteMessage {
   title: string;
+  abstract: string;
+  message: string;
   imgUrl: string;
-  outline: string;
 }
 
-// お問い合わせ内容の項目
-export interface InquiryItemsList {
-  inquiryItems: Array<string>;
+// 自己評価表サービス
+export interface SelfEvaluationService {
+  title: string;
 }
 
+// 自己評価表
+export interface SelfEvaluationForm {
+  title: string;
+  services: Array<SelfEvaluationService>;
+}
+
+// 保護者アンケート表
+export interface ParentEnqueteForm {
+  title: string;
+  services: Array<SelfEvaluationService>;
+}
+
+// アンケート項目
+export interface EnqueteItem {
+  region: string;
+  service: string;
+  name: string;
+  selfEvaluationForm: SelfEvaluationForm;
+  parentEnqueteForm: ParentEnqueteForm;
+}
+
+// アンケートオブジェクト
 export interface EnqueteObject {
-  header: ContactHeader;
-  leftMenu: LeftMenu;
-  inquiryItems: InquiryItemsList;
+  header: EnqueteHeader;
+  message: EnqueteMessage;
+  enqueteItems: Array<EnqueteItem>;
 }

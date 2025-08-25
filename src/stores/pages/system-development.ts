@@ -21,6 +21,14 @@ export const usePagesSystemDevStore = defineStore('pagesSystemDev', () => {
     const config = useRuntimeConfig();
     const baseUrl = config.public.kurocoApiUrl;
     const pagesSystemDevEndpoint = config.public.kurocoPagesSystemDev;
+    
+    if (!baseUrl || !pagesSystemDevEndpoint) {
+      console.warn('API configuration is missing for system-development data');
+      // デフォルトデータを設定
+      valueUpdate.value = { imgUrls: [] };
+      return;
+    }
+    
     const { data: kuroco, error } = (await useFetch(
       `${baseUrl}${pagesSystemDevEndpoint}`
     )) as any;

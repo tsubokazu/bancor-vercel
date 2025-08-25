@@ -17,7 +17,7 @@
     particleColor: 'text-[#0a50ae]',
   });
 
-  const titleTexts = computed(() => props.text.split('\r\n'));
+  const titleTexts = computed(() => props.text ? props.text.split('\r\n') : ['']);
 
   // <>で囲まれたテキストを<span>で囲み、particleColorを適用する
   const formattedTitleTexts = computed(() => {

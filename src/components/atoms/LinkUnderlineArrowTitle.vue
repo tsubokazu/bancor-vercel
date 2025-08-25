@@ -12,7 +12,7 @@
     size: 'text-[40px]',
     arrowSize: 'text-[16px]',
   });
-  const titleTexts = props.text.split('\r\n');
+  const titleTexts = props.text ? props.text.split('\r\n') : [''];
 
   const hoverAnimation = ref('');
   const mouseOverAction = () => {

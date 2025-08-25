@@ -22,6 +22,7 @@
   };
 
   const titleTextsList = computed<Array<Array<string>>>(() => {
+    if (!props.text) return [['']];
     const titleList = props.text.split('\r\n');
     const textsList: Array<Array<string>> = [];
     for (const title of titleList) {

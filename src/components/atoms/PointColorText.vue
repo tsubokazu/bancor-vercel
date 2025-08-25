@@ -1,5 +1,4 @@
 <script setup lang="ts">
-  import { text } from 'stream/consumers';
 
   interface Props {
     text: string;
@@ -26,14 +25,11 @@
   };
 
   const titleTextsList = computed<Array<Array<string>>>(() => {
+    if (!props.text) return [['']];
     const titleList = props.text.split('\r\n');
     const textsList: Array<Array<string>> = [];
     for (const title of titleList) {
       if (title.includes(props.pointText)) {
-        console.log(props.pointText);
-
-        console.log(title);
-        console.log(title.indexOf(props.pointText));
 
         const tmpStrArr = [
           title.substring(0, title.indexOf(props.pointText)),

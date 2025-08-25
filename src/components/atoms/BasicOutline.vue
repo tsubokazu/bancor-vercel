@@ -13,7 +13,7 @@
     spaceY: 'space-y-1',
   });
 
-  const titleTexts = computed(() => props.text.split('\r\n'));
+  const titleTexts = computed(() => props.text ? props.text.split('\r\n') : ['']);
 </script>
 
 <template>
