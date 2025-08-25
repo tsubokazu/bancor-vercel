@@ -33,7 +33,7 @@ export default defineNuxtConfig({
     ['@pinia/nuxt', { autoImports: ['defineStore', 'acceptHMRUpdate'] }],
     '@formkit/nuxt',
     '@nuxt/image-edge',
-    'nuxt-simple-sitemap',
+    '@nuxtjs/sitemap',
   ],
   sitemap: {
     siteUrl: 'https://www.bancor.co.jp',
