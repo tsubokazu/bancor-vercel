@@ -103,7 +103,7 @@ export default defineNuxtConfig({
       kurocoSubmitContactForm: '/rcms-api/11/form?id=5', // お問い合わせ
       kurocoSubmitDaycareEnqueteForm: '/rcms-api/11/form?id=6', // 福祉お問い合わせ
       kurocoUploadFile: '/rcms-api/11/file', // ファイルアップロード
-      googleMapApiKey: 'AIzaSyAkiUf_mc0OqCF_xaln1IAAxNCEu96__8Q', // GoogleMapのAPIキー
+      googleMapApiKey: process.env.GOOGLE_MAP_API_KEY || '', // GoogleMapのAPIキー
       kurocoTop01: '/rcms-api/14/top01/128', // TOPページ01
       kurocoTop02: '/rcms-api/14/top02/129', // TOPページ02
       kurocoWelfareJournal: '/rcms-api/12/welfare-journals', // 福祉事業記事
