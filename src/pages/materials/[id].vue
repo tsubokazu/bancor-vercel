@@ -1,5 +1,4 @@
 <script setup lang="ts">
-  import { ComputedRef } from 'vue';
   import {
     MaterialObject,
     MaterialsServiceOverviewList,
@@ -79,12 +78,7 @@
   const displayCount = ref(3);
 
   // その他の関連資料
-  const otherMaterials: ComputedRef<{
-    category: string;
-    label: string;
-    list: MaterialObject[];
-    linkUrl: string;
-  }> = computed(() => {
+  const otherMaterials = computed(() => {
     return {
       category: selectedCategory.value.category,
       label: selectedCategory.value.label,
