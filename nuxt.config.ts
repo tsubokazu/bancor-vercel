@@ -117,6 +117,9 @@ export default defineNuxtConfig({
       kurocoTop01: '/rcms-api/14/top01/128', // TOPページ01
       kurocoTop02: '/rcms-api/14/top02/129', // TOPページ02
       kurocoWelfareJournal: '/rcms-api/12/welfare-journals', // 福祉事業記事
+      kurocoDaycareEndpoint: '/rcms-api/15/daycare', // 保育園関連データ
+      kurocoFacilitiesEndpoint: '/rcms-api/16/facilities', // 施設情報
+      kurocoDaycareContactEndpoint: '/rcms-api/17/daycare-contact', // 保育園お問い合わせ
     },
   },
 });
