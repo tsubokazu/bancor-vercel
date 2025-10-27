@@ -2,7 +2,6 @@
   import { useLoadingStore } from '../stores/loading';
   import { useHead } from '@vueuse/head';
   import { useBancorHeadTag } from '~/stores/headTag/bancor';
-  import type { HeadTag } from '~/types/headTag';
   const loadingStore = useLoadingStore();
   const isLoading = ref(false);
   if (loadingStore.loadingFlag) {
@@ -39,31 +38,19 @@
 
   // headタグの情報をPiniaから取得
   const bancorHeadTagStore = useBancorHeadTag();
-  console.log(
-    `Object.keys(bancorHeadTagStore.headTags): ${Object.keys(
-      bancorHeadTagStore.headTags
-    )}`
+  await bancorHeadTagStore.ensureHeadTags();
+  const route = useRoute();
+  const currentHeadTag = computed(() =>
+    bancorHeadTagStore.getHeadTagByPath(route.path)
   );
 
-  if (Object.keys(bancorHeadTagStore.headTags).length == 0) {
-    await bancorHeadTagStore.fetchHeadTag();
-  }
-  const { headTags } = bancorHeadTagStore as any | HeadTag[];
-  let headTag: HeadTag = headTags[0];
-  const route = useRoute();
-  for (let i = 0; i < headTags.length; i++) {
-    if (headTags[i].linkUrl == route.path) {
-      headTag = headTags[i];
-    }
-  }
-
-  useHead({
-    title: headTag.title,
+  useHead(() => ({
+    title: currentHeadTag.value.title,
     meta: [
       {
         hid: 'description',
         name: 'description',
-        content: headTag.description,
+        content: currentHeadTag.value.description,
       },
     ],
     link: [
@@ -72,32 +59,7 @@
         href: '/favicon.png',
       },
     ],
-  });
-
-  watch(route, (newRoute, oldRoute) => {
-    for (let i = 0; i < headTags.length; i++) {
-      if (headTags[i].linkUrl == route.path) {
-        headTag = headTags[i];
-      }
-    }
-
-    useHead({
-      title: headTag.title,
-      meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content: headTag.description,
-        },
-      ],
-      link: [
-        {
-          rel: 'icon',
-          href: '/favicon.png',
-        },
-      ],
-    });
-  });
+  }));
 </script>
 
 <template>
