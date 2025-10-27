@@ -23,6 +23,10 @@ export default defineNuxtConfig({
     '/trademarks': { static: true },
     '/vision': { static: true },
     '/board-member': { static: true },
+    '/beauty/**': { static: true },
+    '/welfare/**': { static: true },
+    '/journal/**': { static: true },
+    '/materials/**': { static: true },
   },
   css: [
     '~/assets/css/main.css',
