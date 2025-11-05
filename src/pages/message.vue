@@ -127,48 +127,41 @@
         <div
           class="relative flex w-full flex-col items-center rounded-[10px] border border-[#cbd5e1] bg-white pt-10 pc:pt-[100px]"
         >
-          <!-- 画像 -->
+          <!-- 画像とメインメッセージのコンテナ -->
           <div
-            class="relative mb-16 flex h-[300px] w-[95%] items-center justify-center overflow-hidden rounded-[10px] pc:h-[472px] pc:max-w-[1000px]"
+            class="mb-16 flex w-[95%] flex-col items-start gap-8 pc:max-w-[1000px] pc:flex-row pc:gap-12"
           >
-            <img
-              :src="message.imgUrl"
-              alt="トップメッセージ"
-              class="h-full w-full object-cover"
-            />
-            <!-- ロゴ -->
+            <!-- メインメッセージ（PC時は左側、60%） -->
+            <div v-fade-in class="flex w-full flex-col gap-6 pc:w-3/5">
+              <div
+                class="text-[22px] font-bold text-[#2563eb] tb:text-[30px] pc:text-[28px]"
+              >
+                {{ message.mainMessage }}
+              </div>
+              <!-- メッセージ本文（最初の部分） -->
+              <div class="post prose" v-html="message.message"></div>
+            </div>
+            <!-- 画像（PC時は右側、40%） -->
             <div
-              class="absolute top-10 left-0 h-[100px] pc:top-[200px] pc:h-[100px]"
+              class="relative flex h-[450px] w-full flex-shrink-0 items-center justify-center overflow-hidden rounded-[10px] pc:h-[650px] pc:w-2/5"
             >
               <img
-                src="/logo-all-white.png"
-                alt="ロゴ"
+                :src="message.imgUrl"
+                alt="トップメッセージ"
                 class="h-full w-full object-cover"
               />
-            </div>
-            <!-- 注釈 -->
-            <div class="absolute bottom-2 right-2 flex flex-col opacity-90">
-              <AtomsFuturaBoldText
-                text="Bancor Inc."
-                size="text-[12px] tb:text-[15px]"
-                color="text-white"
-              />
-              <div class="text-[12px] text-white tb:text-[15px]">
-                代表取締役社長　山口 龍成
+              <!-- 注釈 -->
+              <div class="absolute bottom-2 right-2 flex flex-col opacity-90">
+                <AtomsFuturaBoldText
+                  text="Bancor Inc."
+                  size="text-[12px] tb:text-[15px]"
+                  color="text-white"
+                />
+                <div class="text-[12px] text-white tb:text-[15px]">
+                  代表取締役社長　山口 龍成
+                </div>
               </div>
             </div>
-          </div>
-          <!-- メインメッセージ -->
-          <div v-fade-in class="mb-16 flex w-[95%] pc:max-w-[1000px]">
-            <div
-              class="text-[22px] font-bold text-[#2563eb] tb:text-[30px] pc:text-[60px]"
-            >
-              {{ message.mainMessage }}
-            </div>
-          </div>
-          <!-- メッセージ本文 -->
-          <div v-fade-in class="flex w-[95%] pc:max-w-[1000px]">
-            <div class="post prose" v-html="message.message"></div>
           </div>
         </div>
         <!-- パンくずリスト -->

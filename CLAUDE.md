@@ -5,6 +5,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## プロジェクト概要
 Nuxt 3 + TypeScript + TailwindCSSを使用したBancor HPのWebサイト。CMSとしてKurocoを使用し、Vercel経由でGitHubからの自動デプロイを実装。
 
+**重要**: ソースコードは`src/`ディレクトリに配置（nuxt.config.tsで`srcDir: 'src'`を指定）
+
 ## 共通コマンド
 ```bash
 # 依存関係インストール
@@ -105,6 +107,11 @@ npm run format
     - ファイルアップロード: `kurocoUploadFile`
   - APIレスポンスの型定義は`types/kuroco.ts`で集中管理
   - ページ別データ取得: `kurocoPagesXxx`パターン（topics_group_idで分類）
+  - 使用例：
+    ```typescript
+    const config = useRuntimeConfig();
+    const { data } = await useFetch(`${config.public.kurocoApiUrl}${config.public.kurocoNews}`);
+    ```
 
 ### CSS・アニメーション
 - TailwindのカスタムCSSクラス・アニメーションを多用
@@ -118,5 +125,24 @@ npm run format
   - 全ルートはnuxt.config.tsのrouteRulesで`{ static: true }`として定義必須
   - 新規ページ追加時は必ずrouteRulesに追加すること
   - サブディレクトリ配下は`/path/**`パターンで指定
+  - サイトマップURL: https://www.bancor.co.jp（nuxt.config.tsで設定）
 - **環境変数**：
   - `GOOGLE_MAP_API_KEY`：Google Maps API用（runtimeConfig.public.googleMapApiKeyで参照）
+
+## ビルド設定の補足
+
+### 重要な設定
+- **Nitro WASM**: 実験的WASM機能を有効化（`nitro.experimental.wasm: true`）
+- **Vue バージョン**: Vue 3.5.19を強制使用（package.jsonでオーバーライド設定）
+- **FontAwesome**: ビルド時にトランスパイル必須（`build.transpile`で指定済み）
+
+## トラブルシューティング
+
+### ビルドエラー時の確認事項
+1. 新規ページを追加した場合、nuxt.config.tsの`routeRules`に追加されているか確認
+2. 新規Piniaストアを追加した場合、`defineStore()`と`acceptHMRUpdate()`を使用しているか確認
+3. 型エラーが発生した場合、`types/`ディレクトリに適切な型定義ファイルが存在するか確認
+
+### 開発サーバーが起動しない場合
+- `node_modules`を削除して`npm install`を再実行
+- `.nuxt`ディレクトリを削除して`npm run dev`を再実行
