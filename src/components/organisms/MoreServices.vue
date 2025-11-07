@@ -1,4 +1,6 @@
 <script setup lang="ts">
+  import { useWelfareJournalStore } from '~/stores/welfareJournal';
+
   // Welfare Journalページ情報をPiniaから取得
   const welfareJournalStore = useWelfareJournalStore();
   await welfareJournalStore.fetchJournals();
