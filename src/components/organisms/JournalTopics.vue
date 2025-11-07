@@ -1,11 +1,11 @@
 <script setup lang="ts">
-  // Bancor Journalページ情報をPiniaから取得
-  const journalStore = useJournalStore();
+  // Welfare Journalページ情報をPiniaから取得
+  const welfareJournalStore = useWelfareJournalStore();
   onMounted(async () => {
-    await journalStore.fetchJournals();
+    await welfareJournalStore.fetchJournals();
   });
 
-  const { journalList } = journalStore;
+  const { journalList } = welfareJournalStore;
 </script>
 
 <template>
