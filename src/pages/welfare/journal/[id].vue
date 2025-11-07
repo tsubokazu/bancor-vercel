@@ -11,12 +11,12 @@
   });
   const route = useRoute();
   const topicsId = route.params.id;
-  // Bancor JournalをPiniaから取得
-  const journalStore = useJournalStore();
-  if (journalStore.journalList.length == 0) {
-    await journalStore.fetchJournals();
+  // Welfare JournalをPiniaから取得
+  const welfareJournalStore = useWelfareJournalStore();
+  if (welfareJournalStore.journalList.length == 0) {
+    await welfareJournalStore.fetchJournals();
   }
-  const { journalList }: { journalList: Array<JournalObject> } = journalStore;
+  const { journalList }: { journalList: Array<JournalObject> } = welfareJournalStore;
   const [selectedJournal]: Array<JournalObject> = journalList.filter(
     (journal: JournalObject) => journal.topicsId == topicsId
   );
