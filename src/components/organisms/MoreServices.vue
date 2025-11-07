@@ -23,7 +23,7 @@
     >
       <!-- カード -->
       <NuxtLink
-        :to="`/journal/${journal.topicsId}`"
+        :to="`/welfare/journal/${journal.topicsId}`"
         v-for="journal in journalList.slice(0, 3)"
         class="flex w-[300px] flex-col items-center justify-center space-y-2"
       >

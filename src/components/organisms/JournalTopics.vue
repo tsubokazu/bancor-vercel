@@ -46,7 +46,7 @@
       class="relative w-[95%] flex-col items-center pc:max-w-[1200px]"
     >
       <NuxtLink
-        :to="`/journal/${journal.topicsId}`"
+        :to="`/welfare/journal/${journal.topicsId}`"
         class="flex w-full items-center space-x-2 border-b-2 border-bancor-gray1400 py-[16px] tb:space-x-8"
       >
         <!-- タグ＆日付 -->
