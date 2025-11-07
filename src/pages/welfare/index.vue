@@ -5,6 +5,7 @@
   import { useFacilitiesStore } from '~/stores/pages/daycare/facilities';
   import type { FacilitiesObject } from '~/types/pages/daycare/facilities';
   import { usePagesSystemDevStore } from '~/stores/pages/system-development';
+  import { useWelfareJournalStore } from '~/stores/welfareJournal';
   import ScrollParallax from 'vue3-parallax/src/components/ScrollParallax.vue';
 
   definePageMeta({
@@ -16,6 +17,10 @@
   if (Object.keys(pagesDaycareStore.header).length == 0) {
     await pagesDaycareStore.fetchPagesDaycare();
   }
+
+  // Welfare Journal記事を取得
+  const welfareJournalStore = useWelfareJournalStore();
+  await welfareJournalStore.fetchJournals();
   const {
     header,
     topics,
@@ -171,9 +176,7 @@
           size="text-[24px] tb:text-[32px] pc:text-[40px]"
         ></AtomsFuturaItalicText>
       </div>
-      <client-only>
-        <OrganismsJournalTopics></OrganismsJournalTopics>
-      </client-only>
+      <OrganismsJournalTopics></OrganismsJournalTopics>
       <!-- お子様だけでなく・・・ -->
       <div
         class="relative mb-16 w-[95%] flex-col items-center justify-center tb:space-y-4 pc:max-w-[1200px]"
@@ -1713,9 +1716,7 @@
         </div>
       </div>
 
-      <client-only>
-        <OrganismsMoreServices></OrganismsMoreServices>
-      </client-only>
+      <OrganismsMoreServices></OrganismsMoreServices>
 
       <!-- 利用者向けメニュー -->
       <div
