@@ -6,19 +6,31 @@
   const instagramShareLink = `https://www.instagram.com/`;
   const twitterShareLink = `http://twitter.com/share?url=http://bancor.co.jp/journal/${props.journalObject.topicsId}`;
 
-  // Bancor Journalの開発関連記事をPiniaから取得
-  const journalStore = useJournalStore();
-  if (journalStore.journalList.length == 0) {
-    await journalStore.fetchJournals();
+  // categoryに応じて適切なストアを使用
+  const isWelfareArticle = props.journalObject.category === 'welfare';
+
+  let pickupList: Array<JournalObject> = [];
+  let devJournalList: Array<JournalObject> = [];
+
+  if (isWelfareArticle) {
+    // Welfare Journal記事の場合
+    const welfareJournalStore = useWelfareJournalStore();
+    if (welfareJournalStore.journalList.length == 0) {
+      await welfareJournalStore.fetchJournals();
+    }
+    pickupList = welfareJournalStore.pickupList;
+    devJournalList = welfareJournalStore.journalList;
+  } else {
+    // Bancor Journalの開発関連記事の場合
+    const journalStore = useJournalStore();
+    if (journalStore.journalList.length == 0) {
+      await journalStore.fetchJournals();
+    }
+    pickupList = journalStore.pickupList;
+    devJournalList = journalStore.devJournalList;
   }
-  const {
-    devJournalList,
-    pickupList,
-  }: {
-    devJournalList: Array<JournalObject>;
-    pickupList: Array<JournalObject>;
-  } = journalStore;
-  // 現在表示している記事以外の開発関連記事のみを抽出
+
+  // 現在表示している記事以外の記事のみを抽出
   const otherJournalList: Array<JournalObject> = devJournalList.filter(
     (journal) => journal.topicsId != props.journalObject.topicsId
   );

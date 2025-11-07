@@ -35,7 +35,10 @@
         class="mb-32 w-[95%] pc:max-w-[720px]"
         :journalObject="selectedJournal"
       ></MoleculesBasicArticle>
-      <MoleculesJournalSide class="max-w-[240px]"></MoleculesJournalSide>
+      <MoleculesJournalSide
+        class="max-w-[240px]"
+        :category="selectedJournal?.category"
+      ></MoleculesJournalSide>
     </div>
   </div>
 </template>

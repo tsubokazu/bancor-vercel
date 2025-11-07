@@ -1,11 +1,30 @@
 <script setup lang="ts">
   import type { JournalObject } from '~/types/Journal';
-  // Bancor JournalをPiniaから取得
-  const journalStore = useJournalStore();
-  if (journalStore.journalList.length == 0) {
-    await journalStore.fetchJournals();
+
+  // propsでcategoryを受け取る（デフォルトは通常のjournal）
+  const props = defineProps<{
+    category?: string;
+  }>();
+
+  const isWelfareArticle = props.category === 'welfare';
+
+  let pickupList: Array<JournalObject> = [];
+
+  if (isWelfareArticle) {
+    // Welfare Journal記事の場合
+    const welfareJournalStore = useWelfareJournalStore();
+    if (welfareJournalStore.journalList.length == 0) {
+      await welfareJournalStore.fetchJournals();
+    }
+    pickupList = welfareJournalStore.pickupList;
+  } else {
+    // Bancor Journal記事の場合
+    const journalStore = useJournalStore();
+    if (journalStore.journalList.length == 0) {
+      await journalStore.fetchJournals();
+    }
+    pickupList = journalStore.pickupList;
   }
-  const { pickupList }: { pickupList: Array<JournalObject> } = journalStore;
 
   const journalNums = ref(pickupList.length);
 
