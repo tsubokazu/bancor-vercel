@@ -18,33 +18,42 @@ export const usePagesCompanyProfileStore = defineStore(
         console.error(
           `[usePagesCompanyProfileStore] fetchPages error: ${error.value}`
         );
+        // エラー時も空オブジェクトを設定してエラーを防ぐ
+        companyProfile.value = {};
       } else {
-        const data: any = kuroco.value.list[0];
+        const data: any = kuroco.value.list?.[0];
+        if (!data) {
+          console.error(
+            '[usePagesCompanyProfileStore] No data found in response'
+          );
+          companyProfile.value = {};
+          return;
+        }
         // 取得したデータを型に当てはめる
         // ヘッダー
         header.value = {
-          title: data.ext_1,
-          subTitle: data.ext_2,
-          imgUrl: data.ext_3.url,
+          title: data.ext_1 || '',
+          subTitle: data.ext_2 || '',
+          imgUrl: data.ext_3?.url || '',
         };
 
         // ミッション
         companyProfile.value = {
-          logoUrl: data.ext_5.url,
-          name: data.ext_6,
-          address: data.ext_7,
-          ceo: data.ext_8,
-          messageTitle: data.ext_9,
-          messageLinkUrl: data.ext_10,
-          establish: data.ext_11,
-          capital: data.ext_12,
-          service: data.ext_13,
-          serviceTitle: data.ext_14,
-          serviceLinkUrl: data.ext_15,
-          employee: data.ext_16,
-          bank: data.ext_17,
-          mapIconUrl: data.ext_18.url,
-          mapUrl: data.ext_19,
+          logoUrl: data.ext_5?.url || '',
+          name: data.ext_6 || '',
+          address: data.ext_7 || '',
+          ceo: data.ext_8 || '',
+          messageTitle: data.ext_9 || '',
+          messageLinkUrl: data.ext_10 || '',
+          establish: data.ext_11 || '',
+          capital: data.ext_12 || '',
+          service: data.ext_13 || '',
+          serviceTitle: data.ext_14 || '',
+          serviceLinkUrl: data.ext_15 || '',
+          employee: data.ext_16 || '',
+          bank: data.ext_17 || '',
+          mapIconUrl: data.ext_18?.url || '',
+          mapUrl: data.ext_19 || '',
         };
       }
     };
@@ -60,15 +69,24 @@ export const usePagesCompanyProfileStore = defineStore(
         console.error(
           `[usePagesCompanyProfileStore] fetchPages error: ${error.value}`
         );
+        // エラー時も空配列を設定してエラーを防ぐ
+        companyPhotos.value = [];
       } else {
-        const data: any = kuroco.value.list[0];
+        const data: any = kuroco.value.list?.[0];
+        if (!data || !data.image || !Array.isArray(data.image)) {
+          console.error(
+            '[usePagesCompanyProfileStore] No image data found in response'
+          );
+          companyPhotos.value = [];
+          return;
+        }
         console.log('data', data);
 
         // 会社写真
         companyPhotos.value = data.image.map((photo: any, index: number) => ({
-          imgUrl: data.image[index].url,
-          imgSubTitle: data.sub_title[index],
-          imgDetail: data.detail[index],
+          imgUrl: data.image[index]?.url || '',
+          imgSubTitle: data.sub_title?.[index] || '',
+          imgDetail: data.detail?.[index] || '',
         }));
       }
     };

@@ -32,8 +32,10 @@
   const isPC = computed(() => windowWidth.value >= 1280);
 
   // スライダー設定
-  const slideNum = computed(() => companyPhotos.length);
-  const currentSlideIndex = ref(Math.floor(slideNum.value / 2));
+  const slideNum = computed(() => companyPhotos?.length || 0);
+  const currentSlideIndex = ref(
+    slideNum.value > 0 ? Math.floor(slideNum.value / 2) : 0
+  );
   const sliderImgWidth = ref(0);
   const updateSliderImgWidth = () => {
     if (isSmartPhone.value) {
@@ -179,49 +181,53 @@
                   >
                     Bancor株式会社　企業ロゴ
                   </div>
-                  <img :src="companyProfile.logoUrl" class="tb:h-[118px]" />
+                  <img
+                    v-if="companyProfile?.logoUrl"
+                    :src="companyProfile.logoUrl"
+                    class="tb:h-[118px]"
+                  />
                 </div>
               </div>
 
               <!-- 会社概要 -->
-              <div class="flex w-full flex-col space-y-8">
+              <div v-if="companyProfile" class="flex w-full flex-col space-y-8">
                 <MoleculesCompanyOverviewRow
                   item="会社商号"
-                  :name="companyProfile.name"
+                  :name="companyProfile.name || ''"
                 ></MoleculesCompanyOverviewRow>
                 <MoleculesCompanyOverviewRow
                   item="所在地"
-                  :name="companyProfile.address"
+                  :name="companyProfile.address || ''"
                 ></MoleculesCompanyOverviewRow>
                 <MoleculesCompanyOverviewRow
                   item="代表者"
-                  :name="companyProfile.ceo"
-                  :linkTitle="companyProfile.messageTitle"
-                  :linkUrl="companyProfile.messageLinkUrl"
+                  :name="companyProfile.ceo || ''"
+                  :linkTitle="companyProfile.messageTitle || ''"
+                  :linkUrl="companyProfile.messageLinkUrl || ''"
                   :linkDirRow="isSmartPhone ? false : true"
                 ></MoleculesCompanyOverviewRow>
                 <MoleculesCompanyOverviewRow
                   item="設立"
-                  :name="companyProfile.establish"
+                  :name="companyProfile.establish || ''"
                 ></MoleculesCompanyOverviewRow>
                 <MoleculesCompanyOverviewRow
                   item="資本金"
-                  :name="companyProfile.capital"
+                  :name="companyProfile.capital || ''"
                 ></MoleculesCompanyOverviewRow>
                 <MoleculesCompanyOverviewRow
                   item="事業内容"
-                  :name="companyProfile.service"
-                  :linkTitle="companyProfile.serviceTitle"
-                  :linkUrl="companyProfile.serviceLinkUrl"
+                  :name="companyProfile.service || ''"
+                  :linkTitle="companyProfile.serviceTitle || ''"
+                  :linkUrl="companyProfile.serviceLinkUrl || ''"
                   :linkDirRow="false"
                 ></MoleculesCompanyOverviewRow>
                 <MoleculesCompanyOverviewRow
                   item="従業員数"
-                  :name="companyProfile.employee"
+                  :name="companyProfile.employee || ''"
                 ></MoleculesCompanyOverviewRow>
                 <MoleculesCompanyOverviewRow
                   item="取引銀行"
-                  :name="companyProfile.bank"
+                  :name="companyProfile.bank || ''"
                 ></MoleculesCompanyOverviewRow>
               </div>
             </div>
@@ -229,7 +235,11 @@
         </div>
 
         <!-- 写真スライダー -->
-        <div v-fade-in class="mb-[40px] flex w-full flex-col gap-8">
+        <div
+          v-if="companyPhotos && companyPhotos.length > 0"
+          v-fade-in
+          class="mb-[40px] flex w-full flex-col gap-8"
+        >
           <!-- タイトル -->
           <div class="relative flex w-full items-center">
             <!-- タイトル -->
@@ -239,8 +249,11 @@
             <!-- ボーダー -->
             <div class="mr-3 h-[22px] w-[1px] bg-[#334155]"></div>
             <!-- 写真サブタイトル -->
-            <div class="text-[14px] text-[#334155] tb:text-[16px]">
-              {{ companyPhotos[currentSlideIndex].imgSubTitle }}
+            <div
+              v-if="companyPhotos && companyPhotos.length > 0"
+              class="text-[14px] text-[#334155] tb:text-[16px]"
+            >
+              {{ companyPhotos[currentSlideIndex]?.imgSubTitle || '' }}
             </div>
           </div>
           <!-- 写真 -->
@@ -318,7 +331,7 @@
             ></AtomsBasicTitle>
             <AtomsLinkMoveArrowTitle
               text="グーグルマップを開く"
-              :linkUrl="companyProfile.mapUrl"
+              :linkUrl="companyProfile?.mapUrl || ''"
               size="text-[15px]"
             ></AtomsLinkMoveArrowTitle>
           </div>
@@ -332,6 +345,7 @@
               :zoom="15"
             >
               <Marker
+                v-if="companyProfile?.mapIconUrl"
                 :options="{
                   position: center,
                   icon: companyProfile.mapIconUrl,
