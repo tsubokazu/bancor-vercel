@@ -2,7 +2,7 @@
   import type { CompanyProfileObject } from '~/types/pages/company-profile';
   import { usePagesCompanyProfileStore } from '~/stores/pages/company-profile';
   import { GoogleMap, Marker } from 'vue3-google-map';
-  const center = { lat: 33.5894734, lng: 130.3923709 };
+  const center = { lat: 33.8805732, lng: 130.8772111 };
   const config = useRuntimeConfig();
   const googleMapApiKey = config.public.googleMapApiKey;
 
@@ -356,8 +356,8 @@
           </div>
           <div class="flex w-full">
             <p class="text-[16px] text-[#334155]">
-              〒810-0041<br />
-              福岡県福岡市中央区大名2-6-50 福岡大名ガーデンシティ8F
+              〒802-0077<br />
+              福岡県北九州市小倉北区馬借１丁目９−８ トーマスタワー
             </p>
           </div>
         </div>
