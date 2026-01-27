@@ -78,10 +78,16 @@
     contents: Array<MegamenuContent>;
   }
   const menuObjects: Array<HeaderMenuObject> = [];
+  // 削除するコンテンツのタイトルリスト
+  const excludedTitles = ['DX支援', 'メディア事業'];
+  
   for (const [i, menuTitle] of menuTitles.entries()) {
     const contents: Array<MegamenuContent> = [];
     for (const [j, contentTitles] of contentTitlesArray.entries()) {
       if (contentTitles[i] == '' || contentTitles[i] == undefined) break;
+      
+      // 除外対象のタイトルはスキップ
+      if (excludedTitles.includes(contentTitles[i])) continue;
 
       contents.push({
         title: contentTitles[i],

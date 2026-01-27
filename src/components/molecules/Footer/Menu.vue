@@ -121,8 +121,6 @@
           <div class="text-[16px] font-bold text-white">Service</div>
           <div class="flex flex-col gap-5 text-[14px] text-[#cbd5e1]">
             <NuxtLink to="/system-development">システム開発</NuxtLink>
-            <NuxtLink to="https://d-nuvo.com/service/dx/">DX支援事業</NuxtLink>
-            <NuxtLink to="https://d-nuvo.com/service/marketing/">M&A</NuxtLink>
             <NuxtLink to="/welfare">福祉事業</NuxtLink>
             <NuxtLink to="/welfare/care-welfare"
               >介護施設向けSI事業</NuxtLink

@@ -21,16 +21,8 @@
       linkUrl: '/system-development',
     },
     {
-      title: 'ウェブマーケティング事業',
-      linkUrl: 'https://d-nuvo.com/service/marketing/',
-    },
-    {
       title: '福祉施設向けシステム開発事業',
       linkUrl: '/welfare/care-welfare',
-    },
-    {
-      title: 'DX支援事業',
-      linkUrl: 'https://d-nuvo.com/service/dx/',
     },
     {
       title: '福祉事業',
