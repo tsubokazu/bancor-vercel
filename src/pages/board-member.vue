@@ -17,15 +17,27 @@
   }
   const { departments, common }: BoardMemberObject = pagesBoardMemberStore;
 
-  // 部署インデックス
-  const currentDepartmentIndex = ref(0);
+  // 全部署のメンバーを統合した配列を作成（メンバー詳細表示用）
+  const allMembers = computed(() => {
+    const members: Array<{ member: any; departmentIndex: number; memberIndex: number }> = [];
+    departments.forEach((department, departmentIndex) => {
+      department.members.forEach((member, memberIndex) => {
+        members.push({ member, departmentIndex, memberIndex });
+      });
+    });
+    return members;
+  });
 
-  // 部署インデックスを変更
-  const changeDepartment = (index: number) => {
-    currentDepartmentIndex.value = index;
+  // 部署インデックスとメンバーインデックスから全部署統合後のインデックスを取得する関数
+  const getGlobalMemberIndex = (departmentIndex: number, memberIndex: number): number => {
+    let globalIndex = 0;
+    for (let i = 0; i < departmentIndex; i++) {
+      globalIndex += departments[i].members.length;
+    }
+    return globalIndex + memberIndex;
   };
 
-  // メンバーインデックス
+  // メンバーインデックス（全部署統合後のインデックス）
   const currentMemberIndex = ref(0);
   provide('currentMemberIndex', currentMemberIndex);
 
@@ -142,73 +154,39 @@
         >
           <!-- メンバー紹介等 -->
           <div class="mb-[156px] flex w-full flex-col items-center px-12">
-            <!-- 部署メニュー -->
-            <div class="flex w-full tb:justify-end">
-              <div
-                class="flex flex-wrap items-center rounded-md border border-[#cbd5e1] bg-white"
-              >
-                <div
-                  v-for="(department, departmentIndex) in departments"
-                  :key="department.department"
-                  class="flex cursor-pointer items-center"
-                  @click="changeDepartment(departmentIndex)"
-                >
-                  <div
-                    class="px-3 py-2 text-[15px] font-bold pc:px-6"
-                    :class="
-                      currentDepartmentIndex === departmentIndex
-                        ? ''
-                        : 'text-[#64748b]'
-                    "
-                  >
-                    <p
-                      :class="
-                        currentDepartmentIndex === departmentIndex
-                          ? 'border-b-2 border-[#020617]'
-                          : ''
-                      "
-                    >
-                      {{ department.department }}
-                    </p>
-                  </div>
-                  <!-- 最後の要素以外に区切り線を表示 -->
-                  <div
-                    v-if="
-                      departmentIndex < departments.length - 1 && !isSmartPhone
-                    "
-                    class="h-4 w-px bg-[#cbd5e1]"
-                  ></div>
-                </div>
-              </div>
-            </div>
             <!-- 役職見出し -->
             <div class="mb-6 w-full border-b border-[#cbd5e1] py-[14px]">
-              <p class="text-[28px] font-bold">
-                {{ common.positionTitle }}
-              </p>
+              <p class="text-[28px] font-bold">構成メンバー</p>
             </div>
-            <!-- メンバーカード一覧 -->
-            <div
-              class="relative h-[1400px] w-full overflow-hidden pc:h-[453px]"
-            >
+            <!-- 部署ごとのメンバーカード一覧 -->
+            <div class="flex w-full flex-col gap-12">
               <div
                 v-for="(department, departmentIndex) in departments"
                 :key="department.department"
-                class="absolute top-0 flex h-full w-full flex-col justify-start gap-5 pl-[20px] transition-transform duration-500 pc:flex-row pc:flex-wrap pc:justify-between pc:gap-0"
-                :class="
-                  currentDepartmentIndex === departmentIndex
-                    ? 'translate-y-0'
-                    : 'translate-y-full'
-                "
+                class="flex w-full flex-col gap-6"
               >
-                <MoleculesBoardMemberCard
-                  v-for="(member, memberIndex) in departments[departmentIndex]
-                    .members"
-                  :key="member.name"
-                  :member="member"
-                  :memberIndex="memberIndex"
-                  class="w-full tb:w-[324px]"
-                />
+                <!-- 部署名 -->
+                <div class="mb-2 text-[24px] font-bold">
+                  {{ department.department }}
+                </div>
+                <!-- メンバーカード一覧 -->
+                <div
+                  class="flex w-full flex-col gap-5 pl-[20px] pc:flex-row pc:flex-wrap pc:justify-between pc:gap-0"
+                >
+                  <MoleculesBoardMemberCard
+                    v-for="(member, memberIndex) in department.members"
+                    :key="`${department.department}-${member.name}`"
+                    :member="member"
+                    :memberIndex="getGlobalMemberIndex(departmentIndex, memberIndex)"
+                    class="w-full tb:w-[324px]"
+                  />
+                  <!-- 3つ未満の場合は見えない要素で埋める -->
+                  <div
+                    v-for="n in Math.max(0, 3 - department.members.length)"
+                    :key="`placeholder-${n}`"
+                    class="hidden w-full tb:w-[324px] pc:block pc:opacity-0 pc:pointer-events-none"
+                  ></div>
+                </div>
               </div>
             </div>
           </div>
@@ -274,7 +252,8 @@
 
     <!-- メンバー詳細 -->
     <OrganismsBoardMemberDetail
-      :member="departments[currentDepartmentIndex].members[currentMemberIndex]"
+      v-if="allMembers[currentMemberIndex]"
+      :member="allMembers[currentMemberIndex].member"
       :memberBg="common.memberBg"
     />
     <!-- メンバー詳細時のグレーフィルター -->

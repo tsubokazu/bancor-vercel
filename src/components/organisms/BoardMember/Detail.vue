@@ -13,7 +13,7 @@
 
 <template>
   <div
-    class="absolute top-0 right-0 z-50 w-full pb-[40px] transition-transform duration-500 ease-in-out tb:px-[32px] tb:py-10 pc:min-h-[1080px] pc:w-fit pc:px-[64px] pc:pt-[78px] pc:pb-[80px]"
+    class="fixed top-0 right-0 z-50 w-full pb-[40px] transition-transform duration-500 ease-in-out tb:px-[32px] tb:py-10 pc:min-h-[1080px] pc:w-fit pc:px-[64px] pc:pt-[78px] pc:pb-[80px]"
     :class="isShowDetail ? 'translate-x-0' : 'translate-x-full'"
   >
     <!-- 背景 -->
