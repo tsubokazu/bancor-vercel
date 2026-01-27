@@ -78,16 +78,24 @@
     contents: Array<MegamenuContent>;
   }
   const menuObjects: Array<HeaderMenuObject> = [];
-  // 削除するコンテンツのタイトルリスト
-  const excludedTitles = ['DX支援', 'メディア事業'];
+  // 削除するコンテンツのリンクURLリスト
+  const excludedUrls = [
+    'https://d-nuvo.com/service/dx/',
+    'https://d-nuvo.com/service/marketing/',
+  ];
   
   for (const [i, menuTitle] of menuTitles.entries()) {
     const contents: Array<MegamenuContent> = [];
     for (const [j, contentTitles] of contentTitlesArray.entries()) {
       if (contentTitles[i] == '' || contentTitles[i] == undefined) break;
       
-      // 除外対象のタイトルはスキップ
-      if (excludedTitles.includes(contentTitles[i])) continue;
+      const linkUrl =
+        Object.keys(contentLinksArray[j]).length >= i + 1
+          ? contentLinksArray[j][i]
+          : '';
+      
+      // 除外対象のリンクURLはスキップ
+      if (excludedUrls.includes(linkUrl)) continue;
 
       contents.push({
         title: contentTitles[i],
@@ -95,10 +103,7 @@
           Object.keys(contentOutlinesArray[j]).length >= i + 1
             ? contentOutlinesArray[j][i]
             : '',
-        linkUrl:
-          Object.keys(contentLinksArray[j]).length >= i + 1
-            ? contentLinksArray[j][i]
-            : '',
+        linkUrl: linkUrl,
         imgUrl:
           Object.keys(contentImagesArray[j]).length >= i + 1
             ? contentImagesArray[j][i]
