@@ -78,6 +78,14 @@
     contents: Array<MegamenuContent>;
   }
   const menuObjects: Array<HeaderMenuObject> = [];
+  // 削除するコンテンツのタイトルリスト
+  const excludedTitles = [
+    'DX支援',
+    'DX支援事業',
+    'メディア事業',
+    'メディア事業部',
+    'M&A',
+  ];
   // 削除するコンテンツのリンクURLリスト
   const excludedUrls = [
     'https://d-nuvo.com/service/dx/',
@@ -94,11 +102,15 @@
           ? contentLinksArray[j][i]
           : '';
       
-      // 除外対象のリンクURLはスキップ
-      if (excludedUrls.includes(linkUrl)) continue;
+      const title = contentTitles[i];
+      
+      // 除外対象のタイトルまたはリンクURLはスキップ
+      if (excludedTitles.includes(title) || excludedUrls.includes(linkUrl)) {
+        continue;
+      }
 
       contents.push({
-        title: contentTitles[i],
+        title: title,
         outline:
           Object.keys(contentOutlinesArray[j]).length >= i + 1
             ? contentOutlinesArray[j][i]
