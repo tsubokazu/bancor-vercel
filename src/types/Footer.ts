@@ -3,7 +3,7 @@ export interface SNSObject {
   linkUrl: string;
 }
 
-export interface PageLinkObject {
+export interface FooterPageLinkObject {
   title: string;
   linkUrl: string;
 }
@@ -12,7 +12,7 @@ export interface FooterObject {
   logoUrl: string;
   linkUrl: string;
   snsObjects: Array<SNSObject>;
-  pageLinkObjects: Array<PageLinkObject>;
+  pageLinkObjects: Array<FooterPageLinkObject>;
 }
 
 export interface FooterContactMenuObject {

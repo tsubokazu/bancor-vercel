@@ -4,7 +4,7 @@
     FooterContactMenuObject,
     FooterObject,
     SNSObject,
-    PageLinkObject,
+    FooterPageLinkObject,
   } from '~/types/Footer';
 
   const props = defineProps({
@@ -50,7 +50,7 @@
   const footerMenuTitles: Array<string> = posts.value.details.ext_5;
   const footerMenuLinks: Array<string> = posts.value.details.ext_6;
   const footerMenuNum = footerMenuTitles.length;
-  const pageLinkObjects: Array<PageLinkObject> = [];
+  const pageLinkObjects: Array<FooterPageLinkObject> = [];
   for (let n = 0; n < footerMenuNum; n++) {
     pageLinkObjects.push({
       title: footerMenuTitles[n],

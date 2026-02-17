@@ -1,6 +1,13 @@
-export interface Anchor {
+export interface SystemDevAnchor {
   title: string;
   linkUrl: string;
+}
+
+export interface SystemDevIssue {
+  title: string;
+  subTitle: string;
+  outline: string;
+  imgUrl: string;
 }
 
 // ヘッダー背景
@@ -13,14 +20,7 @@ export interface SystemDevHeader {
   title: string;
   subTitle: string;
   imgUrl: string;
-  anchors: Array<Anchor>;
-}
-
-export interface Issue {
-  title: string;
-  subTitle: string;
-  outline: string;
-  imgUrl: string;
+  anchors: Array<SystemDevAnchor>;
 }
 
 // こんな課題解決します
@@ -28,7 +28,7 @@ export interface SystemDevIssues {
   title: string;
   subTitle: string;
   outline: string;
-  issues: Array<Issue>;
+  issues: Array<SystemDevIssue>;
 }
 
 // DX推進時代の開発手法
@@ -78,7 +78,7 @@ export interface SystemDevCase {
   linkUrl: string;
 }
 
-export interface Feature {
+export interface SystemDevFeature {
   title: string;
   subTitle: string;
   outline: string;
@@ -90,7 +90,7 @@ export interface Feature {
 export interface SystemDevFeatures {
   title: string;
   subTitle: string;
-  features: Array<Feature>;
+  features: Array<SystemDevFeature>;
 }
 
 export interface FreeSupportCard {

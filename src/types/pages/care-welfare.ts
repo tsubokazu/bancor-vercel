@@ -1,6 +1,13 @@
-export interface Anchor {
+export interface CareWelfareAnchor {
   title: string;
   linkUrl: string;
+}
+
+export interface CareWelfareIssue {
+  title: string;
+  subTitle: string;
+  outline: string;
+  imgUrl: string;
 }
 
 // ヘッダー
@@ -8,14 +15,7 @@ export interface CareWelfareHeader {
   title: string;
   subTitle: string;
   imgUrl: string;
-  anchors: Array<Anchor>;
-}
-
-export interface Issue {
-  title: string;
-  subTitle: string;
-  outline: string;
-  imgUrl: string;
+  anchors: Array<CareWelfareAnchor>;
 }
 
 // こんな課題解決します
@@ -23,7 +23,7 @@ export interface CareWelfareIssues {
   title: string;
   subTitle: string;
   outline: string;
-  issues: Array<Issue>;
+  issues: Array<CareWelfareIssue>;
 }
 
 // お客様の声「使いやすいし、楽になった」
@@ -35,7 +35,7 @@ export interface CareWelfareVoice {
   linkUrl: string;
 }
 
-export interface Feature {
+export interface CareWelfareFeature {
   title: string;
   outline: string;
   imgUrl: string;
@@ -45,7 +45,7 @@ export interface Feature {
 export interface CareWelfareFeatures {
   title: string;
   subTitle: string;
-  features: Array<Feature>;
+  features: Array<CareWelfareFeature>;
 }
 
 export interface ContactMenu {
