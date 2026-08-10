@@ -1,3 +1,14 @@
+// 役員・責任者紹介ページに表示しないメンバーの氏名
+const EXCLUDED_MEMBER_NAMES = ['坪田一総'];
+
+// 氏名の比較用に半角・全角の空白を除去する
+const normalizeMemberName = (name: string) =>
+  (name ?? '').replace(/[\s　]/g, '');
+
+// 非表示対象のメンバーかどうか
+const isExcludedMember = (name: string) =>
+  EXCLUDED_MEMBER_NAMES.includes(normalizeMemberName(name));
+
 export const usePagesBoardMemberStore = defineStore('pagesBoardMember', () => {
   // 役員・責任者紹介のページの情報をKurocoから取得
   const departments: any = ref([]); // メンバー情報
@@ -16,38 +27,44 @@ export const usePagesBoardMemberStore = defineStore('pagesBoardMember', () => {
       );
     } else {
       // 取得したデータを型に当てはめる
-      departments.value = departmentsData.value.list.map((department: any) => {
-        return {
-          department: department.subject,
-          members: department.name.map((member: any, index: number) => {
-            return {
-              name: department.name[index],
-              nameEn: department.name_en[index],
-              imgUrl: department.image[index].url,
-              position: department.position[index],
-              message: department.message[index],
-              links: [
-                {
-                  title: department.link_disp01[index],
-                  url: department.link01[index],
-                },
-                {
-                  title: department.link_disp02[index],
-                  url: department.link02[index],
-                },
-                {
-                  title: department.link_disp03[index],
-                  url: department.link03[index],
-                },
-                {
-                  title: department.link_disp04[index],
-                  url: department.link04[index],
-                },
-              ],
-            };
-          }),
-        };
-      });
+      departments.value = departmentsData.value.list
+        .map((department: any) => {
+          return {
+            department: department.subject,
+            members: department.name
+              .map((member: any, index: number) => {
+                return {
+                  name: department.name[index],
+                  nameEn: department.name_en[index],
+                  imgUrl: department.image[index].url,
+                  position: department.position[index],
+                  message: department.message[index],
+                  links: [
+                    {
+                      title: department.link_disp01[index],
+                      url: department.link01[index],
+                    },
+                    {
+                      title: department.link_disp02[index],
+                      url: department.link02[index],
+                    },
+                    {
+                      title: department.link_disp03[index],
+                      url: department.link03[index],
+                    },
+                    {
+                      title: department.link_disp04[index],
+                      url: department.link04[index],
+                    },
+                  ],
+                };
+              })
+              // 非表示対象のメンバーを除外
+              .filter((member: any) => !isExcludedMember(member.name)),
+          };
+        })
+        // メンバーが居なくなった部署は表示しない
+        .filter((department: any) => department.members.length > 0);
     }
   };
 
